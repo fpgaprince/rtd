@@ -1,4 +1,4 @@
-Advance Topics
+Advance
 ***********************
 
 
@@ -20,7 +20,6 @@ Clocking
 
 Timing Closure
 =======================
-
 
 
 
