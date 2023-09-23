@@ -13,13 +13,22 @@ In FPGA, you are not actually connecting gates, you capture the boolean expressi
 and store it LUT, which is basically SRAM. The SRAM is configured at bootup.
 
 
+Multiplexer/Demultiplexer
+**********************************************
+
 Encoder
 ***********************
 
 Decoder
 ***********************
 
-Multiplexer
+Adder
+***********************
+
+Subtractor
+***********************
+
+Comparator
 ***********************
 
 This is an add operator
