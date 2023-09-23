@@ -18,6 +18,9 @@ Reset
 Clocking
 =======================
 
+Static Timing Analysis
+=======================
+
 Timing Closure
 =======================
 
