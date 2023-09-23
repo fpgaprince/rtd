@@ -6,30 +6,30 @@ Basically combinatorial circuits are not clocked and have no memory capability.
 Basics
 =======================================
 
-    Binary
-    ---------------------
+Binary
+---------------------
 
-    Logic Functions
-    ---------------------
+Logic Functions
+---------------------
 
-    Truth Table
-    ---------------------
+Truth Table
+---------------------
 
-    Logic Gates
-    ---------------------
+Logic Gates
+---------------------
 
-    (NOT, AND, OR, XOR), logic operator
-    In FPGA, you are not actually connecting gates, you capture the boolean expression and store it LUT, which is basically SRAM. The SRAM is configured at bootup.
+(NOT, AND, OR, XOR), logic operator
+In FPGA, you are not actually connecting gates, you capture the boolean expression and store it LUT, which is basically SRAM. The SRAM is configured at bootup.
 
 
 Combinatorial Analysis and IMP
 =======================================
 
-    Boolean Algebra
-    ---------------------
+Boolean Algebra
+---------------------
 
-    Gate-level Minimization
-    ---------------------
+Gate-level Minimization
+---------------------
 
 
 
