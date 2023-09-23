@@ -3,10 +3,12 @@ FPGA
 
 At the time of writing, focused on Xilinx FPGAs.
 
-What FPGA
+What is an FPGA
 ***********************
-|A chip we pre defined/available building blocks. Your job as a developer is to create the connection between the blocks
-|to create some sort of functionality which accomplish some task/application. 
+Field Programmable Gate Arrays (FPGAs) are semiconductor devices with pre-defined available logic blocks and programmable interconnect. 
+Your job as a developer is to make the interonnection between these blocks resulting in the functionality or task specific to your application. 
+
+
 
 Why FPGA
 ***********************
@@ -15,9 +17,11 @@ I think we have to say throughput, because there are chips faster, but they don'
 
 When FPGA
 **********************************************
+In general, it depends on your application, performance requirements and cost constraints.
+
 FPGA vs MCU vs CPU vs GPU vs ASIC
 ==============================================
-In general, it depends on your application, performance requirements and cost constraints.
+
 
 
 
