@@ -1,5 +1,5 @@
 Combinatorial
-===============
+#################
 
 Basically combinatorial circuits are not clocked and have no memory capability.
 
