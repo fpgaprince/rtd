@@ -15,7 +15,9 @@ Contents
 --------
 
 .. toctree::
-
+   :maxdepth: 2
+   :numbered:
+      
    fundamentals
    hdl
    data
