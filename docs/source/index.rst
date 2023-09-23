@@ -13,10 +13,10 @@ Contents
 
 .. toctree::
 
-   Fundamentals
-   HDL
-   Data
-   Combinatorial 
-   Sequential
-   IO
-   Applications
+   fundamentals
+   hdl
+   data
+   combinatorial 
+   sequential
+   io
+   applications
