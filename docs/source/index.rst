@@ -17,9 +17,10 @@ Contents
 .. toctree::
    :maxdepth: 3
 
+   introduction
    fundamentals
+   fpga
    hdl
-   data
    combinatorial 
    sequential
    io
