@@ -22,9 +22,9 @@ Contents
    fundamentals
    fpga
    hdl
-   combinatorial circuits
-   data storage elements
-   sequential circuits
-   digital interfaces
+   combinatorial
+   storage
+   sequential
+   interfaces
    applications
-   advance topics
+   advance
