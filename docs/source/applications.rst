@@ -12,7 +12,7 @@ Computer Architecture
 Signals and System
 =======================
 DSP (Digital Signal Processing)
-Image and Video Processing
+|Image and Video Processing
 
 Wired/Wireless Communication
 =======================
