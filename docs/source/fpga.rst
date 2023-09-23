@@ -6,7 +6,8 @@ At the time of writing, focused on Xilinx FPGAs.
 What is an FPGA
 ***********************
 Field Programmable Gate Arrays (FPGAs) are semiconductor devices with pre-defined available logic blocks and programmable interconnect. 
-Your job as a developer is to make the interonnection between these blocks resulting in the functionality or task specific to your application. 
+By developing and defining the relationship between the blocks and interonnections (in other words, the logic), 
+we can create tasks, functions and/or algorithms specific to an application. 
 
 
 
