@@ -40,9 +40,14 @@ LUT
 Flip Flops (FF)
 --------------------
 
-Shift Registers (SR)
+Shift Registers (SRL)
 -------------------------
 
+MUX
+-----
+
+Carry Logic
+---------------
 
 
 
