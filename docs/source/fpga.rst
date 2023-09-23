@@ -30,8 +30,10 @@ FPGA vs MCU vs CPU vs GPU vs ASIC
 FPGA Architecture
 ***********************
 These are the core components in an FPGA.
+
 CLB
 =======================
+
 LUT
 -----
 
