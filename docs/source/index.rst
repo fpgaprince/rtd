@@ -1,7 +1,8 @@
 FPGAprince
 ===================================
+
 aka nibbles
--------------
+----------------
 
 From bits to bytes.
 My 2bits
@@ -12,7 +13,7 @@ My 2bits
    This project is under active development.
 
 Contents
---------
+----------------
 
 .. toctree::
    :maxdepth: 2
