@@ -1,7 +1,10 @@
 FPGAprince
 ===================================
+aka nibbles
+-------------
 
 From bits to bytes.
+My 2bits
 
 
 .. note::
