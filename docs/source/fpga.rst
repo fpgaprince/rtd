@@ -21,7 +21,7 @@ When FPGA
 In general, it depends on your application, performance requirements and cost constraints.
 
 FPGA vs MCU vs CPU vs GPU vs ASIC vs SOC
-------------------------------------
+-------------------------------------------------------------------
 
 
 
@@ -35,19 +35,19 @@ CLB
 ---------------------
 
 LUT
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Flip Flops (FF)
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Shift Registers (SRL)
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 MUX
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Carry Logic
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
@@ -68,28 +68,28 @@ Clock MGMT
 
 
 FPGA Dedicated Hardware
-=======================
+=================================
 As the technology advanced and they're able to fit more onto a die, FPGAs began absorbing various hardware it would often interface with, making them internally dedicated.
 While they are common these days, not every FPGA family or model will have it. Thus listed here.
 
 
 
 DSP (extra)
----------------------
+-------------------------------
 While pretty common these days, I'll leave it here.
 
 
 XADC (extra)
----------------------
+-------------------------------
 
 Tranceivers (extra)
----------------------
+-------------------------------
 
 PCIe (extra)
----------------------
+-------------------------------
 
 Hardprocessor
----------------------
+-------------------------------
 As appose to soft processor or soft core IP. They're able to fit a CPU on the same die as the FPGA, reducing external pin interconnections. 
 
 

@@ -1,2 +1,2 @@
-Sequential Circuits
+Data Storage Elements
 ************************

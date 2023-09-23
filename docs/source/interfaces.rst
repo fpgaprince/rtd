@@ -1,2 +1,2 @@
-IO
+Digital Interfaces
 ************************
