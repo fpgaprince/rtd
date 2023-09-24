@@ -1,7 +1,10 @@
 Combinatorial
 ************************************************
+or combinational.
 
 Basically combinatorial circuits are not clocked and have no memory capability.
+
+
 
 Basics
 =======================================
@@ -22,10 +25,13 @@ Logic Gates
 In FPGA, you are not actually connecting gates, you capture the boolean expression and store it LUT, which is basically SRAM. The SRAM is configured at bootup.
 
 
-Combinatorial Analysis and IMP
-=======================================
+Circuit Analysis, Implementation and Design
+================================================
 
 Boolean Algebra
+-------------------------------
+
+Truth Table
 -------------------------------
 
 Gate-level Minimization
@@ -38,8 +44,11 @@ Gate-level Minimization
 
 
 
-Combinatorial Functions?
+Combinatorial Components
 =======================================
+Using logic gates, we create more useful functions.
+NOTE: that while we talk about gates to create these functions, an FPGA will actually use its CLB (LUTs and MUX) or dedicated hardware (DSP) to realize it.
+
 
 Multiplexer
 -------------------------------

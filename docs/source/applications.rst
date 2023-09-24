@@ -16,9 +16,28 @@ Image and Video Processing
 
 Wired/Wireless Communication
 =======================
+Encoding
+Mapping
+Filter
+Modulation
+
+
+Information Theory
+=======================
 
 Data Structure
 =======================
 
 Controls
 =======================
+
+
+
+
+Organize...
+=======================
+BCH Encoder
+LDPC Encoder
+LFSR
+Pseudo random binary sequence
+CDC

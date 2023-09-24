@@ -5,16 +5,20 @@ At the time of writing, focused on Xilinx FPGAs.
 
 What is an FPGA
 ==================
-Field Programmable Gate Arrays (FPGAs) are semiconductor devices with pre-defined available logic blocks and programmable interconnect, referred to as its architecture. 
-By developing and defining the relationship between the blocks and interonnections (in other words, the logic), 
-we can create tasks, functions and/or algorithms specific to an application. 
+Field Programmable Gate Arrays (FPGAs) are semiconductor devices with pre-defined configurable logic blocks (CLB) and programmable interconnects.. 
+By developing and defining the relationship between theses blocks and interconnections (in other words, the logic) and dedicated hardware, 
+we can create tasks, complex functions and/or algorithms specific for an application. 
 
 
 
 Why FPGA
 ==================
-Reconfigurability, parallelism, throughput.
-I think we have to say throughput, because there are chips faster, but they don't or aren't capable of taking advantage of parallism.
+Parallelism and reconfigurability are major highlights for using an FPGA.
+
+Parallelism allows us to increase data throughput while reducing the clock. 
+
+Processors tend to increase the clock to get more data over some period of time.
+
 
 When FPGA
 ==================
@@ -23,19 +27,37 @@ In general, it depends on your application, performance requirements and cost co
 FPGA vs MCU vs CPU vs GPU vs ASIC vs SOC
 -------------------------------------------------------------------
 
+CPU and MCU are similar in there sequential nature when executing a program. 
+MCU may require less resource in terms of memory because you dont need an OS.
+I think programming at the high level is easier, you dont have to be as concerned about how the hardware works.
+Generally, a faster clock rate will execute your code faster.
 
+
+GPU exploit parallelism like FPGA. At the moment it is not clear to me which is better.
+If we were to say we wanted to do some image/video processing application. GPUs are great for such work,
+and FPGAs can be developed for specific processing tasks.. so where is the cross over?
+
+ASICs are specific to your application. They make use of the entire chip, there is no excess gates/hardware in the chip.
+Everything serves a purpose. An FPGA gives you building blocks, and it is up to you to determine what to use.
+Most of the time you never use up 100% of the available resources. It isn't common practice to do that.
+FPGAs are more forgiving though, in terms of you can reconfigure if there is a flaw in the design.
+An ASIC would require a respin, costing significant amount of money.
 
 
 
 FPGA Architecture
 =======================
-These are the core components in an FPGA, regardless of vendors.
+These are the core components in an FPGA, regardless of vendors. They are the available digital circuits/hardware avaialble to us.
 
-CLB
----------------------
+Configurable Logic Blocks (CLB )
+------------------------------------------
+ generally consists of the below components. The number of each, how they are placed and their IO are vendor specific.
+Each vendor has their own rationale for choosing implementing their architecture.
 
-LUT
+
+Look up Table (LUT)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Flip Flops (FF)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -43,10 +65,10 @@ Flip Flops (FF)
 Shift Registers (SRL)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-MUX
+Multiplexer (MUX)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Carry Logic
+Carry Logic (CL)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
