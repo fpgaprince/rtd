@@ -49,10 +49,11 @@ FPGA Architecture
 =======================
 These are the core components in an FPGA, regardless of vendors. They are the available digital circuits/hardware avaialble to us.
 
-Configurable Logic Blocks (CLB )
+Configurable Logic Blocks (CLB)
 ------------------------------------------
- generally consists of the below components. The number of each, how they are placed and their IO are vendor specific.
-Each vendor has their own rationale for choosing implementing their architecture.
+Generally consists of the below components. The number of each, how they are placed and their IO are vendor specific.
+Each vendor has their own rationale for choosing implementing their architecture. 
+
 
 
 Look up Table (LUT)
@@ -62,9 +63,6 @@ Look up Table (LUT)
 Flip Flops (FF)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Shift Registers (SRL)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Multiplexer (MUX)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -72,6 +70,9 @@ Carry Logic (CL)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
+
+Shift Registers (SRL)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 IO
 ---------------------
@@ -115,3 +116,9 @@ Hardprocessor
 As appose to soft processor or soft core IP. They're able to fit a CPU on the same die as the FPGA, reducing external pin interconnections. 
 
 
+
+
+Organize
+Xilinx organizes their CLBs into two types, SLICEM and SLICEL.
+SLICEL (L=logic)
+SLICEM (M=memory) - distributed memory/ram or shift register
