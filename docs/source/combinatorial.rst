@@ -1,4 +1,4 @@
-Combinatorial
+Combinatorial Circuits
 ************************************************
 or combinational.
 
