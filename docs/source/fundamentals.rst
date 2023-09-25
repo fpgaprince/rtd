@@ -33,8 +33,8 @@ Bits
     There are only voltage levels, commonly 5V, 3.3V, 2.5V, 1.8V. (depending on time and technology)
 
 
-
-    The math came first. Boolean and logical operations. Their realization in hardware, switches.
+.. note::
+    The math came first. Boolean and logical operations. Their realization in hardware, electrical circuit, switches.
 
 
 
