@@ -4,16 +4,16 @@ FPGA
 At the time of writing, focused on Xilinx FPGAs.
 
 What is an FPGA
-==================
+========================
 Field Programmable Gate Arrays (FPGAs) are semiconductor devices with prearranged digital circuits and programmable interconnects. 
 By developing and defining the relationship between theses blocks, interconnections and optionally, dedicated hardware, 
 we can create various tasks, complex functions and/or algorithms specific for an application. 
 
 
 
-Why FPGA
-==================
-Parallelism and reconfigurability are major highlights/features for using an FPGA, but are not unique.
+Why use an FPGA
+========================
+Parallelism and reconfigurability are major highlights/features for using an FPGA.
 
 *   Parallelism allows us to increase data throughput per clock period.. 
     In a sequential system (MCU/CPU), one generally tries to increase the clock rate.
@@ -25,50 +25,40 @@ What I mean by not unique is that..
 Parallelism has been exploited by GPUs for ages and is nothing new  
 Reconfiguring is no different than recompiling program and repurposing an MCU/CPU.
 
-It all depends on the context of what you are comparing an FPGA to.
-
-
-When FPGA (Selecting the Right Technology)
-======================================================
-    An FPGA performs digital tasks/functions. 
-    An FPGA is only one of many solutions, "a means to an end."
-
+When to use an FPGA
+========================
 In general, it depends on your application, performance requirements and cost constraints.
 
+FPGA vs MCU vs CPU
+------------------------
 
+    CPU and MCU are similar in there sequential nature when executing a program. 
+    MCU may require less resource in terms of memory because you dont need an OS.
+    I think programming at the high level is easier, you dont have to be as concerned about how the hardware works.
+    Generally, a faster clock rate will execute your code faster.
 
-    Critical Design Drivers
-    Application, what solution are you trying to provide, what are you trying to solve.
-    Complexity
-    Performance, Latency
-    Power, where is this going? 
-    Cost, min/mid/max
-
-    Parallelism vs Sequential
-
-
-
-FPGA vs MCU vs CPU vs GPU vs ASIC vs SOC
-CPU and MCU are similar in there sequential nature when executing a program. 
-MCU require less resource in terms of memory because you dont need an OS (CPU/GPU do).
-I think programming at the high level is easier, you dont have to be as concerned about how the hardware works.
-Generally, a faster clock rate will execute your code faster.
-
-
+FPGA vs GPU 
+------------------------
 GPU exploit parallelism like FPGA. At the moment it is not clear to me which is better.
 If we were to say we wanted to do some image/video processing application. GPUs are great for such work,
 and FPGAs can be developed for specific processing tasks.. so where is the cross over?
 
+FPGA vs ASIC
+------------------------
 ASICs are specific to your application. They make use of the entire chip, there is no excess gates/hardware in the chip.
 Everything serves a purpose. An FPGA gives you building blocks, and it is up to you to determine what to use.
 Most of the time you never use up 100% of the available resources. It isn't common practice to do that.
 FPGAs are more forgiving though, in terms of you can reconfigure if there is a flaw in the design.
 An ASIC would require a respin, costing significant amount of money.
 
+FPGA vs SOC
+------------------------
+
+
 
 
 FPGA Architecture
-=======================
+========================
 These are the core components in an FPGA, regardless of vendors. They are the available digital circuits/hardware avaialble to us.
 
 Configurable Logic Blocks (CLB)
