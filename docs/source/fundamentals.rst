@@ -10,7 +10,7 @@ We understand and solve problem with math and science representing them through 
 
 As problems became more complex/demanding and the urgency to solve them became imperative/decisive/paramount, we needed better methods and precision.
 
-What started out as analog, was no longer adequate. Thus the catalyst for Digital Electronics.
+What started out as analog, was no longer adequate. Thus the motivation, push/effort/drive for/towards digital techniques and electronics.
 
 
 
