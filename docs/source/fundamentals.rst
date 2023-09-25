@@ -6,11 +6,11 @@ Digital Electronics
 ============================================================
 The world is analog. 
 
-We understand and solve with math and science.
-Mathematically, we represent with functions.
+We understand and solve problem with math and science representing them through functions.
 
-As problems became more complex, we needed better performing calculators.
+As problems became more complex and the urgency to solve them became more critical, we needed better methods.
 
+What started out as analog, was no longer adequate.
 
 Transistors
 ------------------
