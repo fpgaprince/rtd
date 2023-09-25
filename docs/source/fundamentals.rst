@@ -8,17 +8,19 @@ The world is analog.
 
 We understand and solve problem with math and science representing them through functions.
 
-As problems became more complex/demanding and the urgency to solve them became imperative/decisive/paramount, we needed better methods and precision.
+As problems became more complex/demanding/precision and the urgency to solve them became imperative/decisive/paramount, we needed better methods/means.
 
-What started out as analog, was no longer adequate. Thus the motivation, push/effort/drive for/towards digital techniques and electronics.
+What started as analog, were no longer adequate. Thus the motivation, push/effort/drive/race for/towards digital techniques/methods/path/road and electronics.
 
+We are in a digital era. 
 
 
 Transistors
 ------------------
-    A transistor has its operating region.
+    A transistor is a semiconductor device that regulates or controls current/voltage. 
+    It has operating regions, (cutoff, linear, active, saturdation).
     By driving a transistor into it's saturation region, we allow it to be fully on, driving whatever it's connected to.
-    Conversely, removing the stimulus, we shut it and whatever off.
+    Conversely, removing the stimulus, we force it into the cutoff region, shutting off whatever it's connected to.
     Essentially, we use this as a switch. A switch to enable/disable on/off some other circuit.
 
 Bits
