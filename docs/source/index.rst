@@ -1,8 +1,8 @@
 FPGAprince
 ===================================
 
-aka nibbles
-----------------
+nibbles, the half byte prince
+------------------------------------------------
 
 From bits to bytes.
 My 2bits
