@@ -2,6 +2,7 @@ Fundamentals
 ************************
 A background in these areas are helpful and probably the bare minimum. It is recommended to either learn or refresh.
 
+
 Digital Electronics
 ============================================================
 The world is analog. 
@@ -26,20 +27,25 @@ Transistors
 Bits
 ------------------
     In the digital realm/digital system, everything is discrete as apposed to being continuous in its analog counterpart/realm/domain..
-    We limit our quantization or representation of data to two discrete states.
+    We limit our quantization or representation of signal (data) to two discrete states.
 
-    But what are we quantizing? Voltage levels.
-    
-    And thus we are limiting the transistors to two states, on or off.
+    Something with only two states/parts/element, can be described as binary.
+    In math, systems, numbers and notation can also be binary.
+    Our math and arithmetic manipulation will all revolve around this and will lay the groundwork and foundation for digital systems.
 
-    In math, a system in which only two states are used is binary.
-    Our math and arithmetic manipulation will all revolve around this.
-
-    We quantize these states into two binary digits (BIT), 1 and 0. 
+    The states are quantize into two binary digits (BIT), 1 and 0. 
     Note, that this is simply a numerical representation.. 
-    At the circuit level, there is no such thing as 1 or 0.
+    At the circuit level, there is no such thing as a 1 or a 0.
     
+    What are we quantizing? Voltage levels.
     There are only voltage levels, commonly 5V, 3.3V, 2.5V, 1.8V. (depending on time and technology)
+
+
+    What do we mean by states? The state of the transistor, on or off.
+    By controling the voltage level, we determine whether one is on or off.
+    
+
+    
 
 
 .. note::
@@ -49,6 +55,8 @@ Bits
 
 Digital Logic
 ------------------
+    By arranging transistors in specific ways and taking advantage of their saturation regions, we can create logical functions.
+
 
 
 
