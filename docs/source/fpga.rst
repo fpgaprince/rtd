@@ -5,19 +5,21 @@ At the time of writing, focused on Xilinx FPGAs.
 
 What is an FPGA
 ==================
-Field Programmable Gate Arrays (FPGAs) are semiconductor devices with pre-defined configurable logic blocks (CLB) and programmable interconnects.. 
-By developing and defining the relationship between theses blocks and interconnections (in other words, the logic) and dedicated hardware, 
-we can create tasks, complex functions and/or algorithms specific for an application. 
+Field Programmable Gate Arrays (FPGAs) are semiconductor devices with prearranged digital circuits and programmable interconnects. 
+By developing and defining the relationship between theses blocks, interconnections and optionally, dedicated hardware, 
+we can create various tasks, complex functions and/or algorithms specific for an application. 
 
 
 
 Why FPGA
 ==================
-Parallelism and reconfigurability are major highlights for using an FPGA.
+Parallelism and reconfigurability are major highlights/features for using an FPGA.
 
-Parallelism allows us to increase data throughput while reducing the clock. 
+*   Parallelism allows us to increase data throughput per clock period.. 
+    In a sequential system (MCU/CPU), one generally tries to increase the clock rate.
 
-Processors tend to increase the clock to get more data over some period of time.
+*   Reconfigurability allows us to re-purpose the same FPGA for different applications.
+    This feature is useful for prototyping as well as creating a flexible product platform in comparison to ASICs.
 
 
 When FPGA
