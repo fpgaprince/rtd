@@ -61,10 +61,16 @@ Bits
 
 Digital Logic
 ------------------
-    By arranging transistors in specific ways and taking advantage of their saturation regions, we can create logical functions.
+    By arranging transistors in specific ways and taking advantage of their saturation regions, we are able to realize/conceive/materialize? logical functions.
 
-    Logic gates are circuits which represent logical functions. These logical functions, take root in Boolean Algebra.
-    In which the main are the NOT, AND, OR, XOR
+    This arrangement of transistors produce what are called Logic gates, circuits which perform logical operations. 
+    These logical function/operation, take root in Boolean Algebra, which revolve around these core operation (NOT, AND, OR, XOR) and their variations.
+    
+    These logic gates become the fundamental building blocks and foundation of digital circuits.
+    
+    And digital circuits, ultimately are the constructs of modern digital systems.
+
+    
 
 
 
