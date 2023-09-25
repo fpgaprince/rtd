@@ -8,9 +8,11 @@ The world is analog.
 
 We understand and solve problem with math and science representing them through functions.
 
-As problems became more complex and the urgency to solve them became more critical, we needed better methods.
+As problems became more complex/demanding and the urgency to solve them became imperative/decisive/paramount, we needed better methods and precision.
 
-What started out as analog, was no longer adequate.
+What started out as analog, was no longer adequate. Thus the catalyst for Digital Electronics.
+
+
 
 Transistors
 ------------------
