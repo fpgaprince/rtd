@@ -7,3 +7,4 @@ My notes.
 
 "Always two there are, no more, no less. A master and an apprentice."
 
+"Always."
