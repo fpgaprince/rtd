@@ -1,13 +1,14 @@
 Fundamentals
 ************************
 A background in these areas are helpful and probably the bare minimum. It is recommended to either learn or refresh.
+Each of these topics are courses within their own right, but for brevity's sake and initial release, i will keep it minimal.
 
 
 Digital Electronics
 ============================================================
 The world is analog. 
 
-We understand and solve problem with math and science representing them through functions.
+We understand and solve problem through math and science representing them with numbers and functions.
 
 As problems became more complex/demanding/precision and the urgency to solve them became imperative/decisive/paramount, we needed better methods/means.
 
@@ -19,7 +20,7 @@ We are in a digital era.
 Transistors
 ------------------
     A transistor is a semiconductor device that regulates or controls current/voltage. 
-    It has operating regions, (cutoff, linear, active, saturdation).
+    It has operating regions, (cutoff, linear, active, saturdation). 
     By driving a transistor into it's saturation region, we allow it to be fully on, driving whatever it's connected to.
     Conversely, removing the stimulus, we force it into the cutoff region, shutting off whatever it's connected to.
     Essentially, we use this as a switch. A switch to enable/disable on/off some other circuit.
@@ -30,19 +31,24 @@ Bits
     We limit our quantization or representation of signal (data) to two discrete states.
 
     Something with only two states/parts/element, can be described as binary.
-    In math, systems, numbers and notation can also be binary.
+    In math.. systems, numbers and notation can also be binary.
     Our math and arithmetic manipulation will all revolve around this and will lay the groundwork and foundation for digital systems.
 
-    The states are quantize into two binary digits (BIT), 1 and 0. 
-    Note, that this is simply a numerical representation.. 
-    At the circuit level, there is no such thing as a 1 or a 0.
+    The states are quantized into two binary digits (BIT), 1 and 0. 
+    A bit is defined as the smallest or most basic unit in digital systems.
+    And we often speak of bits, but note that it is simply a numerical representation for something else.
+    It is a system we have defined and agreed upon, symbolic, no different than the language we speak.
+
+
+    Because..
+    At the hardware/circuit/physical level, there is no such thing as a 1 or a 0.
+    So then What are we quantizing exactly? and what do we mean by states?
     
-    What are we quantizing? Voltage levels.
-    There are only voltage levels, commonly 5V, 3.3V, 2.5V, 1.8V. (depending on time and technology)
+        Electrical signals, voltages, and specifically in relation to transistors and thus their operating region, sate of on or off.
 
+    In digital devices, these voltages (5V, 3.3V, 2.5V, 1.8V, depending on technology at the time) have commonly represented '1' and an on state while 
+    0V represents '0' and an off state.
 
-    What do we mean by states? The state of the transistor, on or off.
-    By controling the voltage level, we determine whether one is on or off.
     
 
     
@@ -57,6 +63,8 @@ Digital Logic
 ------------------
     By arranging transistors in specific ways and taking advantage of their saturation regions, we can create logical functions.
 
+    Logic gates are circuits which represent logical functions. These logical functions, take root in Boolean Algebra.
+    In which the main are the NOT, AND, OR, XOR
 
 
 
