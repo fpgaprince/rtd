@@ -13,24 +13,44 @@ we can create various tasks, complex functions and/or algorithms specific for an
 
 Why FPGA
 ==================
-Parallelism and reconfigurability are major highlights/features for using an FPGA.
+Parallelism and reconfigurability are major highlights/features for using an FPGA, but are not unique.
 
 *   Parallelism allows us to increase data throughput per clock period.. 
     In a sequential system (MCU/CPU), one generally tries to increase the clock rate.
 
 *   Reconfigurability allows us to re-purpose the same FPGA for different applications.
-    This feature is useful for prototyping as well as creating a flexible product platform in comparison to ASICs.
+    This feature is useful for prototyping as well as creating a flexible platform in comparison to an ASIC.
+
+What I mean by not unique is that..
+Parallelism has been exploited by GPUs for ages and is nothing new  
+Reconfiguring is no different than recompiling program and repurposing an MCU/CPU.
+
+It all depends on the context of what you are comparing an FPGA to.
 
 
-When FPGA
-==================
+When FPGA (Selecting the Right Technology)
+======================================================
+    An FPGA performs digital tasks/functions. 
+    An FPGA is only one of many solutions, "a means to an end."
+
 In general, it depends on your application, performance requirements and cost constraints.
 
-FPGA vs MCU vs CPU vs GPU vs ASIC vs SOC
--------------------------------------------------------------------
 
+
+    Critical Design Drivers
+    Application, what solution are you trying to provide, what are you trying to solve.
+    Complexity
+    Performance, Latency
+    Power, where is this going? 
+    Cost, min/mid/max
+
+    Parallelism vs Sequential
+
+
+
+FPGA vs MCU vs CPU vs GPU vs ASIC vs SOC
 CPU and MCU are similar in there sequential nature when executing a program. 
-MCU may require less resource in terms of memory because you dont need an OS.
+MCU require less resource in terms of memory because you dont need an OS (CPU/GPU do).
 I think programming at the high level is easier, you dont have to be as concerned about how the hardware works.
 Generally, a faster clock rate will execute your code faster.
 
