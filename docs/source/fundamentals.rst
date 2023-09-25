@@ -4,7 +4,12 @@ A background in these areas are helpful and probably the bare minimum. It is rec
 
 Digital Electronics
 ============================================================
-Everything is a function, math. How we sense, how we process, how we present.
+The world is analog. 
+
+We understand and solve with math and science.
+Mathematically, we represent with functions.
+
+As problems became more complex, we needed better performing calculators.
 
 
 Transistors
