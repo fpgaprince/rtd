@@ -195,6 +195,7 @@ Notice also that the result of a binary representation is always an integer, a w
 
 
 To go from from an arbitrary decimal value to its binary representation, you'll want to divide by 2 and track the remainder.
+The first division represents the LSB. The last, the MSB.
 
 e.g. 9
 
