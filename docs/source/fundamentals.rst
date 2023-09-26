@@ -294,8 +294,8 @@ e.g. 0x32
             &= \mathbf{(3)}16 + \mathbf{(2)}1\\
             &= 48 + 2\\
             &= 50\\
-            \text{Sometimes notated as}\\
-            (32)_16 \rightarrow (50)_10
+            &\text{Sometimes notated as}\\
+            &(32)_{16} \rightarrow (50)_{10}
 
 This is base notation.
 
