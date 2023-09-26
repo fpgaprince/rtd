@@ -167,7 +167,13 @@ This 4 bit binary value represents a decimal value of 5. Let's try another one..
 
             = 7
 
+It helps to remember the results of the power of two (8,4,2,1) and their indices.
+You'll naturally know it when you work with it enough.. (1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1)
+If you have to write it out, just start with '1' and keep multiplying by 2.
+
 One more
+
+.. math::
 
     01110111    = 0*128 + 1*64 + 1*32 + 1*16 + 0*8 + 1*4 + 1*2 + 1*1
 
@@ -175,6 +181,13 @@ One more
 
                 = 119
                 
+Here, we used 8 bits to represent a number. The more bits you have, no greater the range of numbers you can represent.
+This is closely tied to 32bit vs 64bit processing speak with computers.
+
+Notices also that the result is always a whole integer.
+
+
+
 Lends itself to..
 Hexadecimal
 ^^^^^^^^^^^^^^
