@@ -148,17 +148,15 @@ A binary number can look like this, 0101
 
 .. math::
 
-    0101    &= (0 \times 2^3) + (1 \times 2^2) + (0 \times 2^1) + (1 \times 2^0)\\
-            &= (0 \times 8) + (1 \times 4) + (0 \times 2) + (1 \times 1)\\
+    0101    &= \mathbf{(0)}2^3 + \mathbf{(1)}2^2 + \mathbf{(0)}2^1 + \mathbf{(1)}2^0\\
+            &= \mathbf{(0)}8 + \mathbf{(1)}4 + \mathbf{(0)}2 + \mathbf{(1)}1\\
             &= 0 + 4 + 0 + 1\\
             &= 5
 
 .. math::
 
-    0101    &= (0)2^3 + (1)2^2 + (0)2^1 + (1)2^0\\
-            &= 0(2^3) + 1(2^2) + 0(2^1) + 1(2^0)\\
 
-            &= \mathbf{(0)}2^3 + \mathbf{(1)}2^2 + \mathbf{(0)}2^1 + \mathbf{(1)}2^0\\
+            
              
 
 This 4 bit binary value represents a decimal value of 5. 
@@ -167,9 +165,9 @@ Let's try another one.. 0111
 
 .. math::
 
-    0111    &= 0 \times 2^3 + 1 \times 2^2 + 1 \times 2^1 + 1 \times 2^0\\
-            &= 0 \times 8 + 1 \times 4 + 1 \times 2 + 1 \times 1\\
-            &= 4 + 2 + 1\\
+    0111    &= \mathbf{(0)}2^3 + \mathbf{(1)}2^2 + \mathbf{(1)}2^1 + \mathbf{(1)}2^0\\
+            &= \mathbf{(0)}8 + \mathbf{(1)}4 + \mathbf{(1)}2 + \mathbf{(1)}1\\
+            &= 0 + 4 + 2 + 1\\
             &= 7
 
 It helps to remember the results of the power of two (8,4,2,1) and their indices.
