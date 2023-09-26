@@ -165,8 +165,9 @@ Let's try another one.. 0111
 
 .. math::
 
-    0111    &= \mathbf{(0)}2^3 + \mathbf{(1)}2^2 + \mathbf{(1)}2^1 + \mathbf{(1)}2^0\\
-            &= \mathbf{(0)}8 + \mathbf{(1)}4 + \mathbf{(1)}2 + \mathbf{(1)}1\\
+    0111    &= \underline{0} \times 2^3 + \underline{1} \times 2^2 + \underline{1} \times 2^1 + \underline{1} \times 2^0\\
+            &= \underline{0} \times 8 + \underline{1} \times 4 + \underline{1} \times 2 + \underline{1} \times 1\\
+            
             &= 0 + 4 + 2 + 1\\
             &= 7
 
