@@ -293,10 +293,8 @@ Because the weights are greater here, I'll use larger decimal numbers to convey 
             &= \mathbf{(3)}16 + \mathbf{(2)}1\\
             &= 48 + 2\\
             &= 50
-
-Sometimes notated as
-.. math::
-    (32)_16 = (50)_10
+            \text{Sometimes notated as}
+            (32)_16 \rightarrow (50)_10
 
 This is base notation.
 
