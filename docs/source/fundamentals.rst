@@ -127,8 +127,11 @@ The number of places to the right of the decimal, represents how precise we want
 
 Each place is a power of 10. 
 
-There are 3 other systems we use, binary, hexadecimal and otcal. Although I have not really ever used octal, but have seen it.. the other two are heavily used. 
+There are 3 other systems we use, binary, hexadecimal and otcal. Although I have not really ever used octal, but have seen it.. 
+the other two are heavily and extensively used. 
 
+
+    A little more depth is provided.
 
 
 
