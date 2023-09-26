@@ -109,9 +109,8 @@ From right to left, we have the ones place, the tens place, the hundreds, and th
 
 .. math::
 
-    1024    = 1*1000 + 0*100 + 2*10 + 4*1
-
-            = 1*10^3 + 0*10^2 + 2*10^1 + 4*10^0
+    1024    &= 1*1000 + 0*100 + 2*10 + 4*1\\
+            &= 1*10^3 + 0*10^2 + 2*10^1 + 4*10^0
 
 A number can be fractional.
 1024.275
@@ -121,9 +120,8 @@ Notice the "th" here to represent fraction when we speak of it in comparison to 
 
 .. math::
 
-    .275    = 2*0.1 + 7*0.01 + 5*0.001
-
-            = 2*10^-1 + 7*10^-2 + 5*10^-3
+    .275    & = 2*0.1 + 7*0.01 + 5*0.001\\
+            &= 2*10^-1 + 7*10^-2 + 5*10^-3
 
 The number of places to the right of the decimal, represents how precise we want to be and is called precision.
 
@@ -147,13 +145,10 @@ A binary number can look like this, 0101
 
 .. math::
 
-    0101    = 0*2^3 + 1*2^2 + 0*2^1 + 1*2^0
-
-            = 0*8 + 1*4 + 0*2 + 1*1
-
-            = 4 + 1
-
-            = 5
+    0101    &= 0*2^3 + 1*2^2 + 0*2^1 + 1*2^0\\
+            &= 0*8 + 1*4 + 0*2 + 1*1\\
+            &= 4 + 1\\
+            &= 5
 
 This 4 bit binary value represents a decimal value of 5. Let's try another one..
 
@@ -172,11 +167,9 @@ One more
 
 .. math::
 
-    01110111    = 0*128 + 1*64 + 1*32 + 1*16 + 0*8 + 1*4 + 1*2 + 1*1
-
-                = 64 + 32 + 16 + 4 + 2 + 1
-
-                = 119
+    01110111    &= 0*128 + 1*64 + 1*32 + 1*16 + 0*8 + 1*4 + 1*2 + 1*1\\
+                &= 64 + 32 + 16 + 4 + 2 + 1\\
+                &= 119
                 
 Here, we used 8 bits to represent a number. The more bits you have, no greater the range of numbers you can represent.
 This is closely tied to 32bit vs 64bit processing speak with computers.
