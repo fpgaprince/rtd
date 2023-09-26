@@ -339,7 +339,7 @@ e.g. 3054
 
     3054/16     &= 190\quad R\; 14\quad LSB\\
     190/16       &= 11\quad R\; 14\\
-    11/16        &= 0\quad R\; 11\ quad MSB\\ \\  
+    11/16        &= 0\quad R\; 11\quad MSB\\
     \therefore \; &3054_{10} \rightarrow BEE_{16}
 
 e.g. 27
@@ -347,18 +347,29 @@ e.g. 27
 .. math::
 
     27/16     &= 1\quad R\; 11\quad LSB\\
-    11/16     &= 0\quad R\; 11\quad MSB\\
-    \therefore \; &27_{10} \rightarrow BB_{16}
+    1/16     &= 0\quad R\; 1\quad MSB\\
+    \therefore \; &27_{10} \rightarrow 1B_{16}
 
-
-Hexidecimal and Binary relationship
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
 
 Bit width and range of value
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Earlier, we use 4bits to represent a decimal value. How many values can we represent with 4bits?
+
+    2^4 = 16 different combinations
+
+If we had use 8bits instead,
+
+    2^8 = 256
+
+
+
+
+
+Hexidecimal and Binary relationship
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
