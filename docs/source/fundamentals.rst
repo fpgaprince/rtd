@@ -148,12 +148,14 @@ A binary number can look like this, 0101
 
 .. math::
 
-    0101    &= 0 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0\\
-            &= 0 \times 8 + 1 \times 4 + 0 \times 2 + 1 \times 1\\
-            &= 4 + 1\\
+    0101    &= (**0** \times 2^3) + (**1** \times 2^2) + (**0** \times 2^1) + (**1** \times 2^0)\\
+            &= (**0** \times 8) + (**1** \times 4) + (**0** \times 2) + (**1** \times 1)\\
+            &= 0 + 4 + 0 + 1\\
             &= 5
 
-This 4 bit binary value represents a decimal value of 5. Let's try another one..
+This 4 bit binary value represents a decimal value of 5. 
+
+Let's try another one.. 0111
 
 .. math::
 
@@ -165,6 +167,7 @@ This 4 bit binary value represents a decimal value of 5. Let's try another one..
 It helps to remember the results of the power of two (8,4,2,1) and their indices.
 
 You'll naturally know it when you work with it enough.. 
+
     (1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1)
 
 If you have to write it out, just start with '1' (on the far right) and keep multiplying by 2, working leftwards..
