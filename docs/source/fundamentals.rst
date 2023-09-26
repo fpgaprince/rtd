@@ -295,7 +295,6 @@ e.g. 0x32
 
 .. math::
 
-    
     0x32    &= \mathbf{(3)}16^1 + \mathbf{(2)}16^0\\
             &= \mathbf{(3)}16 + \mathbf{(2)}1\\
             &= 48 + 2\\
@@ -303,12 +302,19 @@ e.g. 0x32
             &\text{Sometimes you will see this base notation}\\
             &(32)_{16} \rightarrow (50)_{10}
 
+e.g. 0xDE
+
+.. math::
 
     0xDE    &= \mathbf{(D)}16^1 + \mathbf{(E)}16^0\\
             &= \mathbf{(13)}16 + \mathbf{(14)}1\\
             &= 208 + 14\\
             &= 222\\
             &(DE)_{16} \rightarrow (222)_{10}
+
+e.g. 0xBEEF
+
+.. math::
 
     0xBEEF      &= \mathbf{(B)}16^3 + \mathbf{(E)}16^2 + \mathbf{(E)}16^1 + \mathbf{(F)}16^0\\
                 &= \mathbf{(11)}4096 + \mathbf{(14)}256 + \mathbf{(14)}16 + \mathbf{(15)}1\\
