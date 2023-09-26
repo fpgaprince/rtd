@@ -107,7 +107,6 @@ From right to left, we have the ones place, the tens place, the hundreds, and th
 .. math::
 
     1024    = 1*1000 + 0*100 + 2*10 + 4*1
-
             = 1*10^3 + 0*10^2 + 2*10^1 + 4*10^0
 
 A number can be fractional.
@@ -119,24 +118,43 @@ Notice the "th" here to represent fraction when we speak of it in comparison to 
 .. math::
 
     .275    = 2*0.1 + 7*0.01 + 5*0.001
-
             = 2*10^-1 + 7*10^-2 + 5*10^-3
 
 The number of places to the right of the decimal, represents how precise we want to be and is called precision.
 
+Each place is a power of 10.
 
 There are 3 other systems we use, binary, hexadecimal and otcal. Although I have not really ever used octal, but have seen it.. the other two are heavily used. 
 
-The binary system is used because it lends itself well to the nature of digital system where only two states are recognized, on or off, Vdd or GND and 1 or 0.
-Furthermore, boolean algebra deals with logic operations/manipulation in which the input/output values can only be true or false and 1 or 0, again, two values/state.
 
-
-Lends itself to..
 
 
 Binary
 ^^^^^^^^^^^^^^
+The binary system is used because it lends itself rather well to the nature of digital system where only two states are recognized, on or off, Vdd or GND and 1 or 0.
+Furthermore, boolean algebra deals with logic operations/manipulation in which the values are only true or false or 1 or 0, again, two values/state.
 
+Just as in a decimal system, each digit location/place carries a weight. In this case, a power of 2.
+
+A binary number can look like this, 0101, and it actually represents some decimal value.
+
+.. math::
+
+    0101    = 0*2^3 + 1*2^2 + 0*2^1 + 1*2^0
+            = 0*8 + 1*4 + 0*2 + 1*1
+            = 4 + 1
+            = 5
+
+This 4 bit binary value represents a decimal value of 5. Let's try another one..
+    
+    0111    = 0*2^3 + 1*2^2 + 1*2^1 + 1*2^0
+            = 0*8 + 1*4 + 1*2 + 1*1
+            = 4 + 2 + 1
+            = 7
+
+
+
+Lends itself to..
 Hexadecimal
 ^^^^^^^^^^^^^^
 

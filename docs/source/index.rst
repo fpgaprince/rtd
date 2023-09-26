@@ -4,8 +4,8 @@ FPGAprince
 nibbles, the half byte prince
 ------------------------------------------------
 
-From bits to bytes.
-My 2bits
+   From bits to bytes.
+   "just our 2bits"
 
 *  Add simulation, verification and test.
 *  Add tools, vendor and third party.
