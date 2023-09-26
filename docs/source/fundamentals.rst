@@ -362,11 +362,20 @@ Earlier, we use 4bits to represent a decimal value. How many values can we repre
     2^4 = 16 different combinations
 
 If we had use 8bits instead,
+    
+    2^8 = 256           , range [0, 1, ..., 254, 255]
 
-    2^8 = 256
+
+    2^16 = 65536        , range [0, 1, ..., 65534, 65535]
+    2^32 = 4294967296   , range [0, 1, ..., 4294967294, 4294967295]
 
 
-
+I've included these ranges, as you'll run across them too.
+    2^6 = 64
+    2^10 = 1024
+    2^12 = 4096
+    2^14 = 16384
+    2^15 = 32768
 
 
 Hexidecimal and Binary relationship
