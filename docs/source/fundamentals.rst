@@ -283,7 +283,27 @@ Decimal values 10 through 15 are represented by alphabetical characters, A throu
 
 Because the weights are greater here, I'll use larger decimal numbers to convey the same idea from previous sections..
     I will show a couple hexadecimal value, and convert it to decimal. 
+
+    0x32
+
+.. math::
+
     
+    0x32    &= \mathbf{(3)}16^1 + \mathbf{(2)}16^0\\
+            &= \mathbf{(3)}16 + \mathbf{(2)}1\\
+            &= 48 + 2\\
+            &= 50
+
+Sometimes notated as
+.. math::
+    (32)_16 = (50)_10
+
+This is base notation.
+
+
+
+
+
     I will show how to convert from decimal to hexidecimal.
 
     I will show how hexadcimal is related to binary. and the conversion between the two.
