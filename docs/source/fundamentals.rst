@@ -300,7 +300,6 @@ e.g. 0x32
             &= \mathbf{(3)}16 + \mathbf{(2)}1\\
             &= 48 + 2\\
             &= 50\\
-            &\text{Sometimes you will see this base notation}\\
             &(32)_{16} \rightarrow (50)_{10}
 
 e.g. 0xDE
@@ -334,12 +333,10 @@ Because the weights are greater here, I'll use larger decimal numbers to convey 
 
 
 
-I will show how hexadcimal is related to binary. and the conversion between the two.
+Hexidecimal and Binary relationship
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-.. note::
-    
-    We use base-2, base-10, base-16. which is the same as radix-2, radix-10, radix-16.
+
 
 
 
@@ -347,6 +344,11 @@ Bit width and range of value
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+
+
+.. note::
+    
+    We use base-2, base-10, base-16. which is the same as radix-2, radix-10, radix-16.
 
 Octal
 ====================
@@ -367,3 +369,4 @@ Binary Arithmetic
 Hardware Descriptive Language (VHDL or Verilog)
 ####################################################
 
+            &\text{Sometimes you will see this base notation}\\
