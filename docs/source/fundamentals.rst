@@ -151,7 +151,9 @@ A binary number can look like this, 0101, and it actually represents some decima
             = 5
 
 This 4 bit binary value represents a decimal value of 5. Let's try another one..
-    
+
+.. math::
+
     0111    = 0*2^3 + 1*2^2 + 1*2^1 + 1*2^0
 
             = 0*8 + 1*4 + 1*2 + 1*1
