@@ -181,11 +181,12 @@ If you have to write it out, just start with '1' (on the far right) and keep mul
 Notice the weight is greatest to the left and least to the right, we describe the bit on the left as the most significant bit (MSB)
 and the right most, the least significant bit (LSB).
 
-The exponent values are 
+For the example above, the exponent values are 
 
     (10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
 
-I personally prefer to start array index with '0' for this reason and just for consistency sake, I'll name circuits, channels, DUTs likewise.
+And also resemble/coincide with an array's indices.
+I personally prefer to start array indices with '0' for this reason and just for consistency sake, I'll name circuits, channels, DUTs likewise.
 
 
 
@@ -282,9 +283,9 @@ Decimal values 10 through 15 are represented by alphabetical characters, A throu
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
 
 Because the weights are greater here, I'll use larger decimal numbers to convey the same idea from previous sections..
-    I will show a couple hexadecimal value, and convert it to decimal. 
+I will show a couple hexadecimal value, and convert it to decimal. 
 
-    0x32
+e.g. 0x32
 
 .. math::
 
@@ -292,8 +293,8 @@ Because the weights are greater here, I'll use larger decimal numbers to convey 
     0x32    &= \mathbf{(3)}16^1 + \mathbf{(2)}16^0\\
             &= \mathbf{(3)}16 + \mathbf{(2)}1\\
             &= 48 + 2\\
-            &= 50
-            \text{Sometimes notated as}
+            &= 50\\
+            \text{Sometimes notated as}\\
             (32)_16 \rightarrow (50)_10
 
 This is base notation.
@@ -303,14 +304,16 @@ This is base notation.
 
 
     I will show how to convert from decimal to hexidecimal.
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
     I will show how hexadcimal is related to binary. and the conversion between the two.
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .. note::
     
     We use base-2, base-10, base-16. which is the same as radix-2, radix-10, radix-16.
 
+
+Notice that as the weights increase, or by using a larger base, we can represent a larger decimal value through a smaller representation/ less digits.
 
 
 Octal
