@@ -101,6 +101,9 @@ Decimal
 The most commmonly known one, taught at an early age is the decimal system.
 It is a most convenient one we use day to day.
 
+The decimal system uses 10 digits, hence dec-, to represent a value. They are
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+
 We use it so much without thinking about it, but each digit/pace in a number, 1024 holds a weight.
 From right to left, we have the ones place, the tens place, the hundreds, and the thousands.
 
@@ -124,7 +127,7 @@ Notice the "th" here to represent fraction when we speak of it in comparison to 
 
 The number of places to the right of the decimal, represents how precise we want to be and is called precision.
 
-Each place is a power of 10.
+Each place is a power of 10. 
 
 There are 3 other systems we use, binary, hexadecimal and otcal. Although I have not really ever used octal, but have seen it.. the other two are heavily used. 
 
@@ -136,9 +139,11 @@ Binary
 The binary system is used because it lends itself rather well to the nature of digital system where only two states are recognized, on or off, Vdd or GND and 1 or 0.
 Furthermore, boolean algebra deals with logic operations/manipulation in which the values are only true or false or 1 or 0, again, two values/state.
 
-Just as in a decimal system, each digit location/place carries a weight. In this case, a power of 2.
+Just as in a decimal system, each digit location/place carries a weight. 
+In this case, a power of 2. The binary system only uses two digts to represent a value (often times a decimal value)
+    0, 1
 
-A binary number can look like this, 0101, and it actually represents some decimal value.
+A binary number can look like this, 0101
 
 .. math::
 
@@ -162,8 +167,14 @@ This 4 bit binary value represents a decimal value of 5. Let's try another one..
 
             = 7
 
+One more
 
+    01110111    = 0*128 + 1*64 + 1*32 + 1*16 + 0*8 + 1*4 + 1*2 + 1*1
 
+                = 64 + 32 + 16 + 4 + 2 + 1
+
+                = 119
+                
 Lends itself to..
 Hexadecimal
 ^^^^^^^^^^^^^^
