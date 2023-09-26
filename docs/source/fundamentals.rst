@@ -158,6 +158,9 @@ A binary number can look like this, 0101
     0101    &= (0)2^3 + (1)2^2 + (0)2^1 + (1)2^0\\
             &= 0(2^3) + 1(2^2) + 0(2^1) + 1(2^0)\\
 
+            &= \mathbf{(0)}2^3 + \mathbf{(1)}2^2 + \mathbf{(0)}2^1 + \mathbf{(1)}2^0\\
+             
+
 This 4 bit binary value represents a decimal value of 5. 
 
 Let's try another one.. 0111
