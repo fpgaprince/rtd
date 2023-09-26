@@ -106,9 +106,9 @@ From right to left, we have the ones place, the tens place, the hundreds, and th
 
 .. math::
 
-    1024    = 1x1000 + 0*100 + 2*10 + 4*1
+    1024    = 1*1000 + 0*100 + 2*10 + 4*1
 
-            = 1x10^3 + 0x10^2 + 2*10^1 + 4*10^0
+            = 1*10^3 + 0*10^2 + 2*10^1 + 4*10^0
 
 A number can be fractional.
 1024.275
