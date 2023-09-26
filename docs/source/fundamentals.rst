@@ -200,10 +200,10 @@ e.g. 9
 
 .. math::
 
-    9/2 &= 4\quad R\; 1\; LSB\\
+    9/2 &= 4\quad R\; 1\quad LSB\\
     4/2 &= 2\quad R\; 0\\
     2/2 &= 1\quad R\; 0\\
-    1/2 &= 0\quad R\; 1\; MSB\\
+    1/2 &= 0\quad R\; 1\quad MSB\\
     \therefore \; 9   &\rightarrow 1001
 
 
@@ -211,19 +211,19 @@ e.g. 12
 
 .. math::
 
-    12/2    &= 6\quad R\; 0\; LSB\\
+    12/2    &= 6\quad R\; 0\quad LSB\\
     6/2     &= 3\quad R\; 0\\
     3/2     &= 1\quad R\; 1\\
-    1/2     &= 0\quad R\; 1\; MSB\\
+    1/2     &= 0\quad R\; 1\quad MSB\\
     \therefore \; 12      &\rightarrow 1100
 
 e.g. 7
 
 .. math::
 
-    7/2 &= 3\quad R\; 1\; LSB\\
+    7/2 &= 3\quad R\; 1\quad LSB\\
     3/2 &= 1\quad R\; 1\\
-    1/2 &= 0\quad R\; 1\; MSB\\
+    1/2 &= 0\quad R\; 1\quad MSB\\
     \therefore \; 7   &\rightarrow 111 
     
 Notice 9 requires 4 bits to represent it while 7 only requires 3 bits. You can sign extend (discussed later) and represent 
