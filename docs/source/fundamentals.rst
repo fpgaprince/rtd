@@ -184,7 +184,8 @@ One more
 
 .. math::
 
-    01110111    &= 0 \times 128 + 1 \times 64 + 1 \times 32 + 1 \times 16 + 0 \times 8 + 1 \times 4 + 1 \times 2 + 1 \times 1\\
+    01110111    &= 0 \times 2^7 + 1 \times 2^6 + 1 \times 2^5 + 1 \times 2^4 + 0 \times 2^3 + 1 \times 2^2 + 1 \times 2^1 + 1 \times 2^0\\
+                &= 0 \times 128 + 1 \times 64 + 1 \times 32 + 1 \times 16 + 0 \times 8 + 1 \times 4 + 1 \times 2 + 1 \times 1\\
                 &= 64 + 32 + 16 + 4 + 2 + 1\\
                 &= 119
                 
@@ -231,6 +232,7 @@ Notice 9 and 12 requires 4 bits to represent it while 7 only requires 3 bits. Yo
 7 with 4bits, it will be 0111. 
 
 Lets try a larger number
+
 e.g. 36
 
 .. math::
@@ -248,7 +250,7 @@ For compeletness..
 
 .. math::
 
-    100100  &= 1 \times 32 + &= 0 \times 16 + &= 0 \times 8 + 1 \times 4 + 0 \times 2 + 0 \times 1\\
+    100100  &= 1 \times 32 + 0 \times 16 + 0 \times 8 + 1 \times 4 + 0 \times 2 + 0 \times 1\\
             &= 32 + 4\\
             &= 36
 
