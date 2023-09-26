@@ -300,7 +300,7 @@ e.g. 0x32
             &= \mathbf{(3)}16 + \mathbf{(2)}1\\
             &= 48 + 2\\
             &= 50\\
-            &(32)_{16} \rightarrow (50)_{10}
+            &32_{16} \rightarrow 50_{10}
 
 e.g. 0xDE
 
@@ -310,7 +310,7 @@ e.g. 0xDE
             &= \mathbf{(13)}16 + \mathbf{(14)}1\\
             &= 208 + 14\\
             &= 222\\
-            &(DE)_{16} \rightarrow (222)_{10}
+            &DE_{16} \rightarrow 222_{10}
 
 e.g. 0xBEEF
 
@@ -320,7 +320,7 @@ e.g. 0xBEEF
                 &= \mathbf{(11)}4096 + \mathbf{(14)}256 + \mathbf{(14)}16 + \mathbf{(15)}1\\
                 &= 45056 + 3584 + 224 + 15\\
                 &= 48,879\\
-                &(BEEF)_{16} \rightarrow (48879)_{10}
+                &BEEF_{16} \rightarrow 48879_{10}
 
 Notice that by using a larger base, the weights increases significantly. We are able to represent a larger decimal value with fewer digits/symbols.
 
