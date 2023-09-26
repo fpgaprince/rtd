@@ -188,7 +188,7 @@ One more
                 &= 64 + 32 + 16 + 4 + 2 + 1\\
                 &= 119
                 
-Here, we used 8 bits to represent a number. The more bits you have, no greater the range of numbers you can represent.
+Here, we used 8 bits to represent a number. The more bits you have, the greater the range of numbers you can represent.
 This is closely tied to 32bit vs 64bit processing speak with computers.
 
 Notice also that the result of a binary representation is always an integer, a whole number. We'll go into fractions in a bit.
@@ -200,21 +200,34 @@ e.g. 9
 
 .. math::
 
-    9/2 &= 4 R 1\\
+    9/2 &= 4 R 1 LSB\\
     4/2 &= 2 R 0\\
     2/2 &= 1 R 0\\
-    1/2 &= 0 R 1
+    1/2 &= 0 R 1 MSB
+    9 --> 1001
 
+
+e.g. 12
+
+.. math::
+
+    12/2 &= 6 R 0 LSB\\
+    6/2 &= 3 R 0\\
+    3/2 &= 1 R 1\\
+    1/2 &= 0 R 1 MSB
+    12 --> 1100
 
 e.g. 7
 
 .. math::
 
-    7/2 &= 3 R 1\\
+    7/2 &= 3 R 1 LSB\\
     3/2 &= 1 R 1\\
-    1/2 &= 0 R 1
+    1/2 &= 0 R 1 MSB
+    7 --> 111 
     
-Notice 9 requires 4 bits to represent it while 7 only requires 3 bits. 
+Notice 9 requires 4 bits to represent it while 7 only requires 3 bits. You can sign extend (discussed later) and represent 
+7 with 4bits, it will be 0111.
 
 .. note::
     
