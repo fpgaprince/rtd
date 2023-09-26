@@ -5,6 +5,7 @@ nibbles, the half byte prince
 ------------------------------------------------
 
    From bits to bytes.
+   
    "just our 2bits"
 
 *  Add simulation, verification and test.

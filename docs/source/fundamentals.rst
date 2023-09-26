@@ -163,8 +163,22 @@ This 4 bit binary value represents a decimal value of 5. Let's try another one..
             &= 7
 
 It helps to remember the results of the power of two (8,4,2,1) and their indices.
-You'll naturally know it when you work with it enough.. (1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1)
-If you have to write it out, just start with '1' and keep multiplying by 2.
+
+You'll naturally know it when you work with it enough.. 
+    (1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1)
+
+If you have to write it out, just start with '1' (on the far right) and keep multiplying by 2, working leftwards..
+
+Notice the weight is greatest to the left and least to the right, we describe the bit on the left as the most significant bit (MSB)
+and the right most, the least significant bit (LSB).
+
+The exponent values are 
+
+    (10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
+
+I personally prefer to start array index with '0' for this reason and just for consistency sake, I'll name circuits, channels, DUTs likewise.
+
+
 
 One more
 
