@@ -282,9 +282,11 @@ For compeletness..
 Hexadecimal
 ====================
 The other numberal system used extensively is the hexadecimal system. hex- 16 digit/values are used and place/location are powers of 16.
+        
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 
 Decimal values 10 through 15 are represented by alphabetical characters, A through F.
+        
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
 
 
@@ -328,9 +330,25 @@ Notice that by using a larger base, the weights increases significantly. We are 
 
 Convert from Decimal to Hexidecimal
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Converting is from decimal to hex follows the same operation as in binary, except we divide by 16.
+Because the weights are greater here, I'll use larger decimal numbers to convey the same idea in prior sections.
 
-Because the weights are greater here, I'll use larger decimal numbers to convey the same idea from previous sections..
+e.g. 3054
 
+.. math::
+
+    3054/16     &= 190\quad R\; 14\quad LSB\\
+    190/16       &= 11\quad R\; 14\\
+    11/16        &= 0\quad R\; 11\ quad MSB\\ \\  
+    \therefore \; &3054_{10} \rightarrow BEE_{16}
+
+e.g. 27
+
+.. math::
+
+    27/16     &= 1\quad R\; 11\quad LSB\\
+    11/16     &= 0\quad R\; 11\quad MSB\\
+    \therefore \; &27_{10} \rightarrow BB_{16}
 
 
 Hexidecimal and Binary relationship
