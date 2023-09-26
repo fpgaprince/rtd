@@ -195,7 +195,7 @@ Notice also that the result of a binary representation is always an integer, a w
 
 
 To go from from an arbitrary decimal value to its binary representation, you'll want to divide by 2 and track the remainder.
-The first division represents the LSB. The last, the MSB.
+The first remainder of the division represents the LSB. The last, the MSB.
 
 e.g. 9
 
@@ -227,8 +227,29 @@ e.g. 7
     1/2 &= 0\quad R\; 1\quad MSB\\
     \therefore \; 7   &\rightarrow\quad 111 
     
-Notice 9 requires 4 bits to represent it while 7 only requires 3 bits. You can sign extend (discussed later) and represent 
-7 with 4bits, it will be 0111.
+Notice 9 and 12 requires 4 bits to represent it while 7 only requires 3 bits. You can sign extend (discussed later) and represent 
+7 with 4bits, it will be 0111. 
+
+Lets try a larger number
+e.g. 36
+
+.. math::
+
+    36/2    &= 18\quad R\; 0\quad LSB\\
+    18/2    &= 9\quad R\; 0\\
+    9/2     &= 4\quad R\; 1\\
+    4/2     &= 2\quad R\; 0\\
+    2/2     &= 1\quad R\; 0\\
+    1/2     &= 0\quad R\; 1\quad MSB\\
+    \therefore \; 12      &\rightarrow\quad 100100
+
+This time 6 bits are required to represent the decimal value.
+For compeletness..
+
+    100100  &= 1 \times 32 + &= 0 \times 16 + &= 0 \times 8 + 1 \times 4 + 0 \times 2 + 0 \times 1\\
+            &= 32 + 4\\
+            &= 36
+
 
 .. note::
     
