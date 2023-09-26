@@ -1,3 +1,4 @@
+************************
 Fundamentals
 ************************
 A background in these areas are helpful and probably the bare minimum. It is recommended to either learn or refresh.
@@ -5,7 +6,7 @@ Each of these topics are courses within their own right, but for brevity's sake 
 
 
 Digital Electronics
-============================================================
+##########################
 The world is analog. 
 
 We understand and solve problem through math and science representing them with numbers and functions.
@@ -18,7 +19,7 @@ We are in a digital era.
 
 
 Transistors
-------------------
+********************
     A transistor is a semiconductor device that regulates or controls current/voltage. 
     It has operating regions, (cutoff, linear, active, saturdation). 
     By driving a transistor into it's saturation region, we allow it to be fully on, driving whatever it's connected to.
@@ -26,7 +27,7 @@ Transistors
     Essentially, we use this as a switch. A switch to enable/disable on/off some other circuit.
 
 Bits
-------------------
+********************
     In the digital realm/digital system, everything is discrete as apposed to being continuous in its analog counterpart/realm/domain..
     We limit our quantization or representation of signal (data) to two discrete states.
 
@@ -60,7 +61,7 @@ Bits
 
 
 Digital Logic
-------------------
+********************
     By arranging transistors in specific ways and taking advantage of their saturation regions, we are able to realize/conceive/materialize? logical functions.
 
     This arrangement of transistors produce what are called Logic gates, circuits which perform logical operations. 
@@ -79,7 +80,7 @@ Digital Logic
 
 
 Digital Design
-------------------
+********************
 
 
 
@@ -89,15 +90,15 @@ Digital Design
 
 
 Numbering System
-============================================================
+##########################
 There are many number systems. It is a system we prescribe/use to quantify.
 
 
 Representation
---------------------------------
+********************
     
 Decimal
-^^^^^^^^^^^^^^
+====================
 The most commmonly known one, taught at an early age is the decimal system.
 It is a most convenient one we use day to day.
 
@@ -136,7 +137,7 @@ the other two are heavily and extensively used.
 
 
 Binary
-^^^^^^^^^^^^^^
+====================
 The binary system is used because it lends itself rather well to the nature of digital system where only two states are recognized, on or off, Vdd or GND and 1 or 0.
 Furthermore, boolean algebra deals with logic operations/manipulation in which the values are only true or false or 1 or 0, again, two values/state.
 
@@ -279,7 +280,7 @@ For compeletness..
 
 
 Hexadecimal
-^^^^^^^^^^^^^^
+====================
 The other numberal system used extensively is the hexadecimal system. hex- 16 digit/values are used and place/location are powers of 16.
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 
@@ -347,23 +348,22 @@ Bit width and range of value
 
 
 
-
+Octal
+====================
 
 
 Fixed- and Floating-Point
---------------------------------
+****************************************
 
 Binary Arithmetic
---------------------------------
+****************************************
 
 
 
-Octal
-^^^^^^^^^^^^^^
+
 
 
 
 Hardware Descriptive Language (VHDL or Verilog)
-============================================================
-
+####################################################
 
