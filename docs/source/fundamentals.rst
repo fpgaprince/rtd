@@ -271,11 +271,18 @@ Decimal values 10 through 15 are represented by alphabetical characters, A throu
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
 
 Because the weights are greater here, I'll use larger decimal numbers to convey the same idea from previous sections..
+    I will show a couple hexadecimal value, and convert it to decimal. 
+    
+    I will show how to convert from decimal to hexidecimal.
+
+    I will show how hexadcimal is related to binary. and the conversion between the two.
 
 
+.. note::
+    
+    We use base-2, base-10, base-16. which is the same as radix-2, radix-10, radix-16.
 
 
-We use base-2, base-10, base-16
 
 Octal
 ^^^^^^^^^^^^^^
