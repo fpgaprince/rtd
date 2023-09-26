@@ -246,6 +246,8 @@ e.g. 36
 This time 6 bits are required to represent the decimal value.
 For compeletness..
 
+.. math::
+
     100100  &= 1 \times 32 + &= 0 \times 16 + &= 0 \times 8 + 1 \times 4 + 0 \times 2 + 0 \times 1\\
             &= 32 + 4\\
             &= 36
@@ -254,12 +256,26 @@ For compeletness..
 .. note::
     
     Windows has programmer mode in its calculator app. It is very useful for doing conversions or checking your work.
-
+    Or whip them up in excel. they have dec2bin or bin2dec, and you can create a table.
+    
 
 
 Lends itself to..
+
 Hexadecimal
 ^^^^^^^^^^^^^^
+The other numberal system used extensively is the hexadecimal system. hex- 16 digit/values are used and place/location are powers of 16.
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+
+Decimal values 10 through 15 are represented by alphabetical characters, A through F.
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
+
+Because the weights are greater here, I'll use larger decimal numbers to convey the same idea from previous sections..
+
+
+
+
+We use base-2, base-10, base-16
 
 Octal
 ^^^^^^^^^^^^^^
