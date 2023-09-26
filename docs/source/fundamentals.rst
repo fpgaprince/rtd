@@ -144,6 +144,9 @@ Just as in a decimal system, each digit location/place carries a weight.
 In this case, a power of 2. The binary system only uses two digts to represent a value (often times a decimal value)
     0, 1
 
+
+Convert from Binary to Decimal
+--------------------------------------------
 A binary number can look like this, 0101
 
 .. math::
@@ -205,6 +208,8 @@ This is closely tied to 32bit vs 64bit processing speak with computers.
 Notice also that the result of a binary representation is always an integer, a whole number. We'll go into fractions in a bit.
 
 
+Convert from Decimal to Binary
+--------------------------------------------
 To go from from an arbitrary decimal value to its binary representation, you'll want to divide by 2 and track the remainder.
 The first remainder of the division represents the LSB. The last, the MSB.
 
@@ -272,7 +277,6 @@ For compeletness..
     
 
 
-Lends itself to..
 
 Hexadecimal
 ^^^^^^^^^^^^^^
@@ -282,7 +286,9 @@ The other numberal system used extensively is the hexadecimal system. hex- 16 di
 Decimal values 10 through 15 are represented by alphabetical characters, A through F.
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
 
-Because the weights are greater here, I'll use larger decimal numbers to convey the same idea from previous sections..
+
+Convert from Hexidecimal to Decimal
+--------------------------------------------
 I will show a couple hexadecimal value, and convert it to decimal. 
 
 e.g. 0x32
@@ -294,18 +300,34 @@ e.g. 0x32
             &= \mathbf{(3)}16 + \mathbf{(2)}1\\
             &= 48 + 2\\
             &= 50\\
-            &\text{Sometimes notated as}\\
+            &\text{Sometimes you will see this base notation}\\
             &(32)_{16} \rightarrow (50)_{10}
 
-This is base notation.
+
+    0xDE    &= \mathbf{(D)}16^1 + \mathbf{(E)}16^0\\
+            &= \mathbf{(13)}16 + \mathbf{(14)}1\\
+            &= 208 + 14\\
+            &= 222\\
+            &(DE)_{16} \rightarrow (222)_{10}
+
+    0xBEEF      &= \mathbf{(B)}16^3 + \mathbf{(E)}16^2 + \mathbf{(E)}16^1 + \mathbf{(F)}16^0\\
+                &= \mathbf{(11)}4096 + \mathbf{(14)}256 + \mathbf{(14)}16 + \mathbf{(15)}1\\
+                &= 45056 + 3584 + 224 + 15\\
+                &= 48,879\\
+                &(BEEF)_{16} \rightarrow (48879)_{10}
+
+Notice that by using a larger base, the weights increases significantly. We are able to represent a larger decimal value with fewer digits/symbols.
 
 
 
-
-
-    I will show how to convert from decimal to hexidecimal.
+Convert from Decimal to Hexidecimal
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-    I will show how hexadcimal is related to binary. and the conversion between the two.
+
+Because the weights are greater here, I'll use larger decimal numbers to convey the same idea from previous sections..
+
+
+
+I will show how hexadcimal is related to binary. and the conversion between the two.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .. note::
@@ -313,11 +335,13 @@ This is base notation.
     We use base-2, base-10, base-16. which is the same as radix-2, radix-10, radix-16.
 
 
-Notice that as the weights increase, or by using a larger base, we can represent a larger decimal value through a smaller representation/ less digits.
+
+Bit width and range of value
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Octal
-^^^^^^^^^^^^^^
+
+
 
 
 Fixed- and Floating-Point
@@ -328,6 +352,8 @@ Binary Arithmetic
 
 
 
+Octal
+^^^^^^^^^^^^^^
 
 
 
