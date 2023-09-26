@@ -183,6 +183,7 @@ Notice also that the result of a binary representation is always an integer, a w
 To go from from an arbitrary decimal value to its binary representation, you'll want to divide by 2 and track the remainder.
 
 e.g. 9
+
 .. math::
 
     9/2 &= 4 R 1\\
@@ -192,6 +193,7 @@ e.g. 9
 
 
 e.g. 7
+
 .. math::
 
     7/2 &= 3 R 1\\
