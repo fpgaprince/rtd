@@ -159,13 +159,10 @@ This 4 bit binary value represents a decimal value of 5. Let's try another one..
 
 .. math::
 
-    0111    = 0*2^3 + 1*2^2 + 1*2^1 + 1*2^0
-
-            = 0*8 + 1*4 + 1*2 + 1*1
-
-            = 4 + 2 + 1
-
-            = 7
+    0111    &= 0*2^3 + 1*2^2 + 1*2^1 + 1*2^0\\
+            &= 0*8 + 1*4 + 1*2 + 1*1\\
+            &= 4 + 2 + 1\\
+            &= 7
 
 It helps to remember the results of the power of two (8,4,2,1) and their indices.
 You'll naturally know it when you work with it enough.. (1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1)
