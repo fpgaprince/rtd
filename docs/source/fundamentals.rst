@@ -104,9 +104,10 @@ Decimal
     We use it so much without thinking about it, but each digit/pace in a number, 1024 holds a weight.
     From right to left, we have the ones place, the tens place, the hundreds, and the thousands.
 
-.. math::        
-1024    = 1x1000 + 0*100 + 2*10 + 4*1
-        = 1x10^3 + 0x10^2 + 2*10^1 + 4*10^0
+.. math::
+
+    1024    = 1x1000 + 0*100 + 2*10 + 4*1
+            = 1x10^3 + 0x10^2 + 2*10^1 + 4*10^0
 
     A number can be fractional.
     1024.275
@@ -115,13 +116,19 @@ Decimal
     Notice the "th" here to represent fraction when we speak of it in comparison to the whole number in the ladder.
 
 .. math::
-.275    = 2*0.1 + 7*0.01 + 5*0.001
-        = 2*10^-1 + 7*10^-2 + 5*10^-3
+
+    .275    = 2*0.1 + 7*0.01 + 5*0.001
+            = 2*10^-1 + 7*10^-2 + 5*10^-3
 
     The number of places to the right of the decimal, represents how precise we want to be and is called precision.
 
 
     There are 3 other systems we use, binary, hexadecimal and otcal. Although I have not really ever used octal, but have seen it.. the other two are heavily used. 
+
+    Binary is heavily use due to the 
+
+
+    Lends itself to..
 
 
 Binary
