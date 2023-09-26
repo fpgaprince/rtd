@@ -148,10 +148,15 @@ A binary number can look like this, 0101
 
 .. math::
 
-    0101    &= (**0** \times 2^3) + (**1** \times 2^2) + (**0** \times 2^1) + (**1** \times 2^0)\\
-            &= (**0** \times 8) + (**1** \times 4) + (**0** \times 2) + (**1** \times 1)\\
+    0101    &= (0 \times 2^3) + (1 \times 2^2) + (0 \times 2^1) + (1 \times 2^0)\\
+            &= (0 \times 8) + (1 \times 4) + (0 \times 2) + (1 \times 1)\\
             &= 0 + 4 + 0 + 1\\
             &= 5
+
+.. math::
+
+    0101    &= (0)2^3 + (1)2^2 + (0)2^1 + (1)2^0\\
+            &= 0(2^3) + 1(2^2) + 0(2^1) + 1(2^0)\\
 
 This 4 bit binary value represents a decimal value of 5. 
 
