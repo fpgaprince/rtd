@@ -404,14 +404,14 @@ In our previous example, we determined that 4 bits can represent 16 decimal valu
 
     Each position of a hex value requires 4bits to represent it.
 
-*0xD,            requires 1x4 = 4bits.
-*0xDE,           requires 2x4 = 8bits.
-*0xDEA,          requires 3x4 = 12bits.
-*0xDEAD,         requires 4x4 = 16bits.
-*0xDEADB,        requires 5x4 = 20bits.
-*0xDEADBE,       requires 6x4 = 24bits.
-*0xDEADBEE,      requires 7x4 = 28bits.
-*0xDEADBEEF,     requires 8x4 = 32bits.
+*   0xD,            requires 1x4 = 4bits.
+*   0xDE,           requires 2x4 = 8bits.
+*   0xDEA,          requires 3x4 = 12bits.
+*   0xDEAD,         requires 4x4 = 16bits.
+*   0xDEADB,        requires 5x4 = 20bits.
+*   0xDEADBE,       requires 6x4 = 24bits.
+*   0xDEADBEE,      requires 7x4 = 28bits.
+*   0xDEADBEEF,     requires 8x4 = 32bits.
 
 
 If we list out all the binary values 4 bits produce, we can see the relation between the hex2dec and dec2bin values.
