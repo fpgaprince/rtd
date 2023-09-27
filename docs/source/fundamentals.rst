@@ -358,24 +358,61 @@ e.g. 27
 Bit width and range of value
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 Earlier, we use 4bits to represent a decimal value. How many values can we represent with 4bits?
+To determine this, you raise 2 to the power of bits.
 
-    2^4 = 16 different combinations
+    2^4 = 16
 
-If we had use 8bits instead,
+This means.. you can represent up to 16 decimal values. 
+Because we need to represent 0, we need to include it in the count, 
+so we have to subtract 1 from the top end, 16.
+
+    The range becomes [0, 1, ... , 14, 15]
+
+If we use other bit widths, 
     
     2^8 = 256           , range [0, 1, ..., 254, 255]
-
-
     2^16 = 65536        , range [0, 1, ..., 65534, 65535]
     2^32 = 4294967296   , range [0, 1, ..., 4294967294, 4294967295]
 
+Notice, the max value is always 2^bit - 1.
 
-I've included these ranges, as you'll run across them too.
+I've included these width, as you'll run across them frequently.
+
+    2^2 = 4
+    2^3 = 8
+    2^4 = 16
+    2^5 = 32
     2^6 = 64
+    2^7 = 128
+    2^8 = 512
     2^10 = 1024
     2^12 = 4096
     2^14 = 16384
     2^15 = 32768
+
+Notice that with every increase of the width by 1 bit, you double the number of representable values.
+
+When we spoke of hexadecimal representation, we said that each position of the hexadecimal value could be 1 of 16 decimal values (0 through 15, in which 10-15 are represented by A-F).
+
+    (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F)
+
+Remember that at the circuit/hardware/physical level, there is no such thing as hexadecimal. There is only binary.
+Hexadecimal is just a system we apply for our own benefit, for us to represent and manipulate data.
+
+So.. how is it related to binary. Well, we need to represent 16 decimal values.
+In our previous example, we determined that 4 bits can represent 16 decimal values.
+
+    Each position of a hex value requires 4bits to represent it.
+
+    0xD,            requires 1x4 = 4bits.
+    0xDE,           requires 2x4 = 8bits.
+    0xDEA,          requires 3x4 = 12bits.
+    0xDEAD,         requires 4x4 = 16bits.
+    0xDEADB,        requires 5x4 = 20bits.
+    0xDEADBE,       requires 6x4 = 24bits.
+    0xDEADBEE,      requires 7x4 = 28bits.
+    0xDEADBEEF,     requires 8x4 = 32bits.
+
 
 
 Hexidecimal and Binary relationship
