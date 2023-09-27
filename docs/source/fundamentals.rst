@@ -514,12 +514,36 @@ Negative Representation
 
 We are going to return to binary numbers for a minute.
 Up to this point we've only spoke of/represented positive numbers.
-We need to discuss negative numbers and how it is interpreted/implemented.
-There are several approaches 
 
-We will use 4bits to illustrate.
+We need to discuss negative numbers and how it is interpreted/implemented.
+
+There are several approaches, but I will discuss what is called 2's complement
+and use a 4bit binary value to illustrate. Note, our binary decimal conversions
+in earlier section utilized this 2's complement.
+
+    2's comp is probably the most commmon 
+    interpretation and usage of binary numbers. 
+
 Remember that, a 4bit value gives us 16 unique combinations..
 how we interpret and use it is up to us.
+
+With 2's complement, the MSB is defined/used as the sign bit.
+it's power of two value is negated, while the rest remain positive.
+
+In 4bit binary, the 4th bit (3rd index) normally would have a value of 8,
+but we're negating it, -8. 
+
+
+Convert from Binary to Negative Decimal
+-------------------------------------------------------------
+e.g. 1100
+= -8 + 4 + 0 + 0 = -4
+
+e.g. 1001 
+= -8 + 0 + 0 + 1 = -7
+
+e.g. 1110
+= -8 + 4 + 2 + 0 = -2
 
 ::
 
@@ -541,8 +565,26 @@ how we interpret and use it is up to us.
     14          1110            -2
     15          1111            -1
 
-This representation is from 2's compliment, other system will have their own.
 
+Convert from Negative Decimal to Binary
+-------------------------------------------------------------
+-5 + 16 = 11, convert 11 as you have
+
+-5/2 = -2 R 1
+-2/2 = -1 R 0
+-1/2 = 0 R  1
+
+-4 + 16 = 12 convert as you would have
+-4/2 = 2 R 0
+2/2 = 1 R 0
+1/2 = 0 R 1
+
+-2 + 16 = 14
+-2/2 = 1 R 0
+1/2 = 0 R 1
+
+-8+16 = 8, convert as you would
+-1+16 = 15, convert as you would.. nicee
 
 We will show how the bit width determines range again "applied to negative numbers"
 Do this for each
