@@ -377,7 +377,6 @@ If we use other bit widths,
 Notice, the max value is always 2^bit - 1.
 
 I've included these width, as you'll run across them frequently.
-
     2^2 = 4
     2^3 = 8
     2^4 = 16
