@@ -519,11 +519,8 @@ Negative Representation
 
 We are going to return to binary numbers for a minute.
 Up to this point we've only spoke of/represented positive numbers.
-
 We need to discuss negative numbers and how it is interpreted/implemented.
-
 There are several approaches, but I will discuss what is called 2's complement
-
 Note, our binary decimal conversions
 in earlier section utilized this 2's complement.
 
@@ -582,23 +579,61 @@ See below.
 
 Convert from Negative Decimal to Binary
 -------------------------------------------------------------
--5 + 16 = 11, convert 11 as you have
+To conver from a negative decimal value to binary..
+determine how many bit you need/want. 
+determine the maximum positive value for that number of bits.
+add that max value to your negative value.
+convert the 'positive' value to its binary representation.
+we're using 4bits, so the max value is 2^4 = 16.
 
--5/2 = -2 R 1
--2/2 = -1 R 0
--1/2 = 0 R  1
+-5 + 16 = 11, convert 11 as you had previously.
+::
 
--4 + 16 = 12 convert as you would have
--4/2 = 2 R 0
-2/2 = 1 R 0
-1/2 = 0 R 1
+    11/2    = R1, LSB
+    5/2     = R1
+    2/2     = R0
+    0/2     = R1, MSB
+    -5      = 1011
 
--2 + 16 = 14
--2/2 = 1 R 0
-1/2 = 0 R 1
 
--8+16 = 8, convert as you would
--1+16 = 15, convert as you would.. nicee
+-4 + 16 = 12, convert 12 as you had previously.
+::
+
+    12/2    = R0, LSB
+    6/2     = R0
+    3/2     = R1
+    1/2     = R1, MSB
+    -4      = 1100
+
+-2 + 16 = 14, convert 14 as you had previously.
+:: 
+
+    14/2    = R0, LSB
+    7/2     = R1
+    3/2     = R1
+    1/2     = R1, MSB
+    -2      = 1110
+
+-8 + 16 = 8, convert 8 as you had previously.
+:: 
+
+    8/2     = R0, LSB
+    4/2     = R0
+    2/2     = R0
+    1/2     = R1, MSB
+    -8      = 1000
+    
+
+-1 + 16 = 15, convert 15 as you had previously.
+:: 
+
+    15/2    = R1, LSB
+    7/2     = R1
+    3/2     = R1
+    1/2     = R1, MSB
+    -1      = 1111
+    
+
 
 We will show how the bit width determines range again "applied to negative numbers"
 Do this for each
