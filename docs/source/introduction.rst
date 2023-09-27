@@ -3,7 +3,6 @@ Introduction
 .. epigraph::
     
     "Always."
-
     --nibbles, the half byte prince
 
 .. tip::
@@ -14,6 +13,13 @@ Introduction
 
     "You will face many defeats in life, never let yourself be defeated."
 
+.. important::
+
+    "Always two there are, no more, no less. A master and an apprentice."
+
+
+
+
 .. caution::
 
     "Always two there are, no more, no less. A master and an apprentice."
@@ -22,13 +28,11 @@ Introduction
 
     "Always two there are, no more, no less. A master and an apprentice."
 
-.. important::
-
-    "Always two there are, no more, no less. A master and an apprentice."
-
 .. attention::
 
     "Always two there are, no more, no less. A master and an apprentice."        
+
+
 
 .. error::
 
@@ -37,6 +41,9 @@ Introduction
 .. danger::
 
     "The bandpass."
+
+
+
 
 
 .. note::
