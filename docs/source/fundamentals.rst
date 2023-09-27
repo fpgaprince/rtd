@@ -388,26 +388,30 @@ so we have to subtract 1 from the top end, 16.
     The range becomes [0, 1, ... , 14, 15]
 
 If we use other bit widths, 
-    
-|    2^8 = 256           , range [0, 1, ..., 254, 255]
-|    2^16 = 65536        , range [0, 1, ..., 65534, 65535]
-|    2^32 = 4294967296   , range [0, 1, ..., 4294967294, 4294967295]
+
+::
+
+    2^8 = 256           , range [0, 1, ..., 254, 255]
+    2^16 = 65536        , range [0, 1, ..., 65534, 65535]
+    2^32 = 4294967296   , range [0, 1, ..., 4294967294, 4294967295]
 
 Notice, the max value is always 2^bit - 1.
 
 I've included these width, as you'll run across them frequently.
 
-|    2^2 = 4
-|    2^3 = 8
-|    2^4 = 16
-|    2^5 = 32
-|    2^6 = 64
-|    2^7 = 128
-|    2^8 = 512
-|    2^10 = 1024
-|    2^12 = 4096
-|    2^14 = 16384
-|    2^15 = 32768
+::
+    
+    2^2 = 4
+    2^3 = 8
+    2^4 = 16
+    2^5 = 32
+    2^6 = 64
+    2^7 = 128
+    2^8 = 512
+    2^10 = 1024
+    2^12 = 4096
+    2^14 = 16384
+    2^15 = 32768
 
 Notice that with every increase of the width by 1 bit, you double the number of representable values.
 
