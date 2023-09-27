@@ -515,9 +515,33 @@ Negative Representation
 We are going to return to binary numbers for a minute.
 Up to this point we've only spoke of/represented positive numbers.
 We need to discuss negative numbers and how it is interpreted/implemented.
+There are several approaches 
 
 We will use 4bits to illustrate.
+Remember that, a 4bit value gives us 16 unique combinations..
+how we interpret and use it is up to us.
 
+::
+    
+    Decimal	    4bit binary     Negative
+    0           0000            0
+    1           0001            1
+    2           0010            2
+    3           0011            3
+    4           0100            4
+    5           0101            5
+    6           0110            6
+    7           0111            7
+    8           1000            -8
+    9           1001            -7
+    10          1010            -6
+    11          1011            -5
+    12          1100            -4
+    13          1101            -3
+    14          1110            -2
+    15          1111            -1
+
+This representation is from 2's compliment, other system will have their own.
 
 
 We will show how the bit width determines range again "applied to negative numbers"
@@ -559,10 +583,13 @@ Later... a little more advance topic..
 Binary Arithmetic
 ****************************************
 
-1s comp
+2s comp
 ====================
 
-2s comp
+sign extension
+====================
+
+1s comp
 ====================
 
 sign magnitude
