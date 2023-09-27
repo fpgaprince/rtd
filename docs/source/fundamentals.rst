@@ -416,23 +416,23 @@ In our previous example, we determined that 4 bits can represent 16 decimal valu
 
 If we list out all the binary values 4 bits produce, we can see the relation between the hex2dec and dec2bin values.
 
-|    hex	    Decimal	    4bit binary
-|    0	    0   	    0000
-|    1	    1   	    0001
-|    2	    2   	    0010
-|    3	    3   	    0011
-|    4	    4   	    0100
-|    5	    5   	    0101
-|    6	    6   	    0110
-|    7	    7	        0111
-|    8	    8	        1000
-|    9	    9	        1001
-|    A	    10	        1010
-|    B	    11	        1011
-|    C	    12	        1100
-|    D	    13	        1101
-|    E	    14	        1110
-|    F	    15  	    1111
+|    hex\quad	Decimal\quad	4bit binary
+|    0\quad	    0\quad   	    0000
+|    1\quad	    1\quad   	    0001
+|    2\quad	    2\quad   	    0010
+|    3\quad	    3\quad   	    0011
+|    4\quad	    4\quad   	    0100
+|    5\quad	    5\quad   	    0101
+|    6\quad	    6\quad   	    0110
+|    7\quad	    7\quad	        0111
+|    8\quad	    8\quad	        1000
+|    9\quad	    9\quad	        1001
+|    A\quad	    10\quad	        1010
+|    B\quad	    11\quad	        1011
+|    C\quad	    12\quad	        1100
+|    D\quad	    13\quad	        1101
+|    E\quad	    14\quad	        1110
+|    F\quad	    15\quad  	    1111
 
 Bare with me.. if we use the table above to convert from hex to 
 
