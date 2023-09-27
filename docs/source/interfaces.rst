@@ -8,6 +8,9 @@ what you are trying to interface to and the performance requirement.
 Data rate and distance. 
 it will dictact what is adequate/necessary for your design.
 
+will need a means to access/acquire data.
+we will manipulate. process it in some way.
+we need to either return the data. or act on the data. store the data.
 
 
 JTAG
@@ -63,6 +66,31 @@ SERDES
 
 DDR
 ##########################
+
+CAN
+##########################
+
+Bluetooth
+##########################
+
+WIFI
+##########################
+
+
+
+Sensors?
+=======================
+    
+    Gyro
+
+    Accelerometer
+
+    image/video - camera
+
+    temp 
+
+    display
+
 
 
 
