@@ -5,6 +5,16 @@ Introduction
     "Always."
     --nibbles, the half byte prince
 
+.. hightlights::
+    
+    "Always."
+    --nibbles, the half byte prince
+
+.. pull-quote::
+    
+    "Always."
+    --nibbles, the half byte prince
+
 .. tip::
 
     "You will face many defeats in life, never let yourself be defeated."
