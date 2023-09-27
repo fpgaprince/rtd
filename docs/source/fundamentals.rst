@@ -404,37 +404,37 @@ In our previous example, we determined that 4 bits can represent 16 decimal valu
 
     Each position of a hex value requires 4bits to represent it.
 
-    *0xD,            requires 1x4 = 4bits.
-    *0xDE,           requires 2x4 = 8bits.
-    *0xDEA,          requires 3x4 = 12bits.
-    *0xDEAD,         requires 4x4 = 16bits.
-    *0xDEADB,        requires 5x4 = 20bits.
-    *0xDEADBE,       requires 6x4 = 24bits.
-    *0xDEADBEE,      requires 7x4 = 28bits.
-    *0xDEADBEEF,     requires 8x4 = 32bits.
+*0xD,            requires 1x4 = 4bits.
+*0xDE,           requires 2x4 = 8bits.
+*0xDEA,          requires 3x4 = 12bits.
+*0xDEAD,         requires 4x4 = 16bits.
+*0xDEADB,        requires 5x4 = 20bits.
+*0xDEADBE,       requires 6x4 = 24bits.
+*0xDEADBEE,      requires 7x4 = 28bits.
+*0xDEADBEEF,     requires 8x4 = 32bits.
 
 
-If we list out all the binary values for 4 bits, we get 0-15. 0-9 
+If we list out all the binary values 4 bits produce, we can see the relation between the hex2dec and dec2bin values.
 
-    Decimal	4bit	hex
-    0	    0000	0
-    1	    0001	1
-    2	    0010	2
-    3	    0011	3
-    4	    0100	4
-    5	    0101	5
-    6	    0110	6
-    7	    0111	7
-    8	    1000	8
-    9	    1001	9
-    10	    1010	A
-    11	    1011	B
-    12	    1100	C
-    13	    1101	D
-    14	    1110	E
-    15	    1111	F
+    hex	    Decimal	    4bit binary
+    0	    0   	    0000
+    1	    1   	    0001
+    2	    2   	    0010
+    3	    3   	    0011
+    4	    4   	    0100
+    5	    5   	    0101
+    6	    6   	    0110
+    7	    7	        0111
+    8	    8	        1000
+    9	    9	        1001
+    A	    10	        1010
+    B	    11	        1011
+    C	    12	        1100
+    D	    13	        1101
+    E	    14	        1110
+    F	    15  	    1111
 
-Bare with me..
+Bare with me.. if we use the table above to convert from hex to 
 
     0xD,            0x1101
     0xDE,           0x1101_1110
