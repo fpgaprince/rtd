@@ -280,22 +280,22 @@ For compeletness..
 ::
 
     Decimal	    4bit binary
-    0   	    0000
-    1   	    0001
-    2   	    0010
-    3   	    0011
-    4   	    0100
-    5   	    0101
-    6   	    0110
-    7	        0111
-    8	        1000
-    9	        1001
-    10	        1010
-    11	        1011
-    12	        1100
-    13	        1101
-    14	        1110
-    15  	    1111
+    0           0000
+    1           0001
+    2           0010
+    3           0011
+    4           0100
+    5           0101
+    6           0110
+    7           0111
+    8           1000
+    9           1001
+    10          1010
+    11          1011
+    12          1100
+    13          1101
+    14          1110
+    15          1111
 
 
 Hexadecimal
@@ -401,20 +401,24 @@ I've included these width, as you'll run across them frequently.
 
 ::
     
-    2^2 = 4
-    2^3 = 8
-    2^4 = 16
-    2^5 = 32
-    2^6 = 64
-    2^7 = 128
-    2^8 = 512
-    2^10 = 1024
-    2^12 = 4096
-    2^14 = 16384
-    2^15 = 32768
+    2^2     = 4
+    2^3     = 8
+    2^4     = 16
+    2^5     = 32
+    2^6     = 64
+    2^7     = 128
+    2^8     = 512
+    2^10    = 1024
+    2^12    = 4096
+    2^14    = 16384
+    2^15    = 32768
 
 Notice that with every increase of the width by 1 bit, you double the number of representable values.
 
+
+
+Hexidecimal and Binary relationship
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 When we spoke of hexadecimal representation, we said that each position of the hexadecimal value could be 1 of 16 decimal values (0 through 15, in which 10-15 are represented by A-F).
 
     (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F)
@@ -426,7 +430,6 @@ So.. how is it related to binary. Well, we need to represent 16 decimal values.
 In our previous example, we determined that 4 bits can represent 16 decimal values.
 
     Each position of a hex value requires 4bits to represent it.
-
 
 ::
 
@@ -475,14 +478,35 @@ Bare with me.. if we use the table above to convert from hex to
     0xDEADBEEF,     0x1101_1110_1010_1101_1011_1110_1110_1111
 
 
-Hexidecimal and Binary relationship
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+We will now define a byte
+    a byte is an 8 bit value
+
+A byte therefore consists of 2 hexadecimal values. A hex = 4 bits, 2*4 = 8.
+
+::
+
+    32 bit      /8 = 4 bytes
+    64 bit      /8 = 8 bytes
+    128 bit     /8 = 16 bytes
+    256 bit     /8 = 32 bytes
+    512 bit     /8 = 64 bytes
+    1024 bit    /8 = 128 bytes
+
 
 
 Unsigned and Signed Binary
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-By this point, we should have a grasp of binary, hex, width and range.
-Up to this pooint we've only spoke of/represented positive numbers.
+By this point, we should have a grasp of binary and hex in relation to the decimal numbering system and in relation to each other.
+We've also showed how width and range determine/dictate data representation.
+
+.. note::
+
+    We have not yet made the connection/relation/translation of this to circuit/logic aside from defining/describing the bit.
+    Nor have we showed its application.
+
+
+BUT, up to this point we've only spoke of/represented positive numbers.
 We need to discuss negative numbers and how it is interpreted/implemented.
 
 
