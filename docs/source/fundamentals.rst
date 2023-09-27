@@ -522,7 +522,7 @@ Remember that, a 4bit value gives us 16 unique combinations..
 how we interpret and use it is up to us.
 
 ::
-    
+
     Decimal	    4bit binary     Negative
     0           0000            0
     1           0001            1
