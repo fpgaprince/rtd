@@ -417,6 +417,8 @@ Notice that with every increase of the width by 1 bit, you double the number of 
 
 
 
+
+
 Hexidecimal and Binary relationship
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 When we spoke of hexadecimal representation, we said that each position of the hexadecimal value could be 1 of 16 decimal values (0 through 15, in which 10-15 are represented by A-F).
@@ -494,22 +496,38 @@ A byte therefore consists of 2 hexadecimal values. A hex = 4 bits, 2*4 = 8.
     1024 bit    /8 = 128 bytes
 
 
-
-Unsigned and Signed Binary
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 By this point, we should have a grasp of binary and hex in relation to the decimal numbering system and in relation to each other.
 We've also showed how width and range determine/dictate data representation.
 
 .. note::
 
-    We have not yet made the connection/relation/translation of this to circuit/logic aside from defining/describing the bit.
-    Nor have we showed its application.
+    We have not yet made the connection/relation/translation of this to circuit/logic aside from defining/describing the bit in earlier section.
+    Nor have we showed their application. Patience! we're building up to it.. this is all necessary!
 
 
-BUT, up to this point we've only spoke of/represented positive numbers.
+
+
+
+
+Negative Representation
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+We are going to return to binary numbers for a minute.
+Up to this point we've only spoke of/represented positive numbers.
 We need to discuss negative numbers and how it is interpreted/implemented.
 
+We will use 4bits to illustrate.
 
+
+
+We will show how the bit width determines range again "applied to negative numbers"
+Do this for each
+
+This is 2's complement.
+
+We have 1's complement. 
+
+And sign and magnitude.
 
 
 
