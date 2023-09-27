@@ -661,18 +661,34 @@ we're using 4bits, so the max value is 2^4 = 16.
     -1      = 1111
     
 
+Had we used 5bits for our 2's complement, our max value would have been 32 instead of 16.
+And our steps would have resulted in a different conversion value. 
 
-This is 2's complement.
+For instance -8.
 
-We have 1's complement. 
+-8 + 32 = 24
+:: 
 
-And sign and magnitude.
+    24/2    = R0, LSB
+    12/2    = R0
+    6/2     = R0
+    3/2     = R1
+    1/2     = R1, MSB
+    -8      = 11000
 
 
 
 .. note::
     
     We use base-2, base-10, base-16. which is the same as radix-2, radix-10, radix-16.
+
+1's complement. 
+========================================
+Later..
+
+And sign and magnitude.
+========================================
+Later..
 
 Octal
 ========================================
