@@ -6,12 +6,15 @@ something something
 .. epigraph::
     
     "Always."
+
     --nibbles, the half byte prince
 
 .. hightlights::
     
     "Always."
-    --nibbles, the half byte prince
+
+--nibbles, the half byte prince
+
 
 .. pull-quote::
     
