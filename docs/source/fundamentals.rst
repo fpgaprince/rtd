@@ -482,9 +482,14 @@ Bare with me.. if we use the table above to convert from hex to
 
 
 We will now define a byte
-    a byte is an 8 bit value
+    
+    a byte is an 8 bit value, or consists of 8 bits.
 
 A byte therefore consists of 2 hexadecimal values. A hex = 4 bits, 2*4 = 8.
+
+::
+
+    0xDE_AD_BE_EF,     0x11011110_10101101_10111110_11101111,       4bytes * 8bits = 32bits
 
 ::
 
