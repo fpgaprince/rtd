@@ -277,6 +277,25 @@ For compeletness..
     Or whip them up in excel. they have dec2bin or bin2dec, and you can create a table.
     
 
+::
+
+    Decimal	    4bit binary
+    0   	    0000
+    1   	    0001
+    2   	    0010
+    3   	    0011
+    4   	    0100
+    5   	    0101
+    6   	    0110
+    7	        0111
+    8	        1000
+    9	        1001
+    10	        1010
+    11	        1011
+    12	        1100
+    13	        1101
+    14	        1110
+    15  	    1111
 
 
 Hexadecimal
@@ -456,6 +475,14 @@ Hexidecimal and Binary relationship
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+Unsigned and Signed Binary
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+By this point, we should have a grasp of binary, hex, width and range.
+Up to this pooint we've only spoke of/represented positive numbers.
+We need to discuss negative numbers and how it is interpreted/implemented.
+
+
+
 
 
 .. note::
@@ -464,16 +491,36 @@ Hexidecimal and Binary relationship
 
 Octal
 ====================
+Later..
 
 
-Fixed- and Floating-Point
+
+Fixed-Point
 ****************************************
+
+We briefly touched on this topic when talking about fractional decimal numbers.
+When dealing whole numbers, we use the term integer. 
+
+In digital system's 
+
+
+
+Floating-Point
+****************************************
+Later... a little more advance topic..
+
 
 Binary Arithmetic
 ****************************************
 
+1s comp
+====================
 
+2s comp
+====================
 
+sign magnitude
+====================
 
 
 
