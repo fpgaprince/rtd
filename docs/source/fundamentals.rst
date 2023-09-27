@@ -375,7 +375,7 @@ e.g. 27
 
 
 Bit width and range of value
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+========================================
 Earlier, we use 4bits to represent a decimal value. How many values can we represent with 4bits?
 To determine this, you raise 2 to the power of bits.
 
@@ -420,7 +420,7 @@ Notice that with every increase of the width by 1 bit, you double the number of 
 
 
 Hexidecimal and Binary relationship
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+========================================
 When we spoke of hexadecimal representation, we said that each position of the hexadecimal value could be 1 of 16 decimal values (0 through 15, in which 10-15 are represented by A-F).
 
     (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F)
@@ -510,7 +510,7 @@ We've also showed how width and range determine/dictate data representation.
 
 
 Negative Representation
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+========================================
 
 We are going to return to binary numbers for a minute.
 Up to this point we've only spoke of/represented positive numbers.
@@ -536,7 +536,7 @@ And sign and magnitude.
     We use base-2, base-10, base-16. which is the same as radix-2, radix-10, radix-16.
 
 Octal
-====================
+========================================
 Later..
 
 
