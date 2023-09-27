@@ -370,9 +370,9 @@ so we have to subtract 1 from the top end, 16.
 
 If we use other bit widths, 
     
-    2^8 = 256           , range [0, 1, ..., 254, 255]
-    2^16 = 65536        , range [0, 1, ..., 65534, 65535]
-    2^32 = 4294967296   , range [0, 1, ..., 4294967294, 4294967295]
+|    2^8 = 256           , range [0, 1, ..., 254, 255]
+|    2^16 = 65536        , range [0, 1, ..., 65534, 65535]
+|    2^32 = 4294967296   , range [0, 1, ..., 4294967294, 4294967295]
 
 Notice, the max value is always 2^bit - 1.
 
@@ -404,46 +404,46 @@ In our previous example, we determined that 4 bits can represent 16 decimal valu
 
     Each position of a hex value requires 4bits to represent it.
 
-*   0xD,            requires 1x4 = 4bits.
-*   0xDE,           requires 2x4 = 8bits.
-*   0xDEA,          requires 3x4 = 12bits.
-*   0xDEAD,         requires 4x4 = 16bits.
-*   0xDEADB,        requires 5x4 = 20bits.
-*   0xDEADBE,       requires 6x4 = 24bits.
-*   0xDEADBEE,      requires 7x4 = 28bits.
-*   0xDEADBEEF,     requires 8x4 = 32bits.
+|   0xD,            requires 1x4 = 4bits.
+|   0xDE,           requires 2x4 = 8bits.
+|   0xDEA,          requires 3x4 = 12bits.
+|   0xDEAD,         requires 4x4 = 16bits.
+|   0xDEADB,        requires 5x4 = 20bits.
+|   0xDEADBE,       requires 6x4 = 24bits.
+|   0xDEADBEE,      requires 7x4 = 28bits.
+|   0xDEADBEEF,     requires 8x4 = 32bits.
 
 
 If we list out all the binary values 4 bits produce, we can see the relation between the hex2dec and dec2bin values.
 
-    hex	    Decimal	    4bit binary
-    0	    0   	    0000
-    1	    1   	    0001
-    2	    2   	    0010
-    3	    3   	    0011
-    4	    4   	    0100
-    5	    5   	    0101
-    6	    6   	    0110
-    7	    7	        0111
-    8	    8	        1000
-    9	    9	        1001
-    A	    10	        1010
-    B	    11	        1011
-    C	    12	        1100
-    D	    13	        1101
-    E	    14	        1110
-    F	    15  	    1111
+|    hex	    Decimal	    4bit binary
+|    0	    0   	    0000
+|    1	    1   	    0001
+|    2	    2   	    0010
+|    3	    3   	    0011
+|    4	    4   	    0100
+|    5	    5   	    0101
+|    6	    6   	    0110
+|    7	    7	        0111
+|    8	    8	        1000
+|    9	    9	        1001
+|    A	    10	        1010
+|    B	    11	        1011
+|    C	    12	        1100
+|    D	    13	        1101
+|    E	    14	        1110
+|    F	    15  	    1111
 
 Bare with me.. if we use the table above to convert from hex to 
 
-    0xD,            0x1101
-    0xDE,           0x1101_1110
-    0xDEA,          0x1101_1110_1010
-    0xDEAD,         0x1101_1110_1010_1101
-    0xDEADB,        0x1101_1110_1010_1101_1011
-    0xDEADBE,       0x1101_1110_1010_1101_1011_1110
-    0xDEADBEE,      0x1101_1110_1010_1101_1011_1110_1110
-    0xDEADBEEF,     0x1101_1110_1010_1101_1011_1110_1110_1111
+|    0xD,            0x1101
+|    0xDE,           0x1101_1110
+|    0xDEA,          0x1101_1110_1010
+|    0xDEAD,         0x1101_1110_1010_1101
+|    0xDEADB,        0x1101_1110_1010_1101_1011
+|    0xDEADBE,       0x1101_1110_1010_1101_1011_1110
+|    0xDEADBEE,      0x1101_1110_1010_1101_1011_1110_1110
+|    0xDEADBEEF,     0x1101_1110_1010_1101_1011_1110_1110_1111
 
 
 Hexidecimal and Binary relationship
