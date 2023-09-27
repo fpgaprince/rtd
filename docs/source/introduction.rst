@@ -4,6 +4,8 @@ Introduction
     
     "Always."
 
+    --nibbles, the half byte prince
+
 .. tip::
 
     "You will face many defeats in life, never let yourself be defeated."
