@@ -518,24 +518,27 @@ Up to this point we've only spoke of/represented positive numbers.
 We need to discuss negative numbers and how it is interpreted/implemented.
 
 There are several approaches, but I will discuss what is called 2's complement
-and use a 4bit binary value to illustrate. Note, our binary decimal conversions
+
+Note, our binary decimal conversions
 in earlier section utilized this 2's complement.
 
     2's comp is probably the most commmon 
     interpretation and usage of binary numbers. 
 
-Remember that, a 4bit value gives us 16 unique combinations..
-how we interpret and use it is up to us.
 
 With 2's complement, the MSB is defined/used as the sign bit.
-it's power of two value is negated, while the rest remain positive.
-
-In 4bit binary, the 4th bit (3rd index) normally would have a value of 8,
-but we're negating it, -8. 
+It's power of two value is negated, while the rest remain positive.
 
 
 Convert from Binary to Negative Decimal
 -------------------------------------------------------------
+We will use a 4bit binary value to illustrate. 
+
+In 4bit binary, the 4th bit (3rd index) normally would have a weight of 8 (2^3),
+but we're negating it, -8. 
+
+Only showing the sum of the power of 2s.
+
 e.g. 1100
 = -8 + 4 + 0 + 0 = -4
 
@@ -545,6 +548,12 @@ e.g. 1001
 e.g. 1110
 = -8 + 4 + 2 + 0 = -2
 
+
+Remember that, a 4bit binary value gives us 16 unique combinations..
+But because the MSB represents a sign, we lose half of our positive representation
+to the new negative values. 
+
+See below.
 ::
 
     Decimal	    4bit binary     Negative
