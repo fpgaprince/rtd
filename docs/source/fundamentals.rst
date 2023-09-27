@@ -581,16 +581,36 @@ See below.
 If it was 5bits, = 32, 32/2 = 16, 0 to 15. -16 to -1.
 6bit = 64, /2 = 32, 0 to 31 and -32 to -1.
 7bit = 128, /2 = 64, 0 to 63 and -64 to -1.
-We will show this mathematically later.
+
+::
+
+    We will show this mathematically later.
+
+Notice the MSB is also the most negative value you can represent.
+
+::
+
+    10 = -2
+    100 = -4
+    1000 = -8
+    10000 = -16
+    100000 = -32
+    1000000 = -64
+    etc..
+
+if you want to represent -7, you need atleast 4 bits. 3bit is
+insufficient.
 
 
 Convert from Negative Decimal to Binary
 -------------------------------------------------------------
 To convert from a negative decimal value to binary..
-determine how many bit you need/want. 
-determine the maximum positive value for that number of bits.
-add that max value to your negative value.
-convert the 'positive' value to its binary representation.
+
+#.  determine how many bit you need/want. 
+#.  determine the maximum positive value for that number of bits.
+#.  add that max value to your negative value.
+#.  convert the 'positive' value to its binary representation.
+
 we're using 4bits, so the max value is 2^4 = 16.
 
 -5 + 16 = 11, convert 11 as you had previously.

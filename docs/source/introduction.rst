@@ -1,10 +1,23 @@
 Introduction
 ************************
+.. epigraph::
+    
+    "Always."
 
-"Always."
+.. tip::
 
-"You will face many defeats in life, never let yourself be defeated."
+    "You will face many defeats in life, never let yourself be defeated."
 
-"Always two there are, no more, no less. A master and an apprentice."
 
-"The bandpass."
+.. warning::
+
+    "Always two there are, no more, no less. A master and an apprentice."
+
+.. error::
+
+    "The bandpass."
+
+
+.. note::
+
+    wtf.
