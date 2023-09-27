@@ -554,8 +554,11 @@ e.g. 1110
 Remember that, a 4bit binary value gives us 16 unique combinations..
 But because the MSB represents a sign, we lose half of our positive representation
 to the new negative values. 
+We will show how the bit width determines range again "applied to negative numbers"
 
-See below.::
+See below.
+
+::
 
     Decimal	    4bit binary     Negative
     0           0000            0
@@ -575,10 +578,15 @@ See below.::
     14          1110            -2
     15          1111            -1
 
+If it was 5bits, = 32, 32/2 = 16, 0 to 15. -16 to -1.
+6bit = 64, /2 = 32, 0 to 31 and -32 to -1.
+7bit = 128, /2 = 64, 0 to 63 and -64 to -1.
+We will show this mathematically later.
+
 
 Convert from Negative Decimal to Binary
 -------------------------------------------------------------
-To conver from a negative decimal value to binary..
+To convert from a negative decimal value to binary..
 determine how many bit you need/want. 
 determine the maximum positive value for that number of bits.
 add that max value to your negative value.
@@ -633,9 +641,6 @@ we're using 4bits, so the max value is 2^4 = 16.
     -1      = 1111
     
 
-
-We will show how the bit width determines range again "applied to negative numbers"
-Do this for each
 
 This is 2's complement.
 
