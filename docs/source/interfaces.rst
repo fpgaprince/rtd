@@ -5,7 +5,9 @@ It is just a means to transport/transfer data from one place to another.
 
 Depending on your system and application, 
 what you are trying to interface to and the performance requirement.
-Data rate, sample rate, bandwidth. it will dictact what is adequate/necessary for your design.
+Data rate and distance. 
+it will dictact what is adequate/necessary for your design.
+
 
 
 JTAG
@@ -23,8 +25,9 @@ Quad SPI
 ##########################
 ::
 
-    QSPI employs a 4-wire configuration, similar to SPI, but utilizes parallel data lines (DQ0-DQ3) to achieve quad data transfer. 
-    It supports higher clock frequencies and provides increased data throughput compared to traditional SPI. 
+    QSPI employs a 4-wire configuration, similar to SPI, but utilizes parallel data lines 
+    (DQ0-DQ3) to achieve quad data transfer. It supports higher clock frequencies and 
+    provides increased data throughput compared to traditional SPI. 
     QSPI uses Double Data Rate (DDR) techniques to further improve performance.
 
 I2C
@@ -58,12 +61,14 @@ Ethernet
 SERDES
 ##########################
 
-
-FMC?
-HMC?
-SERDES
 DDR
-AXIe
-PXIe
-DMA?
-NAND
+##########################
+
+
+
+|   FMC?
+|   HMC?
+|   DMA?
+|   NAND
+|   AXIe
+|   PXIe
