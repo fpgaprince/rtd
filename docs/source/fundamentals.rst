@@ -555,8 +555,7 @@ Remember that, a 4bit binary value gives us 16 unique combinations..
 But because the MSB represents a sign, we lose half of our positive representation
 to the new negative values. 
 
-See below.
-::
+See below.::
 
     Decimal	    4bit binary     Negative
     0           0000            0
