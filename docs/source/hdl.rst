@@ -23,7 +23,7 @@ I'm not going to list all the differences under the sun..
 
 
 VHDL
-=========
+########################################################################################################
 mmm.. do i just put basic shit here.. and then add VHDL examples?
 
 you need libraries.
@@ -88,7 +88,7 @@ Putting it all together, template!
 
 
 HDL with emphasis on FPGAs/vendor
-====================================
+##############################################################################
 Specific to Xilinx at the moment......
 I feel like.. HDL should just be purely HDL like basic syntaxs and templates... with out application.
 then as we talk about the different logic operation or circuits...
@@ -159,9 +159,9 @@ Gray state encoding.
 
 
 Verilog
-=========
+##############################################################################
 Later..
 
 SystemVerilog
-==================
+##############################################################################
 Later.. as I dont use enough.

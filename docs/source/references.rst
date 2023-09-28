@@ -1,27 +1,9 @@
+************************
+References
+************************
 
-read a shit ton of wikis
-read a shit ton of books
-read a shit ton of forums
-read a shit ton of guides
-watch a shit ton of youtube
-watch a shit ton of lectures
-attend a shit ton of seminars
-read a shit ton of tutorials
-read a shit ton of datasheets
-read a shit ton of white papers
-read a shit ton of IEEE journals
-read a shit ton of technical papers
-fail a shit ton of time.
-get laughed at.
-
-5hr sleeps
-14hr days
-no social life..
-
-when i finally make it..
-dont tell me i was lucky.
-"it wasn't easy. it never was."
-
+References
+##########################
 
 https://zipcpu.com/
 https://dsprelated.com/
@@ -68,6 +50,20 @@ https://www.altium.com/
 https://www.youtube.com/@RobertFeranec
 
 https://www.eevblog.com/
+
+
+
+Books
+##########################
+
+
+
+Videos?
+##########################
+Like youtube or MIT stuff?
+
+
+
 
 
 
