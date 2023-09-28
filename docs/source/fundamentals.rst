@@ -580,40 +580,41 @@ See below.
 
 If it was..
 
-5bits, = 32, 32/2 = 16, 0 to 15. -16 to -1.
+5bits   = 32 max pos val, 32/2 = 16,    range: 0 to 15 and -16 to -1.
 
-6bit = 64, /2 = 32, 0 to 31 and -32 to -1.
+6bit    = 64 max pos val, 64/2 = 32,    range: 0 to 31 and -32 to -1.
 
-7bit = 128, /2 = 64, 0 to 63 and -64 to -1.
+7bit    = 128 max pos val, 128/2 = 64,  range: 0 to 63 and -64 to -1.
 
-::
+.. note::
 
     We will show this mathematically later.
 
-Notice the MSB is also the most negative value you can represent.
+Notice the MSB dictates/limits the most negative value you can represent.
+Max neg val will always be MSB = 1, followed by all 0s.
 
 ::
 
-    10 = -2
-    100 = -4
-    1000 = -8
-    10000 = -16
-    100000 = -32
+    10      = -2
+    100     = -4
+    1000    = -8
+    10000   = -16
+    100000  = -32
     1000000 = -64
     etc..
 
-if you want to represent -7, you need atleast 4 bits. 3bit is
-insufficient.
+If you want to represent -7, you need atleast 4 bits, 3 is insufficient.
 
+If you want to represent -24, you need atleast 6 bits, 5 is insufficient.
 
 Convert from Negative Decimal to Binary
 -------------------------------------------------------------
 To convert from a negative decimal value to binary..
 
-#.  determine how many bit you need/want. 
-#.  determine the maximum positive value for that number of bits.
-#.  add that max value to your negative value.
-#.  convert the 'positive' value to its binary representation.
+#.  Determine how many bit you need/want. 
+#.  Determine the maximum positive value for that number of bits.
+#.  Add that max value to your negative value.
+#.  Convert the 'positive' value to its binary representation.
 
 we're using 4bits, so the max value is 2^4 = 16.
 
@@ -680,6 +681,9 @@ For instance -8.
     1/2     = R1, MSB
     -8      = 11000
 
+-1 with 5 bits is 11111
+
+-1 for any number of bits will be all 1's.
 
 
 .. note::
