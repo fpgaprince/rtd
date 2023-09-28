@@ -714,7 +714,7 @@ where the decimal is. Basically, we define how many bits we're using to the left
 
 ::
 
-    bbbb.bbbb       or bbbb.bb      or bbbbbbbb.bbbb
+    mmmm.nnnn       or mmmm.nn      or mmmmmmmmm.nnn
     Q4.4            Q4.2            Q8.4
 
 The bits to the left represent the integer as we've been dealing with. nothing different. same rules.
