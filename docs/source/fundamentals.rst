@@ -741,8 +741,12 @@ These are a few of the fractional weights.
 
 .. math::
 
-    1/2^1
+    fraction    &= \mathbf{(b_1)}\; 1/2^1 + \mathbf{(b_2)}\; 1/2^2 + \mathbf{(b_3)}\; 1/2^3 + \mathbf{(b_4)}\; 1/2^4 + ... + \mathbf{(b_n)}\; 1/2^n
+                &= \mathbf{(b_1)}\; 2^{-1} + \mathbf{(b_2)}\; 2^{-2} + \mathbf{(b_3)}\; 2^{-3} + \mathbf{(b_4)}\; 2^{-4} + ... + \mathbf{(b_n)}\; 2^{-n}
+                &= \mathbf{(b_1)}\; 0.5 + \mathbf{(b_2)}\; 0.25 + \mathbf{(b_3)}\; 0.125 + \mathbf{(b_4)}\; 0.0625 + ... + \mathbf{(b_n)}\; 2^{-n}
 
+
+just to extend it a little..
 ::
 
     -1      -2      -3      -4      -5          -6          -7          -8              
