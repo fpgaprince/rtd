@@ -59,12 +59,24 @@ PCIe
 
 Ethernet
 ##########################
+    10/100/1G
+
+    PCS/PMA
+
+    MAC
+
+    10G
+
+    40G/50G
 
 
 SERDES
 ##########################
 
 DDR
+##########################
+
+SD
 ##########################
 
 CAN
@@ -77,6 +89,10 @@ WIFI
 ##########################
 
 
+Audio
+##########################
+
+
 
 Sensors?
 =======================
@@ -85,11 +101,13 @@ Sensors?
 
     Accelerometer
 
+    Inertial
+
     image/video - camera
 
-    temp 
+    Temp 
 
-    display
+    Display
 
 
 
