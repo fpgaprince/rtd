@@ -712,11 +712,17 @@ To represent fractional decimal numbers in binary, we mentally set where the dec
 In the system which uses the fixed point value, we set this up ahead of time, so that it knows
 where the decimal is. Basically, we define how many bits we're using to the left and to the right of the decimal point.
 
-    bbbb.bbbb   or bbbb.bb      or bbbbbbbb.bbbb
+::
+
+    bbbb.bbbb       or bbbb.bb      or bbbbbbbb.bbbb
+    Q4.4            Q4.2            Q8.4
 
 The bits to the left represent the integer as we've been dealing with. nothing different. same rules.
 the right is similar, but the weights are different.. the powers of 2's are negative, creating fractional weights.
 A 1 or 0 will determine whether or not we add the fraction.
+
+Qm.n is a notation used to represent fixed point numbers. The left m value represents the number of bits used to represent
+the integer, and the n bit on the right represents how many bits to represent the fractional portion.
 
 If our bit width is set, the placement of the decimal point determines the range of the integer 
 as well as the range of the fraction. The fraction is also called precision.
@@ -730,12 +736,36 @@ Precisely..
             &= \mathbf{(0)}\; 0.5 + \mathbf{(1)}\; 0.25 + \mathbf{(0)}\; 0.125 + \mathbf{(1)}\; 0.0625\\
             &= 0 + 0.25 + 0 + 0.0625\\
             &= 0.3125         
-             
+
+These are a few of the fractional weights.
+
+.. math::
+
+    1/2^1
+
 ::
 
     -1      -2      -3      -4      -5          -6          -7          -8              
     0.5     0.25    0.125   0.0625  0.03125     0.015625    0.0078125   0.00390625      
 
+
+If we wrote instead 0101.0101, then it becomes 5.3125
+
+.. math::
+
+    .0110   &= \mathbf{(0)}\; 0.5 + \mathbf{(1)}\; 0.25 + \mathbf{(1)}\; 0.125 + \mathbf{(1)}\; 0.0625\\
+            &= 0 + 0.25 + 0.125 + 0\\
+            &= 0.375         
+
+If we wrote 0111.0110, then it becomes 7.375
+
+One more!
+
+.. math::
+
+    .011011     &= \mathbf{(0)}\; 0.5 + \mathbf{(1)}\; 0.25 + \mathbf{(1)}\; 0.125 + \mathbf{(0)}\; 0.0625 + \mathbf{(1)}\; 0.03125 + \mathbf{(1)}\; 0.015625\\
+                &= 0 + 0.25 + 0.125 + 0 + 0.03125 + 0.015625\\
+                &= 0.421875       
 
 
 Floating-Point
