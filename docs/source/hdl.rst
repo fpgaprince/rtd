@@ -27,6 +27,13 @@ VHDL
 mmm.. do i just put basic shit here.. and then add VHDL examples?
 
 you need libraries.
+    LIBRARY IEEE;
+    USE IEEE.std_logic_1164.ALL;
+    USE IEEE.numeric_std.ALL;
+
+    use     USE IEEE.numeric_std.ALL;
+    DO NOT USE  std_logic_arith
+
 
 entity
     input output
