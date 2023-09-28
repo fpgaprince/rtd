@@ -19,6 +19,9 @@ Flip Flops (FF)
 D Flip Flops (DFF)
 -----------------
 
+
+
+
 JK Flip Flops
 -----------------
 

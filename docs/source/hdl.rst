@@ -72,9 +72,30 @@ Putting it all together, template!
         end process;
     end rtl;
 
+
+
+
+
+
+
+
+
 HDL with emphasis on FPGAs/vendor
 ====================================
 Specific to Xilinx at the moment......
+I feel like.. HDL should just be purely HDL like basic syntaxs and templates... with out application.
+then as we talk about the different logic operation or circuits...
+we'll provide snippets of the HDL code which will synthesize into these circuits.
+HDL sprinked across the sections......
+
+
+
+I kinda want a deeper dive with the results of the implementation too..
+like what it means to use dedicated hardware vs. LUT 
+
+or like the fact that there is only D FF in an FPGA.. other styles FF is just going to be an implementation..
+which uses the DFF such that the functionality will be equivalent to another #FF.
+
 
 Do not asynchronously set or reset registers.
     It becomes preset and clear?
@@ -102,6 +123,7 @@ The primary difference between distributed RAM (made from LUT/FF = LUTRAM) and d
 data is read from the RAM. See the following table.
 
 ::
+
     Action  Distributed RAM	    Dedicated Block RAM
     Write	Synchronous	        Synchronous
     Read	Asynchronous	    Synchronous

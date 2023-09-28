@@ -877,6 +877,20 @@ Binary Arithmetic
 2s comp
 ====================
 
+Addition
+--------------------
+
+Subtract
+--------------------
+
+Multiply
+--------------------
+
+Devision
+--------------------
+
+
+
 sign extension
 ====================
 
