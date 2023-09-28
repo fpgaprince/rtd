@@ -536,8 +536,8 @@ but we're negating it, -8.
 
 .. math::
     
-    &= (-1)\mathbf{(b_1)}\; 2^3 &+ \mathbf{(b_2)}\; 2^2   + \mathbf{(b_3)}\; 2^1   + \mathbf{(b_4)}\; 2^0\\
-    &= (-1)\mathbf{(b_1)}\; 8 &+ \mathbf{(b_2)}\; 4     + \mathbf{(b_3)}\; 2    + \mathbf{(b_4)}\; 1
+    &= (-1)\mathbf{(b_1)}\; 2^3 + \mathbf{(b_2)}\; 2^2   + \mathbf{(b_3)}\; 2^1   + \mathbf{(b_4)}\; 2^0\\
+    &= (-1)\mathbf{(b_1)}\; 8 + \mathbf{(b_2)}\; 4     + \mathbf{(b_3)}\; 2    + \mathbf{(b_4)}\; 1
 
 Only showing the sum of the power of 2s. because im lazy..
 
