@@ -28,6 +28,7 @@ Do not asynchronously set or reset registers.
 
 Sequential functionality in device resources, such as block RAM components and DSP blocks, can be set or reset synchronously only.
 
+
 Do not describe flip-flops with both a set and a reset.
 No flip-flop primitives feature both a set and a reset, whether synchronous or asynchronous.
 Flip-flop primitives featuring both a set and a reset can adversely affect area and performance.
@@ -37,25 +38,61 @@ Always describe the clock enable, set, and reset control inputs of flip-flop pri
 
 
 
+:: Flip-Flops and Registers
+    
+    FDCE
+        D flip-flop with Clock Enable and Asynchronous Clear
 
-FDCE
-    D flip-flop with Clock Enable and Asynchronous Clear
+    FDPE
+        D flip-flop with Clock Enable and Asynchronous Preset
 
-FDPE
-    D flip-flop with Clock Enable and Asynchronous Preset
+    FDSE
+        D flip-flop with Clock Enable and Synchronous Set
 
-FDSE
-    D flip-flop with Clock Enable and Synchronous Set
+    FDRE
+        D flip-flop with Clock Enable and Synchronous Reset
 
-FDRE
-    D flip-flop with Clock Enable and Synchronous Reset
+    The number of Registers inferred during HDL synthesis might not precisely equal the number of Flip-Flop primitives in the Design Summary section.
+    The number of Flip-Flop primitives depends on the following processes:
+    Absorption of Registers into DSP blocks or block RAM components
+    Register duplication
+    Removal of constant or equivalent Flip-Flops
+    Basically your estimate and final report may not match because the tool will optimize. You can turn this off though.
 
-The number of Registers inferred during HDL synthesis might not precisely equal the number of Flip-Flop primitives in the Design Summary section.
-The number of Flip-Flop primitives depends on the following processes:
-Absorption of Registers into DSP blocks or block RAM components
-Register duplication
-Removal of constant or equivalent Flip-Flops
-Basically your estimate and final report may not match because the tool will optimize. You can turn this off though.
+:: Latches 
+    
+    Inferred Latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
+    Vivado synthesis issues a warning for the instance shown in the following reporting example.
+
+    Inferred Tristate buffers are implemented with different device primitives when driving the following:
+
+:: Tristates
+
+    An external pin of the circuit (OBUFT)
+    An Internal bus (BUFT):
+    An inferred BUFT is converted automatically to logic realized in LUTs by Vivado synthesis.
+    When an internal bus inferring a BUFT is driving an output of the top module, the Vivado synthesis infers an OBUF.
+
+:: Shift Registers
+    
+    A static Shift Register usually involves:
+
+        A clock
+        An optional clock enable
+        A serial data input
+        A serial data output
+
+    Vivado synthesis implements inferred Shift Registers on SRL-type resources such as:
+
+    SRL16E
+    SRLC32E
+
+    Depending on the length of the Shift Register, Vivado synthesis does one of the following:
+
+    Implements it on a single SRL-type primitive
+    Takes advantage of the cascading capability of SRLC-type primitives
+    Attempts to take advantage of this cascading capability if the rest of the design uses some intermediate positions of the Shift Register
+
 
 VHDL
 =========
@@ -64,6 +101,9 @@ mmm.. do i just put basic shit here.. and then add VHDL examples?
 you need libraries.
 template!
 entity
+    input output
+signals
+data types
 component
 process
 combinational vs sequential

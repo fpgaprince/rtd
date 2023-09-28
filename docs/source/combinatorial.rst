@@ -98,3 +98,29 @@ Comparator
 Parity Gen and Check
 -------------------------------
 
+
+
+
+Tristate
+-------------------------------
+.. code-block:: vhdl
+  :linenos:    
+
+    entity tristates_1 is
+    port(
+      T : in std_logic;
+      I : in std_logic;
+      O : out std_logic
+    );
+    end tristates_1;
+    architecture archi of tristates_1 is
+    begin
+    process(I, T)
+    begin
+    if (T = '0') then
+    O <= I;
+    else
+    O <= 'Z';
+    end if;
+    end process;
+    end archi;
