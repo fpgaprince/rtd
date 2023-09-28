@@ -534,7 +534,12 @@ We will use a 4bit binary value to illustrate.
 In 4bit binary, the 4th bit (3rd index) normally would have a weight of 8 (2^3),
 but we're negating it, -8. 
 
-Only showing the sum of the power of 2s.
+.. math::
+    
+    &= (-1)\mathbf{(b_1)}\; 2^3  &+ \mathbf{(b_2)}\; 2^2   + \mathbf{(b_3)}\; 2^1   + \mathbf{(b_4)}\; 2^0\\
+    &= \mathbf{(b_1)}\; (-8)     &+ \mathbf{(b_2)}\; 4     + \mathbf{(b_3)}\; 2    + \mathbf{(b_4)}\; 1
+
+Only showing the sum of the power of 2s. because im lazy..
 
 e.g. 1100
 = -8 + 4 + 0 + 0 = -4
