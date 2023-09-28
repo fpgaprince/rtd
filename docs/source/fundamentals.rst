@@ -729,6 +729,11 @@ as well as the range of the fraction. The fraction is also called precision.
 More precision means more bits dedicated to its value. Less precision, means less precise. lol..
 Precisely..
 
+.. math::
+
+    fraction    &= \mathbf{(b_1)}\; 1/2^1 + \mathbf{(b_2)}\; 1/2^2 + \mathbf{(b_3)}\; 1/2^3 + \mathbf{(b_4)}\; 1/2^4 + ... + \mathbf{(b_n)}\; 1/2^n
+                &= \mathbf{(b_1)}\; 2^{-1} + \mathbf{(b_2)}\; 2^{-2} + \mathbf{(b_3)}\; 2^{-3} + \mathbf{(b_4)}\; 2^{-4} + ... + \mathbf{(b_n)}\; 2^{-n}
+                &= \mathbf{(b_1)}\; 0.5 + \mathbf{(b_2)}\; 0.25 + \mathbf{(b_3)}\; 0.125 + \mathbf{(b_4)}\; 0.0625 + ... + \mathbf{(b_n)}\; 2^{-n}
 
 .. math::
 
@@ -737,23 +742,14 @@ Precisely..
             &= 0 + 0.25 + 0 + 0.0625\\
             &= 0.3125         
 
+If we wrote instead 0101.0101, then it becomes 5.3125
+
 These are a few of the fractional weights.
-
-.. math::
-
-    fraction    &= \mathbf{(b_1)}\; 1/2^1 + \mathbf{(b_2)}\; 1/2^2 + \mathbf{(b_3)}\; 1/2^3 + \mathbf{(b_4)}\; 1/2^4 + ... + \mathbf{(b_n)}\; 1/2^n
-                &= \mathbf{(b_1)}\; 2^{-1} + \mathbf{(b_2)}\; 2^{-2} + \mathbf{(b_3)}\; 2^{-3} + \mathbf{(b_4)}\; 2^{-4} + ... + \mathbf{(b_n)}\; 2^{-n}
-                &= \mathbf{(b_1)}\; 0.5 + \mathbf{(b_2)}\; 0.25 + \mathbf{(b_3)}\; 0.125 + \mathbf{(b_4)}\; 0.0625 + ... + \mathbf{(b_n)}\; 2^{-n}
-
-
-just to extend it a little..
 ::
 
     -1      -2      -3      -4      -5          -6          -7          -8              
     0.5     0.25    0.125   0.0625  0.03125     0.015625    0.0078125   0.00390625      
 
-
-If we wrote instead 0101.0101, then it becomes 5.3125
 
 .. math::
 
@@ -770,6 +766,42 @@ One more!
     .011011     &= \mathbf{(0)}\; 0.5 + \mathbf{(1)}\; 0.25 + \mathbf{(1)}\; 0.125 + \mathbf{(0)}\; 0.0625 + \mathbf{(1)}\; 0.03125 + \mathbf{(1)}\; 0.015625\\
                 &= 0 + 0.25 + 0.125 + 0 + 0.03125 + 0.015625\\
                 &= 0.421875       
+
+If we wrote 0110.0110, then it becomes 6.421875
+
+Notice the furthest bit to the right in the fraction is the LSB. and determines the granularity of our fraction.
+For instance if we used 3 fractional bits.. the granularity would be 0.125
+
+::
+
+    .000    = 0.0
+    .001    = 0.125
+    .010    = 0.25
+    .011    = 0.375
+    .100    = 0.5
+    .101    = 0.625
+    .110    = 0.75
+    .111    = 0.875
+
+If we used 4 bits.. we'd have 0.0625 granularity
+::
+
+    .0000   = 0.0
+    .0001   = 0.0625
+    .0010   = 0.125
+    .0011   = 0.1875
+    .0100   = 0.25
+    .0101   = 0.3125
+    .0110   = 0.375
+    .0111   = 0.4375
+    .1000   = 0.5
+    .1001   = 0.5625
+    .1010   = 0.625
+    .1011   = 0.6675
+    .1100   = 0.75
+    .1101   = 0.8125
+    .1110   = 0.875
+    .1111   = 0.9375
 
 
 Floating-Point
