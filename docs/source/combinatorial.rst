@@ -53,6 +53,8 @@ NOTE: that while we talk about gates to create these functions, an FPGA will act
 Multiplexer
 -------------------------------
 
+
+
 Demultiplexer
 -------------------------------
 
@@ -98,11 +100,42 @@ Comparator
 Parity Gen and Check
 -------------------------------
 
+Multiplier
+-------------------------------
+.. code-block:: vhdl
+  :linenos:    
+
+  entity mult_unsigned is
+  generic(
+  WIDTHA : integer := 16;
+  WIDTHB : integer := 16
+  );
+  port(
+  A : in std_logic_vector(WIDTHA - 1 downto 0);
+  B : in std_logic_vector(WIDTHB - 1 downto 0);
+  RES : out std_logic_vector(WIDTHA + WIDTHB - 1 downto 0)
+  );
+  end mult_unsigned;
+
+  architecture beh of mult_unsigned is
+  begin
+  RES <= A * B;
+  end beh;
 
 
 
 Tristate
 -------------------------------
+
+
+:: Tristates
+
+    An external pin of the circuit (OBUFT)
+    An Internal bus (BUFT):
+    An inferred BUFT is converted automatically to logic realized in LUTs by Vivado synthesis.
+    When an internal bus inferring a BUFT is driving an output of the top module, the Vivado synthesis infers an OBUF.
+
+
 .. code-block:: vhdl
   :linenos:    
 
@@ -124,3 +157,14 @@ Tristate
     end if;
     end process;
     end archi;
+
+
+
+
+ALU
+-------------------------------
+Create/ show a simple one. That utilizes enc/dec, add/sub
+
+  .. code-block:: vhdl
+  :linenos:    
+

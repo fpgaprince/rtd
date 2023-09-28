@@ -21,8 +21,61 @@ I'm not going to list all the differences under the sun..
 
 
 
-HDL with emphasis on FPGAs
+
+VHDL
+=========
+mmm.. do i just put basic shit here.. and then add VHDL examples?
+
+you need libraries.
+
+entity
+    input output
+signals
+data types
+component
+process
+combinational vs sequential
+if else
+case
+generic
+
+
+Putting it all together, template!
+
+.. code-block:: vhdl
+  :linenos:   
+    LIBRARY IEEE;
+    USE IEEE.std_logic_1164.ALL;
+    USE IEEE.numeric_std.ALL;
+    
+    entity is port (
+            clk : in std_logic;
+            rst : in std_logic;
+            someout : out std_logic;    
+    )
+    end fpga_top;
+
+    architecture rtl of fpga_top is
+        --signal declarations
+        --component declarations
+    begin
+        process (sensitivity) begin
+            if () then
+            else
+            end if;
+        end process;
+
+        process (clk) begin
+            if () then
+            else
+            end if;
+        end process;
+    end rtl;
+
+HDL with emphasis on FPGAs/vendor
 ====================================
+Specific to Xilinx at the moment......
+
 Do not asynchronously set or reset registers.
     It becomes preset and clear?
 
@@ -37,80 +90,40 @@ Avoid operational set/reset logic whenever possible. There can be other, less ex
 Always describe the clock enable, set, and reset control inputs of flip-flop primitives as active-High. If they are described as active-Low, the resulting inverter logic penalizes circuit performance.
 
 
-
-:: Flip-Flops and Registers
-    
-    FDCE
-        D flip-flop with Clock Enable and Asynchronous Clear
-
-    FDPE
-        D flip-flop with Clock Enable and Asynchronous Preset
-
-    FDSE
-        D flip-flop with Clock Enable and Synchronous Set
-
-    FDRE
-        D flip-flop with Clock Enable and Synchronous Reset
-
-    The number of Registers inferred during HDL synthesis might not precisely equal the number of Flip-Flop primitives in the Design Summary section.
-    The number of Flip-Flop primitives depends on the following processes:
-    Absorption of Registers into DSP blocks or block RAM components
-    Register duplication
-    Removal of constant or equivalent Flip-Flops
-    Basically your estimate and final report may not match because the tool will optimize. You can turn this off though.
-
-:: Latches 
-    
-    Inferred Latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
-    Vivado synthesis issues a warning for the instance shown in the following reporting example.
-
-    Inferred Tristate buffers are implemented with different device primitives when driving the following:
-
-:: Tristates
-
-    An external pin of the circuit (OBUFT)
-    An Internal bus (BUFT):
-    An inferred BUFT is converted automatically to logic realized in LUTs by Vivado synthesis.
-    When an internal bus inferring a BUFT is driving an output of the top module, the Vivado synthesis infers an OBUF.
-
-:: Shift Registers
-    
-    A static Shift Register usually involves:
-
-        A clock
-        An optional clock enable
-        A serial data input
-        A serial data output
-
-    Vivado synthesis implements inferred Shift Registers on SRL-type resources such as:
-
-    SRL16E
-    SRLC32E
-
-    Depending on the length of the Shift Register, Vivado synthesis does one of the following:
-
-    Implements it on a single SRL-type primitive
-    Takes advantage of the cascading capability of SRLC-type primitives
-    Attempts to take advantage of this cascading capability if the rest of the design uses some intermediate positions of the Shift Register
+You'll want to write code such that it will utilize dedicated hardware when you can
+such as....
+    RAM: BRAM vs distributed memory.. , 
+    DSP, for adding/subtracting larger vectors, multiplying large vectors, FIR filters
+    SRL, shift registers
 
 
-VHDL
-=========
-mmm.. do i just put basic shit here.. and then add VHDL examples?
+Data is written synchronously into the RAM for both types. 
+The primary difference between distributed RAM (made from LUT/FF = LUTRAM) and dedicated block RAM lies in the way
+data is read from the RAM. See the following table.
 
-you need libraries.
-template!
-entity
-    input output
-signals
-data types
-component
-process
-combinational vs sequential
-if else
-case
-generic
+::
+    Action  Distributed RAM	    Dedicated Block RAM
+    Write	Synchronous	        Synchronous
+    Read	Asynchronous	    Synchronous
 
+
+Generally you will always want to take advantage of RAM, DSP, SRL, MUX? over their LUT equivalents.. better performance.
+they are tightly stiched already.. "dedicated hardware/circuits" their area or real estate is already in place. 
+if you dont use it you lose it. its already there for you.
+
+
+Vivado synthesis supports specification of Finite State Machine (FSM) in both Moore and Mealy form. An FSM consists of the following:
+
+A state register
+A next state function
+An outputs function
+
+Mealy depends on current state and input.
+Moore depends only on current state. "More is less."
+
+One hot encoding
+
+Gray state encoding.
 
 
 
