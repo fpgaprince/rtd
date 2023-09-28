@@ -729,12 +729,17 @@ as well as the range of the fraction. The fraction is also called precision.
 More precision means more bits dedicated to its value. Less precision, means less precise. lol..
 Precisely..
 
-    &= \mathbf{(b_1)}\; 2^{-1}  + \mathbf{(b_2)}\; 2^{-2}   + \mathbf{(b_3)}\; 2^{-3}   + \mathbf{(b_4)}\; 2^{-4}   + \mathbf{(b_n)}\; 2^{-n}
+.. math::
+    
+    = \mathbf{(b_1)}\; 2^{-1}  + \mathbf{(b_2)}\; 2^{-2}   + \mathbf{(b_3)}\; 2^{-3}   + \mathbf{(b_4)}\; 2^{-4}   + \mathbf{(b_n)}\; 2^{-n}
     
 .. math::
+    
+    = \mathbf{(b_1)}\; 1/2^1   + \mathbf{(b_2)}\; 1/2^2    + \mathbf{(b_3)}\; 1/2^3    + \mathbf{(b_4)}\; 1/2^4    + \mathbf{(b_n)}\; 1/2^n
 
-    .0101   &= \mathbf{(b_1)}\; 1/2^1   + \mathbf{(b_2)}\; 1/2^2    + \mathbf{(b_3)}\; 1/2^3    + \mathbf{(b_4)}\; 1/2^4    + \mathbf{(b_n)}\; 1/2^n
-            &= \mathbf{(b_1)}\; 0.5     + \mathbf{(b_2)}\; 0.25     + \mathbf{(b_3)}\; 0.125    + \mathbf{(b_4)}\; 0.0625   + \mathbf{(b_n)}\; 2^{-n}
+.. math::
+    
+    = \mathbf{(b_1)}\; 0.5     + \mathbf{(b_2)}\; 0.25     + \mathbf{(b_3)}\; 0.125    + \mathbf{(b_4)}\; 0.0625   + \mathbf{(b_n)}\; 2^{-n}
 
 
 .. math::
