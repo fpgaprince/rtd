@@ -155,12 +155,7 @@ A binary number can look like this, 0101
     0101    &= \mathbf{(0)}\; 2^3 + \mathbf{(1)}\; 2^2 + \mathbf{(0)}\; 2^1 + \mathbf{(1)}\; 2^0\\
             &= \mathbf{(0)}\; 8 + \mathbf{(1)}\; 4 + \mathbf{(0)}\; 2 + \mathbf{(1)}\; 1\\
             &= 0 + 4 + 0 + 1\\
-            &= 5
-
-.. math::
-
-
-            
+            &= 5         
              
 
 This 4 bit binary value represents a decimal value of 5. 
@@ -690,6 +685,8 @@ For instance -8.
     
     We use base-2, base-10, base-16. which is the same as radix-2, radix-10, radix-16.
 
+
+
 1's complement. 
 ========================================
 Later..
@@ -708,10 +705,32 @@ Fixed-Point
 ****************************************
 
 We briefly touched on this topic when talking about fractional decimal numbers.
-When dealing whole numbers, we use the term integer. 
 
-In digital system's 
+Thus far we've dealt with only whole numbers, integers.
 
+To represent fractional decimal numbers in binary, we mentally set where the decimal is the value.
+In the system which uses the fixed point value, we set this up ahead of time, so that it knows
+where the decimal is. Basically, we define how many bits we're using to the left and to the right of the decimal point.
+
+    bbbb.bbbb   or bbbb.bb      or bbbbbbbb.bbbb
+
+The bits to the left represent the integer as we've been dealing with. nothing different. same rules.
+the right is similar, but the weights are different.. the powers of 2's are negative, creating fractional weights.
+A 1 or 0 will determine whether or not we add the fraction.
+
+If our bit width is set, the placement of the decimal point determines the range of the integer 
+as well as the range of the fraction. The fraction is also called precision.
+More precision means more bits dedicated to its value. Less precision, means less precise. lol..
+Precisely..
+
+
+.. math::
+
+    .0101   &= \mathbf{(0)}\; 2^-1 + \mathbf{(1)}\; 2^-2 + \mathbf{(0)}\; 2^-3 + \mathbf{(1)}\; 2^-4\\
+            &= \mathbf{(0)}\; 0.5 + \mathbf{(1)}\; 0.25 + \mathbf{(0)}\; 0.125 + \mathbf{(1)}\; 0.0625\\
+            &= 0 + 0.25 + 0 + 0.0625\\
+            &= 0.3125         
+             
 
 
 Floating-Point
