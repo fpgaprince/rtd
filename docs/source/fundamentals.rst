@@ -803,6 +803,62 @@ If we used 4 bits.. we'd have 0.0625 granularity
     .1110   = 0.875
     .1111   = 0.9375
 
+.. attention::
+
+    Notice, there are only a discrete number of fractional values we can represent.
+    If whatever decimal value we are trying to use does not match up exactly, it
+    will be rounded to the closest. Rounding is another subject.
+
+
+Convert Decimal Fraction to Binary
+-------------------------------------------------------------
+Say we want 4bit precision..
+
+::
+
+    0.4375/0.0625   = 7 ,   = 0.0111
+    0.875/0.0625    = 14,   = 0.1110
+    0.375/0.0625    = 6,    = 0.0110
+
+    0.380/0.0625    = 6.08  = 0.0110,   drop the fractional decimal, it cannot be represented..
+    0.4/0.0625      = 6.4   = 0.0110,   drop the fractional decimal, it cannot be represented..
+
+    oh oh... the last two values equated to the same fractional representation.
+    we did not have enough precision to represent it!
+
+    0.888/0.0625    = 14.208    = 0.1110
+    0.880/0.0625    = 14.08     = 0.1110
+
+    same thing again!
+
+so the question is.. if we wanted to represent some fractional decimal value..
+how much granularity and thus bits do we need.
+
+recall.. 
+::
+
+    -1      -2      -3      -4      -5          -6          -7          -8              
+    0.5     0.25    0.125   0.0625  0.03125     0.015625    0.0078125   0.00390625          
+
+is the fractional decimal divisible by the LSB fractional value.
+LOL.. we should really start throwing in the math.. to be more precise and consise..
+typing so much words................
+
+.. warning::
+
+    say i wanted to represent 0.4, at 9 fractional bits.. i can get close to 0.4,
+    but not EXACT. this is an issue!
+
+
+
+.. note::
+
+    reminder to self: log(decimal value) / log(2) because base2. binary...
+   
+Fixed-point rounding
+****************************************
+sigh.............
+
 
 Floating-Point
 ****************************************
