@@ -714,7 +714,7 @@ where the decimal is. Basically, we define how many bits we're using to the left
 
 ::
 
-    mmmm.nnnn       or mmmm.nn      or mmmmmmmmm.nnn
+    mmmm.nnnn       mmmm.nn         mmmmmmmmm.nnn
     Q4.4            Q4.2            Q8.4
 
 The bits to the left represent the integer as we've been dealing with. nothing different. same rules.
@@ -731,9 +731,9 @@ Precisely..
 
 .. math::
 
-    fraction    &= \mathbf{(b_1)}\; 1/2^1 + \mathbf{(b_2)}\; 1/2^2 + \mathbf{(b_3)}\; 1/2^3 + \mathbf{(b_4)}\; 1/2^4 + ... + \mathbf{(b_n)}\; 1/2^n
-                &= \mathbf{(b_1)}\; 2^{-1} + \mathbf{(b_2)}\; 2^{-2} + \mathbf{(b_3)}\; 2^{-3} + \mathbf{(b_4)}\; 2^{-4} + ... + \mathbf{(b_n)}\; 2^{-n}
-                &= \mathbf{(b_1)}\; 0.5 + \mathbf{(b_2)}\; 0.25 + \mathbf{(b_3)}\; 0.125 + \mathbf{(b_4)}\; 0.0625 + ... + \mathbf{(b_n)}\; 2^{-n}
+        &= \mathbf{(b_1)}\; 1/2^1 + \mathbf{(b_2)}\; 1/2^2 + \mathbf{(b_3)}\; 1/2^3 + \mathbf{(b_4)}\; 1/2^4 + ... + \mathbf{(b_n)}\; 1/2^n
+        &= \mathbf{(b_1)}\; 2^{-1} + \mathbf{(b_2)}\; 2^{-2} + \mathbf{(b_3)}\; 2^{-3} + \mathbf{(b_4)}\; 2^{-4} + ... + \mathbf{(b_n)}\; 2^{-n}
+        &= \mathbf{(b_1)}\; 0.5 + \mathbf{(b_2)}\; 0.25 + \mathbf{(b_3)}\; 0.125 + \mathbf{(b_4)}\; 0.0625 + ... + \mathbf{(b_n)}\; 2^{-n}
 
 .. math::
 
