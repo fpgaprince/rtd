@@ -152,8 +152,8 @@ A binary number can look like this, 0101
 
 .. math::
 
-    0101    &= \mathbf{(0)}\; 2^3 + \mathbf{(1)}\; 2^2 + \mathbf{(0)}\; 2^1 + \mathbf{(1)}\; 2^0\\
-            &= \mathbf{(0)}\; 8 + \mathbf{(1)}\; 4 + \mathbf{(0)}\; 2 + \mathbf{(1)}\; 1\\
+    0101    &= \mathbf{(0)}\; 2^3   + \mathbf{(1)}\; 2^2    + \mathbf{(0)}\; 2^1    + \mathbf{(1)}\; 2^0\\
+            &= \mathbf{(0)}\; 8     + \mathbf{(1)}\; 4      + \mathbf{(0)}\; 2      + \mathbf{(1)}\; 1\\
             &= 0 + 4 + 0 + 1\\
             &= 5         
              
@@ -729,17 +729,18 @@ as well as the range of the fraction. The fraction is also called precision.
 More precision means more bits dedicated to its value. Less precision, means less precise. lol..
 Precisely..
 
+    &= \mathbf{(b_1)}\; 2^{-1}  + \mathbf{(b_2)}\; 2^{-2}   + \mathbf{(b_3)}\; 2^{-3}   + \mathbf{(b_4)}\; 2^{-4}   + \mathbf{(b_n)}\; 2^{-n}
+    
 .. math::
 
-    &= \mathbf{(b_1)}\; 2^{-1} + \mathbf{(b_2)}\; 2^{-2} + \mathbf{(b_3)}\; 2^{-3} + \mathbf{(b_4)}\; 2^{-4} + \mathbf{(b_n)}\; 2^{-n}
-    &= \mathbf{(b_1)}\; 1/2^1 + \mathbf{(b_2)}\; 1/2^2 + \mathbf{(b_3)}\; 1/2^3 + \mathbf{(b_4)}\; 1/2^4  + \mathbf{(b_n)}\; 1/2^n
-    &= \mathbf{(b_1)}\; 0.5 + \mathbf{(b_2)}\; 0.25 + \mathbf{(b_3)}\; 0.125 + \mathbf{(b_4)}\; 0.0625  + \mathbf{(b_n)}\; 2^{-n}
+    .0101   &= \mathbf{(b_1)}\; 1/2^1   + \mathbf{(b_2)}\; 1/2^2    + \mathbf{(b_3)}\; 1/2^3    + \mathbf{(b_4)}\; 1/2^4    + \mathbf{(b_n)}\; 1/2^n
+            &= \mathbf{(b_1)}\; 0.5     + \mathbf{(b_2)}\; 0.25     + \mathbf{(b_3)}\; 0.125    + \mathbf{(b_4)}\; 0.0625   + \mathbf{(b_n)}\; 2^{-n}
 
 
 .. math::
 
-    .0101   &= \mathbf{(0)}\; 2^{-1} + \mathbf{(1)}\; 2^{-2} + \mathbf{(0)}\; 2^{-3} + \mathbf{(1)}\; 2^{-4}\\
-            &= \mathbf{(0)}\; 0.5 + \mathbf{(1)}\; 0.25 + \mathbf{(0)}\; 0.125 + \mathbf{(1)}\; 0.0625\\
+    .0101   &= \mathbf{(0)}\; 2^{-1}    + \mathbf{(1)}\; 2^{-2} + \mathbf{(0)}\; 2^{-3} + \mathbf{(1)}\; 2^{-4}\\
+            &= \mathbf{(0)}\; 0.5       + \mathbf{(1)}\; 0.25   + \mathbf{(0)}\; 0.125  + \mathbf{(1)}\; 0.0625\\
             &= 0 + 0.25 + 0 + 0.0625\\
             &= 0.3125         
 
