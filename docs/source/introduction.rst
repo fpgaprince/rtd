@@ -76,7 +76,8 @@ something something
 
 
 
-
+::
+    
     read a shit ton of wikis
     read a shit ton of books
     read a shit ton of forums
