@@ -578,7 +578,9 @@ See below.
     14          1110            -2
     15          1111            -1
 
-If it was 5bits, = 32, 32/2 = 16, 0 to 15. -16 to -1.
+If it was..
+
+5bits, = 32, 32/2 = 16, 0 to 15. -16 to -1.
 
 6bit = 64, /2 = 32, 0 to 31 and -32 to -1.
 
