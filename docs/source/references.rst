@@ -9,6 +9,8 @@ https://zipcpu.com/
 https://dsprelated.com/
 https://dspguru.com/
 
+https://billauer.co.il/blog/
+https://www.01signal.com/
 
 
 xilinx/amd documentation
