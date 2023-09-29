@@ -102,33 +102,34 @@ something something
     "it wasn't easy. it never was."
 
 
+::
+        
+    ####################################
+    Part -- Number Signs above and below
+    ####################################
 
-####################################
-Part -- Number Signs above and below
-####################################
+    with overline, for parts
 
-with overline, for parts
+    ************************************
+    Chapter -- Asterisks above and below
+    ************************************
 
-************************************
-Chapter -- Asterisks above and below
-************************************
+    with overline, for chapters
 
-with overline, for chapters
+    Title -- Number Signs
+    #####################
 
-Title -- Number Signs
-#####################
+    Suptitle -- Asterisks
+    *********************
 
-Suptitle -- Asterisks
-*********************
+    Section -- Equal Signs
+    ======================
 
-Section -- Equal Signs
-======================
+    Subsection -- Hyphens
+    ---------------------
 
-Subsection -- Hyphens
----------------------
+    Subsubsection -- Circumflex
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Subsubsection -- Circumflex
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Paragraph -- Double Quotes
-""""""""""""""""""""""""""    
+    Paragraph -- Double Quotes
+    """"""""""""""""""""""""""    
