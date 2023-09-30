@@ -80,7 +80,7 @@ Ethernet
 
     The 100Mbps versions of the MII (15-pin MII and nine-pin Reduced MII [RMII]) are complemented by 1Gbps versions, which include Reduced Gigabit MII (RGMII) and Serial Gigabit MII (SGMII). RGMII is a 12-pin interface, while SGMII can operate as either a four- or six-pin interface.
 
-    
+
 SERDES
 ##########################
 
@@ -120,6 +120,52 @@ Sensors?
 
     Display
 
+
+RS232 
+=======================
+    Single ended
+        3 wires (TX, RX, GND)
+            susceptible to noise!
+    
+    Short distance <50ft (15m)
+    "PC serial port", commonly found on back of PC. 
+    Direct point to point between two devices
+    Full duplex.
+    
+    Often used for UART, debug, testingRS232 to USB, FTDI, UART USB adapters
+    RS232 to USB, FTDI, UART USB adapters
+
+    
+
+RS422
+=======================
+    4 wires per device (Tx_p, Tx_n, Rx_p, Rx_n,) differential
+        _p: positive, _n: negative
+        host's 4 wires will 'fanout' to all peripheral devices.
+    Longer distance - ~500ft to 4k?
+    Multi devices ~10?
+        Each with unique addressing
+        there is one host/master and # peripheral devices
+    There needs to be some agreement/understanding between all device on how to share the line.
+    Full Duplex, but only one slave talk at a time.
+
+RS485  
+=======================
+    new, replaced rs422.
+    2 wire sytem, differential. (line_p, line_n)
+    Multiple devices. ~32
+    Master and slave share the two wire lines, therefore only
+    one can talk at a time. handshake needs to be set up.
+    This is called half duplex.
+    500ft to 4k?
+
+Ethernet requires more complex wiring and networking infrastructure compared to RS485 or RS232
+
+.. ::note
+
+    Simplex - tx only.
+    Half-duplex - transmit/receive, one at a time.
+    Full-dplex - transmit/receive, same time.
 
 
 
