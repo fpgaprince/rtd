@@ -55,7 +55,9 @@ USB
 
 PCIe
 ##########################
-
+    DMA
+    memory mapped
+    stream
 
 Ethernet
 ##########################

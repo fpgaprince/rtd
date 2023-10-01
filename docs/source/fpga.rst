@@ -67,7 +67,10 @@ SOC
 
 FPGA Architecture
 ========================
-    These are the core components in an FPGA, regardless of vendors. They are the available digital circuits/hardware avaialble to us.
+    These are the core components in an FPGA, regardless of vendors. They are the available digital circuits/hardware avaialble to us within the FPGA.
+    Whatever we code up in HDL and synthesize/implement.. gets mapped to these digital components. I list our the common if not all here.
+    We will talk about digital logic and digital design in the broad/general sense, but i will also emphasize whether or not they are applicable to FPGAs.
+    
 
 Configurable Logic Blocks (CLB)
 ------------------------------------------
@@ -78,6 +81,15 @@ Configurable Logic Blocks (CLB)
 
 Look up Table (LUT)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The LUTs inside an FPGA are implemented as asynchronous ROMs (i.e. ROMs without a clock): they are actual SRAM based.
+SRAM meaning that they are volatile and will be wiped/reprogrammed when rebooted.
+At configuration time, the RAM is written to, defining the logical function it needs to perform.
+The inputs are treated as address lines, and the output usually has the width of one bit or two bits is the "content" at that address line.
+
+The number of inputs to these LUTs is 4 or 6 in almost all FPGAs in the market, so the number of memory cells in each LUT is either 16 or 64.
+can be 2-6. The input determine the combinatorial function it can represnt. LUT2 for example, can represent all the basic 2 input gates, AND OR XOR.
+
+
 
 
 Flip Flops (FF)

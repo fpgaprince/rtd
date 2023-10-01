@@ -2,8 +2,8 @@ Combinatorial Circuits
 ************************************************
 or combinational.
 
-Basically combinatorial circuits are not clocked and have no memory capability.
-
+Combinatorial circuits are not clocked and have no memory capability.
+The depend only on the present input.
 
 
 Basics

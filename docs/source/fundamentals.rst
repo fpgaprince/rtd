@@ -78,9 +78,16 @@ Digital Logic
    That is.. we're not connecting gates. We are only capturing the logic functionality or behavior. This functionality can be represented in a truth table 
    (boolean equation) or state equation. FPGA tools will synthesize and map these equation to LUTs and other digital circuits/elements.
 
+While many things are introduced to us in all the courses, only a few are applicable.
+This was not all apparent to me when i started. My background was in or studies were focused on digital design in a general/broad sense.
+and it took time to shed all the excess weight.
+
 
 Digital Design
 ********************
+When I think of digital design, i think purely of digital logic design.. specifically aimed at chip making, ASICs.
+RTL in this case is not restricted to the FPGA.
+You still have to be aware of wtf you're writing, but there is more freedom.
 
 
 
