@@ -49,7 +49,7 @@ Display Port
 ##########################
 
 
-USB
+USB, 2.0, 3.0
 ##########################
 
 
@@ -161,7 +161,7 @@ RS485
     This is called half duplex.
     500ft to 4k?
 
-Ethernet requires more complex wiring and networking infrastructure compared to RS485 or RS232
+
 
 .. ::note
 
@@ -169,7 +169,7 @@ Ethernet requires more complex wiring and networking infrastructure compared to 
     Half-duplex - transmit/receive, one at a time.
     Full-dplex - transmit/receive, same time.
 
-
+Ethernet requires more complex wiring and networking infrastructure compared to RS485 or RS232
 
 |   FMC?
 |   HMC?
