@@ -17,7 +17,7 @@ Latch is level sensitive, meaning while it is at some level (say high), it will 
 
 Latches
 ********************
-Latches 
+
 :: 
     
     Inferred Latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
@@ -28,7 +28,7 @@ Latches
 
 When the level becomes low, it latches the last value and holds it.
     isn't a latch pretty much a negative edge memory device?
-    the issue is that it tracks the input while the level is 
+    the issue is that it tracks the input while the level is high.
 
 The level input can be a clock or some sort of enable/toggle signal. The point is..
 The output sees whatever is at the input for one level and holds the last value for the other level.
@@ -41,18 +41,21 @@ I personally have not had to use them. I am well aware this is a common mistake.
 The problem is when people learn HDL, specifically the if else statement, case statement and then the clocked/unclocked process.
 It must not be clear to them. 
 
-If you are making a combinational circuit with no clock, ALL ELSE STATEMENTS NEED TO BE HANDLED.
-If you are making a sequential circuit with a clock, YOU DO NOT NEED TO HANDLE ALL CASES.
+    If you are making a combinational circuit with no clock, ALL ELSE STATEMENTS NEED TO BE HANDLED.
+    
+    If you are making a sequential circuit with a clock, YOU DO NOT NEED TO HANDLE ALL CASES.
+
+
 
 
 SR Latch
 ================================
+DNE, briefly describe now.. not priorirty.
 
 
 D Latch
 ================================
-isn't a latch pretty much a negative edge memory device?
-the issue is that it tracks the input while the level is 
+DNE, briefly describe now.. not priorirty.
 
 
 
@@ -81,20 +84,6 @@ D Flip Flops (DFF)
 ================================
 The ONLY type in an FPGA. 
 
-
-
-JK Flip Flops
-================================
-DNE, briefly describe now.. not priorirty.
-
-T Flip Flops
-================================
-DNE, briefly describe now.. not priorirty.
-
-
-
-
-
 Flip-Flops and Registers
 :: 
     
@@ -120,11 +109,26 @@ Flip-Flops and Registers
 
 
 
+JK Flip Flops
+================================
+DNE, briefly describe now.. not priorirty.
+
+T Flip Flops
+================================
+DNE, briefly describe now.. not priorirty.
+
+
+
+
+
+
+
 
 
 
 Register
 ********************
+A collection and ordered set of flip flops.
 
 .. code-block:: vhdl
   :linenos:    
@@ -151,6 +155,8 @@ Register
 
 Memory
 ********************
+A collection and ordered set of registers.
+
 
 Read-Only Memory (ROM)
 ================================
@@ -159,7 +165,21 @@ Read-Only Memory (ROM)
 Random Access Memory (RAM)
 ================================
 
-BRAM, SRAM, DRAM SDRAM, CRAM
+BRAM, 
+----------------
+
+SRAM, 
+----------------
+
+DRAM 
+----------------
+
+SDRAM, 
+----------------
+
+CRAM
+----------------
+
 
 
 
@@ -177,7 +197,11 @@ Circuit Analysis
 
 Timing/Clocking
 ##########################
+While all the memory devices above can function/live w/o a clock.
+It is when we add timing, things become interesting.
 
+Previously, they just require a "transition." So that does not necessarily 
+imply periodic.
 
 Shift Register
 ##########################
