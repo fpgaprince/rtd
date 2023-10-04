@@ -1,16 +1,31 @@
+****************************************
 Data Storage Elements
-************************
-Two basic type, latch and flip flop.
-Latch is level sensitive, meaning while it is at some level (say high), it will pass the input. 
+****************************************
 
+We will introduce storage first, because a clock is not necessary
+in order for you to store information/data. 
+
+Two basic type, latch and flip flop.
 
 
 Latches
-======================
+##########################
+Latch is level sensitive, meaning while it is at some level (say high), it will pass the input to the output. 
+When this level becomes low, the output "latches" the last value seen at the input.
+This value is seen at the output for as long as the level remains (low in our case).
+
+
+:: 
+    
+    Inferred Latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
+    Vivado synthesis issues a warning for the instance shown in the following reporting example.
+
+    Inferred Tristate buffers are implemented with different device primitives when driving the following:
+
 
 When the level becomes low, it latches the last value and holds it.
     isn't a latch pretty much a negative edge memory device?
-    the issue is that it tracks the input while the level is 
+    the issue is that it tracks the input while the level is high.
 
 The level input can be a clock or some sort of enable/toggle signal. The point is..
 The output sees whatever is at the input for one level and holds the last value for the other level.
@@ -23,24 +38,31 @@ I personally have not had to use them. I am well aware this is a common mistake.
 The problem is when people learn HDL, specifically the if else statement, case statement and then the clocked/unclocked process.
 It must not be clear to them. 
 
-If you are making a combinational circuit with no clock, ALL ELSE STATEMENTS NEED TO BE HANDLED.
-If you are making a sequential circuit with a clock, YOU DO NOT NEED TO HANDLE ALL CASES.
+    If you are making a combinational circuit with no clock, ALL ELSE STATEMENTS NEED TO BE HANDLED.
+    
+    If you are making a sequential circuit with a clock, YOU DO NOT NEED TO HANDLE ALL CASES.
+
+
+
+
+
 
 
 SR Latch
------------
+================================
+DNE, briefly describe now.. not priorirty.
 
 
 D Latch
------------
-isn't a latch pretty much a negative edge memory device?
-the issue is that it tracks the input while the level is 
+================================
+DNE, briefly describe now.. not priorirty.
+
 
 
 
 
 Flip Flops (FF)
-======================
+##########################
 A flip flop is edge triggered (can be negative or positive). 
 The input is sampled/captured on an edge of a clock or signal. Edge meaning the transition of the signal
 which is enable/clock.
@@ -60,22 +82,48 @@ They provide better performance and area. They will always be faster than your L
 
 
 D Flip Flops (DFF)
------------------
+================================
 The ONLY type in an FPGA. 
+
+Flip-Flops and Registers
+:: 
+    
+    FDCE
+        D flip-flop with Clock Enable and Asynchronous Clear
+
+    FDPE
+        D flip-flop with Clock Enable and Asynchronous Preset
+
+    FDSE
+        D flip-flop with Clock Enable and Synchronous Set
+
+    FDRE
+        D flip-flop with Clock Enable and Synchronous Reset
+
+    The number of Registers inferred during HDL synthesis might not precisely equal the number of Flip-Flop primitives in the Design Summary section.
+    The number of Flip-Flop primitives depends on the following processes:
+    Absorption of Registers into DSP blocks or block RAM components
+    Register duplication
+    Removal of constant or equivalent Flip-Flops
+    Basically your estimate and final report may not match because the tool will optimize. You can turn this off though.
+
 
 
 
 JK Flip Flops
------------------
+================================
 DNE, briefly describe now.. not priorirty.
 
 T Flip Flops
------------------
+================================
 DNE, briefly describe now.. not priorirty.
 
 
+
+
 Register
-================================
+##########################
+A collection and ordered set of flip flops.
 
 .. code-block:: vhdl
   :linenos:    
@@ -101,7 +149,9 @@ Register
 
 
 Memory
-================================
+##########################
+A collection and ordered set of registers.
+
 
 Read-Only Memory (ROM)
 ================================
@@ -110,7 +160,20 @@ Read-Only Memory (ROM)
 Random Access Memory (RAM)
 ================================
 
-BRAM, SRAM, DRAM SDRAM, CRAM
+BRAM, 
+----------------
+
+SRAM, 
+----------------
+
+DRAM 
+----------------
+
+SDRAM, 
+----------------
+
+CRAM
+----------------
 
 
 
@@ -120,57 +183,4 @@ BRAM, SRAM, DRAM SDRAM, CRAM
 
 
 
-
-
-Flip-Flops and Registers
-:: 
-    
-    FDCE
-        D flip-flop with Clock Enable and Asynchronous Clear
-
-    FDPE
-        D flip-flop with Clock Enable and Asynchronous Preset
-
-    FDSE
-        D flip-flop with Clock Enable and Synchronous Set
-
-    FDRE
-        D flip-flop with Clock Enable and Synchronous Reset
-
-    The number of Registers inferred during HDL synthesis might not precisely equal the number of Flip-Flop primitives in the Design Summary section.
-    The number of Flip-Flop primitives depends on the following processes:
-    Absorption of Registers into DSP blocks or block RAM components
-    Register duplication
-    Removal of constant or equivalent Flip-Flops
-    Basically your estimate and final report may not match because the tool will optimize. You can turn this off though.
-
-Latches 
-:: 
-    
-    Inferred Latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
-    Vivado synthesis issues a warning for the instance shown in the following reporting example.
-
-    Inferred Tristate buffers are implemented with different device primitives when driving the following:
-
-
-Shift Registers
-:: 
-
-    A static Shift Register usually involves:
-
-        A clock
-        An optional clock enable
-        A serial data input
-        A serial data output
-
-    Vivado synthesis implements inferred Shift Registers on SRL-type resources such as:
-
-    SRL16E
-    SRLC32E
-
-    Depending on the length of the Shift Register, Vivado synthesis does one of the following:
-
-    Implements it on a single SRL-type primitive
-    Takes advantage of the cascading capability of SRLC-type primitives
-    Attempts to take advantage of this cascading capability if the rest of the design uses some intermediate positions of the Shift Register
 

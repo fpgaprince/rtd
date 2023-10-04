@@ -31,6 +31,7 @@ Contents
    fpga
    hdl
    combinatorial
+   storage
    sequential
    interfaces
    applications
