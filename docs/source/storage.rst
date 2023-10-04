@@ -3,7 +3,15 @@ Data Storage Elements
 ****************************************
 
 We will introduce storage first, because a clock is not necessary
-in order for you to store information/data. 
+in order for you to store information/data.
+
+Input, Control and Output.
+
+The storage element is made from the basic logic gates.
+They DO depend on past values though,
+and so can be thought of as sequential.
+
+
 
 Two basic type, latch and flip flop.
 
@@ -148,39 +156,11 @@ A collection and ordered set of flip flops.
     end architecture rtl;
 
 
-Memory
+Simple Memory
 ##########################
 A collection and ordered set of registers.
 
 
 Read-Only Memory (ROM)
 ================================
-
-
-Random Access Memory (RAM)
-================================
-
-BRAM, 
-----------------
-
-SRAM, 
-----------------
-
-DRAM 
-----------------
-
-SDRAM, 
-----------------
-
-CRAM
-----------------
-
-
-
-
-
-
-
-
-
 
