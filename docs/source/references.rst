@@ -30,9 +30,11 @@ DSP
 FPGA Vendors
 
     xilinx/amd documentation
+
     https://www.xilinx.com/products/silicon-devices/fpga.html
 
     altera/intel documentation
+    
     https://www.intel.com/content/www/us/en/products/details/fpga.html
 
 
