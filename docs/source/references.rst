@@ -5,53 +5,70 @@ References
 References
 ##########################
 
-https://zipcpu.com/
-https://dsprelated.com/
-https://dspguru.com/
+FPGA
 
-https://billauer.co.il/blog/
-https://www.01signal.com/
+    https://zipcpu.com/
 
+    https://www.01signal.com/
+    
+    https://billauer.co.il/blog/
 
-xilinx/amd documentation
-https://www.xilinx.com/products/silicon-devices/fpga.html
+    https://nandland.com/
 
-altera/intel documentation
-https://www.intel.com/content/www/us/en/products/details/fpga.html
+    https://www.asic-world.com/
 
+    https://vhdlwhiz.com/
+        
+DSP
 
-https://digilent.com/
-https://www.terasic.com.tw/en/
+    https://dsprelated.com/
 
-https://nandland.com/
-https://www.asic-world.com/
-
-https://vhdlwhiz.com/
+    https://dspguru.com/
 
 
 
-https://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/
+FPGA Vendors
+
+    xilinx/amd documentation
+    https://www.xilinx.com/products/silicon-devices/fpga.html
+
+    altera/intel documentation
+    https://www.intel.com/content/www/us/en/products/details/fpga.html
+
+
+    https://digilent.com/
+
+    https://www.terasic.com.tw/en/
 
 
 
 
-https://www.electronics-tutorials.ws/
-https://www.allaboutcircuits.com/?utm_source=forum
+    https://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/
 
-https://learn.sparkfun.com/tutorials/
+    https://www.electronics-tutorials.ws/
 
-https://www.ti.com/amplifier-circuit/analog-engineers-pocket-reference-guide.html
+    https://www.allaboutcircuits.com/?utm_source=forum
 
-https://www.analog.com/en/education/education-library/linear-circuit-design-handbook.html
-https://www.analog.com/en/education/education-library/tutorials/mixed-signal-electronics-systems.html
-https://www.analog.com/en/education/education-library/tutorials/analog-electronics.html
-https://www.analog.com/en/education/education-library/tutorials/signals-and-systems.html
+    https://learn.sparkfun.com/tutorials/
 
 
-https://www.altium.com/
-https://www.youtube.com/@RobertFeranec
+References
+    https://www.ti.com/amplifier-circuit/analog-engineers-pocket-reference-guide.html
 
-https://www.eevblog.com/
+    https://www.analog.com/en/education/education-library/linear-circuit-design-handbook.html
+
+    https://www.analog.com/en/education/education-library/tutorials/mixed-signal-electronics-systems.html
+
+    https://www.analog.com/en/education/education-library/tutorials/analog-electronics.html
+
+    https://www.analog.com/en/education/education-library/tutorials/signals-and-systems.html
+
+PCB
+    https://www.altium.com/
+    https://www.youtube.com/@RobertFeranec
+
+Electronics
+    https://www.eevblog.com/
 
 
 

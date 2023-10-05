@@ -36,6 +36,8 @@ While the control signal remains low.. the output ignores any changes at the inp
 Conversely, a the latch could have passed the input while the control signal was low, and latch the input value when the control signal is high.
 In otherwords, the output tracks the input while the control signal is low and ignores it when the control signals is high.
 
+What was just explained here was the D latch.
+
 
 .. warning::
 
@@ -120,6 +122,9 @@ SR Latch
 -------------------------------
 DNE, briefly describe now.. not priorirty.
 
+Gated SR Latch
+-------------------------------
+DNE, briefly describe now.. not priorirty.
 
 D Latch
 -------------------------------
@@ -131,25 +136,26 @@ DNE, briefly describe now.. not priorirty.
 
 Flip Flops (FF)
 ===========================
-Keep in mind, we still have no introduced the clock.
+Keep in mind, we still have not introduced the clock.
 Think of input, control and output.
 
-A flip flop is an edge triggered (can be negative or positive) circuit.
-The input is sampled/captured on an edge of the control signal. Edge meaning the transition of the signal
+A flip flop is an edge triggered circuit.
+The input is sampled/captured on an edge of the control signal. 
+Edge meaning the transition of the control signal. The transition can be from low to high (postiive edge)
+or high to low (negative edge).
 
 
 Nothing is passed to the output during either level, in comparison to the latch.
 
-I will provide circuit level and explanation of how a latch and flip flop works.
-Don't gloss over this shit. So many people do or never made the connection between this. 
-Undestanding how it works gives you understanding about setup time, hold time, etc and metastability.
+.. important::
+    
+    Provide CMOS latch and flip flop with transmission gates and inverters.
+    Don't gloss over this shit. I feel like many never learned this.
+    Undestanding how it works gives you better/deeper understanding about setup time, hold time, metastability, etc.
 
 Flip Flops can be thought of as the most basic or lowest unit of memory.
-It is what implements the bit, also the most basic/lowest data unit.
+It is how most basic/lowest data unit, the bit, is realized in circuit/hardware..
 
-While all memory devices can be made from FF in the FPGA, there are hard dedicated sequential components.
-Because hard means permanent, their circuitry is tightly coupled when the chip/FPGA is made.
-They provide better performance and area. They will always be faster than your LUT based equivalent.
 
 
 D Flip Flops (DFF)
@@ -220,6 +226,14 @@ A collection and ordered set of flip flops.
 
 
 
+Memory part. 1
+##########################
+A collection and ordered set of registers.
+
+
+
+Read-Only Memory (ROM)
+================================
 
 
 
@@ -278,31 +292,36 @@ Counters
 
 
 
-Simple Memory
-===============================
-A collection and ordered set of registers.
+
+Memory part. 2
+##########################
+Now that we have introduced the clock. We can introduce more refined/cultivated/developed/ memory types?
 
 
-Read-Only Memory (ROM)
-================================
 
 Random Access Memory (RAM)
-####################################################
+================================
+
 
 BRAM, 
 ----------------
+While all memory devices can be made from FF in the FPGA, there are hard dedicated memory components.
+Meaning, their circuitry is part chip/FPGA is fabric, their circuitry is tightly coupled to provide better performance (speed/timing) and minimal area. 
+They will always perform better than your LUT based equivalent.
 
-SRAM, 
+
+SRAM
 ----------------
 
 DRAM 
 ----------------
 
-SDRAM, 
+SDRAM 
 ----------------
 
 CRAM
 ----------------
+
 
 FSM Finite State Machine
 ##########################
