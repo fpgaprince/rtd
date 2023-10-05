@@ -27,38 +27,76 @@ Latches
 ================================
 Keep in mind input and control.
 
-Latch is level sensitive, meaning while the control signal is at some level (say high), it will pass the input value to the output. 
-The output tracks the input.
-When this level becomes low, the output "latches" the last value seen at the input and holds on to this value, presenting only this value thereafter
-while the control remains low.. The input may change at this point, but the output doesn't care.
+Latches are circuit which are sensitive to the level of the control signal, 
+meaning while the control signal is at some level (say high), the circuit will pass the input value to the output. 
+In other words, the output tracks the input.
+When the control signal becomes low, the output "latches" the input value and stores it.
+While the control signal remains low.. the output ignores any changes at the input, presenting only the latched/stored value.
 
-Conversely, a the latch could have passed the input while the control signal was low, and latch the input value when the control signal went high.
-In otherwords, the output tracks the input while the control signal is low.. and latches the last seens input value when the control signals goes high.
-While the control signal is high, it doesn't care what is happening at the input.
+Conversely, a the latch could have passed the input while the control signal was low, and latch the input value when the control signal is high.
+In otherwords, the output tracks the input while the control signal is low and ignores it when the control signals is high.
 
 
 .. warning::
 
     there are no actual latch circuit in an FPGA. 
     
-If you do implement a latch, it is realized through the flip flops and LUTs; they are generally unwanted in FPGAs.
+If you do implement a latch, its functionality is realized through flip flops and LUTs; they are generally unwanted in FPGAs.
 They probably have their usage, but I have not personally used or even seen them in the complex systems I've worked with thus far. 
 
 .. warning::
 
     It is a common mistake I've seen in many new grads.
-    Inferred Latches are often the result of HDL coding mistakes, from an incomplete if-else statements and/or case statements.
-    In either case, not handling all posible outcomes based on the number of inputs.
+
+    Inferred Latches are often the result of HDL coding mistakes, specifically from an incomplete if-else statements or case statements
+    where the developer did not handle all posible outcomes based on the number of inputs for combinatorial process/always block.
+
+I think the confusion is knowing when an if-else and case statement needs to be completed in a clocked/unclocked process/always block
 
 .. important::
     
-    The problem is when people learn HDL, specifically the if else statement, case statement and then the clocked/unclocked process.
-    It must not be clear to them. 
-
-    If you are making a combinational circuit with no clock, ALL ELSE STATEMENTS NEED TO BE HANDLED.
+    If you are making a combinational circuit with no clock, YOU MUST HAVE THE ELSE OR DEFAULT CLAUSE.
     
-    If you are making a sequential circuit with a clock, YOU DO NOT NEED TO HANDLE ALL CASES.
-    e.g. registers/vectors to hold a value.. or counters.
+    If you are making a sequential circuit with a clock, YOU DO NOT NEED THE ELSE OR DEFAULT CLAUSE.
+
+
+For the combinatorial circuit, you do not need to explicitly have an else if statement for every possible outcome, if one else can take care of it.
+what i mean is you can lump everything into the else clause if that is your logic.
+For instance the AND GATE.
+you dont need to write
+
+.. code-block:: vhdl
+  :linenos:    
+
+    process(A,B) begin
+        if (A = 0 and B = 0) then
+            out = 0;
+        else if (A = 0 and B = 1) then
+            out = 0;
+        else if (A = 1 and B = 0) then
+            out = 0;
+        else
+            out = 1     --implies A = 1 and B = 1
+        end if;
+    end process;
+
+.. code-block:: vhdl
+  :linenos:    
+
+    process(A,B) begin
+        if (A = 1 and B = 1) then
+            out = 1;
+        else
+            out = 0     --implies the only time output = 1, is if A and B = 1. for all other case, output = 0.
+        end if;
+    end process;
+
+
+
+
+This is because you creating registers/vectors to hold a value.. or counters.. 
+in which if the conditions for the value to change are not met. It retains it's value.
+This is storage.
 
 
 
