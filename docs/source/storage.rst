@@ -260,12 +260,21 @@ FDRE resets the value to 0. FDSE sets the value to 1.
 Memory I
 ##########################
 A collection and ordered set of registers.
+Now say if we had 8 of these 8bit registers.. we can create a larger memory module/component.
+how would we locate or assign to each of these registers?
+how do we retrieve the stored information?
+we can create/use an addressing system.
+which is basically using a decoder.
 
 
 
 Read-Only Memory (ROM)
 ================================
-
+for whatever size, is written to at startup. or programmed.
+and cannot be done again.
+during run time, you can only 'read' from it.
+you read from it by supplying an address.
+the address is decoded and the ROM outputs whatever is at that address location.
 
 
 
