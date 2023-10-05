@@ -57,10 +57,6 @@ I think the confusion is knowing when an if-else and case statement needs to be 
     If you are writing a combinational circuit (unclocked), 
     YOU MUST HAVE THE ELSE OR DEFAULT CLAUSE.
     
-    If you are writing a sequential circuit (clocked), 
-    YOU DO NOT NEED THE ELSE OR DEFAULT CLAUSE.
-
-
 For the combinatorial circuit, you do not need to explicitly have an else if statement for every possible outcome, if one else can take care of it.
 what i mean is you can lump everything into the else clause if that is your logic.
 
@@ -95,15 +91,29 @@ what i mean is you can lump everything into the else clause if that is your logi
     end process;
 
 
+.. important::
+
+    If you are writing a sequential circuit (clocked), 
+    YOU DO NOT NEED THE ELSE OR DEFAULT CLAUSE.
 
 This is because you creating registers/vectors to hold a value.. or counters.. 
 in which if the conditions for the value to change are not met. It retains it's value.
 This is storage.
 
+.. code-block:: vhdl
+  :linenos:    
 
+    process(clk) begin
+        if (A = '1' and B = '0') then
+            out <= '1';
+        elsif (A = '0' and B = '1') then
+            out <= '0';            
+        end if;
+    end process;
 
-
-
+Writing this is perfectly fine. It means that output can only change to a '1' when AB = '10'
+The output can only be '0' when AB = '01'. For all other case, hold the previous value.
+Maybe provide a waveform of various input combinations to show?
 
 
 SR Latch
