@@ -156,7 +156,7 @@ It is how most basic/lowest data unit, the bit, is realized in circuit/hardware.
 How do we detect an edge? pulse detector.
 by attaching this to SR or D latch, we create the equivalent flip flop version.
 
-Clocked enable/control signal
+Clocking the Control Signal
 ================================
 Up to now we've only referred to the control signal/enable signal. Often times the control signal 
 is tied to a clock. By introducing or using a clock. 
@@ -223,6 +223,11 @@ I want to talk about the CMOS equivalent circuits.
 Register
 ##########################
 A collection/series/ordered set of flip flops make a register.
+Say we have a set of 8 flip flops ordered from 0 to 7.
+If we synchornize all of them to the same clock, and a transition (low to high)
+occurs, all 8 flip flops will 'latch' whatever is at the input
+and store it. This is basically how to store a byte (8 bits of data).
+It will hold onto this value until the next rising edge of the clock.
 
 .. code-block:: vhdl
   :linenos:    
@@ -246,6 +251,10 @@ A collection/series/ordered set of flip flops make a register.
         end process;
     end architecture rtl;
 
+
+Test this out. when you reset a register made of FF. if your reset value is 0011 for instance.
+I think it will use 2xFDRE (for the 00 portion) and 2xFDSE for the 11 portion.
+FDRE resets the value to 0. FDSE sets the value to 1.
 
 
 Memory I
