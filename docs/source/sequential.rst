@@ -43,54 +43,56 @@ In otherwords, the output tracks the input while the control signal is low and i
     
 If you do implement a latch, its functionality is realized through flip flops and LUTs; they are generally unwanted in FPGAs.
 They probably have their usage, but I have not personally used or even seen them in the complex systems I've worked with thus far. 
+It is a common mistake I've seen in many new grads.
 
 .. warning::
 
-    It is a common mistake I've seen in many new grads.
-
     Inferred Latches are often the result of HDL coding mistakes, specifically from an incomplete if-else statements or case statements
-    where the developer did not handle all posible outcomes based on the number of inputs for combinatorial process/always block.
+    in a combinatorial process/always block where the developer did not handle all posible outcomes based on the input.
 
-I think the confusion is knowing when an if-else and case statement needs to be completed in a clocked/unclocked process/always block
+I think the confusion is knowing when an if-else and case statement needs to be completed in a unclocked/clocked process/always block
 
 .. important::
     
-    If you are making a combinational circuit with no clock, YOU MUST HAVE THE ELSE OR DEFAULT CLAUSE.
+    If you are writing a combinational circuit (unclocked), 
+    YOU MUST HAVE THE ELSE OR DEFAULT CLAUSE.
     
-    If you are making a sequential circuit with a clock, YOU DO NOT NEED THE ELSE OR DEFAULT CLAUSE.
+    If you are writing a sequential circuit (clocked), 
+    YOU DO NOT NEED THE ELSE OR DEFAULT CLAUSE.
 
 
 For the combinatorial circuit, you do not need to explicitly have an else if statement for every possible outcome, if one else can take care of it.
 what i mean is you can lump everything into the else clause if that is your logic.
-For instance the AND GATE.
-you dont need to write
+
+    For instance, you dont need to explicitly write out every combination..
 
 .. code-block:: vhdl
   :linenos:    
 
     process(A,B) begin
-        if (A = 0 and B = 0) then
-            out = 0;
-        else if (A = 0 and B = 1) then
-            out = 0;
-        else if (A = 1 and B = 0) then
-            out = 0;
+        if (A = '0' and B = '0') then
+            out <= '0';
+        elsif (A = '0' and B = '1') then
+            out <= '0';
+        elsif (A = '1' and B = '0') then
+            out <= '0';
         else
-            out = 1     --implies A = 1 and B = 1
+            out <= '1';     --implies A = 1 and B = 1
         end if;
     end process;
+
+    When the following is equivalent.
 
 .. code-block:: vhdl
   :linenos:    
 
     process(A,B) begin
-        if (A = 1 and B = 1) then
-            out = 1;
+        if (A = '1' and B = '1') then
+            out <= '1';
         else
-            out = 0     --implies the only time output = 1, is if A and B = 1. for all other case, output = 0.
+            out <= '0'     --implies the only time output = 1, is if A and B = 1. for all other case, output = 0.
         end if;
     end process;
-
 
 
 
