@@ -34,7 +34,7 @@ FPGA Vendors
     https://www.xilinx.com/products/silicon-devices/fpga.html
 
     altera/intel documentation
-    
+
     https://www.intel.com/content/www/us/en/products/details/fpga.html
 
 
@@ -44,7 +44,7 @@ FPGA Vendors
 
 
 
-
+Circuits
     https://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/
 
     https://www.electronics-tutorials.ws/
@@ -53,6 +53,9 @@ FPGA Vendors
 
     https://learn.sparkfun.com/tutorials/
 
+    https://learnabout-electronics.org/index.php
+
+    https://www.eevblog.com/
 
 References
     https://www.ti.com/amplifier-circuit/analog-engineers-pocket-reference-guide.html
@@ -69,8 +72,6 @@ PCB
     https://www.altium.com/
     https://www.youtube.com/@RobertFeranec
 
-Electronics
-    https://www.eevblog.com/
 
 
 
