@@ -43,9 +43,9 @@ What was just explained here was the D latch.
 
     there are no actual latch circuit in an FPGA. 
     
-If you do implement a latch, its functionality is realized through flip flops and LUTs; they are generally unwanted in FPGAs.
+If you do try to implement a latch, its functionality is realized through flip flops and LUTs; they are generally unwanted in FPGAs.
 They probably have their usage, but I have not personally used or even seen them in the complex systems I've worked with thus far. 
-It is a common mistake I've seen in many new grads.
+It is a common mistake I've seen with those new to FPGA and HDL.
 
 .. warning::
 
@@ -150,7 +150,7 @@ Nothing is passed to the output during either level, in comparison to the latch.
 .. important::
     
     Provide CMOS latch and flip flop with transmission gates and inverters.
-    Don't gloss over this shit. I feel like many never learned this.
+    Don't gloss over this, I feel like many never learned this.
     Undestanding how it works gives you better/deeper understanding about setup time, hold time, metastability, etc.
 
 Flip Flops can be thought of as the most basic or lowest unit of memory.
