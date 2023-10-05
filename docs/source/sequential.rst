@@ -1,8 +1,9 @@
 ************************
 Sequential Circuits
 ************************
-Consists of storage elements.
-Sequential circuits have memory. Their output depends on previous input as well as current ones.
+Are circuits with memory.
+Their output is a function of present and previous input; their is history, memory..
+There is feedback.
 
 
 
@@ -10,53 +11,54 @@ Sequential circuits have memory. Their output depends on previous input as well 
 Data Storage Elements
 ####################################################
 
-We will introduce storage first, because a clock is not necessary
-in order for you to store information/data.
+We will introduce storage elements first.
+While clock and timing is closely related to sequential circuits,
+it is not necessary in order for you to store information/data.
 
+You just need an..
 Input, Control and Output.
 
-The storage element is made from the basic logic gates.
-They DO depend on past values though,
-and so can be thought of as sequential.
-
-
+The storage element can be made from the basic logic gates.
 
 Two basic type, latch and flip flop.
 
 
 Latches
 ================================
-Latch is level sensitive, meaning while it is at some level (say high), it will pass the input to the output. 
-When this level becomes low, the output "latches" the last value seen at the input.
-This value is seen at the output for as long as the level remains (low in our case).
+Keep in mind input and control.
+
+Latch is level sensitive, meaning while the control signal is at some level (say high), it will pass the input value to the output. 
+The output tracks the input.
+When this level becomes low, the output "latches" the last value seen at the input and holds on to this value, presenting only this value thereafter
+while the control remains low.. The input may change at this point, but the output doesn't care.
+
+Conversely, a the latch could have passed the input while the control signal was low, and latch the input value when the control signal went high.
+In otherwords, the output tracks the input while the control signal is low.. and latches the last seens input value when the control signals goes high.
+While the control signal is high, it doesn't care what is happening at the input.
 
 
-:: 
+.. warning::
+
+    there are no actual latch circuit in an FPGA. 
     
-    Inferred Latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
-    Vivado synthesis issues a warning for the instance shown in the following reporting example.
+If you do implement a latch, it is realized through the flip flops and LUTs; they are generally unwanted in FPGAs.
+They probably have their usage, but I have not personally used or even seen them in the complex systems I've worked with thus far. 
 
-    Inferred Tristate buffers are implemented with different device primitives when driving the following:
+.. warning::
 
+    It is a common mistake I've seen in many new grads.
+    Inferred Latches are often the result of HDL coding mistakes, from an incomplete if-else statements and/or case statements.
+    In either case, not handling all posible outcomes based on the number of inputs.
 
-When the level becomes low, it latches the last value and holds it.
-    isn't a latch pretty much a negative edge memory device?
-    the issue is that it tracks the input while the level is high.
-
-The level input can be a clock or some sort of enable/toggle signal. The point is..
-The output sees whatever is at the input for one level and holds the last value for the other level.
-
-
-there are no actual latch circuit in an FPGA. If you do implement a latch, it is through the flip flops and LUTs.
-they are unwanted in FPGAs.
-I personally have not had to use them. I am well aware this is a common mistake.
-
-The problem is when people learn HDL, specifically the if else statement, case statement and then the clocked/unclocked process.
-It must not be clear to them. 
+.. important::
+    
+    The problem is when people learn HDL, specifically the if else statement, case statement and then the clocked/unclocked process.
+    It must not be clear to them. 
 
     If you are making a combinational circuit with no clock, ALL ELSE STATEMENTS NEED TO BE HANDLED.
     
     If you are making a sequential circuit with a clock, YOU DO NOT NEED TO HANDLE ALL CASES.
+    e.g. registers/vectors to hold a value.. or counters.
 
 
 
