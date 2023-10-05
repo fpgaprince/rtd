@@ -131,9 +131,12 @@ DNE, briefly describe now.. not priorirty.
 
 Flip Flops (FF)
 ===========================
-A flip flop is edge triggered (can be negative or positive). 
-The input is sampled/captured on an edge of a clock or signal. Edge meaning the transition of the signal
-which is enable/clock.
+Keep in mind, we still have no introduced the clock.
+Think of input, control and output.
+
+A flip flop is an edge triggered (can be negative or positive) circuit.
+The input is sampled/captured on an edge of the control signal. Edge meaning the transition of the signal
+
 
 Nothing is passed to the output during either level, in comparison to the latch.
 
@@ -216,13 +219,9 @@ A collection and ordered set of flip flops.
     end architecture rtl;
 
 
-Simple Memory
-===============================
-A collection and ordered set of registers.
 
 
-Read-Only Memory (ROM)
-================================
+
 
 
 
@@ -277,6 +276,15 @@ Shift Registers
 Counters
 ##########################
 
+
+
+Simple Memory
+===============================
+A collection and ordered set of registers.
+
+
+Read-Only Memory (ROM)
+================================
 
 Random Access Memory (RAM)
 ####################################################
