@@ -1,5 +1,6 @@
+************************
 Data Storage Elements
-####################################################
+************************
 
 * analog equivalent? multivibrator, - bistable.
 * digital logic/design
@@ -18,7 +19,7 @@ Two basic type, latch and flip flop.
 
 
 Latches
-================================
+##########################
 Keep in mind input and control.
 
 Latches are circuit which are sensitive to the level of the control signal, 
@@ -115,18 +116,18 @@ Maybe provide a waveform of various input combinations to show?
 This is more for historic purposes/ derivation.
 
 Multivibrators
--------------------------------
+================================
 
 SR Latch
--------------------------------
+================================
 DNE, briefly describe now.. not priorirty.
 
 Gated SR Latch
--------------------------------
+================================
 DNE, briefly describe now.. not priorirty.
 
 D Latch
--------------------------------
+================================
 DNE, briefly describe now.. not priorirty.
 
 
@@ -134,7 +135,7 @@ DNE, briefly describe now.. not priorirty.
 
 
 Flip Flops (FF)
-===========================
+##########################
 Keep in mind, we still have not introduced the clock.
 Think of input, control and output.
 
@@ -156,7 +157,7 @@ How do we detect an edge? pulse detector.
 by attaching this to SR or D latch, we create the equivalent flip flop version.
 
 Clocked enable/control signal
--------------------------------
+================================
 Up to now we've only referred to the control signal/enable signal. Often times the control signal 
 is tied to a clock. By introducing or using a clock. 
 we add a periodicness to the circuit, predictability.
@@ -165,7 +166,7 @@ we can synchronize circuits to each other.
 
 
 D Flip Flops (DFF)
--------------------------------
+================================
 The ONLY type in an FPGA. 
 
 Flip-Flops
@@ -192,19 +193,19 @@ Flip-Flops
 
 
 Edge triggered latch?
--------------------------------
+================================
 by using pulse detector + SR latch, SR FF is created.
 
 SR Flip Flops
--------------------------------
+================================
 we dont want that invalid state.. thus JK and D.
 
 JK Flip Flops
--------------------------------
+================================
 DNE, briefly describe now.. not priorirty.
 
 T Flip Flops
--------------------------------
+================================
 DNE, briefly describe now.. not priorirty.
 
 
@@ -220,7 +221,7 @@ I want to talk about the CMOS equivalent circuits.
     
 
 Register
-===============================
+##########################
 A collection/series/ordered set of flip flops make a register.
 
 .. code-block:: vhdl
@@ -247,7 +248,7 @@ A collection/series/ordered set of flip flops make a register.
 
 
 
-Memory part. 1
+Memory I
 ##########################
 A collection and ordered set of registers.
 
@@ -259,7 +260,7 @@ Read-Only Memory (ROM)
 
 
 
-Memory part. 2
+Memory II
 ##########################
 Now that we have introduced the clock. We can introduce more refined/cultivated/developed/ memory types?
 
