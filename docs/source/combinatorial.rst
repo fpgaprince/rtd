@@ -133,6 +133,41 @@ XNOR Gate
 
 
 
+-----------------------
+Negative AND Gate
+-----------------------
+Negative AND is not the same as NAND.
+Negative AND is equivalent to NOR
+
+
+::
+
+  x,y   x',y'   z=X'Y'
+  input         output
+  0,0   1,1     1
+  0,1   1,0     0
+  1,0   0,1     0
+  1,1   0,0     0
+
+
+Negative OR Gate
+-----------------------
+Negative OR is not the same as NOR
+Negative OR is equivalent to NAND
+
+::
+
+  x,y   x',y'   z=A'+ B'
+  input         output
+  0,0   1,1     1
+  0,1   1,0     1
+  1,0   0,1     1
+  1,1   0,0     0
+
+These last two examples are DeMorgan's Law.
+X'Y' = (X+Y)'
+and
+X'+ Y' = (XY)'
 
 Circuit Analysis, Implementation and Design
 ================================================
