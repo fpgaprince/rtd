@@ -40,6 +40,7 @@ NOT Gate
 The NOT gate inverts whatever value is at its input.
 
 ::
+
   input output
   0     1
   1     0
@@ -53,12 +54,83 @@ AND Gate
 The output is true, '1' only when both inputs are true, '1'.
 
 ::
+
   x,y   z
   input output
   0,0    0
   0,1    0
   1,0    0
   1,1    1 
+
+OR Gate
+-----------------------
+If either input is true '1', then the output is true '1'.
+
+::
+
+  x,y   z
+  input output
+  0,0    0
+  0,1    1
+  1,0    1
+  1,1    1 
+
+XOR Gate
+-----------------------
+If and only if one of the input is true
+
+z = x \oplus y
+
+::
+
+  x,y   z = x \oplus y
+  input output
+  0,0    0
+  0,1    1
+  1,0    1
+  1,1    0 
+
+
+Negating means to NOT the output., which is not the same as NOT'ing the input.
+
+NAND Gate
+-----------------------
+
+::
+
+  x,y   z=AB      z=(AB)'
+  input output    output
+  0,0    0        1
+  0,1    0        1
+  1,0    0        1
+  1,1    1        0
+
+NOR Gate
+-----------------------
+
+::
+
+  x,y   z=A+B      z=(A+B)'
+  input output    output
+  0,0    0        1
+  0,1    1        0
+  1,0    1        0
+  1,1    1        0
+
+
+
+XNOR Gate
+-----------------------
+
+::
+
+  x,y   z=AB      z=(AB)'
+  input output    output
+  0,0    0        1
+  0,1    1        0
+  1,0    1        0
+  1,1    0        1
+
 
 
 
