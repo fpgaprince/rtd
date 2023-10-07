@@ -73,7 +73,9 @@ PCB
     https://www.youtube.com/@RobertFeranec
 
 
-
+https://www.circuitlab.com/
+LT SPICE
+MATLAB
 
 Books
 ##########################
