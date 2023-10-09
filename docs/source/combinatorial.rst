@@ -1,8 +1,6 @@
 ************************************************
 Combinatorial Circuits
 ************************************************
-or combinational.
-
 Combinatorial circuits have no memory.
 They depend only on the present input and in a sense, the input order does not matter.
 Sequential in contrast, have memory, therefore the input order, previous input/state matter.
@@ -26,37 +24,41 @@ Binary
 
 Logic Functions
 ====================
-From Boolean Algebra.
+  From Boolean Algebra.
 
-Logic functions boil down to this.
-z = F(x,y). 
-The output z, is a function of x and y input.
-It shows the relationship of the output and input.
-The output, as well as the input, can be multi-variable.
+  Logic functions boil down to this.
+  z = F(x,y). 
+
+  The output z, is a function of x and y input.
+  It shows the relationship of the output and input.
+  The output, as well as the input, can be multi-variable.
 
 Truth Table
 ====================
-A truth table is a table that lists/maps out all the input combinations for a given number of input and their resulting output.
-For 2 input, you will have 4 combinations, and 4 output results.
-For 3 input, you will have 8 combinations, and 8 output results.
-For 4 input, you will have 16 combinations, and 16 output results..
-Notice, powers of 2's.
+  A truth table is a table that lists/maps out all the input combinations for a given number of input and their resulting output.
+  For 2 input, you will have 4 combinations, and 4 output results.
+  For 3 input, you will have 8 combinations, and 8 output results.
+  For 4 input, you will have 16 combinations, and 16 output results..
+  Notice, powers of 2's.
 
 
 
 Logic Gates
 ====================
 
-(NOT, AND, OR, XOR), logic operator
-In FPGA, you are not actually connecting gates, you capture the boolean expression and store it in a LUT, which is basically SRAM. 
-The SRAM is configured at bootup.
+  (NOT, AND, OR, XOR), logic operator
+  In FPGA, you are not actually connecting gates, you capture the boolean expression and store it in a LUT, which is basically SRAM. 
+  The SRAM is configured at bootup.
 
 NOT Gate
 -----------------------
 The NOT gate inverts whatever value is at its input.
+"The apostrophe is used to signify negation"
 
 ::
-
+  Boolean: z = x'
+  
+  x     z
   input output
   0     1
   1     0
@@ -68,70 +70,78 @@ The basic boolean functions operate on 2 inputs, X and Y.
 AND Gate
 -----------------------
 The output is true, '1' only when both inputs are true, '1'.
+ "multiplication implies ANDing"
 
 ::
 
-  x,y   z
-  input output
-  0,0    0
-  0,1    0
-  1,0    0
-  1,1    1 
+  Boolean: z = x*y or z = xy (i prefer to write the latter)
+
+  x, y    z
+  input   output
+  0  0    0
+  0  1    0
+  1  0    0
+  1  1    1 
 
 OR Gate
 -----------------------
-If either input is true '1', then the output is true '1'.
+If output is true, '1' if any of the input is true, '1'.
+"addition implies OR"
 
 ::
 
-  x,y   z
-  input output
-  0,0    0
-  0,1    1
-  1,0    1
-  1,1    1 
+  Boolean: z = x + y 
+
+  x, y    z
+  input   output
+  0  0    0
+  0  1    1
+  1  0    1
+  1  1    1 
 
 XOR Gate
 -----------------------
 If and only if one of the input is true
 
-z = x \oplus y
+.. math::
+
+  z = x \oplus y
 
 ::
 
-  x,y   z = x \oplus y
-  input output
-  0,0    0
-  0,1    1
-  1,0    1
-  1,1    0 
+  x, y    z
+  input   output
+  0  0    0
+  0  1    1
+  1  0    1
+  1  1    0 
 
 
-Negating means to NOT the output., which is not the same as NOT'ing the input.
+  Negating means to NOT the output/result, which is not the same as NOT'ing the input.
 
 NAND Gate
 -----------------------
 
 ::
 
-  x,y   z=AB      z=(AB)'
-  input output    output
-  0,0    0        1
-  0,1    0        1
-  1,0    0        1
-  1,1    1        0
+  x, y    z=AB      z=(AB)'
+  input   output    output
+  0  0    0         1
+  0  1    0         1
+  1  0    0         1
+  1  1    1         0
 
 NOR Gate
 -----------------------
 
 ::
 
-  x,y   z=A+B      z=(A+B)'
-  input output    output
-  0,0    0        1
-  0,1    1        0
-  1,0    1        0
-  1,1    1        0
+  x, y    z=A+B     z=(A+B)'
+  input   output    output
+  0  0    0         1
+  0  1    1         0
+  1  0    1         0
+  1  1    1         0
 
 
 
@@ -140,30 +150,34 @@ XNOR Gate
 
 ::
 
-  x,y   z=AB      z=(AB)'
-  input output    output
-  0,0    0        1
-  0,1    1        0
-  1,0    1        0
-  1,1    0        1
+  x, y    z=AB      z=(AB)'
+  input   output    output
+  0  0    0         1
+  0  1    1         0
+  1  0    1         0
+  1  1    0         1
 
 
 
 -----------------------
 Negative AND Gate
 -----------------------
-Negative AND is not the same as NAND.
-Negative AND is equivalent to NOR
+  Negating means to NOT the output/result, which is not the same as NOT'ing the input.
+  Negating the input of an AND gate does not produce the same result as negating the output/result of an AND gate.
+
+  Negating the input of an AND gate is called a 'Negative AND' gate.
+  Negative AND is not the same as NAND.
+  Negative AND is equivalent to NOR
 
 
 ::
 
-  x,y   x',y'   z=X'Y'
-  input         output
-  0,0   1,1     1
-  0,1   1,0     0
-  1,0   0,1     0
-  1,1   0,0     0
+  x, y    x', y'    z=X'Y'
+  input             output
+  0  0    1  1      1           you're inputs are 0, 0 but you negate both to become 1, 1 for the AND gate, which results in a 1. 
+  0  1    1  0      0
+  1  0    0  1      0
+  1  1    0  0      0
 
 
 Negative OR Gate
@@ -173,17 +187,25 @@ Negative OR is equivalent to NAND
 
 ::
 
-  x,y   x',y'   z=A'+ B'
-  input         output
-  0,0   1,1     1
-  0,1   1,0     1
-  1,0   0,1     1
-  1,1   0,0     0
+  x, y    x',y'    z=A'+ B'
+  input            output
+  0  0    1  1     1
+  0  1    1  0     1
+  1  0    0  1     1
+  1  1    0  0     0
 
-These last two examples are DeMorgan's Law.
-X'Y' = (X+Y)'
-and
-X'+ Y' = (XY)'
+
+
+These last two examples (regarding negative inputs) are DeMorgan's Law.
+
+::
+  X'Y' = (X+Y)'
+  and
+  X'+ Y' = (XY)'
+
+
+
+
 
 Circuit Analysis, Implementation and Design
 ================================================
