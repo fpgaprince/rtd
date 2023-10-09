@@ -4,13 +4,19 @@ Combinatorial Circuits
 or combinational.
 
 Combinatorial circuits have no memory.
-They depend only on the present input.
+They depend only on the present input and in a sense, the input order does not matter.
+Sequential in contrast, have memory, therefore the input order, previous input/state matter.
 
-I am going to talk about the logic from an abstract point of view/high level.
-and will return to gate level/CMOS implementation at a later time.
-since we are not dealing with it in an FPGA.
-These chapters may be broken up at a later time, but for the sake of completion they'll
-be as is for now.
+We'll talk about the logic from an abstract point of view/high level,
+returning to gate level/CMOS implementation at a later time (or where necessary).
+
+The reason for this is because we aren't dealing with the gate level or its implementation in an FPGA.
+I reiterated this many times over, you are not dealing with logic gates in an FPGA. 
+Combinatorial logic are realized with LUTs. 
+
+You will have NOT gates sprinkled throughout the chip to help the tool optimize,
+but you wont have an actual AND OR gate.
+
 
 Basics
 ##########################
@@ -20,19 +26,29 @@ Binary
 
 Logic Functions
 ====================
+From Boolean Algebra.
+
+Logic functions boil down to this.
+z = F(x,y). 
+The output z, is a function of x and y input.
+It shows the relationship of the output and input.
+The output, as well as the input, can be multi-variable.
 
 Truth Table
 ====================
-A truth table lists/maps out all the input combinations and their resulting output.
-It shows the relationship of the output and input.
-The output is a function of the inputs. 
-For 2 input, you will have 4 combinations. For, 8. power of 2s.
+A truth table is a table that lists/maps out all the input combinations for a given number of input and their resulting output.
+For 2 input, you will have 4 combinations, and 4 output results.
+For 3 input, you will have 8 combinations, and 8 output results.
+For 4 input, you will have 16 combinations, and 16 output results..
+Notice, powers of 2's.
+
+
 
 Logic Gates
 ====================
 
 (NOT, AND, OR, XOR), logic operator
-In FPGA, you are not actually connecting gates, you capture the boolean expression and store it LUT, which is basically SRAM. 
+In FPGA, you are not actually connecting gates, you capture the boolean expression and store it in a LUT, which is basically SRAM. 
 The SRAM is configured at bootup.
 
 NOT Gate
