@@ -284,25 +284,52 @@ Multiplexer
 ====================
 A multiplexer is a device with multiple inputs, select/control input signal(s) and ONE output.
 The select signal(s), select/determine which input to feed/route to the output.
+Either the number of select signals will determine the number of inputs or the number of inputs
+will determine the required number of select signals.
 
+The simple case.. you want to select between 4 inputs. You need need 2 select signals/bits.
+Another way to look at it or say it is.. I have 2 select signals, how many signals can I control? 4.
+For example I have 3 select signals, how many inputs can I control? 8.
+See the pattern? Powers of 2's again! 
 
+What if the number isn't a power of 2? You'll need to recall log/ln and base conversions..
+
+  round up ( ln(input)/ln(2) ) = N bits required
+
+.. math:: 
+  
+    roundup(ln(7)/ln(2)) = roundup(2.80735) = 3 bits required
+    roundup(ln(9)/ln(2)) = roundup(3.16992) = 4 bits required
+    roundup(ln(14)/ln(2)) = roundup(3.80735) = 4 bits required
+    roundup(ln(29)/ln(2)) = roundup(4.85798) = 5 bits required
+
+.. warning::
+  
+  You need to terminate, handle the else and when other clause, this is a combinatorial circuit with no clocks.
 
 .. code-block:: vhdl
   :linenos:    
-    
+
+      A,B,C,D   : in  std_logic_vector(7 downto 0);
+      sel       : in  std_logic_vector(1 downto 0);
+      mux_out   : out std_logic_vector(7 downto 0);
+
+      ...
+
+
       -- MUX using if-else statement
       process(sel, A, B, C, D) is
       begin
     
-          if sel = "00" then
-              mux_out <= A;
-          elsif sel = "01" then
-              mux_out <= B;
-          elsif sel = "10" then
-              mux_out <= C;
-          else                --sel = "11"
-              mux_out <= D;
-          end if;
+        if sel = "00" then
+            mux_out <= A;
+        elsif sel = "01" then
+            mux_out <= B;
+        elsif sel = "10" then
+            mux_out <= C;
+        else                --sel = "11"
+            mux_out <= D;
+        end if;
 
       end process;
     
@@ -310,19 +337,21 @@ The select signal(s), select/determine which input to feed/route to the output.
       process(sel, A, B, C, D) is
       begin
     
-          case sel is
-              when "00" =>
-                  Output2 <= Sig1;
-              when "01" =>
-                  Output2 <= Sig2;
-              when "10" =>
-                  Output2 <= Sig3;
-              when others =>        -- sel = '11'
-                  Output2 <= Sig4;
-          end case;
+        case sel is
+            when "00" =>
+                mux_out <= Sig1;
+            when "01" =>
+                mux_out <= Sig2;
+            when "10" =>
+                mux_out <= Sig3;
+            when others =>        -- sel = '11'
+                mux_out <= Sig4;
+        end case;
 
       end process;
 
+In the above example, the input width could have been anything, you could have been selecting bits instead of vectors..
+and those vectors could have been ANY size! I just used 8 for simplicity.. it could have been 12, 16, 32, 54, 64, etc.
 
 
 Demultiplexer
