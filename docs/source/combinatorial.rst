@@ -306,8 +306,11 @@ What if the number isn't a power of 2? You'll need to recall log/ln and base con
 
 
 Notice, for 29, you are not using up all the possible combination/control a 5 bit control signal can handle.
-5 bits can control up to 32 signals. Therefore you when you write your HDL, you have to handle what to do
-when the control signal is one of the 3 (32-29) remaining cases.
+5 bits can control up to 32 signals. Therefore when you write your HDL, you have to handle what to do
+when the control signal is one of the 3 (32-29) remaining cases that aren't applicable..
+
+Because of the select bits and the resultant power of 2s number of inputs relation, you might not always have to use all the inputs.
+Therefore you must always keep in mind, what to do with what you dont care or doesn't matter.
 
 .. warning::
   
