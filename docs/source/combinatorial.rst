@@ -303,6 +303,11 @@ What if the number isn't a power of 2? You'll need to recall log/ln and base con
     roundup(ln(14)/ln(2)) = roundup(3.80735) = 4 bits required
     roundup(ln(29)/ln(2)) = roundup(4.85798) = 5 bits required
 
+
+Notice, for 29, you are not using up all the possible combination/control a 5 bit control signal can handle.
+5 bits can control up to 32 signals. Therefore you when you write your HDL, you have to handle what to do
+when the control signal is one of the 3 (32-29) remaining cases.
+
 .. warning::
   
   You need to terminate, handle the else and when other clause, this is a combinatorial circuit with no clocks.
