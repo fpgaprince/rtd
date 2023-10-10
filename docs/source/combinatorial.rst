@@ -80,7 +80,7 @@ The output is true, '1' only when all inputs are true, '1'.
 
 (i prefer to write the latter)
 
-::
+:: truth table
 
   x, y    z
   input   output
@@ -110,7 +110,8 @@ The output is true, '1' if any of the input is true, '1'.
 
 XOR Gate
 -----------------------
-The output is true, '1', If and only if one of the input is true.
+The output is true, '1', if and only if one of the input is true.
+The output is false, '0', if all of the inputs are the same.
 
 .. math::
 
@@ -132,6 +133,7 @@ The output is true, '1', If and only if one of the input is true.
 NAND Gate
 -----------------------
 The output is false, '0' if all the inputs are true, '1'.
+The output is true, '1' if any of the inputs are false, '0'.
 
 .. math::
 
@@ -149,6 +151,7 @@ The output is false, '0' if all the inputs are true, '1'.
 NOR Gate
 -----------------------
 The output is false, '0' if any of the inputs are true, '1'.
+The output is true, '1' if all of the inputs are false, '0'.
 
 .. math::
 
@@ -166,7 +169,8 @@ The output is false, '0' if any of the inputs are true, '1'.
 
 XNOR Gate
 -----------------------
-Output is true, '1', if only if all inputs are the same.
+The output is true, '1', if only if all inputs are the same.
+The output is false, '0', if the inputs are not the same, differ.
 
 .. math::
 
