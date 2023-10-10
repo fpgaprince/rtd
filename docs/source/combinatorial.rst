@@ -62,25 +62,25 @@ NOT Gate
 -----------------------
 The NOT gate inverts whatever value is at its input.
 "The apostrophe is used to signify negation"
+
 .. math::
 
   z = x'
 
 ::
  
-  x     z
-  input output
-  0     1
-  1     0
+  x       z
+  input   output
+  0       1
+  1       0
 
 Remember, these logic gates are to represent the logical operations/functions in Boolean Algebra.
-They are to realize the math, in actual hardware.
-The basic boolean functions operate on 2 inputs, X and Y.
+They are to realize/implement the math, logical operations and functions in actual hardware.
 
 AND Gate
 -----------------------
 The output is true, '1' only when all inputs are true, '1'.
- "multiplication implies ANDing"
+"multiplication implies ANDing"
 
 .. math::
 
