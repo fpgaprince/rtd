@@ -30,15 +30,21 @@ Logic Functions
   z = F(x,y). 
 
   The output z, is a function of x and y input.
+
   It shows the relationship of the output and input.
+
   The output, as well as the input, can be multi-variable.
 
 Truth Table
 ====================
   A truth table is a table that lists/maps out all the input combinations for a given number of input and their resulting output.
+
   For 2 input, you will have 4 combinations, and 4 output results.
+
   For 3 input, you will have 8 combinations, and 8 output results.
+  
   For 4 input, you will have 16 combinations, and 16 output results..
+  
   Notice, powers of 2's.
 
 
@@ -47,17 +53,21 @@ Logic Gates
 ====================
 
   (NOT, AND, OR, XOR), logic operator
+
   In FPGA, you are not actually connecting gates, you capture the boolean expression and store it in a LUT, which is basically SRAM. 
+
   The SRAM is configured at bootup.
 
 NOT Gate
 -----------------------
 The NOT gate inverts whatever value is at its input.
 "The apostrophe is used to signify negation"
+.. math::
+
+  z = x'
 
 ::
-  Boolean: z = x'
-  
+ 
   x     z
   input output
   0     1
@@ -75,7 +85,9 @@ The output is true, '1' only when all inputs are true, '1'.
 .. math::
 
   z &= x*y\\
-    &= x \dotsb y\\
+    &= x \cdot y\\
+    &= x \bullet y\\
+    &= x \centerdot y\\
     &= xy
 
 (i prefer to write the latter)
