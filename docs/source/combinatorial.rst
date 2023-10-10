@@ -285,14 +285,12 @@ Multiplexer
 A multiplexer is a device with multiple inputs, select/control input signal(s) and ONE output.
 The select signal(s), select/determine which input to feed/route to the output.
 
-.. important::
 
-    This is a combinatorial circuit, you will need to handle the else and when others clause!
 
 .. code-block:: vhdl
   :linenos:    
     
-      -- MUX using if-then-else
+      -- MUX using if-else statement
       process(sel, A, B, C, D) is
       begin
     
@@ -302,45 +300,42 @@ The select signal(s), select/determine which input to feed/route to the output.
               mux_out <= B;
           elsif sel = "10" then
               mux_out <= C;
-          else                --sel = "11" then
+          else                --sel = "11"
               mux_out <= D;
           end if;
-    
+
       end process;
     
-      -- Equivalent MUX using a case statement
-      process(Sel, Sig1, Sig2, Sig3, Sig4) is
+      -- MUX using a case statement
+      process(sel, A, B, C, D) is
       begin
     
-          case Sel is
+          case sel is
               when "00" =>
                   Output2 <= Sig1;
               when "01" =>
                   Output2 <= Sig2;
               when "10" =>
                   Output2 <= Sig3;
-              when "11" =>
+              when others =>        -- sel = '11'
                   Output2 <= Sig4;
-              when others => -- 'U', 'X', '-', etc.
-                  Output2 <= (others => 'X');
           end case;
-    
+
       end process;
 
 
 
+Demultiplexer
+====================
 
-  Demultiplexer
-  ====================
+Encoder
+====================
 
-  Encoder
-  ====================
+Decoder
+====================
 
-  Decoder
-  ====================
-
-  Adder
-  ====================
+Adder
+====================
   This is an add operator
 
   .. code-block:: vhdl
