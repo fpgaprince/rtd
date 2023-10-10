@@ -469,6 +469,22 @@ Decoder
 
 Adder
 ====================
+I will not go into the digital logic details right now.
+
+While in digital logic, you are introduced to half adders, full adders, ripple carry and carry lookahead.. 
+It does not really apply for FPGAs because again, we aren't dealing with the gates.
+I'll repeat this many times throughout your reading. I don't think this is clear to many.
+
+You wont synthesize the logic gates that make the half adder or full adder. 
+You will populate a LUT truth table with the following equation, for example..
+
+.. math::
+
+  sum &= X \oplus Y\\
+  carry &= XY
+
+You only care about what is the input and what is the result of that input combination.
+
   This is an add operator
 
   .. code-block:: vhdl
@@ -481,6 +497,14 @@ Adder
           sum <= A + B;
       end process;
 
+For small addition, the tool with synthesize them into LUTs, but as your bit/data width increases,
+there is a point in which it will degrade performance, and is better to use the dedicated DSP hardware.
+It is a poor choice to use DSP to just do 8bit addition. If you had to do 128bit addition or something, use the DSP.
+What is the cross over though?
+
+.. note:: 
+  
+  I need to look at what the cross over point is.
 
 Subtractor
 ====================
