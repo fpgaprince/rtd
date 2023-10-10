@@ -58,7 +58,7 @@ Logic Gates
   The SRAM is configured at bootup.
 
 NOT Gate
------------------------
+====================
 The NOT gate inverts whatever value is at its input.
 "The apostrophe is used to signify negation"
 
@@ -78,7 +78,7 @@ Remember, these logic gates are to represent the logical operations/functions in
 They are to realize/implement the math, logical operations and functions in actual hardware.
 
 AND Gate
------------------------
+====================
 The output is true, '1' only when all inputs are true, '1'.
 
 .. math::
@@ -99,7 +99,7 @@ The output is true, '1' only when all inputs are true, '1'.
   1  1    1 
 
 OR Gate
------------------------
+====================
 The output is true, '1' if any of the input is true, '1'.
 
 .. math::
@@ -117,7 +117,7 @@ The output is true, '1' if any of the input is true, '1'.
   1  1    1 
 
 XOR Gate
------------------------
+====================
 The output is true, '1', if and only if one of the input is true.
 The output is false, '0', if all of the inputs are the same.
 
@@ -140,7 +140,7 @@ The output is false, '0', if all of the inputs are the same.
   Negating means to NOT the output/result, which is not the same as NOT'ing the input.
 
 NAND Gate
------------------------
+====================
 The output is false, '0' if all the inputs are true, '1'.
 The output is true, '1' if any of the inputs are false, '0'.
 
@@ -159,7 +159,7 @@ The output is true, '1' if any of the inputs are false, '0'.
   1  1    1         0
 
 NOR Gate
------------------------
+====================
 The output is false, '0' if any of the inputs are true, '1'.
 The output is true, '1' if all of the inputs are false, '0'.
 
@@ -179,7 +179,7 @@ The output is true, '1' if all of the inputs are false, '0'.
 
 
 XNOR Gate
------------------------
+====================
 The output is true, '1', if only if all inputs are the same.
 The output is false, '0', if the inputs are not the same, differ.
 
@@ -199,7 +199,7 @@ The output is false, '0', if the inputs are not the same, differ.
 
 
 Negative AND Gate
------------------------
+====================
   Negating means to NOT the output/result, which is not the same as NOT'ing the input.
   Negating the input of an AND gate does not produce the same result as negating the output/result of an AND gate.
 
@@ -223,7 +223,7 @@ Negative AND Gate
 
 
 Negative OR Gate
------------------------
+====================
   Negative OR is not the same as NOR
   Negative OR is equivalent to NAND
 
@@ -242,8 +242,10 @@ Negative OR Gate
   1  1    0   0     0
 
 
-
-These last two examples (regarding negative inputs) are DeMorgan's Law.
+DeMorgan's Law
+====================
+These last two examples (regarding negative inputs) are DeMorgan's Law,
+allowing us to go back and forth between product of sums and sum of products.
 
 .. math::
   X'Y' &= (X+Y)'\\
