@@ -309,8 +309,7 @@ Notice, for 29, you are not using up all the possible combination/control a 5 bi
 5 bits can control up to 32 signals. Therefore when you write your HDL, you have to handle what to do
 when the control signal is one of the 3 (32-29) remaining cases that aren't applicable..
 
-Because of the select bits and the resultant power of 2s number of inputs relation, you might not always have to use all the inputs.
-Therefore you must always keep in mind, what to do with what you dont care or doesn't matter.
+While the number or mux input is a result of the number of select bits, you are not required to use all of it, but you should always keep in mind what to do with what you dont care about or doesn't matter.
 
 .. warning::
   
@@ -348,13 +347,13 @@ Therefore you must always keep in mind, what to do with what you dont care or do
     
         case sel is
             when "00" =>
-                mux_out <= Sig1;
+                mux_out <= A;
             when "01" =>
-                mux_out <= Sig2;
+                mux_out <= B;
             when "10" =>
-                mux_out <= Sig3;
+                mux_out <= C;
             when others =>        -- sel = '11'
-                mux_out <= Sig4;
+                mux_out <= D;
         end case;
 
       end process;
@@ -365,6 +364,9 @@ and those vectors could have been ANY size! I just used 8 for simplicity.. it co
 
 Demultiplexer
 ====================
+The demux is a device that does just the opposite of the mux. you have ONE input this time, and many outputs. you still have select/control signals, but they are related to the output.
+
+with the select bits, you are determining where to route/send the input.
 
 Encoder
 ====================
