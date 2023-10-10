@@ -72,9 +72,15 @@ AND Gate
 The output is true, '1' only when all inputs are true, '1'.
  "multiplication implies ANDing"
 
-::
+.. math::
 
-  Boolean: z = x*y or z = xy (i prefer to write the latter)
+  z &= x*y\\
+    &= x \dotsb y\\
+    &= xy
+
+(i prefer to write the latter)
+
+::
 
   x, y    z
   input   output
@@ -88,9 +94,12 @@ OR Gate
 The output is true, '1' if any of the input is true, '1'.
 "addition implies OR"
 
-::
+.. math::
 
-  Boolean: z = x + y 
+  z = x + y
+
+
+::
 
   x, y    z
   input   output
