@@ -105,16 +105,16 @@ The output is true, '1' if any of the input is true, '1'.
 
   z = x + y
 
-what does this do::
-  tenths
-  tenths
+.. code-block:: TEST
+  
+  x, y    z
+  input   output
+  0  0    0
+  0  1    1
+  1  0    1
+  1  1    1 
 
-  tests
-
-asdf
-
-
-::
+:: 
 
   x, y    z
   input   output
