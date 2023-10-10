@@ -340,7 +340,8 @@ While the number or mux input is a result of the number of select bits, you are 
         end if;
 
       end process;
-    
+
+      
       -- MUX using a case statement
       process(sel, A, B, C, D) is
       begin
@@ -361,18 +362,110 @@ While the number or mux input is a result of the number of select bits, you are 
 In the above example, the input width could have been anything, you could have been selecting bits instead of vectors..
 and those vectors could have been ANY size! I just used 8 for simplicity.. it could have been 12, 16, 32, 54, 64, etc.
 
+Note, while these different approach will produce the same simulation result, they are two different flavors of MUX, 
+they are synthesized differently in the FPGA.
+Write more..
+
+There is another MUX, a one-shot.
+
+
+.. code-block:: vhdl
+  :linenos:    
+
+      A,B,C,D   : in  std_logic_vector(7 downto 0);
+      sel       : in  std_logic_vector(3 downto 0);
+      mux_out   : out std_logic_vector(7 downto 0);
+
+      ...
+    
+      -- MUX using a case statement
+      process(sel, A, B, C, D) is
+      begin
+    
+        case sel is
+            when "0001" =>
+                mux_out <= A;
+            when "0010" =>
+                mux_out <= B;
+            when "0100" =>
+                mux_out <= C;
+            when "1100" =>
+                mux_out <= D;                
+            when others =>        -- other sel input combinations
+                mux_out <= 'X';
+        end case;
+
+      end process;
 
 Demultiplexer
 ====================
-The demux is a device that does just the opposite of the mux. you have ONE input this time, and many outputs. you still have select/control signals, but they are related to the output.
+The demux is a device that does just the opposite of the mux. you have ONE input this time, and many outputs. 
+you still have select/control signals, but they are related to the output.
 
 with the select bits, you are determining where to route/send the input.
+
+
+.. code-block:: vhdl
+  :linenos:    
+
+      A,B,C,D   : out  std_logic_vector(7 downto 0);
+      sel       : in  std_logic_vector(1 downto 0);
+      data_in   : in std_logic_vector(7 downto 0);
+
+      ...
+
+      -- MUX using if-else statement
+      process(sel, data_in) is
+      begin
+    
+        if sel = "00" then
+            A <= data_in;
+        elsif sel = "01" then
+            B <= data_in;
+        elsif sel = "10" then
+            C <= data_in;
+        else                --sel = "11"
+            D <= data_in;
+        end if;
+
+      end process;
+    
+      -- DEMUX using a case statement
+      process(sel, data_in) is
+      begin
+    
+        case sel is
+            when "00" =>
+                A <= data_in;
+            when "01" =>
+                B <= data_in;
+            when "10" =>
+                C <= data_in;
+            when others =>        -- sel = '11'
+                D <= data_in;
+        end case;
+
+      end process;
+
+
+The if-else version is not a true mux, the tool interprets that as a priority encoder.
 
 Encoder
 ====================
 
+
+.. code-block:: vhdl
+  :linenos:    
+
+
 Decoder
 ====================
+
+
+.. code-block:: vhdl
+  :linenos:    
+
+
 
 Adder
 ====================
