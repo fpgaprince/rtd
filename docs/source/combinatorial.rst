@@ -358,7 +358,7 @@ Tristate
 ====================
 
 
-:: Tristates
+::
 
     An external pin of the circuit (OBUFT)
     An Internal bus (BUFT):
