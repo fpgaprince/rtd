@@ -259,13 +259,13 @@ Circuit Analysis, Implementation and Design
 ####################################################
 
 Boolean Algebra
--------------------------------
+========================================
 
 Truth Table
--------------------------------
+========================================
 
 Gate-level Minimization
--------------------------------
+========================================
 
 
 
@@ -281,21 +281,21 @@ NOTE: that while we talk about gates to create these functions, an FPGA will act
 
 
 Multiplexer
--------------------------------
+====================
 
 
 
 Demultiplexer
--------------------------------
+====================
 
 Encoder
--------------------------------
+====================
 
 Decoder
--------------------------------
+====================
 
 Adder
--------------------------------
+====================
 This is an add operator
 
 .. code-block:: vhdl
@@ -310,7 +310,7 @@ This is an add operator
 
 
 Subtractor
--------------------------------
+====================
 This is a subtraction operator
 
 .. code-block:: vhdl
@@ -325,13 +325,13 @@ This is a subtraction operator
 
 
 Comparator
--------------------------------
+====================
 
 Parity Gen and Check
--------------------------------
+========================================
 
 Multiplier
--------------------------------
+====================
 .. code-block:: vhdl
   :linenos:    
 
@@ -355,7 +355,7 @@ Multiplier
 
 
 Tristate
--------------------------------
+====================
 
 
 :: Tristates
@@ -389,10 +389,11 @@ Tristate
     end archi;
 
 
+Bringing it all together
+####################################################
 
-
-ALU
--------------------------------
+Simple ALU
+====================
 Create/ show a simple one. That utilizes enc/dec, add/sub
 
   .. code-block:: vhdl
