@@ -105,15 +105,7 @@ The output is true, '1' if any of the input is true, '1'.
 
   z = x + y
 
-.. code-block:: TEST
-  
-  x, y    z
-  input   output
-  0  0    0
-  0  1    1
-  1  0    1
-  1  1    1 
-
+Truth Table:
 :: 
 
   x, y    z
