@@ -48,9 +48,8 @@ Truth Table
   Notice, powers of 2's.
 
 
-
 Logic Gates
-====================
+##########################
 
   (NOT, AND, OR, XOR), logic operator
 
@@ -255,7 +254,7 @@ These last two examples (regarding negative inputs) are DeMorgan's Law.
 
 
 Circuit Analysis, Implementation and Design
-================================================
+####################################################
 
 Boolean Algebra
 -------------------------------
@@ -274,7 +273,7 @@ Gate-level Minimization
 
 
 Combinatorial Components
-=======================================
+####################################################
 Using logic gates, we create more useful functions.
 NOTE: that while we talk about gates to create these functions, an FPGA will actually use its CLB (LUTs and MUX) or dedicated hardware (DSP) to realize it.
 
