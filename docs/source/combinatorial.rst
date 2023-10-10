@@ -247,8 +247,8 @@ Negative OR Gate
 These last two examples (regarding negative inputs) are DeMorgan's Law.
 
 .. math::
-  X'Y' = (X+Y)'
-  X'+ Y' = (XY)'
+  X'Y' &= (X+Y)'\\
+  X'+ Y' &= (XY)'
 
 
 
