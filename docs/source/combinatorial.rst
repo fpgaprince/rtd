@@ -80,14 +80,13 @@ They are to realize/implement the math, logical operations and functions in actu
 AND Gate
 -----------------------
 The output is true, '1' only when all inputs are true, '1'.
-"multiplication implies ANDing"
 
 .. math::
 
   z &= x \cdot y\\
     &= xy
 
-  Personally, I prefer to write the latter.
+Personally, I prefer to write the latter.
 
 ::
 
@@ -101,11 +100,18 @@ The output is true, '1' only when all inputs are true, '1'.
 OR Gate
 -----------------------
 The output is true, '1' if any of the input is true, '1'.
-"addition implies OR"
 
 .. math::
 
   z = x + y
+
+what does this do::
+  tenths
+  tenths
+
+  tests
+
+asdf
 
 
 ::
