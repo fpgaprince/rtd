@@ -84,13 +84,10 @@ The output is true, '1' only when all inputs are true, '1'.
 
 .. math::
 
-  z &= x*y\\
-    &= x \cdot y\\
-    &= x \bullet y\\
-    &= x \centerdot y\\
+  z &= x \cdot y\\
     &= xy
 
-(i prefer to write the latter)
+  Personally, I prefer to write the latter.
 
 :: truth table
 
