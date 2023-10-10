@@ -67,6 +67,7 @@ The NOT gate inverts whatever value is at its input.
 
   z = x'
 
+**Truth Table:**
 ::
  
   x       z
@@ -86,8 +87,9 @@ The output is true, '1' only when all inputs are true, '1'.
   z &= x \cdot y\\
     &= xy
 
-Personally, I prefer to write the latter.
+*Personally, I prefer to write the latter.*
 
+**Truth Table:**
 ::
 
   x, y    z
@@ -105,7 +107,7 @@ The output is true, '1' if any of the input is true, '1'.
 
   z = x + y
 
-Truth Table:
+**Truth Table:**
 :: 
 
   x, y    z
@@ -124,6 +126,7 @@ The output is false, '0', if all of the inputs are the same.
 
   z = x \oplus y
 
+**Truth Table:**
 ::
 
   x, y    z
@@ -146,6 +149,7 @@ The output is true, '1' if any of the inputs are false, '0'.
 
   z = (xy)'
 
+**Truth Table:**
 ::
 
   x, y    z         z'
@@ -164,6 +168,7 @@ The output is true, '1' if all of the inputs are false, '0'.
 
   z = (x + y)'
 
+**Truth Table:**
 ::
 
   x, y    z         z'
@@ -183,6 +188,7 @@ The output is false, '0', if the inputs are not the same, differ.
 
   z = (x \oplus y)'
 
+**Truth Table:**
 ::
 
   x, y    z         z'
@@ -202,10 +208,14 @@ Negative AND Gate
   Negative AND is not the same as NAND.
   Negative AND is equivalent to NOR
 
+.. math::
 
+  z = x'y'
+
+**Truth Table:**
 ::
 
-  x, y    x', y'    z=X'Y'
+  x, y    x', y'    z
   input             output
   0  0    1  1      1           you're inputs are 0, 0 but you negate both to become 1, 1 for the AND gate, which results in a 1. 
   0  1    1  0      0
@@ -218,23 +228,26 @@ Negative OR Gate
   Negative OR is not the same as NOR
   Negative OR is equivalent to NAND
 
+.. math::
+
+  z = x' + y'
+
+**Truth Table:**
 ::
 
-  x, y    x',y'    z=A'+ B'
-  input            output
-  0  0    1  1     1
-  0  1    1  0     1
-  1  0    0  1     1
-  1  1    0  0     0
+  x, y    x', y'    z
+  input             output
+  0  0    1   1     1
+  0  1    1   0     1
+  1  0    0   1     1
+  1  1    0   0     0
 
 
 
 These last two examples (regarding negative inputs) are DeMorgan's Law.
 
-::
-
+.. math::
   X'Y' = (X+Y)'
-  and
   X'+ Y' = (XY)'
 
 
