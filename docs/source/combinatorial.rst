@@ -69,7 +69,7 @@ The basic boolean functions operate on 2 inputs, X and Y.
 
 AND Gate
 -----------------------
-The output is true, '1' only when both inputs are true, '1'.
+The output is true, '1' only when all inputs are true, '1'.
  "multiplication implies ANDing"
 
 ::
@@ -85,7 +85,7 @@ The output is true, '1' only when both inputs are true, '1'.
 
 OR Gate
 -----------------------
-If output is true, '1' if any of the input is true, '1'.
+The output is true, '1' if any of the input is true, '1'.
 "addition implies OR"
 
 ::
@@ -101,7 +101,7 @@ If output is true, '1' if any of the input is true, '1'.
 
 XOR Gate
 -----------------------
-If and only if one of the input is true
+The output is true, '1', If and only if one of the input is true.
 
 .. math::
 
@@ -116,15 +116,21 @@ If and only if one of the input is true
   1  0    1
   1  1    0 
 
-
+.. warning::
+  
   Negating means to NOT the output/result, which is not the same as NOT'ing the input.
 
 NAND Gate
 -----------------------
+The output is false, '0' if all the inputs are true, '1'.
+
+.. math::
+
+  z = (xy)'
 
 ::
 
-  x, y    z=AB      z=(AB)'
+  x, y    z         z'
   input   output    output
   0  0    0         1
   0  1    0         1
@@ -133,10 +139,15 @@ NAND Gate
 
 NOR Gate
 -----------------------
+The output is false, '0' if any of the inputs are true, '1'.
+
+.. math::
+
+  z = (x + y)'
 
 ::
 
-  x, y    z=A+B     z=(A+B)'
+  x, y    z         z'
   input   output    output
   0  0    0         1
   0  1    1         0
@@ -144,13 +155,17 @@ NOR Gate
   1  1    1         0
 
 
-
 XNOR Gate
 -----------------------
+Output is true, '1', if only if all inputs are the same.
+
+.. math::
+
+  z = (x \oplus y)'
 
 ::
 
-  x, y    z=AB      z=(AB)'
+  x, y    z         z'
   input   output    output
   0  0    0         1
   0  1    1         0
@@ -158,8 +173,6 @@ XNOR Gate
   1  1    0         1
 
 
-
------------------------
 Negative AND Gate
 -----------------------
   Negating means to NOT the output/result, which is not the same as NOT'ing the input.
@@ -182,8 +195,8 @@ Negative AND Gate
 
 Negative OR Gate
 -----------------------
-Negative OR is not the same as NOR
-Negative OR is equivalent to NAND
+  Negative OR is not the same as NOR
+  Negative OR is equivalent to NAND
 
 ::
 
@@ -199,6 +212,7 @@ Negative OR is equivalent to NAND
 These last two examples (regarding negative inputs) are DeMorgan's Law.
 
 ::
+
   X'Y' = (X+Y)'
   and
   X'+ Y' = (XY)'
