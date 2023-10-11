@@ -148,7 +148,7 @@ The output is true, '1' if any of the inputs are false, '0'.
 .. math::
 
   z &= (xy)'\\
-    &= \overline{xy}
+    &= \overline{(xy)}
 
 **Truth Table:**
 ::
@@ -168,7 +168,7 @@ The output is true, '1' if all of the inputs are false, '0'.
 .. math::
 
   z &= (x + y)'\\
-    &= \overline{x + y}
+    &= \overline{(x + y)}
 
 **Truth Table:**
 ::
@@ -189,7 +189,7 @@ The output is false, '0', if the inputs are not the same, differ.
 .. math::
 
   z &= (x \oplus y)'\\
-    &= \overline{x \oplus y}
+    &= \overline{(x \oplus y)}
 
 **Truth Table:**
 ::
@@ -256,7 +256,7 @@ allowing us to go back and forth between product of sums and sum of products.
 
 .. math::
   x'y' &= (x+y)'\\
-  x'+ x' &= (xy)'
+  x'+ y' &= (xy)'
 
 
 
