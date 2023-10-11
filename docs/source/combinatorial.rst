@@ -148,7 +148,7 @@ The output is true, '1' if any of the inputs are false, '0'.
 .. math::
 
   z &= (xy)'\\
-    &= \bar{xy}
+    &= \overline{xy}
 
 **Truth Table:**
 ::
@@ -168,7 +168,7 @@ The output is true, '1' if all of the inputs are false, '0'.
 .. math::
 
   z &= (x + y)'\\
-    &= \bar{x + y}
+    &= \overline{x + y}
 
 **Truth Table:**
 ::
@@ -189,7 +189,7 @@ The output is false, '0', if the inputs are not the same, differ.
 .. math::
 
   z &= (x \oplus y)'\\
-    &= \bar{x \oplus y}
+    &= \overline{x \oplus y}
 
 **Truth Table:**
 ::
@@ -571,6 +571,7 @@ I dont think I've really read it anywhere. But here we go..
 Say we want to compare two bits.. x and y
 
 ::
+
   x y   
   0 0   x = y
   0 1   x < y
@@ -582,6 +583,7 @@ which means there are 3 truth tables, but because the inputs are common,
 we are just going to rotate the result and populate in the table.
 
 ::
+  
         A       B       C
   x y   x = y   x < y   x > y
   0 0   1       0       0
