@@ -596,7 +596,7 @@ for x = y, we see that, there are two cases in which the inputs can be equal.. a
 .. math::
 
     x < y :\\
-    A = \bar{x \oplus y}
+    A = \overline{x \oplus y}
 
 
 for x < y, it is only true in the second line, when x is 0 and y is 1. 
@@ -609,14 +609,14 @@ but x < y, is
 .. math::
 
     x < y :\\
-    B = \bar{x} y
+    B = \bar{x} y = x'y
 
 likewise for x > y, 3rd line.
 
 .. math::
 
     x > y :\\
-    C = x \bar{y}
+    C = x \bar{y} = xy'
 
 Because there are 3 truth tables, this implies the tool is likely to use 3 LUTs , specifically LUT2, to realize 
 this comparative function. The LUT tables will be populated with the same values as above!
