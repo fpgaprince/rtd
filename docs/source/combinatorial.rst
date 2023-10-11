@@ -297,11 +297,11 @@ What if the number isn't a power of 2? You'll need to recall log/ln and base con
   
 
 .. math:: 
-    roundup( ln(N) / ln(2)) &= \text{ N bits required}\\
-    roundup( ln(7) / ln(2)) &= roundup(2.80735) = 3 \text{ bits required}\\
-    roundup( ln(9) / ln(2)) &= roundup(3.16992) = 4 \text{ bits required}\\
-    roundup( ln(14) / ln(2)) &= roundup(3.80735) = 4 \text{ bits required}\\
-    roundup( ln(29) / ln(2)) &= roundup(4.85798) = 5 \text{ bits required}\\
+    roundup( ln(N) / ln(2)) = \text{ N bits required}\\
+    roundup( ln(7) / ln(2)) = roundup(2.80735) = 3 \text{ bits required}\\
+    roundup( ln(9) / ln(2)) = roundup(3.16992) = 4 \text{ bits required}\\
+    roundup( ln(14) / ln(2)) = roundup(3.80735) = 4 \text{ bits required}\\
+    roundup( ln(29) / ln(2)) = roundup(4.85798) = 5 \text{ bits required}\\
 
 
 Notice, for 29, you are not using up all the possible combination/control a 5 bit control signal can handle.
@@ -475,7 +475,7 @@ It does not apply to FPGAs because again, we're not dealing with the gates.
 I'll repeat this many times over and throughout your reading. I don't think this is clear to many.
 
 
-For example, we learn the half adder reduces down to these two operations.
+For example, we learn the half adder logic reduces down to these two operations.
 
 .. math::
 
@@ -544,7 +544,7 @@ What is the cross over though?
 
 Subtractor
 ====================
-This is a subtraction operator
+Subtraction is pretty much the same as above talk.
 
 .. code-block:: vhdl
   :linenos:    
@@ -560,8 +560,11 @@ This is a subtraction operator
 Comparator
 ====================
 
-Parity Gen and Check
-========================================
+
+
+
+
+
 
 Multiplier
 ====================
@@ -586,8 +589,30 @@ Multiplier
   end beh;
 
 
+Divide
+====================
 
-Tristate
+Shifting?
+====================
+
+
+Bringing it all together
+####################################################
+Parity Gen and Check
+========================================
+
+Simple ALU
+====================
+Create/ show a simple one. That utilizes enc/dec, add/sub
+
+  .. code-block:: vhdl
+  :linenos:    
+
+
+
+
+
+NOTES
 ====================
 
 
@@ -620,15 +645,3 @@ Tristate
     end if;
     end process;
     end archi;
-
-
-Bringing it all together
-####################################################
-
-Simple ALU
-====================
-Create/ show a simple one. That utilizes enc/dec, add/sub
-
-  .. code-block:: vhdl
-  :linenos:    
-
