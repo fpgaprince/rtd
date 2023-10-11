@@ -147,7 +147,8 @@ The output is true, '1' if any of the inputs are false, '0'.
 
 .. math::
 
-  z = (xy)'
+  z &= (xy)'\\
+    &= \bar{xy}
 
 **Truth Table:**
 ::
@@ -166,7 +167,8 @@ The output is true, '1' if all of the inputs are false, '0'.
 
 .. math::
 
-  z = (x + y)'
+  z &= (x + y)'\\
+    &= \bar{x + y}
 
 **Truth Table:**
 ::
@@ -186,7 +188,8 @@ The output is false, '0', if the inputs are not the same, differ.
 
 .. math::
 
-  z = (x \oplus y)'
+  z &= (x \oplus y)'\\
+    &= \bar{x \oplus y}
 
 **Truth Table:**
 ::
@@ -210,7 +213,9 @@ Negative AND Gate
 
 .. math::
 
-  z = x'y'
+  z &= x'y'\\
+  &= \bar{x}\bar{y}
+
 
 **Truth Table:**
 ::
@@ -230,7 +235,8 @@ Negative OR Gate
 
 .. math::
 
-  z = x' + y'
+  z &= x' + y'\\
+    &= \bar{x} + \bar{y}
 
 **Truth Table:**
 ::
@@ -249,8 +255,8 @@ These last two examples (regarding negative inputs) are DeMorgan's Law,
 allowing us to go back and forth between product of sums and sum of products.
 
 .. math::
-  X'Y' &= (X+Y)'\\
-  X'+ Y' &= (XY)'
+  x'y' &= (x+y)'\\
+  x'+ x' &= (xy)'
 
 
 
