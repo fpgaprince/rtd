@@ -472,30 +472,66 @@ Adder
 I will not go into the digital logic details right now.
 
 While in digital logic, you are introduced to half adders, full adders, ripple carry and carry lookahead.. 
-It does not really apply for FPGAs because again, we aren't dealing with the gates.
-I'll repeat this many times throughout your reading. I don't think this is clear to many.
+It does not apply to FPGAs because again, we're not dealing with the gates.
+I'll repeat this many times over and throughout your reading. I don't think this is clear to many.
 
-You wont synthesize the logic gates that make the half adder or full adder. 
-You will populate a LUT truth table with the following equation, for example..
 
+For example, we learn the half adder reduces down to these two operations.
 .. math::
 
   sum &= X \oplus Y\\
   carry &= XY
 
-You only care about what is the input and what is the result of that input combination.
 
-  This is an add operator
+.. code-block:: vhdl
+  :linenos:    
 
-  .. code-block:: vhdl
-    :linenos:    
+    signal X, Y : std_logic;
+    
+    signal sum : std_logic;
+    signal carry : std_logic;
+    
+    signal sum2 : std_logic_vector(1 downto 0);   --ovf expanded
+    
+    process(X,Y) begin
+        sum <= X xor Y;
+        carry <= X and Y;
+    end process;    
 
-      signal A, B : std_logic_vector(N downto 0);
-      signal sum : std_logic_vector(N+1 downto 0);
+    
+    process(X,Y) begin
+        sum2 <= X + Y;
+    end process;
 
-      process(A,B) begin
-          sum <= A + B;
-      end process;
+
+
+You wont synthesize the logic gates that make the half adder or full adder. 
+You describe it (like in the second one), and the vendor tool will synthesize it into their FPGA's building block, the LUT.
+The LUT's truth table is populated with the input to output relationship. 
+This will synthesize int 2 LUT2s, *it wouldn't be LUT4 because you need two outputs in both case*
+
+::
+
+  x, y    sum
+  input   output
+  0  0    0           
+  0  1    1
+  1  0    1
+  1  1    0         -> only one case which creates a carry.
+
+  x, y    carry
+  input   output
+  0  0    0           
+  0  1    0
+  1  0    0
+  1  1    1         -> the carry.
+
+
+
+
+
+
+
 
 For small addition, the tool with synthesize them into LUTs, but as your bit/data width increases,
 there is a point in which it will degrade performance, and is better to use the dedicated DSP hardware.
