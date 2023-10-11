@@ -536,10 +536,6 @@ This will synthesize int 2 LUT2s, *it wouldn't be LUT4 because you need two outp
 
 
 
-
-
-
-
 For small addition, the tool with synthesize them into LUTs, but as your bit/data width increases,
 there is a point in which it will degrade performance, and is better to use the dedicated DSP hardware.
 It is a poor choice to use DSP to just do 8bit addition. If you had to do 128bit addition or something, use the DSP.
@@ -625,10 +621,21 @@ Again, we aren't going to be using actual XNOR or AND gates to implement this fu
 
 I hope that last few examples clarify or shed light on how combinational logic is actually realized in an FPGA.
 
+Like with everything else, as the input width increases, the tool will pull in more LUTs and either have them tree down/up, cascaded or paralleled.
+
+.. note::
+  TO SELF: this would be interesting to see.. at what point the tool chooses one over the other. Maybe it's already there, under how
+  optimization works. But might be intellectual prop stuff.
+
 
 
 Multiplier
 ====================
+Things are getting more complicated!
+
+
+
+
 .. code-block:: vhdl
   :linenos:    
 
@@ -675,6 +682,24 @@ Create/ show a simple one. That utilizes enc/dec, add/sub
 
 NOTES
 ====================
+
+::
+    
+  where to put these? we talk about it in fundamentals, but we need to talk about it with HDL and FPGAs.
+  fundamental ch, no HDL allowed yet. just theory/math(boolean)/idea/concept.
+  by this chapter, i've introduced HDL too.
+  combinational would normally be from digital logic/circuit perspective..
+  and should.. 
+  but not everything is applicable. or not in the same way atleast..
+  so maybe i can blend/tie things here.
+
+
+Unsigned vs Signed Binary
+---------------------------------------------
+Unsigned vs Signed Fixed Point
+---------------------------------------------
+Floating point
+---------------------------------------------
 
 
 ::
