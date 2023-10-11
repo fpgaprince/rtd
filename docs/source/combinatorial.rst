@@ -573,7 +573,8 @@ Say we want to compare two bits.. x and y
   1 1   x = y
 
 above, we are functionally describing the output result, each result will actually require its own column.
-below, we rotate the result and fill in the table.
+which means there are 3 truth tables, but because the inputs are common, 
+we are just going to rotate the result and populate in the table.
 
 ::
   x y   x = y   x < y   x > y
@@ -582,7 +583,7 @@ below, we rotate the result and fill in the table.
   1 0   0       0       1
   1 1   1       0       0
 
-for x = y, we see that, there are two cases in which the inputs can be equal.. this resembles the XNOR gate. 
+for x = y, we see that, there are two cases in which the inputs can be equal.. and this resembles the XNOR gate. 
 
 .. math::
 
@@ -590,14 +591,17 @@ for x = y, we see that, there are two cases in which the inputs can be equal.. t
 
 
 for x < y, it is only true in the second line, when x is 0 and y is 1. 
-I guess i should write how the section about writing equations from truth tables...
+I guess i should write the section about writing equations from truth tables...
+which is basically writing sum of products or products of sum.
+which then brings about the gate minimizations... if necessary.
+
 but x < y, is 
 
 .. math::
 
     x < y : B = \xbar{x} y
 
-likewise for x > y,
+likewise for x > y, 3rd line.
 
 .. math::
 
