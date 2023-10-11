@@ -540,7 +540,7 @@ What is the cross over though?
 
 .. note:: 
   
-  I need to look at what the cross over point is.
+  I need to look at what the cross over point is. Also test out different input widths vs LUT.
 
 Subtractor
 ====================
@@ -559,9 +559,27 @@ Subtraction is pretty much the same as above talk.
 
 Comparator
 ====================
+We use comparisons so often, in if-else statements, but do you really know what is going on? at the LUT level?
+I dont think I've really read it anywhere. But here we go..
 
+Say we want to compare two bits.. x and y
 
+::
+  x y   
+  0 0   x = y
+  0 1   x < y
+  1 0   x > y
+  1 1   x = y
 
+we dont have one output case any more, as we did in the logic gate examples.. we have 3.
+equal, greater than, less than. rewrite..
+
+::
+  x y   x = y   x < y   x > y
+  0 0   1       0       0
+  0 1   0       1       0
+  1 0   0       0       1
+  1 1   1       0       0
 
 
 
@@ -645,3 +663,22 @@ NOTES
     end if;
     end process;
     end archi;
+
+
+::
+
+  x1,x2   y1,y2
+  00      00
+  00      01
+  00      10
+  01      00
+  01      01
+  01      10
+  01      11
+  10      00
+  10      01
+  10      10
+  11      00
+  11      01  
+  11      10
+  11      11
