@@ -64,7 +64,8 @@ The NOT gate inverts whatever value is at its input.
 
 .. math::
 
-  z = x'
+  z &= x'
+    &= \bar{x}
 
 **Truth Table:**
 ::
@@ -571,8 +572,8 @@ Say we want to compare two bits.. x and y
   1 0   x > y
   1 1   x = y
 
-we dont have one output case any more, as we did in the logic gate examples.. we have 3.
-equal, greater than, less than. rewrite..
+above, we are functionally describing the output result, each result will actually require its own column.
+below, we rotate the result and fill in the table.
 
 ::
   x y   x = y   x < y   x > y
@@ -580,6 +581,27 @@ equal, greater than, less than. rewrite..
   0 1   0       1       0
   1 0   0       0       1
   1 1   1       0       0
+
+for x = y, we see that, there are two cases in which the inputs can be equal.. this resembles the XNOR gate. 
+
+.. math::
+
+    x < y : B = \xbar{x \oplus y}
+
+
+for x < y, it is only true in the second line, when x is 0 and y is 1. 
+I guess i should write how the section about writing equations from truth tables...
+but x < y, is 
+
+.. math::
+
+    x < y : B = \xbar{x} y
+
+likewise for x > y,
+
+.. math::
+
+    x > y : B = X \xbar{y}
 
 
 
