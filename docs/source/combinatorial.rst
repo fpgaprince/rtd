@@ -64,7 +64,7 @@ The NOT gate inverts whatever value is at its input.
 
 .. math::
 
-  z &= x'
+  z &= x'\\
     &= \bar{x}
 
 **Truth Table:**
@@ -562,7 +562,6 @@ Comparator
 ====================
 We use comparisons so often, in if-else statements, but do you really know what is going on? at the LUT level?
 I dont think I've really read it anywhere. But here we go..
-
 Say we want to compare two bits.. x and y
 
 ::
@@ -587,7 +586,7 @@ for x = y, we see that, there are two cases in which the inputs can be equal.. a
 
 .. math::
 
-    x < y : B = \xbar{x \oplus y}
+    x < y : B = \bar{x \oplus y}
 
 
 for x < y, it is only true in the second line, when x is 0 and y is 1. 
@@ -599,13 +598,13 @@ but x < y, is
 
 .. math::
 
-    x < y : B = \xbar{x} y
+    x < y : B = \bar{x} y
 
 likewise for x > y, 3rd line.
 
 .. math::
 
-    x > y : B = X \xbar{y}
+    x > y : B = X \bar{y}
 
 
 
