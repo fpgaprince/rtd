@@ -583,7 +583,7 @@ which means there are 3 truth tables, but because the inputs are common,
 we are just going to rotate the result and populate in the table.
 
 ::
-  
+
         A       B       C
   x y   x = y   x < y   x > y
   0 0   1       0       0
@@ -595,7 +595,8 @@ for x = y, we see that, there are two cases in which the inputs can be equal.. a
 
 .. math::
 
-    x < y : A = \bar{x \oplus y}
+    x < y :\\
+    A = \bar{x \oplus y}
 
 
 for x < y, it is only true in the second line, when x is 0 and y is 1. 
@@ -607,14 +608,22 @@ but x < y, is
 
 .. math::
 
-    x < y : B = \bar{x} y
+    x < y :\\
+    B = \bar{x} y
 
 likewise for x > y, 3rd line.
 
 .. math::
 
-    x > y : C = X \bar{y}
+    x > y :\\
+    C = x \bar{y}
 
+Because there are 3 truth tables, this implies the tool is likely to use 3 LUTs , specifically LUT2, to realize 
+this comparative function. The LUT tables will be populated with the same values as above!
+
+Again, we aren't going to be using actual XNOR or AND gates to implement this function, we use their truth tables, input/output relationships.
+
+I hope that last few examples clarify or shed light on how combinational logic is actually realized in an FPGA.
 
 
 
