@@ -297,12 +297,11 @@ What if the number isn't a power of 2? You'll need to recall log/ln and base con
   
 
 .. math:: 
-    roundup( ln(N input) / ln(2) ) &= \text{ N bits required}\\
+    roundup( ln(N) / ln(2)) &= \text{ N bits required}\\
     roundup( ln(7) / ln(2)) &= roundup(2.80735) = 3 \text{ bits required}\\
     roundup( ln(9) / ln(2)) &= roundup(3.16992) = 4 \text{ bits required}\\
     roundup( ln(14) / ln(2)) &= roundup(3.80735) = 4 \text{ bits required}\\
     roundup( ln(29) / ln(2)) &= roundup(4.85798) = 5 \text{ bits required}\\
-    FIX presentation....
 
 
 Notice, for 29, you are not using up all the possible combination/control a 5 bit control signal can handle.
@@ -477,6 +476,7 @@ I'll repeat this many times over and throughout your reading. I don't think this
 
 
 For example, we learn the half adder reduces down to these two operations.
+
 .. math::
 
   sum &= X \oplus Y\\
