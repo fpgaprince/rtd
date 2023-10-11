@@ -297,11 +297,11 @@ What if the number isn't a power of 2? You'll need to recall log/ln and base con
   
 
 .. math:: 
-    roundup( ln(N input) / ln(2) ) &= N bits required\\
-    roundup( ln(7) / ln(2)) &= roundup(2.80735) = 3 bits required\\
-    roundup( ln(9) / ln(2)) &= roundup(3.16992) = 4 bits required\\
-    roundup( ln(14) / ln(2)) &= roundup(3.80735) = 4 bits required\\
-    roundup( ln(29) / ln(2)) &= roundup(4.85798) = 5 bits required\\
+    roundup( ln(N input) / ln(2) ) &= \text{ N bits required}\\
+    roundup( ln(7) / ln(2)) &= roundup(2.80735) = 3 \text{ bits required}\\
+    roundup( ln(9) / ln(2)) &= roundup(3.16992) = 4 \text{ bits required}\\
+    roundup( ln(14) / ln(2)) &= roundup(3.80735) = 4 \text{ bits required}\\
+    roundup( ln(29) / ln(2)) &= roundup(4.85798) = 5 \text{ bits required}\\
     FIX presentation....
 
 
