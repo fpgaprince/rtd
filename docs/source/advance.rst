@@ -35,6 +35,7 @@ Area
     try to (synth/imp -> syn/imp -> symp) LUT+FF based shift registers. which will take up more resources/area than using dedicated hw.
     more area.
 
+    
 Power
 
 FIFO
@@ -55,7 +56,8 @@ Reset
 
     Dedicated BRAM and DSP should be synchronously reset
     SRL, no reset.
-    
+    Using set/reset pins can prevent combinatorial logic optimization
+
 
 Clocking
 =======================

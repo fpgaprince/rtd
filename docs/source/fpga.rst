@@ -1,20 +1,22 @@
+
+************************
 FPGA
 ************************
 
 At the time of writing, focused on Xilinx FPGAs.
 
-========================
+
 What is an FPGA
-========================
+##########################
     Field Programmable Gate Arrays (FPGAs) are semiconductor devices, integrated circuits, with configurable logic(circuit) blocks, programmable interconnects
     and some dedicated. 
     By developing and defining the relationship between theses blocks, interconnections and optionally, dedicated hardware, 
     we can create various tasks, complex functions and/or algorithms specific for an application. 
 
 
-========================
+
 Why use an FPGA
-========================
+##########################
     Parallelism and reconfigurability are major highlights/features for using an FPGA.
 
     *   Parallelism allows us to increase data throughput per clock period.. 
@@ -27,9 +29,9 @@ Why use an FPGA
     Parallelism has been exploited by GPUs for ages and is nothing new  
     Reconfiguring is no different than recompiling program and repurposing an MCU/CPU.
 
-========================
+
 When to use an FPGA
-========================
+##########################
     In general, it depends on your application, performance requirements and cost constraints.
 
     Application and complexity
@@ -37,7 +39,7 @@ When to use an FPGA
     Cost
 
 FPGA vs MCU vs CPU
-------------------------
+========================
 
     CPU and MCU are similar in there sequential nature when executing a program. 
     MCU may require less resource in terms of memory because you dont need an OS.
@@ -46,13 +48,13 @@ FPGA vs MCU vs CPU
     Generally, a faster clock rate will execute your code faster.
 
 FPGA vs GPU 
-------------------------
+========================
     GPU exploit parallelism like FPGA. At the moment it is not clear to me which is better.
     If we were to say we wanted to do some image/video processing application. GPUs are great for such work,
     and FPGAs can be developed for specific processing tasks.. so where is the cross over?
 
 FPGA vs ASIC
-------------------------
+========================
     ASICs are specific to your application. They make use of the entire chip, there is no excess gates/hardware in the chip.
     Everything serves a purpose. An FPGA gives you building blocks, and it is up to you to determine what to use.
     Most of the time you never use up 100% of the available resources. It isn't common practice to do that.
@@ -60,51 +62,78 @@ FPGA vs ASIC
     An ASIC would require a respin, costing significant amount of money.
 
 SOC
-------------------------
+========================
     Essentially a CPU combo'd with other processors, can be FPGA, network, DSP.
+    Zynq 7000, uses A9
+    MPSoC, RFSoC,  and so does Altera's stratix use A53
+    and Versal uses the ARM Cortex A72
 
 
 
 FPGA Architecture
-========================
+##########################
     These are the core components in an FPGA, regardless of vendors. They are the available digital circuits/hardware avaialble to us within the FPGA.
     Whatever we code up in HDL and synthesize/implement.. gets mapped to these digital components. I list our the common if not all here.
     We will talk about digital logic and digital design in the broad/general sense, but i will also emphasize whether or not they are applicable to FPGAs.
     
 
 Configurable Logic Blocks (CLB)
-------------------------------------------
+================================================
     A CLB is an organization of the below components. The number of each, how they are placed and their IO are vendor specific.
     Each vendor has their own rationale for choosing implementing their architecture. 
 
+    CLB is further divided into slices. There is SLICEL and SLICEM
+    
+    Organize
+    Xilinx organizes their CLBs into two types, SLICEM and SLICEL.
+    SLICEL (L=logic)  - 4LUT,8FF -> CLB = 2SLICES -> 8LUT 16FF
+    SLICEM (M=memory) - distributed memory/ram or shift register
+    LUT, LUTRAM, CARRY, MUX, SRL. Storage (FF)
 
 
 Look up Table (LUT)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------------
 The LUTs inside an FPGA are implemented as asynchronous ROMs (i.e. ROMs without a clock): they are actual SRAM based.
 SRAM meaning that they are volatile and will be wiped/reprogrammed when rebooted.
-At configuration time, the RAM is written to, defining the logical function it needs to perform.
+At configuration time, the RAM is written to with the BIT file (often stored elsewhere), defining the logical function the FPGA needs to perform.
 The inputs are treated as address lines, and the output usually has the width of one bit or two bits is the "content" at that address line.
 
 The number of inputs to these LUTs is 4 or 6 in almost all FPGAs in the market, so the number of memory cells in each LUT is either 16 or 64.
 can be 2-6. The input determine the combinatorial function it can represnt. LUT2 for example, can represent all the basic 2 input gates, AND OR XOR.
 
-
-
-
-Flip Flops (FF)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Multiplexer (MUX)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    LUT1-6
 
 Carry Logic (CL)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------------
+    CARRY8
 
-
+Multiplexer (MUX)
+------------------------------------------
+    MUXF7/8/9
 
 Shift Registers (SRL)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------------
+    SRL16/32
+
+Storage Elements 
+================================================
+
+Registers/ Flip Flops (FF)
+------------------------------------------
+    FDCE FDPE
+    FDRE FDSE
+
+Distributed RAM (LUTRAM)
+------------------------------------------
+
+BRAM
+---------------------
+    RAM18/36
+    FIFO18/36
+    URAM
+
+
+
 
 IO
 ---------------------
@@ -112,18 +141,12 @@ IO
 Interconnect
 ---------------------
 
-Distributed RAM
----------------------
-
-BRAM
----------------------
-
 Clock MGMT
 ---------------------
 
 
 FPGA Dedicated Hardware
-=================================
+================================================
     As the technology advanced and they're able to fit more onto a die, FPGAs began absorbing various hardware it would often interface with, making them internally dedicated.
     While they are common these days, not every FPGA family or model will have it. Thus listed here.
 
@@ -136,21 +159,20 @@ DSP (extra)
 
 XADC (extra)
 -------------------------------
+    SYSMON
 
 Tranceivers (extra)
 -------------------------------
+    GTH/GTY
 
-PCIe (extra)
--------------------------------
 
 Hardprocessor
 -------------------------------
     As appose to soft processor or soft core IP. They're able to fit a CPU on the same die as the FPGA, reducing external pin interconnections. 
+    ARM Cortex-A9 and 53 seems to be the common one found in current FPGAs from both xilinx and altera.
 
 
+PCIe (extra)
+-------------------------------
 
 
-Organize
-Xilinx organizes their CLBs into two types, SLICEM and SLICEL.
-SLICEL (L=logic)  - 4LUT,8FF -> CLB = 2SLICES -> 8LUT 16FF
-SLICEM (M=memory) - distributed memory/ram or shift register
