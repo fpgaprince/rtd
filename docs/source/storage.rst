@@ -173,16 +173,16 @@ Flip-Flops
 :: 
     
     FDCE
-        D flip-flop with Clock Enable and Asynchronous Clear
+        D flip-flop with Clock Enable and Asynchronous Clear (clear = 0)
 
     FDPE
-        D flip-flop with Clock Enable and Asynchronous Preset
+        D flip-flop with Clock Enable and Asynchronous Preset (preset, any value not 0)
 
     FDSE
-        D flip-flop with Clock Enable and Synchronous Set
+        D flip-flop with Clock Enable and Synchronous Set (set, any value not 0)
 
     FDRE
-        D flip-flop with Clock Enable and Synchronous Reset
+        D flip-flop with Clock Enable and Synchronous Reset (reset = 0)
 
     The number of Registers inferred during HDL synthesis might not precisely equal the number of Flip-Flop primitives in the Design Summary section.
     The number of Flip-Flop primitives depends on the following processes:

@@ -26,7 +26,14 @@ Area
     some resources can be pull up to a higher level/hierarchy and be shared across modules, from a global perspective. 
     so resource at the 'module' or component level like clocks and timers..
  
-
+    you do not need a reset for every flip flop or sequential element, it depends what you are doing.
+        for instance, you dont need to reset a shift register, if you know you're not going to get valid data until a later time.
+        and the circuit/or whatever down stream knows this too. the shift will eventually shift out the initial values set by the FPGA.
+        or the garbage input until you get valid.
+    
+    to use dedicated shift registers, you cannot have a reset signal, they dont have a reset signal. if you do, the tool will
+    try to (synth/imp -> syn/imp -> symp) LUT+FF based shift registers. which will take up more resources/area than using dedicated hw.
+    more area.
 
 Power
 
