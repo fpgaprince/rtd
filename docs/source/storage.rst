@@ -191,6 +191,8 @@ Flip-Flops
     Removal of constant or equivalent Flip-Flops
     Basically your estimate and final report may not match because the tool will optimize. You can turn this off though.
 
+    Clear and Preset go together for Latches.
+    Set and Reset go together for Flops.
 
 Edge triggered latch?
 ================================

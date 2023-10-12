@@ -152,5 +152,5 @@ Hardprocessor
 
 Organize
 Xilinx organizes their CLBs into two types, SLICEM and SLICEL.
-SLICEL (L=logic)
+SLICEL (L=logic)  - 4LUT,8FF -> CLB = 2SLICES -> 8LUT 16FF
 SLICEM (M=memory) - distributed memory/ram or shift register

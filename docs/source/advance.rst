@@ -53,6 +53,10 @@ Clock Domain Crossing
 Reset 
 =======================
 
+    Dedicated BRAM and DSP should be synchronously reset
+    SRL, no reset.
+    
+
 Clocking
 =======================
 
