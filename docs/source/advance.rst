@@ -50,13 +50,35 @@ Pipeline
 
 Clock Domain Crossing
 =======================
+    Double Flop. Double Register. Synchronize Flip Flop. All the same, diff names.
+    FIFO
+    Phase Control, by using the FPGA's PLL/DLL
 
 Reset 
 =======================
 
-    Dedicated BRAM and DSP should be synchronously reset
-    SRL, no reset.
-    Using set/reset pins can prevent combinatorial logic optimization
+    Dedicated BRAM and DSP should be synchronously reset because these are dedicated HW in the FPGA. They were 'fabricated' that way, so in order
+    to use them correctly.. their resets should be syncrhronous.
+
+    SRL, no reset. Likewise.. frabricated with NO reset pin/input. Therefore if you try to add one, the tool will synthesize extra surrounding logic
+    to implement what you, the designer, wants.
+
+    Using set/reset pins can prevent combinatorial logic optimization.
+
+    Asynchronous Reset vs. Synchronous Reset
+    Advantage/Disadvantages
+    Asynchronous can happen anytime, you dont care about the clock edges. Synchronous is like all the other signals we've dealt with,
+    the clock edge we register the reset signal.
+    
+    The problem with async reset is in releasing the reset signal, starting operation, in relation to the clock. The point is, there is no relation. So when it is released, 
+    all the signals in the FPGA start going to work without knowledge of the clock, which creates a recipe for disaster in a synchronous design.
+    When we dont have an idea of the clock periods, or edges, we cannot guarantee our setup/hold times, we that is not guaranteed,
+    metastability is highly probable.
+
+    The problem with sync reset, is the requirement for a clock. IF for some reason we lose the clock we wont register a reset. Or if logic is spread out through the FPGA
+    such that the propagation of the clock is not equal in different areas, we wont reset all at the same time. This will create an uncertainty
+    in our reset state/condition.
+
 
 
 Clocking
