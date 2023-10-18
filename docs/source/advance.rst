@@ -40,19 +40,33 @@ Power
 
 FIFO
 =======================
+    This basic sequential circuit/component/module.. is increadibly important in many application. 
+    It was probably first introduced in data structure with queue and stack alogorithm/data storage.
+    Its write/read functionality are quite straightforward in nature when everything is within the same clock domain,
+    But when the write is in one domain and the reads are in another, it complicates things a little, a little in the sense that
+    is it a known issue, we are aware of it, and a way to handle it has been developed. The different domains complicate things
+    because we need to track the pointer, which means we need to pass the pointer value back and forth when a write or a read 
+    occurs.
+    We'll keep it brief here and discuss it more in the CDC section.
 
 Pipeline
 =======================
 *   Pipelining the design, can increase fmax.
 *   Help with Timing
 *   Increases latency
-
+*   Increases area
 
 Clock Domain Crossing
 =======================
+    What is a clock domain. You have clock domain which are multiples/factors of the other. So they are synchronous.
+    You have completely different clock domain in which the two are asynchronous, meaning neither have information on the other.
+    The information is in the phase relationship. Meaning you can have two domains of the same frequency.. but if the phase information is not known,
+    you cannot guarantee the setup/hold time requirements for either domain clock edges to be met.
+
     Double Flop. Double Register. Synchronize Flip Flop. All the same, diff names.
     FIFO
-    Phase Control, by using the FPGA's PLL/DLL
+    Phase Control, by using the FPGA's PLL/DLL, we can have multiples/factors of an input clock. The FPGA can monitor or determine the skew across the FPGA
+    with finer granularity? or control. The jitter will not be an issue? because it is internal and pre-defined in the spec of the PLL/DLL.
 
 Reset 
 =======================
@@ -79,6 +93,9 @@ Reset
     such that the propagation of the clock is not equal in different areas, we wont reset all at the same time. This will create an uncertainty
     in our reset state/condition.
 
+    So async issue is the end, and sync's issue is the beginning. To combat this, what is called 'async assertion, sync de-assertion' has been developed/created.
+    Async assertion takes care of sync's beginning of requiring a clock to reset, and the sync de-assertion handles, the end of the async to ensure everything
+    starts in a known state/value/ at the same time.
 
 
 Clocking
