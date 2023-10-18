@@ -176,3 +176,11 @@ PCIe (extra)
 -------------------------------
 
 
+Metastability
+================================================
+I want to introduce this concept/issue early on. It should be fundamental and designers should be aware of it.
+It's not even an advance concept.. but from many of my reading.. it is glossed over, or very little attention
+is given to it. I guess.. for the most part or for small designs.. you can get by without knowing or dealing with.
+Likewise with static timing analysis and timing closure.. but they are all essential parts? of FPGA development.
+And are fundamental to it.
+We may decompose the advance chapter and introduce it early on?
