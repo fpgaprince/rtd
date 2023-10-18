@@ -58,10 +58,13 @@ Pipeline
 
 Clock Domain Crossing
 =======================
-    What is a clock domain. You have clock domain which are multiples/factors of the other. So they are synchronous.
+    What is a clock domain. A domain is basically what clock all the registers or set of registers/components/modules are clocked with.
+    You have clock domain which are multiples/factors of the other. So they are synchronous.
     You have completely different clock domain in which the two are asynchronous, meaning neither have information on the other.
-    The information is in the phase relationship. Meaning you can have two domains of the same frequency.. but if the phase information is not known,
+    The information, meaning the phase relationship between the two or more clock domains. 
+    Meaning you can have two domains of the same frequency.. but if the phase information/relationship is unknown,
     you cannot guarantee the setup/hold time requirements for either domain clock edges to be met.
+    Thus metastability is probable.
 
     Double Flop. Double Register. Synchronize Flip Flop. All the same, diff names.
     FIFO
