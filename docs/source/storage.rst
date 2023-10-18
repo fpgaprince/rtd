@@ -131,6 +131,27 @@ D Latch
 DNE, briefly describe now.. not priorirty.
 
 
+Timing/Clocking
+##########################
+
+While latches do not require a clock, they do have some sort of enable signal.
+This enable signal determines when and when not to store information.
+
+This enable can be switched out with a periodically toggling signal, we call a clock.
+Previously, they just require a "transition." So that does not necessarily 
+imply periodic.
+
+It is when we add timing, things become interesting.
+It allow us to create more sophisticated circuits, solving more complex problems.
+
+Time and timing is everything in this world..
+
+We can synchornize multiple events.
+We can predetermine when things happen.
+We can expect things to happen at very specific times.
+With a clock we establish a sense of time.
+
+
 
 
 

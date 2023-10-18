@@ -14,19 +14,7 @@ Circuit Analysis
 ##########################
 
 
-Timing/Clocking
-##########################
 
-While all the memory devices above can function/live w/o a clock.
-It is when we add timing, things become interesting.
-
-Previously, they just require a "transition." So that does not necessarily 
-imply periodic.
-
-
-Allow us to create more sophisticated circuits, solving more complex problems.
-
-Time and timing is everything in this world..
 
 
 

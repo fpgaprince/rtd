@@ -66,10 +66,14 @@ Clock Domain Crossing
     you cannot guarantee the setup/hold time requirements for either domain clock edges to be met.
     Thus metastability is probable.
 
+    Discuss metastability here again.
+
     Double Flop. Double Register. Synchronize Flip Flop. All the same, diff names.
     FIFO
     Phase Control, by using the FPGA's PLL/DLL, we can have multiples/factors of an input clock. The FPGA can monitor or determine the skew across the FPGA
     with finer granularity? or control. The jitter will not be an issue? because it is internal and pre-defined in the spec of the PLL/DLL.
+
+    Create CDC blocks/modules to organize all CDC techniques. Have these modules between the two modules clock by different clocks. Partitioning.
 
 Reset 
 =======================
@@ -100,6 +104,11 @@ Reset
     Async assertion takes care of sync's beginning of requiring a clock to reset, and the sync de-assertion handles, the end of the async to ensure everything
     starts in a known state/value/ at the same time.
 
+    Don't mix async and sync resets, because FF and registers are not fabricated in this way, you will create additional surrounding logic to implement such functionality.
+
+    In regards to fully sync reset and asyc+sync, you need to always synchronize the reset signal the whatever clock domain it is being applied to. 
+
+
 
 Clocking
 =======================
@@ -120,3 +129,16 @@ Duplicate logic to reduce fan out (from a register)
 Logic flattening. Understanding the nature of the function/algorithm from a system level.
 Knowing the range of input/output? 
 Register balancing.
+
+Clock gating
+===============
+    No clock gating in an FPGA. you just use enables. You enable/disable a flip flop/register.
+
+Division
+====================
+
+
+Floating Point 
+====================
+
+
