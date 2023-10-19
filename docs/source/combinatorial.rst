@@ -329,24 +329,6 @@ While the number or mux input is a result of the number of select bits, you are 
       mux_out   : out std_logic_vector(7 downto 0);
 
       ...
-
-
-      -- MUX using if-else statement
-      process(sel, A, B, C, D) is
-      begin
-    
-        if sel = "00" then
-            mux_out <= A;
-        elsif sel = "01" then
-            mux_out <= B;
-        elsif sel = "10" then
-            mux_out <= C;
-        else                --sel = "11"
-            mux_out <= D;
-        end if;
-
-      end process;
-
       
       -- MUX using a case statement
       process(sel, A, B, C, D) is
@@ -403,6 +385,12 @@ There is another MUX, a one-shot.
 
       end process;
 
+
+An if-else approach to writing the MUX only produces the same result when the select/control inputs are mutually exclusive, unique.
+If it is not, the tool will synthesize a priority encoder. 
+It is better/good practice to use case statements when implementing MUX/selections and reserve if-else for encoding with or without
+priority. I'll probably repeat this in multiple sections and unify it at a later point..     
+
 Demultiplexer
 ====================
 The demux is a device that does just the opposite of the mux. you have ONE input this time, and many outputs. 
@@ -420,21 +408,7 @@ with the select bits, you are determining where to route/send the input.
 
       ...
 
-      -- MUX using if-else statement
-      process(sel, data_in) is
-      begin
-    
-        if sel = "00" then
-            A <= data_in;
-        elsif sel = "01" then
-            B <= data_in;
-        elsif sel = "10" then
-            C <= data_in;
-        else                --sel = "11"
-            D <= data_in;
-        end if;
 
-      end process;
     
       -- DEMUX using a case statement
       process(sel, data_in) is
@@ -632,7 +606,7 @@ Like with everything else, as the input width increases, the tool will pull in m
 Multiplier
 ====================
 Things are getting more complicated!
-
+Finish the fundamental section about binary multiplication before coding.
 
 
 
@@ -659,9 +633,11 @@ Things are getting more complicated!
 
 Divide
 ====================
+See Advance Section.
 
 Shifting?
 ====================
+Maybe just have in sequential?
 
 
 Bringing it all together
@@ -700,7 +676,7 @@ Unsigned vs Signed Fixed Point
 ---------------------------------------------
 Floating point
 ---------------------------------------------
-
+Advance..
 
 ::
 

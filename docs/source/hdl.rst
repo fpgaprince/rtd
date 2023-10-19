@@ -58,8 +58,8 @@ Putting it all together, template!
     entity is port (
             clk : in std_logic;
             rst : in std_logic;
-            someout : out std_logic;    
-    )
+            someout : out std_logic  
+    );
     end fpga_top;
 
     architecture rtl of fpga_top is
@@ -155,6 +155,26 @@ One hot encoding
 Gray state encoding.
 
 
+know the difference between if-else vs. case statement with regards to implementation.
+if-else becomes priority encoder. whatever is at the top of the if else becomes whatever
+is closest to the output. or into the register. if the first else case statement is true
+it is executed and the others dont matter.
+
+if your control register is for instance 4 bits wide. and you only use one of each bit as the control signal.
+that means they are not mutually exclusive.
+
+mutually exclusive means unique. each if-else or case statement is unique. so it doesn't matter if you use 
+if-else or case.. because you can create priority or parallel with either one.
+it depends how the statements are...
+but for good pratice.. if-else is usually used for priority encoding.
+case for parallel mux, where decision is mutually exclusive.
+mutually exclusive means only one decision or branch can be true at any given time.
+show example of code of everything you're saying here. explicitly!!
+
+while case statement is generally used for muxes, improper use can create a priority mux.
+if the conditions of an if-else are mutually exclusive, it will create a true mux.
+if it is not, it will most likely synthesize a priority encoder.
+basically in both case it depends how you write the conditions.
 
 
 
