@@ -177,3 +177,9 @@ Ethernet requires more complex wiring and networking infrastructure compared to 
 |   NAND
 |   AXIe
 |   PXIe
+
+
+you need to compare parallel vs serial interfaces.. and the protocols for that too.
+and talk about actual IO.
+TTL vs CMOS vs LVDS
+single end vs differential.

@@ -26,13 +26,23 @@ then as we talk about the different logic operation or circuits...
 we'll provide snippets of the HDL code which will synthesize into these circuits.
 HDL sprinked across the sections......
 
+The HDL language is expansive? but for FPGA synthesis, you can only use a subset of the language.
+The language can be used for both development and verification. 
+Alot of the verification syntax/HDL is not synthesizable.
 
 
 VHDL
 ########################################################################################################
 mmm.. do i just put basic shit here.. and then add VHDL examples?
 
+Libraries
+=============================
+
 you need libraries.
+
+.. code-block:: vhdl
+  :linenos:    
+
     LIBRARY IEEE;
     USE IEEE.std_logic_1164.ALL;
     USE IEEE.numeric_std.ALL;
@@ -42,17 +52,76 @@ you need libraries.
 
 
 entity
-    input output
-signals
-data types
+=============================
+
+.. code-block:: vhdl
+  :linenos:   
+    LIBRARY IEEE;
+    USE IEEE.std_logic_1164.ALL;
+    USE IEEE.numeric_std.ALL;
+    
+    entity is port (
+            clk : in std_logic;
+            rst : in std_logic;
+            someout : out std_logic  
+    );
+    end fpga_top;
+
 component
+=============================
+
+.. code-block:: vhdl
+  :linenos:   
+    LIBRARY IEEE;
+    USE IEEE.std_logic_1164.ALL;
+    USE IEEE.numeric_std.ALL;
+    
+    entity is port (
+            clk : in std_logic;
+            rst : in std_logic;
+            someout : out std_logic  
+    );
+    end fpga_top;
+
+
+
+data types
+=============================
+    signals, variable, constants
+
+signals
+----------------------------
+These are the common ones I've used.
+    std_logic
+    std_logic_vector
+    unsigned
+    signed
+    integer
+    natural
+
+
+
 process
+=============================
+
 combinational vs sequential
+----------------------------
+
 if else
+=============================
+
 case
-generic
+=============================
+
+generics
+=============================
+
+packages
+=============================
 
 
+template
+=============================
 Putting it all together, template!
 
 .. code-block:: vhdl
