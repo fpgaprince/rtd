@@ -36,7 +36,7 @@ VHDL
 ########################################################################################################
 mmm.. do i just put basic shit here.. and then add VHDL examples?
 
-Libraries
+Libraries and use
 =============================
 
 you need libraries.
@@ -68,8 +68,18 @@ entity
     );
     end fpga_top;
 
+architecture
+------------------------------
+structure
+------------------------------
+behavior
+------------------------------
+rtl
+------------------------------
+
 component
 =============================
+you create with entity, then you declare usage with component. then you instantiate the component where it is used.
 
 .. code-block:: vhdl
   :linenos:   
@@ -100,6 +110,12 @@ These are the common ones I've used.
     signed
     integer
     natural
+    arrays
+
+assignment
+----------------------------
+ <= signal assignment
+ := variable assignment, signal initialization.
 
 conversions
 ----------------------------
@@ -114,13 +130,26 @@ if else
 =============================
 .. code-block:: vhdl
   :linenos:   
+    -- this is in a process block, with all signals listed or all in VHDL2008
+    -- sequential version
     if (sel = '1') then
         dout <= din1;
     else    
         dout <= din2;
     end if;
 
+    -- concurrent version.
+    -- this doesn't have to be in a process block.
     dout <= din1 when sel else din2;
+
+    -- there is no this, this was from verilog.
+    dout <= sel ? din1 : din2;
+
+when else
+=============================
+
+with select
+=============================
 
 case
 =============================
