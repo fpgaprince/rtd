@@ -315,6 +315,18 @@ Putting it all together, template!
 
 
 
+
+Verilog
+##############################################################################
+Later..
+
+SystemVerilog
+##############################################################################
+Later.. as I dont use enough.
+
+
+
+
 HDL2 
 ##############################################################################
 This section is to emphasize HDL on FPGAs or vendor specific (primarily Xilinx bc that is what I use at the moment).
@@ -323,11 +335,10 @@ I will probably discuss some of it there too, so there will be some redundancy i
 
 Or continue if you're already familiar.
 
-I want to focus on HDL, RTL and implementation results.
-
-Like what it means to use dedicated hardware, inference(ing) vs. LUT.
 
 
+Register/FlipFlops (FF)
+=============================
 or like the fact that there is only D FF in an FPGA.. other styles FF is just going to be an implementation..
 which uses the DFF such that the functionality will be equivalent to another #FF.
 
@@ -345,6 +356,10 @@ Flip-flop primitives featuring both a set and a reset can adversely affect area 
 Avoid operational set/reset logic whenever possible. There can be other, less expensive, ways to achieve the desired effect, such as taking advantage of the circuit global reset by defining an initial content.
 Always describe the clock enable, set, and reset control inputs of flip-flop primitives as active-High. If they are described as active-Low, the resulting inverter logic penalizes circuit performance.
 
+
+Using Dedicated Hardware
+=============================
+Like what it means to use dedicated hardware, inference(ing) vs. LUT.
 
 You'll want to write code such that it will utilize dedicated hardware when you can
 such as....
@@ -369,19 +384,16 @@ they are tightly stiched already.. "dedicated hardware/circuits" their area or r
 if you dont use it you lose it. its already there for you.
 
 
-Vivado synthesis supports specification of Finite State Machine (FSM) in both Moore and Mealy form. An FSM consists of the following:
+Inferring and Inference
+=============================
 
-A state register
-A next state function
-An outputs function
 
-Mealy depends on current state and input.
-Moore depends only on current state. "More is less."
 
-One hot encoding
 
-Gray state encoding.
-
+Synthesis/Implementation
+=============================
+I want to focus on HDL, RTL and implementation results.
+Think hardware.
 
 know the difference between if-else vs. case statement with regards to implementation.
 if-else becomes priority encoder. whatever is at the top of the if else becomes whatever
@@ -405,11 +417,17 @@ if it is not, it will most likely synthesize a priority encoder.
 basically in both case it depends how you write the conditions.
 
 
+Finate State Machine
+=============================
+Vivado synthesis supports specification of Finite State Machine (FSM) in both Moore and Mealy form. An FSM consists of the following:
 
-Verilog
-##############################################################################
-Later..
+A state register
+A next state function
+An outputs function
 
-SystemVerilog
-##############################################################################
-Later.. as I dont use enough.
+Mealy depends on current state and input.
+Moore depends only on current state. "More is less."
+
+One hot encoding
+
+Gray state encoding.
