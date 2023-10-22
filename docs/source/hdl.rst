@@ -76,18 +76,52 @@ how to create your component/module
         --signal declarations
         --component declarations
     begin
+        -- we'll fill it in later.
+    end rtl;
+
+this can be in some other file 
+.. code-block:: vhdl
+  :linenos:   
+    LIBRARY IEEE;
+    USE IEEE.std_logic_1164.ALL;
+    USE IEEE.numeric_std.ALL;
+    
+    entity some_component is port (
+            clk : in std_logic;
+            rst : in std_logic;
+            someout : out std_logic  
+    );
+    end some_component;
+    
+    architecture rtl of fpga_top is
+        --signal declarations
+        --component declarations
+    begin
         process (sensitivity) begin
             if () then
             else
             end if;
         end process;
 
+    end rtl;
+
+    entity another_component is port (
+            clk : in std_logic;
+            rst : in std_logic;
+            someout : out std_logic  
+    );
+    end another_component;
+    
+    architecture rtl of fpga_top is
+        --signal declarations
+        --component declarations
+    begin
         process (clk) begin
             if () then
             else
             end if;
         end process;
-    end rtl;
+    end rtl;    
 
 architecture vs structure vs behavior
 ------------------------------------------------------------
@@ -117,7 +151,7 @@ component
     architecture rtl of fpga_top is
         --signal declarations
 
-        --component declarations
+        --component declarations        -- for code readability, can create a separate component.vhd file and declare them all there.
         component some_component is port (
             clk : in std_logic;
             rst : in std_logic;
@@ -133,6 +167,7 @@ component
         end component;
 
     begin
+        -- component instantiation
         DUT1_label : some_component port map (
             clk => clk100,
             rst => rst,
@@ -146,7 +181,9 @@ component
         );        
     end rtl;
 
+.. ::note 
 
+    Notice => used to assign signals to ports. verus <= to assign values or signals to signals!
 
 data types
 =============================
