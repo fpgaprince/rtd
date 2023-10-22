@@ -21,6 +21,12 @@ I'm not going to list all the differences under the sun..
 
 
 
+I feel like.. HDL should just be purely HDL like basic syntaxs and templates... with out application.
+then as we talk about the different logic operation or circuits...
+we'll provide snippets of the HDL code which will synthesize into these circuits.
+HDL sprinked across the sections......
+
+
 
 VHDL
 ########################################################################################################
@@ -87,18 +93,18 @@ Putting it all together, template!
 
 
 
-HDL with emphasis on FPGAs/vendor
+HDL2 
 ##############################################################################
-Specific to Xilinx at the moment......
-I feel like.. HDL should just be purely HDL like basic syntaxs and templates... with out application.
-then as we talk about the different logic operation or circuits...
-we'll provide snippets of the HDL code which will synthesize into these circuits.
-HDL sprinked across the sections......
+This section is to emphasize HDL on FPGAs or vendor specific (primarily Xilinx bc that is what I use at the moment).
+It should be revisited after reading about combinatorial and sequential circuits.
+I will probably discuss some of it there too, so there will be some redundancy in information depending where your entry is.
 
+Or continue if you're already familiar.
 
+I want to focus on HDL, RTL and implementation results.
 
-I kinda want a deeper dive with the results of the implementation too..
-like what it means to use dedicated hardware vs. LUT 
+Like what it means to use dedicated hardware, inference(ing) vs. LUT.
+
 
 or like the fact that there is only D FF in an FPGA.. other styles FF is just going to be an implementation..
 which uses the DFF such that the functionality will be equivalent to another #FF.
