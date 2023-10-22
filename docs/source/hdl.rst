@@ -29,6 +29,7 @@ HDL sprinked across the sections......
 The HDL language is expansive? but for FPGA synthesis, you can only use a subset of the language.
 The language can be used for both development and verification. 
 Alot of the verification syntax/HDL is not synthesizable.
+We will first focus on synthesizable and return for test bench, validation, verification.
 
 
 VHDL
@@ -72,6 +73,7 @@ component
 
 .. code-block:: vhdl
   :linenos:   
+    
     LIBRARY IEEE;
     USE IEEE.std_logic_1164.ALL;
     USE IEEE.numeric_std.ALL;
@@ -99,7 +101,8 @@ These are the common ones I've used.
     integer
     natural
 
-
+conversions
+----------------------------
 
 process
 =============================
@@ -109,6 +112,15 @@ combinational vs sequential
 
 if else
 =============================
+.. code-block:: vhdl
+  :linenos:   
+    if (sel = '1') then
+        dout <= din1;
+    else    
+        dout <= din2;
+    end if;
+
+    dout <= din1 when sel else din2;
 
 case
 =============================
@@ -116,8 +128,25 @@ case
 generics
 =============================
 
+generate
+=============================
+
 packages
 =============================
+
+records
+=============================
+
+for loop
+=============================
+
+operators
+=============================
+
+functions
+=============================
+
+
 
 
 template
