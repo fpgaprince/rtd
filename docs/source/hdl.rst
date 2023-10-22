@@ -50,9 +50,11 @@ you need libraries. you can use a subset or the library by using the 'use' state
 
 .. warning::
 
-    use     USE IEEE.numeric_std.ALL;
-    
-    DO NOT USE  std_logic_arith
+    DO USE     
+        IEEE.numeric_std.ALL;
+
+    DO NOT USE  
+        IEEE.std_logic_arith
 
 
 entity
