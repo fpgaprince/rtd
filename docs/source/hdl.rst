@@ -339,12 +339,12 @@ Or continue if you're already familiar.
 
 Register/FlipFlops (FF)
 =============================
-or like the fact that there is only D FF in an FPGA.. other styles FF is just going to be an implementation..
-which uses the DFF such that the functionality will be equivalent to another #FF.
+There is only D FF in an FPGA.. other styles FF you learn in digital logic class do not exist.
+If you try implementing other flavors (SR, JK, T), you'll just use the available DFF and surrounding LUTs to realize their functionality.
 
-
-Do not asynchronously set or reset registers.
-    It becomes preset and clear?
+Reset
+=============================
+Asynchronously setting or resetting registers are synthesized into preset or clear registers.
 
 Sequential functionality in device resources, such as block RAM components and DSP blocks, can be set or reset synchronously only.
 
@@ -353,12 +353,43 @@ Do not describe flip-flops with both a set and a reset.
 No flip-flop primitives feature both a set and a reset, whether synchronous or asynchronous.
 Flip-flop primitives featuring both a set and a reset can adversely affect area and performance.
 
-Avoid operational set/reset logic whenever possible. There can be other, less expensive, ways to achieve the desired effect, such as taking advantage of the circuit global reset by defining an initial content.
-Always describe the clock enable, set, and reset control inputs of flip-flop primitives as active-High. If they are described as active-Low, the resulting inverter logic penalizes circuit performance.
+Avoid operational set/reset logic whenever possible. 
+There can be other, less expensive, ways to achieve the desired effect, 
+such as taking advantage of the circuit global reset by defining an initial content.
+Always describe the clock enable, set, and reset control inputs of flip-flop primitives as active-High. 
+If they are described as active-Low, the resulting inverter logic penalizes circuit performance.
 
+Inferring and Inference
+=============================
+
+Synthesis/Implementation
+------------------------------
+I want to focus on HDL, RTL and implementation results.
+Think hardware.
+
+know the difference between if-else vs. case statement with regards to implementation.
+if-else becomes priority encoder. whatever is at the top of the if else becomes whatever
+is closest to the output. or into the register. if the first else case statement is true
+it is executed and the others dont matter.
+
+if your control register is for instance 4 bits wide. and you only use one of each bit as the control signal.
+that means they are not mutually exclusive.
+
+mutually exclusive means unique. each if-else or case statement is unique. so it doesn't matter if you use 
+if-else or case.. because you can create priority or parallel with either one.
+it depends how the statements are...
+but for good pratice.. if-else is usually used for priority encoding.
+case for parallel mux, where decision is mutually exclusive.
+mutually exclusive means only one decision or branch can be true at any given time.
+show example of code of everything you're saying here. explicitly!!
+
+while case statement is generally used for muxes, improper use can create a priority mux.
+if the conditions of an if-else are mutually exclusive, it will create a true mux.
+if it is not, it will most likely synthesize a priority encoder.
+basically in both case it depends how you write the conditions.
 
 Using Dedicated Hardware
-=============================
+------------------------------
 Like what it means to use dedicated hardware, inference(ing) vs. LUT.
 
 You'll want to write code such that it will utilize dedicated hardware when you can
@@ -384,37 +415,11 @@ they are tightly stiched already.. "dedicated hardware/circuits" their area or r
 if you dont use it you lose it. its already there for you.
 
 
-Inferring and Inference
-=============================
 
 
 
 
-Synthesis/Implementation
-=============================
-I want to focus on HDL, RTL and implementation results.
-Think hardware.
 
-know the difference between if-else vs. case statement with regards to implementation.
-if-else becomes priority encoder. whatever is at the top of the if else becomes whatever
-is closest to the output. or into the register. if the first else case statement is true
-it is executed and the others dont matter.
-
-if your control register is for instance 4 bits wide. and you only use one of each bit as the control signal.
-that means they are not mutually exclusive.
-
-mutually exclusive means unique. each if-else or case statement is unique. so it doesn't matter if you use 
-if-else or case.. because you can create priority or parallel with either one.
-it depends how the statements are...
-but for good pratice.. if-else is usually used for priority encoding.
-case for parallel mux, where decision is mutually exclusive.
-mutually exclusive means only one decision or branch can be true at any given time.
-show example of code of everything you're saying here. explicitly!!
-
-while case statement is generally used for muxes, improper use can create a priority mux.
-if the conditions of an if-else are mutually exclusive, it will create a true mux.
-if it is not, it will most likely synthesize a priority encoder.
-basically in both case it depends how you write the conditions.
 
 
 Finate State Machine
@@ -428,6 +433,6 @@ An outputs function
 Mealy depends on current state and input.
 Moore depends only on current state. "More is less."
 
-One hot encoding
+One hot encoding - use this in most case, tool with recognize.
 
-Gray state encoding.
+Gray state encoding - use this when passing value such as pointer counter across clock domains.
