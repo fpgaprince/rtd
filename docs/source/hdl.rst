@@ -64,6 +64,7 @@ how to create your component/module
 
 .. code-block:: vhdl
   :linenos:   
+
     LIBRARY IEEE;
     USE IEEE.std_logic_1164.ALL;
     USE IEEE.numeric_std.ALL;
@@ -83,8 +84,10 @@ how to create your component/module
     end rtl;
 
 this can be in some other file 
+
 .. code-block:: vhdl
   :linenos:   
+  
     LIBRARY IEEE;
     USE IEEE.std_logic_1164.ALL;
     USE IEEE.numeric_std.ALL;
