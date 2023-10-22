@@ -87,7 +87,7 @@ this can be in some other file
 
 .. code-block:: vhdl
   :linenos:   
-  
+
     LIBRARY IEEE;
     USE IEEE.std_logic_1164.ALL;
     USE IEEE.numeric_std.ALL;
@@ -136,9 +136,10 @@ architecture vs structure vs behavior
 
 component
 =============================
-    you create your component with entity directive? 
-    then you declare its usage, in another entity or testbench. 
-    then you instantiate the component where it is used and label it.
+
+1.  you create your component with entity directive? (see entity section)
+2.  then you declare its usage, in another entity or testbench. 
+3.  then you instantiate the component where it is used and label it.
 
 .. code-block:: vhdl
   :linenos:   
@@ -157,7 +158,7 @@ component
     architecture rtl of fpga_top is
         --signal declarations
 
-        --component declarations        -- for code readability, can create a separate component.vhd file and declare them all there.
+        -- 2. component declarations        -- for code readability, can create a separate component.vhd file and declare them all there.
         component some_component is port (
             clk : in std_logic;
             rst : in std_logic;
@@ -173,7 +174,7 @@ component
         end component;
 
     begin
-        -- component instantiation
+        --  3. component instantiation
         DUT1_label : some_component port map (
             clk => clk100,
             rst => rst,
