@@ -34,12 +34,12 @@ We will first focus on synthesizable and return for test bench, validation, veri
 
 VHDL
 ########################################################################################################
-mmm.. do i just put basic shit here.. and then add VHDL examples?
+just some of the basic stuff... references and templates.
 
 Libraries and use
 =============================
 
-you need libraries.
+you need libraries. you can use a subset or the library by using the 'use' statement.
 
 .. code-block:: vhdl
   :linenos:    
@@ -48,6 +48,8 @@ you need libraries.
     USE IEEE.std_logic_1164.ALL;
     USE IEEE.numeric_std.ALL;
 
+.. warning::
+
     use     USE IEEE.numeric_std.ALL;
     DO NOT USE  std_logic_arith
 
@@ -55,31 +57,48 @@ you need libraries.
 entity
 =============================
 
+how to create your component/module
+
 .. code-block:: vhdl
   :linenos:   
     LIBRARY IEEE;
     USE IEEE.std_logic_1164.ALL;
     USE IEEE.numeric_std.ALL;
     
-    entity is port (
+    entity fpga_top is port (
             clk : in std_logic;
             rst : in std_logic;
             someout : out std_logic  
     );
     end fpga_top;
+    
+    architecture rtl of fpga_top is
+        --signal declarations
+        --component declarations
+    begin
+        process (sensitivity) begin
+            if () then
+            else
+            end if;
+        end process;
 
-architecture
-------------------------------
-structure
-------------------------------
-behavior
-------------------------------
-rtl
-------------------------------
+        process (clk) begin
+            if () then
+            else
+            end if;
+        end process;
+    end rtl;
+
+architecture vs structure vs behavior
+------------------------------------------------------------
+
+
 
 component
 =============================
-you create with entity, then you declare usage with component. then you instantiate the component where it is used.
+    you create your component with entity directive? 
+    then you declare its usage, in another entity or testbench. 
+    then you instantiate the component where it is used and label it.
 
 .. code-block:: vhdl
   :linenos:   
@@ -88,12 +107,44 @@ you create with entity, then you declare usage with component. then you instanti
     USE IEEE.std_logic_1164.ALL;
     USE IEEE.numeric_std.ALL;
     
-    entity is port (
+    entity fpga_top is port (
             clk : in std_logic;
             rst : in std_logic;
             someout : out std_logic  
     );
     end fpga_top;
+    
+    architecture rtl of fpga_top is
+        --signal declarations
+
+        --component declarations
+        component some_component is port (
+            clk : in std_logic;
+            rst : in std_logic;
+            someout : out std_logic  
+        );
+        end component;
+
+        component another_component is port (
+            clk : in std_logic;
+            rst : in std_logic;
+            someout : out std_logic  
+        );
+        end component;
+
+    begin
+        DUT1_label : some_component port map (
+            clk => clk100,
+            rst => rst,
+            someout => dout1
+        );
+
+        DUT2_label : another_component port map (
+            clk => clk150,
+            rst => rst,
+            someout => dout2
+        );        
+    end rtl;
 
 
 
