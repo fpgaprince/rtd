@@ -301,7 +301,7 @@ if else
     process (all) begin     --VHDL2008
         if (wen) then
             --some assignment
-        elsif (ren) 
+        elsif (ren) then
             --some assignment
         else
             --some assignment
@@ -309,8 +309,12 @@ if else
     end process;
 
 
-    -- there is no this, this was from verilog.
-    dout <= sel ? din1 : din2;
+
+.. warning::
+
+    There is no ternary if-else shorthand, seen in C and verilog
+        dout <= sel ? din1 : din2;
+
 
 when else
 =============================
@@ -351,17 +355,45 @@ generics
 =============================
 .. code-block:: vhdl
   :linenos:   
-  
+
+	component some_component is
+		generic (channel_type : integer := 6);
+	port (
+			clk							: in std_logic;
+			en							: in std_logic;
+			rst							: in std_logic;
+			datain					: in std_logic_vector(13 downto 0);
+	);
+	end component some_component;
+
 generate
 =============================
 .. code-block:: vhdl
   :linenos:   
+
+
+    if (some condition is true) geenrate
+        --constants
+    begin
+        --some code, processes etc.
+    end generate;
   
 package
 =============================
 .. code-block:: vhdl
   :linenos:   
   
+    package some_package is
+        --records
+        --constants
+        --function declarations
+    end some_package;
+
+    package body some_package IS
+        -- body 
+        --function definition
+    end some_package;
+
 record
 =============================
 .. code-block:: vhdl
@@ -382,15 +414,29 @@ for loop
   :linenos:   
   
     for i in 0 to 7 loop
-
+        data_ff[i] <= datain[i];
     end loop;
 
 arrays
 =============================
+double check this..
+
 .. code-block:: vhdl
   :linenos:   
+    --1D array is your std_logic_vector
 
+    --2D array (N depth, by 16 SL) or 1D of 16bit SLVs
     type mem is array (0 to N) of std_logic_vector(15 downto 0);
+
+    --2D array of SLVs. N width/column, M depth/height/row
+    type mem is array (0 to N, 0 to M) of std_logic_vector(15 downto 0);    
+
+    
+for instance in video/imaging
+1920x1080 = (height x width) or (row x column) "array or matrix", but each index holds a pixel.
+if it is an RGB pixel, then it is 8bit x 8bit x 8bit = 24bit pixel res. = std_logic_vector(23 downto 0)
+
+
 
 operators
 =============================
@@ -399,6 +445,8 @@ operators
   
 functions
 =============================
+They are combinational!
+
 .. code-block:: vhdl
   :linenos:   
   
