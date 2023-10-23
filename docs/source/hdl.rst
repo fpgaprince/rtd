@@ -354,7 +354,7 @@ MUX vs. FSM
     end process;  
 
     -- case used in FSM
-    type state_type is (IDLE, WRITE, WAIT, READ);       -- one hot 4 states = 4bits.
+    type state_type is (IDLE, WRITE, WR_WAIT, READ);       -- one hot 4 states = 4bits.
     signal state : state_type;
 
     process (clk) begin
@@ -364,19 +364,31 @@ MUX vs. FSM
             else
                 case state is
                     when IDLE =>
+
+                        -- some output
+                        busy <= '0';>
+
+                        --next state condition
                         if (some input condition) then        -- next state depends on current state and some input condition, maybe write enable.
                             state <= WRITE;
                         end if;
+                        
                     when WRITE =>
 
+                        -- some output
                         data_reg <= data_reg[14 downto 1] & datain;
+                        busy <= '1';
 
+                        --next state condition
                         if (some input condition) then     -- maybe counter value, bits written 
-                            state <= WAIT;
+                            state <= WR_WAIT;
                         end if;
 
-                    when WAIT =>
+                    when PARITY =>
+                        -- some output                    
+                        parity_reg <= datain xor something;
 
+                        --next state condition
                         if (some input condition) then      -- maybe read en.
                             state <= READ;
                         end if;
@@ -384,12 +396,15 @@ MUX vs. FSM
                     when READ =>
 
                         dataout <= mem[i];      -- depends on current state
-
+                        
+                        --next state condition
                         if (some condition) then        -- maybe counter, bits read.
                             state <= IDLE;
                         end if;           
+
                     when others =>
                         state <= IDLE;>
+
                 end case;
             end if;
         end if;
