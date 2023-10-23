@@ -263,6 +263,12 @@ std_logic_vector to signed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
+resize
+----------------------------
+    RESIZE (ARG: SIGNED; NEW_SIZE: NATURAL)
+    
+    RESIZE (ARG: UNSIGNED; NEW_SIZE: NATURAL)
+
 
 process
 =============================
