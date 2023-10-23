@@ -332,9 +332,12 @@ with select
   
 case
 =============================
+MUX vs. FSM 
+
 .. code-block:: vhdl
   :linenos:   
 
+    --case used for MUX
     process (all) begin     --VHDL2008
         case sel is
             when "00" =>
@@ -350,14 +353,60 @@ case
         end case;
     end process;  
 
+    -- case used in FSM
+    type state_type is (IDLE, WRITE, WAIT, READ);       -- one hot 4 states = 4bits.
+    signal state : state_type;
+
+    process (clk) begin
+        if (rising_edge(clk)) then
+            if (rst) then               -- sync reset
+                state <= IDLE;>
+            else
+                case state is
+                    when IDLE =>
+                        if (some input condition) then        -- next state depends on current state and some input condition, maybe write enable.
+                            state <= WRITE;
+                        end if;
+                    when WRITE =>
+
+                        data_reg <= data_reg[14 downto 1] & datain;
+
+                        if (some input condition) then     -- maybe counter value, bits written 
+                            state <= WAIT;
+                        end if;
+
+                    when WAIT =>
+
+                        if (some input condition) then      -- maybe read en.
+                            state <= READ;
+                        end if;
+
+                    when READ =>
+
+                        dataout <= mem[i];      -- depends on current state
+
+                        if (some condition) then        -- maybe counter, bits read.
+                            state <= IDLE;
+                        end if;           
+                    when others =>
+                        state <= IDLE;>
+                end case;
+            end if;
+        end if;
+    end process;  
+
+
 
 generics
 =============================
+Is used to parametrize design. Enable re-use/customization.
+Often seen for bit width, among other block settings.
+
 .. code-block:: vhdl
   :linenos:   
 
 	component some_component is
-		generic (channel_type : integer := 6);
+		generic (N : integer := 6);
 	port (
 			clk							: in std_logic;
 			en							: in std_logic;
@@ -368,18 +417,26 @@ generics
 
 generate
 =============================
+Use/Synthesize block if condition is true
+
 .. code-block:: vhdl
   :linenos:   
 
-
-    if (some condition is true) geenrate
+    if (some condition is true) generate
         --constants
     begin
         --some code, processes etc.
     end generate;
-  
+
+    if (some condition is true) generate
+        --constants
+    begin
+        --some code, processes etc.
+    end generate;
+
 package
 =============================
+for organizing and centralizing re-use constants, records, functions
 .. code-block:: vhdl
   :linenos:   
   
@@ -396,6 +453,8 @@ package
 
 record
 =============================
+Define/create them in the packages
+
 .. code-block:: vhdl
   :linenos:   
     
