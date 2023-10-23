@@ -57,7 +57,7 @@ Libraries and use
 
 entity
 =============================
-
+this is how we abstract our digital components
 how to create your component/module
 
 .. code-block:: vhdl
@@ -221,7 +221,48 @@ assignment
     := variable assignment, signal initialization.
 
 conversions
-----------------------------
+=============================
+
+make sure you are using IEEE.numeric_std.ALL first.
+
+integer to std_logic_vector
+-----------------------------------
+
+integer to unsigned
+-----------------------------------
+
+integer to signed
+-----------------------------------
+
+unsigned to std_logic_vector
+-----------------------------------
+
+unsigned to integer
+-----------------------------------
+
+unsigned to signed
+-----------------------------------
+
+signed to std_logic_vector
+-----------------------------------
+
+signed to unsigned
+-----------------------------------
+
+signed to integer
+-----------------------------------
+
+
+std_logic_vector to integer
+-----------------------------------
+
+std_logic_vector to unsigned
+-----------------------------------
+
+std_logic_vector to signed
+-----------------------------------
+
+
 
 process
 =============================
