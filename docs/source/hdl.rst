@@ -420,6 +420,7 @@ for loop
     for i in 0 to 7 loop
         DUT[i] <= datain[i];
     end loop;
+
 arrays
 =============================
 double check this..
