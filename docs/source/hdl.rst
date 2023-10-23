@@ -199,6 +199,7 @@ data types
 signals
 ----------------------------
 These are the common ones I've used.
+
     std_logic
     std_logic_vector
     unsigned
@@ -209,8 +210,10 @@ These are the common ones I've used.
 
 assignment
 ----------------------------
- <= signal assignment
- := variable assignment, signal initialization.
+    
+    <= signal assignment
+    
+    := variable assignment, signal initialization.
 
 conversions
 ----------------------------
@@ -218,13 +221,67 @@ conversions
 process
 =============================
 
+.. code-block:: vhdl
+  :linenos:   
+
+    process (sensitivity list) begin
+
+        -- RTL code
+
+    end process;
+
 combinational vs sequential
 ----------------------------
+when writing combinational process, you must list all the input signals to logic function.
+leaving or forgetting signals, results in inferred latches and combinational loops.
+in generally, neither are desired.
+
+.. code-block:: vhdl
+  :linenos:   
+    
+    LIBRARY IEEE;
+    USE IEEE.std_logic_1164.ALL;
+    USE IEEE.numeric_std.ALL;
+
+    entity another_component is port (
+        clk : in std_logic;
+        rst : in std_logic;
+        someout : out std_logic  
+    );
+    end another_component;
+    
+    architecture rtl of fpga_top is
+        --signal declarations
+        --component declarations
+    begin
+        --combinational
+        process (sensitivity signals) begin
+            if () then
+            else
+            end if;
+        end process;
+
+        process (all) begin     --VHDL2008
+            if () then
+            else
+            end if;
+        end process;
+
+        --sequential
+        process (clk) begin
+            if () then
+            else
+            end if;
+        end process;
+    end rtl;    
+
+
 
 if else
 =============================
 .. code-block:: vhdl
   :linenos:   
+
     -- this is in a process block, with all signals listed or all in VHDL2008
     -- sequential version
     if (sel = '1') then
@@ -233,43 +290,72 @@ if else
         dout <= din2;
     end if;
 
-    -- concurrent version.
-    -- this doesn't have to be in a process block.
-    dout <= din1 when sel else din2;
+    -- will result in priority encoded 
+    if (wen) then
+        --some assignment
+    elsif (ren) 
+        --some assignment
+    end if;    
+
+
 
     -- there is no this, this was from verilog.
     dout <= sel ? din1 : din2;
 
 when else
 =============================
+.. code-block:: vhdl
+  :linenos:   
+  
+    -- concurrent version.
+    -- this doesn't have to be in a process block.
+    dout <= din1 when sel else din2;
 
 with select
 =============================
-
+.. code-block:: vhdl
+  :linenos:   
+  
 case
 =============================
-
+.. code-block:: vhdl
+  :linenos:   
+  
 generics
 =============================
-
+.. code-block:: vhdl
+  :linenos:   
+  
 generate
 =============================
-
+.. code-block:: vhdl
+  :linenos:   
+  
 packages
 =============================
-
+.. code-block:: vhdl
+  :linenos:   
+  
 records
 =============================
-
+.. code-block:: vhdl
+  :linenos:   
+  
 for loop
 =============================
-
+.. code-block:: vhdl
+  :linenos:   
+  
 operators
 =============================
-
+.. code-block:: vhdl
+  :linenos:   
+  
 functions
 =============================
-
+.. code-block:: vhdl
+  :linenos:   
+  
 
 
 
