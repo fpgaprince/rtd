@@ -39,8 +39,6 @@ just some of the basic stuff... references and templates.
 Libraries and use
 =============================
 
-you need libraries. you can use a subset or the library by using the 'use' statement.
-
 .. code-block:: vhdl
   :linenos:    
 
@@ -140,6 +138,7 @@ component
 1.  you create your component with entity directive? (see entity section)
 2.  then you declare its usage, in another entity or testbench. 
 3.  then you instantiate the component where it is used and label it.
+4.  map port signals
 
 .. code-block:: vhdl
   :linenos:   
@@ -284,19 +283,24 @@ if else
 
     -- this is in a process block, with all signals listed or all in VHDL2008
     -- sequential version
-    if (sel = '1') then
-        dout <= din1;
-    else    
-        dout <= din2;
-    end if;
+    process (din1, din2, sel) begin
+        if (sel = '1') then
+            dout <= din1;
+        else    
+            dout <= din2;
+        end if;
+    end process;
 
     -- will result in priority encoded 
-    if (wen) then
-        --some assignment
-    elsif (ren) 
-        --some assignment
-    end if;    
-
+    process (all) begin     --VHDL2008
+        if (wen) then
+            --some assignment
+        elsif (ren) 
+            --some assignment
+        else
+            --some assignment
+        end if;    
+    end process;
 
 
     -- there is no this, this was from verilog.
@@ -320,7 +324,23 @@ case
 =============================
 .. code-block:: vhdl
   :linenos:   
-  
+
+    process (all) begin     --VHDL2008
+        case sel is
+            when "00" =>
+                dataout <= datain1;
+            when "01" =>
+                dataout <= datain1;
+            when "10" =>
+                dataout <= datain1;
+            when "11" =>
+                dataout <= datain1;                
+            when others =>
+                dataout <= 0;
+        end case;
+    end process;  
+
+
 generics
 =============================
 .. code-block:: vhdl
@@ -331,21 +351,40 @@ generate
 .. code-block:: vhdl
   :linenos:   
   
-packages
+package
 =============================
 .. code-block:: vhdl
   :linenos:   
   
-records
+record
 =============================
 .. code-block:: vhdl
   :linenos:   
-  
+    
+    type eth_packet is record
+        datain : std_logic_vector(127 downto 0);
+        keep : std_logic_vector(15 downto 0);
+        end : std_logic;
+        start : std_logic;
+        valid : std_logic;
+    end record eth_packet
+
 for loop
 =============================
 .. code-block:: vhdl
   :linenos:   
   
+    for i in 0 to 7 loop
+
+    end loop;
+
+arrays
+=============================
+.. code-block:: vhdl
+  :linenos:   
+
+    type mem is array (0 to N) of std_logic_vector(15 downto 0);
+
 operators
 =============================
 .. code-block:: vhdl
@@ -356,7 +395,16 @@ functions
 .. code-block:: vhdl
   :linenos:   
   
+    function <function_name> (
+            input parameters : type
+            input parameters : type
+    ) return <return_type> is
+        --constant_or_variable_declaration
+    begin
+        --HDL code here
 
+        return <value>
+    end function;
 
 
 template
