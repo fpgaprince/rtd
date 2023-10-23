@@ -200,11 +200,17 @@ signals
 These are the common ones I've used.
 
     std_logic
+    
     std_logic_vector
+    
     unsigned
+    
     signed
+    
     integer
+    
     natural
+    
     arrays
 
 assignment
@@ -361,13 +367,14 @@ record
 .. code-block:: vhdl
   :linenos:   
     
-    type eth_packet is record
+    type eth_packet is 
+    record
         datain : std_logic_vector(127 downto 0);
         keep : std_logic_vector(15 downto 0);
         end : std_logic;
         start : std_logic;
         valid : std_logic;
-    end record eth_packet
+    end record;
 
 for loop
 =============================
