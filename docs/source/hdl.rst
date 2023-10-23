@@ -417,6 +417,9 @@ for loop
         data_ff[i] <= datain[i];
     end loop;
 
+    for i in 0 to 7 loop
+        DUT[i] <= datain[i];
+    end loop;
 arrays
 =============================
 double check this..
@@ -429,12 +432,13 @@ double check this..
     type mem is array (0 to N) of std_logic_vector(15 downto 0);
 
     --2D array of SLVs. N width/column, M depth/height/row
+    --3D array because each indice is not a bit, but a vector, 
     type mem is array (0 to N, 0 to M) of std_logic_vector(15 downto 0);    
 
-    
-for instance in video/imaging
-1920x1080 = (height x width) or (row x column) "array or matrix", but each index holds a pixel.
-if it is an RGB pixel, then it is 8bit x 8bit x 8bit = 24bit pixel res. = std_logic_vector(23 downto 0)
+    --for instance in video/imaging
+    --1920x1080 = (height x width) or (row x column) "array or matrix", but each index holds a pixel.
+    --if it is an RGB pixel, then it is 8bit x 8bit x 8bit = 24bit per pixel = std_logic_vector(23 downto 0)
+    -- 8x8x8 = 512 color levels.
 
 
 
