@@ -75,6 +75,13 @@ Clock Domain Crossing
 
     Create CDC blocks/modules to organize all CDC techniques. Have these modules between the two modules clock by different clocks. Partitioning.
 
+Slower to faster
+-----------------------
+
+Faster to Slower
+-----------------------
+
+
 Reset 
 =======================
 

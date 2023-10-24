@@ -1,6 +1,6 @@
-************************
+########################
 HDL
-************************
+########################
 Primary approach to digital logic design in FPGAs and ASICs.
 We use it to describe functionality of digital circuits.
 
@@ -31,13 +31,14 @@ The language can be used for both development and verification.
 Alot of the verification syntax/HDL is not synthesizable.
 We will first focus on synthesizable and return for test bench, validation, verification.
 
-
+******************************
 VHDL
-########################################################################################################
+******************************
+
 just some of the basic stuff... examples and templates.
 
 libraries and use
-=============================
+#########################
 
 .. code-block:: vhdl
   :linenos:    
@@ -56,7 +57,7 @@ libraries and use
 
 
 entity
-=============================
+#########################
 this is how we abstract digital components and modules
 
 .. code-block:: vhdl
@@ -140,7 +141,7 @@ architecture vs structure vs behavior
 
 
 component
-=============================
+#########################
 
 1.  you create your component with entity directive? (see entity section)
 2.  then you declare its usage, in another entity or testbench. 
@@ -206,7 +207,7 @@ re-using the fpga_top entity we created earlier..
 
 
 data types
-=============================
+#########################
     signals, variable, constants
 
 signals
@@ -234,23 +235,13 @@ assignment
     
     := variable assignment, signal initialization.
 
-conversions
-----------------------------
+conversions and cast/casting
+--------------------------------------------------------
 
 first, make sure you are using IEEE.numeric_std.ALL
 
-integer to std_logic_vector
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: vhdl
-  :linenos:   
 
 
-integer to unsigned
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: vhdl
-  :linenos:   
 
 integer to signed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -258,20 +249,7 @@ integer to signed
 .. code-block:: vhdl
   :linenos:   
 
-    signed_signal <= to_signed(integer_signal, desired_length);
-
-unsigned to std_logic_vector
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: vhdl
-  :linenos:   
-
-
-unsigned to integer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: vhdl
-  :linenos:   
+    signed_signal <= to_signed(integer_signal, desired sign length);
 
 
 unsigned to signed
@@ -279,6 +257,35 @@ unsigned to signed
 
 .. code-block:: vhdl
   :linenos:   
+
+    signed_signal <= signed(signed signal);
+
+
+std_logic_vector to signed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: vhdl
+  :linenos:   
+
+    signed_signal <= signed(std_logic_vector signal);
+
+
+
+
+
+
+integer to std_logic_vector
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: vhdl
+  :linenos:   
+
+unsigned to std_logic_vector
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: vhdl
+  :linenos:   
+
 
 
 signed to std_logic_vector
@@ -288,11 +295,39 @@ signed to std_logic_vector
   :linenos:   
 
 
+
+integer to unsigned
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: vhdl
+  :linenos:   
+
+
+
+
 signed to unsigned
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: vhdl
   :linenos:   
+
+
+std_logic_vector to unsigned
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: vhdl
+  :linenos:   
+
+
+
+
+
+unsigned to integer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: vhdl
+  :linenos:   
+
 
 
 signed to integer
@@ -310,18 +345,7 @@ std_logic_vector to integer
   :linenos:   
 
 
-std_logic_vector to unsigned
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: vhdl
-  :linenos:   
-
-
-std_logic_vector to signed
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: vhdl
-  :linenos:   
 
 
 
@@ -339,7 +363,7 @@ Use this to resize "sign extend" you vector/register that holds your signed/unsi
 
 
 process
-=============================
+#########################
 
 .. code-block:: vhdl
   :linenos:   
@@ -400,7 +424,7 @@ in generally, neither are desired.
 
 
 if else
-=============================
+#########################
 .. code-block:: vhdl
   :linenos:   
 
@@ -434,7 +458,7 @@ if else
 
 
 when else
-=============================
+#########################
 .. code-block:: vhdl
   :linenos:   
   
@@ -443,12 +467,12 @@ when else
     dout <= din1 when sel else din2;
 
 with select
-=============================
+#########################
 .. code-block:: vhdl
   :linenos:   
   
 case
-=============================
+#########################
 MUX vs. FSM 
 
 .. code-block:: vhdl
@@ -530,7 +554,7 @@ MUX vs. FSM
 
 
 generics
-=============================
+#########################
 Is used to parametrize design. Enable re-use/customization.
 Often seen for bit width, among other block settings.
 
@@ -548,7 +572,7 @@ Often seen for bit width, among other block settings.
 	end component some_component;
 
 generate
-=============================
+#########################
 Use/Synthesize block if condition is true
 
 .. code-block:: vhdl
@@ -567,7 +591,7 @@ Use/Synthesize block if condition is true
     end generate;
 
 package
-=============================
+#########################
 for organizing and centralizing re-use constants, records, functions
 
 .. code-block:: vhdl
@@ -585,7 +609,7 @@ for organizing and centralizing re-use constants, records, functions
     end some_package;
 
 record
-=============================
+#########################
 Define/create them in the packages
 
 .. code-block:: vhdl
@@ -601,7 +625,7 @@ Define/create them in the packages
     end record;
 
 for loop
-=============================
+#########################
 .. code-block:: vhdl
   :linenos:   
   
@@ -614,7 +638,7 @@ for loop
     end loop;
 
 arrays
-=============================
+#########################
 double check this
 
 .. code-block:: vhdl
@@ -637,12 +661,12 @@ double check this
 
 
 operators
-=============================
+#########################
 .. code-block:: vhdl
   :linenos:   
   
 functions
-=============================
+#########################
 They are combinational!
 
 .. code-block:: vhdl
@@ -661,7 +685,7 @@ They are combinational!
 
 
 template
-=============================
+#########################
 Putting it all together, template!
 
 .. code-block:: vhdl
@@ -703,20 +727,22 @@ Putting it all together, template!
 
 
 
-
+***********************************
 Verilog
-##############################################################################
+***********************************
 Later..
 
+***********************************
 SystemVerilog
-##############################################################################
+***********************************
 Later.. as I dont use enough.
 
 
 
-
+***********************************
 HDL2 
-##############################################################################
+***********************************
+
 This section is to emphasize HDL on FPGAs or vendor specific (primarily Xilinx bc that is what I use at the moment).
 It should be revisited after reading about combinatorial and sequential circuits.
 I will probably discuss some of it there too, so there will be some redundancy in information depending where your entry is.
@@ -726,12 +752,12 @@ Or continue if you're already familiar.
 
 
 Register/FlipFlops (FF)
-=============================
+#########################
 There is only D FF in an FPGA.. other styles FF you learn in digital logic class do not exist.
 If you try implementing other flavors (SR, JK, T), you'll just use the available DFF and surrounding LUTs to realize their functionality.
 
 Reset
-=============================
+#########################
 Asynchronously setting or resetting registers are synthesized into preset or clear registers.
 
 Sequential functionality in device resources, such as block RAM components and DSP blocks, can be set or reset synchronously only.
@@ -748,10 +774,10 @@ Always describe the clock enable, set, and reset control inputs of flip-flop pri
 If they are described as active-Low, the resulting inverter logic penalizes circuit performance.
 
 Inferring and Inference
-=============================
+#########################
 
 Synthesis/Implementation
-------------------------------
+#########################
 I want to focus on HDL, RTL and implementation results.
 Think hardware.
 
@@ -777,7 +803,7 @@ if it is not, it will most likely synthesize a priority encoder.
 basically in both case it depends how you write the conditions.
 
 Using Dedicated Hardware
-------------------------------
+#########################
 Like what it means to use dedicated hardware, inference(ing) vs. LUT.
 
 You'll want to write code such that it will utilize dedicated hardware when you can
@@ -811,7 +837,7 @@ if you dont use it you lose it. its already there for you.
 
 
 Finate State Machine
-=============================
+********************************
 Vivado synthesis supports specification of Finite State Machine (FSM) in both Moore and Mealy form. An FSM consists of the following:
 
 A state register
