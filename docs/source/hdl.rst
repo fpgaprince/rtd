@@ -252,7 +252,7 @@ Conversions and Cast/Casting
     to represent a numeric value when entering the circuit level.
 
 
-to unsigned
+TO UNSIGNED
 =====================================
 
 
@@ -282,7 +282,7 @@ std_logic_vector to unsigned
 
 
 
-to signed
+TO SIGNED
 =====================================
 
 
@@ -316,7 +316,7 @@ std_logic_vector to signed
 
 
 
-to std_logic_vector
+TO STD_LOGIC_VECTOR
 =====================================
 
 integer to std_logic_vector
@@ -324,6 +324,7 @@ integer to std_logic_vector
 
 .. code-block:: vhdl
   :linenos:   
+
     -- only positive integers
     SLV_signal <= std_logic_vector(to_unsigned(integer_signal, unsigned_length));
     
@@ -350,7 +351,7 @@ signed to std_logic_vector
 
 
 
-to integer
+TO INTEGER
 =====================================
 i dont think i ever really use this.. maybe in verification?
 
