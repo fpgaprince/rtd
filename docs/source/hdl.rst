@@ -237,51 +237,105 @@ assignment
 conversions
 ----------------------------
 
-make sure you are using IEEE.numeric_std.ALL first.
+first, make sure you are using IEEE.numeric_std.ALL
 
 integer to std_logic_vector
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: vhdl
+  :linenos:   
+
+
 integer to unsigned
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: vhdl
+  :linenos:   
 
 integer to signed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: vhdl
+  :linenos:   
+
+    signed_signal <= to_signed(integer_signal, desired_length);
+
 unsigned to std_logic_vector
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: vhdl
+  :linenos:   
+
 
 unsigned to integer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: vhdl
+  :linenos:   
+
+
 unsigned to signed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: vhdl
+  :linenos:   
+
 
 signed to std_logic_vector
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: vhdl
+  :linenos:   
+
+
 signed to unsigned
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: vhdl
+  :linenos:   
+
+
 signed to integer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: vhdl
+  :linenos:   
+
 
 
 std_logic_vector to integer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: vhdl
+  :linenos:   
+
+
 std_logic_vector to unsigned
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: vhdl
+  :linenos:   
+
 
 std_logic_vector to signed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: vhdl
+  :linenos:   
+
+
 
 resize
 ----------------------------
-    resize (ARG: SIGNED; NEW_SIZE: NATURAL)
+Again, make sure you're using IEEE.numeric_std.ALL
+Use this to resize "sign extend" you vector/register that holds your signed/unsigned value.
+
+.. code-block:: vhdl
+  :linenos:   
+
+    resize (signed; size);
     
-    resize (ARG: UNSIGNED; NEW_SIZE: NATURAL)
+    resize (unsigned; size);
 
 
 process

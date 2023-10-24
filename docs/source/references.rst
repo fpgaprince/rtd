@@ -6,7 +6,6 @@ References
 ##########################
 
 FPGA
-
     https://zipcpu.com/
 
     https://www.01signal.com/
@@ -20,7 +19,6 @@ FPGA
     https://vhdlwhiz.com/
         
 DSP
-
     https://dsprelated.com/
 
     https://dspguru.com/
@@ -28,7 +26,6 @@ DSP
 
 
 FPGA Vendors
-
     xilinx/amd documentation
 
     https://www.xilinx.com/products/silicon-devices/fpga.html
@@ -70,11 +67,15 @@ References
 
 PCB
     https://www.altium.com/
+    
     https://www.youtube.com/@RobertFeranec
 
 
-https://www.circuitlab.com/
+    https://www.circuitlab.com/
+
+
 LT SPICE
+
 MATLAB
 
 Books
