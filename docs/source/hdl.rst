@@ -515,6 +515,7 @@ Use/Synthesize block if condition is true
 package
 =============================
 for organizing and centralizing re-use constants, records, functions
+
 .. code-block:: vhdl
   :linenos:   
   
@@ -560,10 +561,11 @@ for loop
 
 arrays
 =============================
-double check this..
+double check this
 
 .. code-block:: vhdl
   :linenos:   
+
     --1D array is your std_logic_vector
 
     --2D array (N depth, by 16 SL) or 1D of 16bit SLVs
@@ -609,7 +611,8 @@ template
 Putting it all together, template!
 
 .. code-block:: vhdl
-  :linenos:   
+  :linenos:
+     
     LIBRARY IEEE;
     USE IEEE.std_logic_1164.ALL;
     USE IEEE.numeric_std.ALL;
