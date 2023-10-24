@@ -34,9 +34,9 @@ We will first focus on synthesizable and return for test bench, validation, veri
 
 VHDL
 ########################################################################################################
-just some of the basic stuff... references and templates.
+just some of the basic stuff... examples and templates.
 
-Libraries and use
+libraries and use
 =============================
 
 .. code-block:: vhdl
@@ -57,8 +57,7 @@ Libraries and use
 
 entity
 =============================
-this is how we abstract our digital components
-how to create your component/module
+this is how we abstract digital components and modules
 
 .. code-block:: vhdl
   :linenos:   
@@ -70,18 +69,26 @@ how to create your component/module
     entity fpga_top is port (
             clk : in std_logic;
             rst : in std_logic;
-            someout : out std_logic  
-    );
-    end fpga_top;
+            somein : in std_logic;
+            anotherin : in std_logic_vector(7 downto 0);
+            someout : out std_logic;
+            anotherout : out std_logic_vector(15 downto 0)      -- notice no ';'
+    );                                                          -- notice ';'
+    end fpga_top;                                                         
     
     architecture rtl of fpga_top is
+
         --signal declarations
         --component declarations
+
     begin
-        -- we'll fill it in later.
+
+        -- RTL body.
+
     end rtl;
 
-this can be in some other file 
+in the following, which can be in some other file, we create more entities.
+i usually keep one entity per file for organization, but here i am just listing two
 
 .. code-block:: vhdl
   :linenos:   
@@ -96,35 +103,35 @@ this can be in some other file
             someout : out std_logic  
     );
     end some_component;
-    
-    architecture rtl of fpga_top is
+
+    architecture rtl of some_component is
+
         --signal declarations
         --component declarations
+
     begin
-        process (sensitivity) begin
-            if () then
-            else
-            end if;
-        end process;
+
+        -- RTL body.
 
     end rtl;
 
-    entity another_component is port (
+    -- just for example...
+    entity another_comp is port (
             clk : in std_logic;
             rst : in std_logic;
             someout : out std_logic  
     );
-    end another_component;
-    
-    architecture rtl of fpga_top is
+    end another_comp;
+
+    architecture rtl of another_comp is
+
         --signal declarations
         --component declarations
+
     begin
-        process (clk) begin
-            if () then
-            else
-            end if;
-        end process;
+
+        -- RTL body.
+
     end rtl;    
 
 architecture vs structure vs behavior
@@ -140,6 +147,7 @@ component
 3.  then you instantiate the component where it is used and label it.
 4.  map port signals
 
+re-using the fpga_top entity we created earlier.. 
 .. code-block:: vhdl
   :linenos:   
     
@@ -148,9 +156,11 @@ component
     USE IEEE.numeric_std.ALL;
     
     entity fpga_top is port (
-            clk : in std_logic;
+            clk100 : in std_logic;
+            clk150 : in std_logic;
             rst : in std_logic;
-            someout : out std_logic  
+            dout1 : out std_logic;
+            dout2 : out std_logic  
     );
     end fpga_top;
     
@@ -158,19 +168,20 @@ component
         --signal declarations
 
         -- 2. component declarations        -- for code readability, can create a separate component.vhd file and declare them all there.
+                                            -- actually, i'd recommend doing so, it prevents this section from becoming unnecessarily long
         component some_component is port (
             clk : in std_logic;
             rst : in std_logic;
             someout : out std_logic  
         );
-        end component;
+        end component some_component;
 
-        component another_component is port (
+        component another_comp is port (
             clk : in std_logic;
             rst : in std_logic;
             someout : out std_logic  
         );
-        end component;
+        end component another_comp;
 
     begin
         --  3. component instantiation
@@ -180,7 +191,7 @@ component
             someout => dout1
         );
 
-        DUT2_label : another_component port map (
+        DUT2_label : another_comp port map (
             clk => clk150,
             rst => rst,
             someout => dout2
