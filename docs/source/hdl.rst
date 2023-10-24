@@ -206,11 +206,16 @@ re-using the fpga_top entity we created earlier..
     Notice => used to assign signals to ports. verus <= to assign values or signals to signals!
 
 
-data types
+Object Types
 #########################
-    signals, variable, constants
+    
+    signals
+    
+    variable
+    
+    constants
 
-signals
+Signals
 *********************************************
 These are the common ones I've used.
 
@@ -228,20 +233,56 @@ These are the common ones I've used.
     
     arrays
 
-assignment
+Assignment/Assigning
 *********************************************
     
     <= signal assignment
     
     := variable assignment, signal initialization.
 
-conversions and cast/casting
+
+Conversions and Cast/Casting
 *********************************************
 
-first, make sure you are using IEEE.numeric_std.ALL
+    first, make sure you are using IEEE.numeric_std.ALL
+
+    second, the ones to take notice of are the integer related ones.
+    because the integer uses the system bit rep, most likely 32bits.
+    we'll need to specify how many bits/registers we want to use 
+    to represent a numeric value when entering the circuit level.
 
 
-some signal to signed
+to unsigned
+=====================================
+
+
+integer to unsigned
+------------------------------------
+
+.. code-block:: vhdl
+  :linenos:   
+
+    unsigned_signal <= to_unsigned(integer_signal, desired_unsign_length);
+
+signed to unsigned
+------------------------------------
+
+.. code-block:: vhdl
+  :linenos:   
+    unsigned_signal <= unsigned(signed_signal);
+
+std_logic_vector to unsigned
+------------------------------------
+
+.. code-block:: vhdl
+  :linenos:   
+
+    unsigned_signal <= unsigned(std_logic_vector_signal);
+
+
+
+
+to signed
 =====================================
 
 
@@ -275,7 +316,7 @@ std_logic_vector to signed
 
 
 
-some signal to std_logic_vector
+to std_logic_vector
 =====================================
 
 integer to std_logic_vector
@@ -283,6 +324,11 @@ integer to std_logic_vector
 
 .. code-block:: vhdl
   :linenos:   
+    -- only positive integers
+    SLV_signal <= std_logic_vector(to_unsigned(integer_signal, unsigned_length));
+    
+    -- positive and negative integers
+    SLV_signal <= std_logic_vector(to_signed(integer_signal, signed_length));
 
 
 unsigned to std_logic_vector
@@ -291,44 +337,36 @@ unsigned to std_logic_vector
 .. code-block:: vhdl
   :linenos:   
 
-
+    SLV_signal <= std_logic_vector(unsigned_signal);
 
 signed to std_logic_vector
 ------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
+    
+    SLV_signal <= std_logic_vector(signed_signal);
 
 
-some signal to unsigned
+
+
+to integer
 =====================================
+i dont think i ever really use this.. maybe in verification?
 
-integer to unsigned
+
+std_logic_vector to integer
 ------------------------------------
+but remember whether signed or unsigned, it is just a set of registers,
+a vector.. signed/unsigned is just how we interpret the vector.
+we need to tell the system how to interpret our SLV.
 
 .. code-block:: vhdl
   :linenos:   
 
+    int_signal <= integer(unsigned(std_logic_vector_signal));
 
-signed to unsigned
-------------------------------------
-
-.. code-block:: vhdl
-  :linenos:   
-
-
-std_logic_vector to unsigned
-------------------------------------
-
-.. code-block:: vhdl
-  :linenos:   
-
-
-
-
-some signal to integer
-=====================================
-
+    int_signal <= integer(signed(std_logic_vector_signal));
 
 unsigned to integer
 ------------------------------------
@@ -336,6 +374,7 @@ unsigned to integer
 .. code-block:: vhdl
   :linenos:   
 
+    int_signal <= integer(unsigned_signal);
 
 
 signed to integer
@@ -344,15 +383,7 @@ signed to integer
 .. code-block:: vhdl
   :linenos:   
 
-
-
-std_logic_vector to integer
-------------------------------------
-
-.. code-block:: vhdl
-  :linenos:   
-
-
+    int_signal <= integer(signed_signal);
 
 
 
