@@ -26,6 +26,7 @@ Contents
    :maxdepth: 2
    :numbered:
 
+
    introduction
    fundamentals
    fpga
@@ -37,4 +38,6 @@ Contents
    applications
    advance
    glossary
+
+   :hidden:
    references
