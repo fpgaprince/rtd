@@ -148,6 +148,7 @@ component
 4.  map port signals
 
 re-using the fpga_top entity we created earlier.. 
+
 .. code-block:: vhdl
   :linenos:   
     
@@ -197,6 +198,7 @@ re-using the fpga_top entity we created earlier..
             someout => dout2
         );        
     end rtl;
+
 
 .. ::note 
 
