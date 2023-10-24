@@ -58,7 +58,8 @@ libraries and use
 
 entity
 #########################
-this is how we abstract digital components and modules
+this is how we abstract digital components and modules.
+this is how you encapsulate functionality, or create black box.
 
 .. code-block:: vhdl
   :linenos:   
@@ -201,6 +202,8 @@ re-using the fpga_top entity we created earlier..
     end rtl;
 
 
+By instantiating components within other entities, you create a hierarchy and organization for your design.
+
 .. note::
 
     Notice => used to assign signals to ports. verus <= to assign values or signals to signals!
@@ -228,10 +231,14 @@ These are the common ones I've used.
     signed
     
     integer
+        range
+        natural 0 to 
     
     natural
     
     arrays
+
+    custom
 
 Assignment/Assigning
 *********************************************
@@ -249,7 +256,7 @@ Conversions and Cast/Casting
     second, the ones to take notice of are the integer related ones.
     because the integer uses the system bit rep, most likely 32bits.
     we'll need to specify how many bits/registers we want to use 
-    to represent a numeric value when entering the circuit level.
+    to represent a numeric value when entering the circuit/hw/bit level.
 
 
 TO UNSIGNED
@@ -392,7 +399,8 @@ signed to integer
 resize
 *********************************************
 Again, make sure you're using IEEE.numeric_std.ALL
-Use this to resize "sign extend" you vector/register that holds your signed/unsigned value.
+Use this to resize "sign extend" your vector/register that holds your signed/unsigned value.
+Use before doing arithmetic.
 
 .. code-block:: vhdl
   :linenos:   
@@ -404,6 +412,7 @@ Use this to resize "sign extend" you vector/register that holds your signed/unsi
 
 process
 #########################
+You'll be writing/using this, alot.
 
 .. code-block:: vhdl
   :linenos:   
@@ -414,8 +423,15 @@ process
 
     end process;
 
+
+The sensitivity list is a list of signals, that we tell the process to monitor
+and to act upon/ do something when said signals change. basically, execute the process
+when change in sensitivity signals detected.
+
+a process can be combinational or sequential.
+
 combinational vs sequential
-----------------------------
+---------------------------------------
 when writing combinational process, you must list all the input signals to logic function.
 leaving or forgetting signals, results in inferred latches and combinational loops.
 in generally, neither are desired.
@@ -438,7 +454,7 @@ in generally, neither are desired.
         --signal declarations
         --component declarations
     begin
-        --combinational
+        --combinational, you must list all the input signals
         process (sensitivity signals) begin
             if () then
             else
@@ -452,8 +468,15 @@ in generally, neither are desired.
             end if;
         end process;
 
-        --sequential
+        --sequential, sync reset
         process (clk) begin
+            if () then
+            else
+            end if;
+        end process;
+
+        --sequential - w async reset
+        process (clk, rst) begin
             if () then
             else
             end if;
@@ -465,6 +488,11 @@ in generally, neither are desired.
 
 if else
 #########################
+very similar to what many see in 'software' programming.
+syntactically similar, but different end result.
+this is probably redundant, but in programming, code is executed sequentially by the processor.
+in FPGAs, they result result in encoders and muxes, LUTs. they represent a logic function.  
+
 .. code-block:: vhdl
   :linenos:   
 
@@ -499,6 +527,8 @@ if else
 
 when else
 #########################
+VHDL2008?
+
 .. code-block:: vhdl
   :linenos:   
   
@@ -508,11 +538,15 @@ when else
 
 with select
 #########################
+
 .. code-block:: vhdl
   :linenos:   
   
 case
 #########################
+another similar to software programming, but again end result not the same.
+
+Generally cases is used for and/or will become..
 MUX vs. FSM 
 
 .. code-block:: vhdl
@@ -613,7 +647,7 @@ Often seen for bit width, among other block settings.
 
 generate
 #########################
-Use/Synthesize block if condition is true
+Use/Synthesize block of code if condition is true
 
 .. code-block:: vhdl
   :linenos:   
@@ -650,7 +684,7 @@ for organizing and centralizing re-use constants, records, functions
 
 record
 #########################
-Define/create them in the packages
+Define/create them in the packages. Can be used as a type of signal.
 
 .. code-block:: vhdl
   :linenos:   
@@ -679,7 +713,7 @@ for loop
 
 arrays
 #########################
-double check this
+used to store data, can become RAM.
 
 .. code-block:: vhdl
   :linenos:   
@@ -702,12 +736,13 @@ double check this
 
 operators
 #########################
+
 .. code-block:: vhdl
   :linenos:   
   
 functions
 #########################
-They are combinational!
+They are combinational! I never really see this in designs, more in verification/validation.
 
 .. code-block:: vhdl
   :linenos:   
@@ -724,7 +759,7 @@ They are combinational!
     end function;
 
 
-template
+Template
 #########################
 Putting it all together, template!
 
@@ -780,7 +815,7 @@ Later.. as I dont use enough.
 
 
 ***********************************
-HDL2 
+HDL PT. 2 
 ***********************************
 
 This section is to emphasize HDL on FPGAs or vendor specific (primarily Xilinx bc that is what I use at the moment).
