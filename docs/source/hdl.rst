@@ -136,7 +136,7 @@ i usually keep one entity per file for organization, but here i am just listing 
     end rtl;    
 
 architecture vs structure vs behavior
-------------------------------------------------------------
+*********************************************
 
 
 
@@ -211,7 +211,7 @@ data types
     signals, variable, constants
 
 signals
-----------------------------
+*********************************************
 These are the common ones I've used.
 
     std_logic
@@ -229,22 +229,23 @@ These are the common ones I've used.
     arrays
 
 assignment
-----------------------------
+*********************************************
     
     <= signal assignment
     
     := variable assignment, signal initialization.
 
 conversions and cast/casting
---------------------------------------------------------
+*********************************************
 
 first, make sure you are using IEEE.numeric_std.ALL
 
 
-
+some signal to signed
+=====================================
 
 integer to signed
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
@@ -253,7 +254,7 @@ integer to signed
 
 
 unsigned to signed
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
@@ -262,7 +263,7 @@ unsigned to signed
 
 
 std_logic_vector to signed
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
@@ -272,16 +273,18 @@ std_logic_vector to signed
 
 
 
-
+some signal to std_logic_vector
+=====================================
 
 integer to std_logic_vector
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
 
+
 unsigned to std_logic_vector
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
@@ -289,31 +292,31 @@ unsigned to std_logic_vector
 
 
 signed to std_logic_vector
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
 
 
+some signal to unsigned
+=====================================
 
 integer to unsigned
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
-
-
 
 
 signed to unsigned
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
 
 
 std_logic_vector to unsigned
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
@@ -321,9 +324,12 @@ std_logic_vector to unsigned
 
 
 
+some signal to integer
+=====================================
+
 
 unsigned to integer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
@@ -331,7 +337,7 @@ unsigned to integer
 
 
 signed to integer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
@@ -339,7 +345,7 @@ signed to integer
 
 
 std_logic_vector to integer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
@@ -350,7 +356,7 @@ std_logic_vector to integer
 
 
 resize
-----------------------------
+*********************************************
 Again, make sure you're using IEEE.numeric_std.ALL
 Use this to resize "sign extend" you vector/register that holds your signed/unsigned value.
 
@@ -752,7 +758,7 @@ Or continue if you're already familiar.
 
 
 Register/FlipFlops (FF)
-#########################
+##################################################
 There is only D FF in an FPGA.. other styles FF you learn in digital logic class do not exist.
 If you try implementing other flavors (SR, JK, T), you'll just use the available DFF and surrounding LUTs to realize their functionality.
 
@@ -774,10 +780,10 @@ Always describe the clock enable, set, and reset control inputs of flip-flop pri
 If they are described as active-Low, the resulting inverter logic penalizes circuit performance.
 
 Inferring and Inference
-#########################
+##################################################
 
 Synthesis/Implementation
-#########################
+##################################################
 I want to focus on HDL, RTL and implementation results.
 Think hardware.
 
@@ -803,7 +809,7 @@ if it is not, it will most likely synthesize a priority encoder.
 basically in both case it depends how you write the conditions.
 
 Using Dedicated Hardware
-#########################
+##################################################
 Like what it means to use dedicated hardware, inference(ing) vs. LUT.
 
 You'll want to write code such that it will utilize dedicated hardware when you can
@@ -819,9 +825,9 @@ data is read from the RAM. See the following table.
 
 ::
 
-    Action  Distributed RAM	    Dedicated Block RAM
-    Write	Synchronous	        Synchronous
-    Read	Asynchronous	    Synchronous
+    Action  Distributed RAM     Dedicated Block RAM
+    Write   Synchronous         Synchronous
+    Read    Asynchronous        Synchronous
 
 
 Generally you will always want to take advantage of RAM, DSP, SRL, MUX? over their LUT equivalents.. better performance.
@@ -837,7 +843,7 @@ if you dont use it you lose it. its already there for you.
 
 
 Finate State Machine
-********************************
+#########################
 Vivado synthesis supports specification of Finite State Machine (FSM) in both Moore and Mealy form. An FSM consists of the following:
 
 A state register
