@@ -23,7 +23,7 @@ Contents
 ----------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :numbered:
 
 
@@ -39,5 +39,6 @@ Contents
    advance
    glossary
 
+.. toctree::
    :hidden:
    references
