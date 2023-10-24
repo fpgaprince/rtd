@@ -23,11 +23,9 @@ Contents
 ----------------
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :numbered:
 
-
-   introduction
    fundamentals
    fpga
    hdl
@@ -41,4 +39,5 @@ Contents
 
 .. toctree::
    :hidden:
+   introduction   
    references
