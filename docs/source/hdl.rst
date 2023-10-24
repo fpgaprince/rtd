@@ -200,9 +200,10 @@ re-using the fpga_top entity we created earlier..
     end rtl;
 
 
-.. ::note 
+.. note::
 
     Notice => used to assign signals to ports. verus <= to assign values or signals to signals!
+
 
 data types
 =============================
@@ -278,9 +279,9 @@ std_logic_vector to signed
 
 resize
 ----------------------------
-    RESIZE (ARG: SIGNED; NEW_SIZE: NATURAL)
+    resize (ARG: SIGNED; NEW_SIZE: NATURAL)
     
-    RESIZE (ARG: UNSIGNED; NEW_SIZE: NATURAL)
+    resize (ARG: UNSIGNED; NEW_SIZE: NATURAL)
 
 
 process
@@ -326,7 +327,8 @@ in generally, neither are desired.
             end if;
         end process;
 
-        process (all) begin     --VHDL2008
+        --combinational
+        process (all) begin     --VHDL2008, to use all
             if () then
             else
             end if;
@@ -338,6 +340,7 @@ in generally, neither are desired.
             else
             end if;
         end process;
+
     end rtl;    
 
 
@@ -357,8 +360,8 @@ if else
         end if;
     end process;
 
-    -- will result in priority encoded 
-    process (all) begin     --VHDL2008
+    -- will result in priority encoding
+    process (all) begin                 --VHDL2008
         if (wen) then
             --some assignment
         elsif (ren) then
@@ -483,10 +486,10 @@ Often seen for bit width, among other block settings.
 	component some_component is
 		generic (N : integer := 6);
 	port (
-			clk							: in std_logic;
-			en							: in std_logic;
-			rst							: in std_logic;
-			datain					: in std_logic_vector(13 downto 0);
+			clk	: in std_logic;
+			en : in std_logic;
+			rst	: in std_logic;
+			datain : in std_logic_vector(13 downto 0);
 	);
 	end component some_component;
 
