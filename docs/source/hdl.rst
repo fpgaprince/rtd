@@ -244,22 +244,24 @@ first, make sure you are using IEEE.numeric_std.ALL
 some signal to signed
 =====================================
 
+
 integer to signed
 ------------------------------------
 
 .. code-block:: vhdl
   :linenos:   
 
-    signed_signal <= to_signed(integer_signal, desired sign length);
+    signed_signal <= to_signed(integer_signal, desired_sign_length);
 
 
 unsigned to signed
 ------------------------------------
+keep in mind the needed extra bit for the sign!
 
 .. code-block:: vhdl
   :linenos:   
 
-    signed_signal <= signed(signed signal);
+    signed_signal <= signed(signed_signal);
 
 
 std_logic_vector to signed
@@ -268,7 +270,7 @@ std_logic_vector to signed
 .. code-block:: vhdl
   :linenos:   
 
-    signed_signal <= signed(std_logic_vector signal);
+    signed_signal <= signed(std_logic_vector_signal);
 
 
 
