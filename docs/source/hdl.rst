@@ -527,7 +527,7 @@ in FPGAs, they result result in encoders and muxes, LUTs. they represent a logic
 
 when else
 #########################
-VHDL2008?
+i've never really used this, but have started to see it more often 
 
 .. code-block:: vhdl
   :linenos:   
@@ -536,18 +536,35 @@ VHDL2008?
     -- this doesn't have to be in a process block.
     dout <= din1 when sel else din2;
 
+    b <= "1000" when a = "00" else 
+	 "0100" when a = "01" else 
+	 "0010" when a = "10" else 
+	 "0001" when a = "11";
+
+
 with select
 #########################
+i've never really used this..
 
 .. code-block:: vhdl
   :linenos:   
-  
+
+    with a select b <=
+        "1000" when "00",
+        "0100" when "01",
+        "0010" when "10",
+        "0001" when "11";
+
 case
 #########################
 another similar to software programming, but again end result not the same.
 
 Generally cases is used for and/or will become..
 MUX vs. FSM 
+
+i dont think you can synth a priority encoder with the VHDL case statement,
+per the requirement of the syntax. The case 'sel' variable/signal and when 
+condition width have to match for comparison.
 
 .. code-block:: vhdl
   :linenos:   
