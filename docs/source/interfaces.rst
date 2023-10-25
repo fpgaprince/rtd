@@ -5,6 +5,7 @@ It is just a means to transport/transfer data from one place to another.
 
 Depending on your system and application, 
 what you are trying to interface to and the performance requirement.
+
     Electrical requirements
 
     Data rate and distance. 
@@ -18,8 +19,7 @@ we need to either return the data. or act on the data. store the data.
 
 
 
-
-DATA
+Data
 ##########################
 
 JTAG
@@ -128,10 +128,19 @@ Ethernet
 PCIe
 *********************
     DMA
+
     memory mapped
+
     stream
 
 
+
+
+Bluetooth
+*********************
+
+WIFI
+*********************
 
 
 Video
@@ -153,6 +162,8 @@ Display Port
 Memory
 ##########################
 
+SRAM
+*********************
 DDR
 *********************
 SD
@@ -162,18 +173,6 @@ Flash
 
 
 
-
-
-
-
-
-Bluetooth
-##########################
-
-WIFI
-##########################
-
-
 Audio
 ##########################
 
@@ -181,7 +180,9 @@ Audio
 
 Sensors
 ##########################
-    
+This is a type of data. Depending on data rate and throughput, 
+some may connect to i2c or spi. 
+
     Gyro
 
     Accelerometer
