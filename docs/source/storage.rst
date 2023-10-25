@@ -131,26 +131,6 @@ D Latch
 DNE, briefly describe now.. not priorirty.
 
 
-Timing/Clocking
-##########################
-
-While latches do not require a clock, they do have some sort of enable signal.
-This enable signal determines when and when not to store information.
-
-This enable can be switched out with a periodically toggling signal, we call a clock.
-Previously, they just require a "transition." So that does not necessarily 
-imply periodic.
-
-It is when we add timing, things become interesting.
-It allow us to create more sophisticated circuits, solving more complex problems.
-
-Time and timing is everything in this world..
-
-We can synchornize multiple events.
-We can predetermine when things happen.
-We can expect things to happen at very specific times.
-With a clock we establish a sense of time.
-
 
 
 
@@ -179,10 +159,23 @@ by attaching this to SR or D latch, we create the equivalent flip flop version.
 
 Clocking the Control Signal
 ================================
-Up to now we've only referred to the control signal/enable signal. Often times the control signal 
-is tied to a clock. By introducing or using a clock. 
-we add a periodicness to the circuit, predictability.
-we can synchronize circuits to each other.
+Up to now we've only referred to the control signal/enable signal.
+While latches do not require a clock, they do have some sort of enable signal.
+This enable signal determines when and when not to store information.
+
+If, we instead, made this signal toggle periodically.. say, with a clock/oscillator.
+
+It is when we add timing, things become interesting.
+It allow us to create more sophisticated circuits, solving more complex problems.
+
+Time and timing is everything in this world..
+    We can synchornize multiple events.
+
+    We can predetermine when things happen.
+
+    We can expect things to happen at very specific times. We can predict.
+
+    With a clock we establish a sense of time.
 
 
 
