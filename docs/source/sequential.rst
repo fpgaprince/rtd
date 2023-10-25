@@ -48,6 +48,11 @@ Shift Registers
 Counters
 ##########################
 
+With a register, a clock and a combinational adder, we can create a counter.
+The counter is instrumental in sequential design and is found everywhere.
+It is how we set specific and/or determine time, how much time has passed.
+When to do something, when to do something else. 
+
 
 
 
