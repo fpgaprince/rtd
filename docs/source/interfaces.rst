@@ -5,27 +5,34 @@ It is just a means to transport/transfer data from one place to another.
 
 Depending on your system and application, 
 what you are trying to interface to and the performance requirement.
-Data rate and distance. 
-it will dictact what is adequate/necessary for your design.
+    Electrical requirements
+
+    Data rate and distance. 
+
+It will dictact what is adequate/necessary for your design.
 
 will need a means to access/acquire data.
 we will manipulate. process it in some way.
 we need to either return the data. or act on the data. store the data.
 
 
-JTAG
+
+
+
+DATA
 ##########################
 
+JTAG
+*********************
 
 UART
-##########################
-
+*********************
 
 SPI
-##########################
+*********************
 
 Quad SPI
-##########################
+*********************
 ::
 
     QSPI employs a 4-wire configuration, similar to SPI, but utilizes parallel data lines 
@@ -34,33 +41,69 @@ Quad SPI
     QSPI uses Double Data Rate (DDR) techniques to further improve performance.
 
 I2C
-##########################
-
-
-VGA
-##########################
-
-
-HDMI
-##########################
-
-
-Display Port
-##########################
-
+*********************
 
 USB, 2.0, 3.0
-##########################
+*********************
 
 
-PCIe
-##########################
-    DMA
-    memory mapped
-    stream
+RS232 
+*********************
+    Single ended
+        3 wires (TX, RX, GND)
+            susceptible to noise!
+    
+    Short distance <50ft (15m)
+    "PC serial port", commonly found on back of PC. 
+    Direct point to point between two devices
+    Full duplex.
+    
+    Often used for UART, debug, testingRS232 to USB, FTDI, UART USB adapters
+    RS232 to USB, FTDI, UART USB adapters
+
+    
+
+RS422
+*********************
+    4 wires per device (Tx_p, Tx_n, Rx_p, Rx_n,) differential
+        _p: positive, _n: negative
+        host's 4 wires will 'fanout' to all peripheral devices.
+    Longer distance - ~500ft to 4k?
+    Multi devices ~10?
+        Each with unique addressing
+        there is one host/master and # peripheral devices
+    There needs to be some agreement/understanding between all device on how to share the line.
+    Full Duplex, but only one slave talk at a time.
+
+RS485  
+*********************
+    new, replaced rs422.
+    2 wire sytem, differential. (line_p, line_n)
+    Multiple devices. ~32
+    Master and slave share the two wire lines, therefore only
+    one can talk at a time. handshake needs to be set up.
+    This is called half duplex.
+    500ft to 4k?
+
+
+
+.. ::note
+
+    Simplex - tx only.
+    Half-duplex - transmit/receive, one at a time.
+    Full-dplex - transmit/receive, same time.
+
+Ethernet requires more complex wiring and networking infrastructure compared to RS485 or RS232
+
+CAN
+*********************
+
+SERDES
+*********************
+
 
 Ethernet
-##########################
+*********************
     10/100/1G
 
     PCS/PMA
@@ -82,18 +125,47 @@ Ethernet
 
     The 100Mbps versions of the MII (15-pin MII and nine-pin Reduced MII [RMII]) are complemented by 1Gbps versions, which include Reduced Gigabit MII (RGMII) and Serial Gigabit MII (SGMII). RGMII is a 12-pin interface, while SGMII can operate as either a four- or six-pin interface.
 
+PCIe
+*********************
+    DMA
+    memory mapped
+    stream
 
-SERDES
+
+
+
+Video
+##########################
+
+VGA
+*********************
+
+HDMI
+*********************
+
+Display Port
+*********************
+
+
+
+
+
+Memory
 ##########################
 
 DDR
-##########################
-
+*********************
 SD
-##########################
+*********************
+Flash
+*********************
 
-CAN
-##########################
+
+
+
+
+
+
 
 Bluetooth
 ##########################
@@ -107,8 +179,8 @@ Audio
 
 
 
-Sensors?
-=======================
+Sensors
+##########################
     
     Gyro
 
@@ -116,64 +188,15 @@ Sensors?
 
     Inertial
 
-    image/video - camera
+    Camera
 
     Temp 
 
     Display
 
 
-RS232 
-=======================
-    Single ended
-        3 wires (TX, RX, GND)
-            susceptible to noise!
-    
-    Short distance <50ft (15m)
-    "PC serial port", commonly found on back of PC. 
-    Direct point to point between two devices
-    Full duplex.
-    
-    Often used for UART, debug, testingRS232 to USB, FTDI, UART USB adapters
-    RS232 to USB, FTDI, UART USB adapters
-
-    
-
-RS422
-=======================
-    4 wires per device (Tx_p, Tx_n, Rx_p, Rx_n,) differential
-        _p: positive, _n: negative
-        host's 4 wires will 'fanout' to all peripheral devices.
-    Longer distance - ~500ft to 4k?
-    Multi devices ~10?
-        Each with unique addressing
-        there is one host/master and # peripheral devices
-    There needs to be some agreement/understanding between all device on how to share the line.
-    Full Duplex, but only one slave talk at a time.
-
-RS485  
-=======================
-    new, replaced rs422.
-    2 wire sytem, differential. (line_p, line_n)
-    Multiple devices. ~32
-    Master and slave share the two wire lines, therefore only
-    one can talk at a time. handshake needs to be set up.
-    This is called half duplex.
-    500ft to 4k?
-
-
-
-.. ::note
-
-    Simplex - tx only.
-    Half-duplex - transmit/receive, one at a time.
-    Full-dplex - transmit/receive, same time.
-
-Ethernet requires more complex wiring and networking infrastructure compared to RS485 or RS232
-
-|   FMC?
-|   HMC?
-|   DMA?
+|   FMC
+|   HMC
 |   NAND
 |   AXIe
 |   PXIe
@@ -181,5 +204,7 @@ Ethernet requires more complex wiring and networking infrastructure compared to 
 
 you need to compare parallel vs serial interfaces.. and the protocols for that too.
 and talk about actual IO.
-TTL vs CMOS vs LVDS
-single end vs differential.
+
+    TTL vs CMOS vs LVDS
+
+    single end vs differential.

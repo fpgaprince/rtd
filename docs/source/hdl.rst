@@ -865,6 +865,25 @@ such as taking advantage of the circuit global reset by defining an initial cont
 Always describe the clock enable, set, and reset control inputs of flip-flop primitives as active-High. 
 If they are described as active-Low, the resulting inverter logic penalizes circuit performance.
 
+.. code-block:: vhdl
+  :linenos:   
+    
+    -- sometimes i write like this
+    process(clk)
+        if(rst) then
+
+    ...
+
+    -- sometimes i write like this
+    process(clk)
+        if(rst = '1') then
+
+    ...
+
+
+
+
+
 Inferring and Inference
 ##################################################
 
