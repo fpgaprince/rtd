@@ -2,7 +2,8 @@
 HDL
 ########################
 Primary approach to digital logic design in FPGAs and ASICs.
-We use it to describe functionality of digital circuits.
+We use it to describe functionality and/or behavior of digital circuits.
+It is how abstract, design and develop at a higher level.
 
 The most popular are VHDL, Verilog and SystemVerilog.
 VHDL seems to be the preferred language in Defense industry.
