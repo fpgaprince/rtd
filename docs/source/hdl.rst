@@ -702,7 +702,7 @@ for organizing and centralizing re-use constants, records, functions
 
 record
 #########################
-Define/create them in the packages. Can be used as a type of signal.
+Define/create them in the packages. Can be used as a type of signal that is a collection of signals.
 
 .. code-block:: vhdl
   :linenos:   
@@ -718,9 +718,21 @@ Define/create them in the packages. Can be used as a type of signal.
 
 for loop
 #########################
+They are not sequentially executed as in software programming.
+they are used to reduce, simplify your code.
+you have to think about it from a hardware perspective.
+the for loop is rolling up? the design.
+but when synthesize it is 'unrolled'
+
 .. code-block:: vhdl
   :linenos:   
-  
+    
+    -- for instance, this is saying we have 8 data_ff
+    -- our datain is also 8 bits wide, 
+    -- we want to connect one input bit/signal to the data_ff
+    -- so instead of writing this 8 times,
+    -- we write it once.
+
     for i in 0 to 7 loop
         data_ff[i] <= datain[i];
     end loop;
