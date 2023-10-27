@@ -17,6 +17,10 @@ FPGA
     https://www.asic-world.com/
 
     https://vhdlwhiz.com/
+
+    https://www.fpga4student.com/
+
+    https://www.fpga4fun.com/    
         
 DSP
     https://dsprelated.com/
