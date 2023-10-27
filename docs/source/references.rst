@@ -54,6 +54,7 @@ Circuits
 
     https://www.eevblog.com/
 
+
 References
     https://www.ti.com/amplifier-circuit/analog-engineers-pocket-reference-guide.html
 
@@ -65,11 +66,11 @@ References
 
     https://www.analog.com/en/education/education-library/tutorials/signals-and-systems.html
 
+
 PCB
     https://www.altium.com/
     
     https://www.youtube.com/@RobertFeranec
-
 
     https://www.circuitlab.com/
 
@@ -94,8 +95,7 @@ Like youtube or MIT stuff?
 
 
 
-
-
+https://chipmunklogic.com/
 
 
 

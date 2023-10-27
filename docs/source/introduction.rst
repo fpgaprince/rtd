@@ -1,7 +1,37 @@
 Introduction
 ************************
 
+HDL is often taught from an RTL perspective, with the end goal of designing
+a chip/ASIC. While the FPGA and ASIC share similar design/development approach..
+I don't think there is enough emphasis or focus on the dissimilarity, differentiation..
 
+You could say HDL in ASIC design has more freedom.
+The RTL design has more freedom. The implementation has more freedom.
+They have this freedom and flexibility for customization
+and the become "APPLICATION SPECIFIC"!
+
+FPGAs on the other hand do not. Most of your gate level hardware are already provided.
+You are creating some surrounding logic, function, glue logic.. whatever..
+but when synthesis comes around and how things are implemented.
+You are incredibly limited! in comparison to ASICs.
+But this is a pro and con, you dont have to worry about the physical implementation 
+as much or to the same degree, you can focus more on the logic design/RTL design..
+functionality.. thus the turn around time for a prototype or development is shorter.
+
+While you have freedom in an ASIC design, it is unlikely you will develop
+code or hdl from the gate level, unless you're starting from scratch.
+In most case, your company, firm or whatever group, will have standard cells or parts
+they will want to you to use.
+
+Say you want to use a JK flip flop, the HDL language will allow you to describe it.
+ASICs may use it, you may add it, or it may already be available.
+When this info is passed to the physical designer, they too will probably already
+have the available part to use (since it is so basic). But in the end..
+you JKFF will look like the schematic JK FF. It is true.
+
+FPGA's HW architecture dont have JK flip flops. only D flops and LUTs..
+So while you code up the JK flip flop, it's actually going to be implemented as D flops with 
+whatever surrounding logic to mimic the JK FF. it is not a true JKFF.
 
 
 

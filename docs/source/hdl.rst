@@ -721,8 +721,8 @@ for loop
 They are not sequentially executed as in software programming.
 they are used to reduce, simplify your code.
 you have to think about it from a hardware perspective.
-the for loop is rolling up? the design.
-but when synthesize it is 'unrolled'
+the for loop is rolling up? the code,
+but when synthesized, it is 'unrolled'/ flattened
 
 .. code-block:: vhdl
   :linenos:   

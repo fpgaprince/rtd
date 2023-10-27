@@ -11,9 +11,11 @@ The world is analog.
 
 We understand and solve problem through math and science representing them with numbers and functions.
 
-As problems became more complex/demanding/precision and the urgency to solve them became imperative/decisive/paramount, we needed better methods/means.
+As problems became more complex/demanding/precision and the urgency to solve them became imperative/decisive/paramount, 
+we needed better methods/means.
 
-What started as analog, were no longer adequate. Thus the motivation, push/effort/drive/race for/towards digital techniques/methods/path/road and electronics.
+What started as analog, were no longer adequate. 
+Thus the motivation, push/effort/drive/race for/towards digital techniques/methods/path/road and electronics.
 
 We are in a digital era. 
 
