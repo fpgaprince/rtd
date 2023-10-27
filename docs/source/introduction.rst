@@ -47,10 +47,29 @@ My main focus is FPGA, HDL and their applications.
 My purpose is to create a bridge I feel is not there.
 
 
+There is also a intersection between microcontrollers and FPGA.
+In fact, an FPGA can do whatever a uC can do, functionally, but most likely 
+requiring more power. 
 
+With uC, you can just pick up C and kind of be on your way..
+With FPGAs, I dont think you can just pick up HDL and be on your way..
+I have learned both and uC, C was much easier to pick up and create something.
+FPGA has grown in popularity/usage and vendors have created easier methods/entry point.
+but in general, learning both from the ground up C was easier, and what i learned early on.
+FPGA/ASIC/RTL all that came at much later time, many undergraduate courses later.
 
+I am not saying one is harder or easier, uC controller development, embedded software and embedded systems
+are no trivial task. Like wise using an ARM processor is no trivial task. Each 
+have their design/development challenges. Each are professions of their own.
 
-something something
+While I would love to understand everything and all of it, it really boils down to
+how much time you have and how much time you want to invest into it.
+
+Im sure your journey will introduce you to all of it, but to be an expert in even one is very demanding.
+
+Anyways.. enough about that.. we'll jump into the fundamentals. 
+
+something something?
 
 .. epigraph::
     
