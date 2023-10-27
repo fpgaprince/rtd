@@ -1,7 +1,7 @@
 Introduction
 ************************
 
-HDL is often taught from an RTL perspective, with the end goal of designing
+HDL is often taught from an digital design perspective, with the end goal of designing
 a chip/ASIC. While the FPGA and ASIC share similar design/development approach..
 I don't think there is enough emphasis or focus on the dissimilarity, differentiation..
 
@@ -32,6 +32,19 @@ you JKFF will look like the schematic JK FF. It is true.
 FPGA's HW architecture dont have JK flip flops. only D flops and LUTs..
 So while you code up the JK flip flop, it's actually going to be implemented as D flops with 
 whatever surrounding logic to mimic the JK FF. it is not a true JKFF.
+
+There is a difference in digital design and fpga design.
+Digital design encompasses the greater whole. FPGA design is a subset.
+You will come across many digital design or digital logic concept or whatever..
+but only a subset may be applicable.
+some times they will talk from a 'historical' perspective, just for completeness or whatever
+but not specifically tell you where or if it's even applicable.
+
+Because I have done alot of this on my own, I am aware of it now and as i write 
+everything.. I will do my best to provide some historical information for appreciation,
+but at the same time clearly state whether it is applicable to FPGAs.
+My main focus is FPGA, HDL and their applications.
+My purpose is to create a bridge I feel is not there.
 
 
 
