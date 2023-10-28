@@ -42,6 +42,8 @@ Clock Divider
 Shift Register
 ##########################
 
+Shift register shifts the bits within the register left or right
+
 Shift Registers
 :: 
 
@@ -81,6 +83,29 @@ When to do something, when to do something else.
 
 FSM Finite State Machine
 ##########################
+
+State Machine's give order and organization to sequential tasks.
+It is like a controller. The brains. Inside all CPU/processors are some form of FSM.
+You may have seen..
+    Fetch -> Decode -> Do something -> Store/Update
+
+In this simple example, that could be a 4 state, state machine.
+
+There are two types Moore and Mealy. 
+Moore is less. Mealy is more.
+
+Moore outputs depend only on current state of FSM.
+Mealy depends on current state and input.
+
+
+Can be coded/dev using one or two process.
+I usually prefer one, because it makes sense in my head.
+Sometimes, I'll do two. Or I'll start with two.. and then put it all together later.
+In the two process, one is clocked and is responsible for updating the state transitions.
+The other process handles the output/combinational logic.
+
+Be weary of the simulation waveforms in the one process.
+
 
 
 

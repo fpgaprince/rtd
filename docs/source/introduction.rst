@@ -70,3 +70,24 @@ Im sure your journey will introduce you to all of it, but to be an expert in eve
 Anyways.. enough about that.. we'll jump into the fundamentals. 
 
 something something?
+
+Actually, a good way i think i learned how to use microcontrollers was through programming and interfacing
+them with sensors, start simple and gradually more complex/complicated one. 
+I think by doing the same with an FPGA, it will give you an understanding and better feel for it.
+You'll learn about the sensor, interfacing and protocol. 
+You'll send/request data. process data. and do something useful.
+
+this is the essence of all circuits, whether analog or digital.
+
+we're trying to do something with the data/information. something useful... or just fun.
+
+in recent years the SoC has advance very quickly and the intersection between microprocessors and FPGAs
+are greater than ever. What once was just a processors in the embedded system now is a FPGA SOC with a 
+processors in the same fabric. It's pretty amazing. Alot of what the processors and microcontroller 
+did before, with electromechanical control or reading? sensors are now part of using the FPGA.
+
+So the FPGA engineer now needs to expand his knowledge into the embedded systems domain.
+and Embedded engineers are also crossing over into the FPGA realm.
+
+
+ok done.
