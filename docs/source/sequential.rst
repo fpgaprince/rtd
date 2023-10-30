@@ -6,12 +6,10 @@ Their output is a function of present and previous input; their is history, memo
 There is feedback.
 
 
-test
-
-
-
 Circuit Analysis
 ##########################
+Formal/Mathematical part..
+
 
 
 Clocking the Control Signal
@@ -37,6 +35,24 @@ Time and timing is everything in this world..
 
 Clock Divider
 ####################################################
+Frequency Divider
+While we're often taught the inverter flip flop combo for divide by 2.
+This is a digital logic/design thing..
+
+You don't want to do this in an FPGA.
+What results is either a flip flop with an inverter or logic through LUTs.
+
+What this means is that your clock signal is passing through other components?
+and makes it harder to guarantee the cleanliness of your clock signals.
+
+Clock signals are supposed to be clean, minimal skew and minimal jitter.
+
+When it goes through other components before driving flops and registers.
+It is harder for the tool to guarantee or create an implementation
+that will provide the above.
+
+What you want to do is create a counter that triggers an enable signal.
+This signal is used to enable/disable flip flop/registers.
 
 
 Shift Register
