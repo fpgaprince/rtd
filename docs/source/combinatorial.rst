@@ -440,6 +440,18 @@ Encoder
 
 Decoder
 ====================
+We will introduce a binary decoder first.
+A decoder has N inputs and 2^N outputs. The output are numbered 0 through 2^N - 1.
+For instance if N = 2, you get 0 - 3. If N = 3, you get 0 - 7. etc.
+
+It decodes the binary inputs/ value to one of the "decimal" value output. For a given
+input, only one of the output will be on/true. or hot.
+
+The 2 input decoder is generally called a 2 to 4 binary decoder.
+3 to 8 binary decoder.. so on. 4 to 16.
+
+Decoders can be used/often are used to decode address and enable some read/write line or select/enable some part.
+
 
 
 .. code-block:: vhdl
