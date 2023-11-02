@@ -396,7 +396,8 @@ Demultiplexer
 The demux is a device that does just the opposite of the mux. you have ONE input this time, and many outputs. 
 you still have select/control signals, but they are related to the output.
 
-with the select bits, you are determining where to route/send the input.
+with the select bits, you are determining where to route/send the input. you are determining which 
+output gets the input.
 
 
 .. code-block:: vhdl
@@ -452,6 +453,16 @@ The 2 input decoder is generally called a 2 to 4 binary decoder.
 
 Decoders can be used/often are used to decode address and enable some read/write line or select/enable some part.
 
+This is very similar to the demux. you have N inputs (decoder), and N select signals (demux). 
+You have 2^N outputs (both), and ONLY one can be on/hot at any given time, BASED on either the input (decoder)
+or select signals (demux). They are similar in that the demux HAS to decode the select lines, just as a decoder
+decodes the input lines.
+The difference between the two is the decoder does not have that one input signal
+a demux has. Another difference is the decoder outputs are single lines, 
+the demux input/output can be vector/array/bus of bits..
+the demux is a DATA routing mechanism/concept. And while a demux's output line is "hot" on enabled, the actual
+value could be a 1 or 0, depending on what the INPUT is. The decoder on the other hand, is truly hot when selected
+by the input.
 
 
 .. code-block:: vhdl
