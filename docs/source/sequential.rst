@@ -91,7 +91,8 @@ The counter is instrumental in sequential design and is found everywhere.
 It is how we set specific and/or determine time, how much time has passed.
 When to do something, when to do something else. 
 
-
+Counters can have stop/reset condition.
+Or it can be free running/wrap around. depending on your design needs.
 
 
 
