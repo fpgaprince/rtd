@@ -1,6 +1,6 @@
-************************
+########################
 Data Storage Elements
-************************
+########################
 
 * analog equivalent? multivibrator, - bistable.
 * digital logic/design
@@ -18,8 +18,9 @@ The storage element can be made from the basic logic gates.
 Two basic type, latch and flip flop.
 
 
+******************************
 Latches
-##########################
+******************************
 Keep in mind input and control.
 
 Latches are circuit which are sensitive to the level of the control signal, 
@@ -116,18 +117,18 @@ Maybe provide a waveform of various input combinations to show?
 This is more for historic purposes/ derivation.
 
 Multivibrators
-================================
+#########################
 
 SR Latch
-================================
+#########################
 DNE, briefly describe now.. not priorirty.
 
 Gated SR Latch
-================================
+#########################
 DNE, briefly describe now.. not priorirty.
 
 D Latch
-================================
+#########################
 DNE, briefly describe now.. not priorirty.
 
 
@@ -135,8 +136,9 @@ DNE, briefly describe now.. not priorirty.
 
 
 
+******************************
 Flip Flops (FF)
-##########################
+******************************
 Keep in mind, we still have not introduced the clock.
 Think of input, control and output.
 
@@ -158,7 +160,7 @@ How do we detect an edge? pulse detector.
 by attaching this to SR or D latch, we create the equivalent flip flop version.
 
 Clocking the Control Signal
-================================
+##################################################
 Up to now we've only referred to the control signal/enable signal.
 While latches do not require a clock, they do have some sort of enable signal.
 This enable signal determines when and when not to store information.
@@ -180,7 +182,7 @@ Time and timing is everything in this world..
 
 
 D Flip Flops (DFF)
-================================
+#########################
 The ONLY type in an FPGA. 
 
 Flip-Flops
@@ -208,19 +210,19 @@ Flip-Flops
 
 
 Edge triggered latch?
-================================
+#########################
 by using pulse detector + SR latch, SR FF is created.
 
 SR Flip Flops
-================================
+#########################
 we dont want that invalid state.. thus JK and D.
 
 JK Flip Flops
-================================
+#########################
 DNE, briefly describe now.. not priorirty.
 
 T Flip Flops
-================================
+#########################
 DNE, briefly describe now.. not priorirty.
 
 
@@ -236,9 +238,9 @@ at the interface it can be either or and may even be LVDS.
     Undestanding how it works gives you better/deeper understanding about setup time, hold time, metastability, etc.
 
     
-
+******************************
 Register
-##########################
+******************************
 A collection/series/ordered set of flip flops make a register.
 Say we have a set of 8 flip flops ordered from 0 to 7.
 If we synchornize all of them to the same clock, and a transition (low to high)
@@ -273,9 +275,9 @@ Test this out. when you reset a register made of FF. if your reset value is 0011
 I think it will use 2xFDRE (for the 00 portion) and 2xFDSE for the 11 portion.
 FDRE resets the value to 0. FDSE sets the value to 1.
 
-
+******************************
 Memory
-##########################
+******************************
 Now that we have introduced the clock. We can introduce more refined/cultivated/developed/ memory types?
 
 A collection and ordered set of registers.
@@ -288,7 +290,7 @@ which is basically using a decoder.
 
 
 Read-Only Memory (ROM)
-================================
+#########################
 for whatever size, is written to at startup. or programmed.
 and cannot be done again.
 during run time, you can only 'read' from it.
@@ -300,10 +302,10 @@ the address is decoded and the ROM outputs whatever is at that address location.
 
 
 Random Access Memory (RAM)
-================================
+#########################
 
 SRAM
-----------------
+*********************************************
 Static random-access memory (static RAM or SRAM) is a type of random-access memory (RAM) 
 that uses latching circuitry (flip-flop) to store each bit. SRAM is volatile memory; 
 data is lost when power is removed. The term static differentiates SRAM from DRAM (dynamic random-access memory) 
@@ -313,7 +315,7 @@ it is typically used for the CACHE and internal registers of a CPU while DRAM is
 You'll see L1 L2 whatever CACHE memory, usually in the megabytes for CPU.
 
 BRAM
-----------------
+======================
 While all memory devices can be made from FF in the FPGA, there are hard dedicated memory components.
 Meaning, their circuitry is part chip/FPGA is fabric, their circuitry is tightly coupled to provide better performance (speed/timing) and minimal area. 
 They will always perform better than your LUT based equivalent.
@@ -321,11 +323,11 @@ They will always perform better than your LUT based equivalent.
 BRAM is static RAM. 
 
 CRAM
-----------------
-
+======================
+Configuration RAM, which is basically SRAM that hold the FPGA configuration information.
 
 DRAM 
-----------------
+*********************************************
 Is dynamic random -access memory. They have to be refreshed periodically. These are the ones you buy for your PC.
 They are external to the processor. They are external to the FPGA. They can be on a memory PCB, 'memory stick' 
 or be packaged in an IC and placed directly on your PCB, like any other component. They are main memory.
@@ -335,8 +337,22 @@ SRAM being internal.. you only get kilobyte size memory. But they are way faster
 or FPGA.
 
 SDRAM 
-----------------
+======================
 is DRAM, but synchronized to a clock. Pretty much everything these days. 
 DDR, DDR2, DDR3, DDR4, DDR5 (i think this is where we're at at the time of this writing).
 
+
+FLASH
+*********************************************
+I am only mentioning it here because in Intel's MAX10, an FPGA/CPLD i worked on had it as "dedicated hardware"
+internal to the FPGA. But more info about flash should be in the memory interface chapter/section.
+
+Flash memory is an electronic non-volatile computer memory storage medium that can be electrically erased and reprogrammed. 
+The two main types of flash memory, NOR flash and NAND flash.
+
+
+
+CFM = Configuration Flash Memory. UFM = User Flash Memory. When i worked with max10
+user flash memory (UFM) block that stores non-volatile information.
+CFM is used to store configuration images 
 
