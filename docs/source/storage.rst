@@ -224,8 +224,10 @@ T Flip Flops
 DNE, briefly describe now.. not priorirty.
 
 
-We have been using TTL logic up to this point.
-I want to talk about the CMOS equivalent circuits.
+Most text will start out talking about digital logic and all their components
+with regards to TTL logic.
+I want to talk about the CMOS equivalent circuits. because internally this is what it is.
+at the interface it can be either or and may even be LVDS.
 
 .. important::
     
@@ -272,8 +274,10 @@ I think it will use 2xFDRE (for the 00 portion) and 2xFDSE for the 11 portion.
 FDRE resets the value to 0. FDSE sets the value to 1.
 
 
-Memory I
+Memory
 ##########################
+Now that we have introduced the clock. We can introduce more refined/cultivated/developed/ memory types?
+
 A collection and ordered set of registers.
 Now say if we had 8 of these 8bit registers.. we can create a larger memory module/component.
 how would we locate or assign to each of these registers?
@@ -293,31 +297,46 @@ the address is decoded and the ROM outputs whatever is at that address location.
 
 
 
-Memory II
-##########################
-Now that we have introduced the clock. We can introduce more refined/cultivated/developed/ memory types?
-
 
 
 Random Access Memory (RAM)
 ================================
 
+SRAM
+----------------
+Static random-access memory (static RAM or SRAM) is a type of random-access memory (RAM) 
+that uses latching circuitry (flip-flop) to store each bit. SRAM is volatile memory; 
+data is lost when power is removed. The term static differentiates SRAM from DRAM (dynamic random-access memory) 
+which must be periodically refreshed. SRAM is faster and more expensive than DRAM; 
+it is typically used for the CACHE and internal registers of a CPU while DRAM is used for a computer's main memory.
 
-BRAM, 
+You'll see L1 L2 whatever CACHE memory, usually in the megabytes for CPU.
+
+BRAM
 ----------------
 While all memory devices can be made from FF in the FPGA, there are hard dedicated memory components.
 Meaning, their circuitry is part chip/FPGA is fabric, their circuitry is tightly coupled to provide better performance (speed/timing) and minimal area. 
 They will always perform better than your LUT based equivalent.
 
-
-SRAM
-----------------
-
-DRAM 
-----------------
-
-SDRAM 
-----------------
+BRAM is static RAM. 
 
 CRAM
 ----------------
+
+
+DRAM 
+----------------
+Is dynamic random -access memory. They have to be refreshed periodically. These are the ones you buy for your PC.
+They are external to the processor. They are external to the FPGA. They can be on a memory PCB, 'memory stick' 
+or be packaged in an IC and placed directly on your PCB, like any other component. They are main memory.
+Because they are external to the CPU/FPGA.. whatever, there is a propagation penalty! They are therefore slower! always.
+Their advantage is cheapness. You can make larger memory capacity, gigabytes! vs. SRAM. 
+SRAM being internal.. you only get kilobyte size memory. But they are way faster, as they're built in to your CPU
+or FPGA.
+
+SDRAM 
+----------------
+is DRAM, but synchronized to a clock. Pretty much everything these days. 
+DDR, DDR2, DDR3, DDR4, DDR5 (i think this is where we're at at the time of this writing).
+
+

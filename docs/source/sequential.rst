@@ -2,7 +2,7 @@
 Sequential Circuits
 ************************
 Are circuits with memory.
-Their output is a function of present and previous input; their is history, memory..
+Their output is a function of present and previous input; there is history, memory..
 There is feedback.
 
 
