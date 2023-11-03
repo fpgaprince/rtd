@@ -452,6 +452,7 @@ Another encoder, is the priority encoder. Where you are allowed to have more tha
 one hot line. In this implementation, the input lines have weight/or priority.
 Thus the index/input with high priority will determine the output result.
 
+If 0001 -> 00
 If 001x -> 0010 = 0011 -> 01
 If 01xx -> 0100 = 0101 = 0110 = 0111 -> 10
 if 1xxx -> 1000 = 1001 = 1010 = 1011 = 1100 = 1101 = 1110 = 1111 -> 11
