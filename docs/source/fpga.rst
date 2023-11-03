@@ -170,11 +170,21 @@ Hardprocessor
 -------------------------------
     As appose to soft processor or soft core IP. They're able to fit a CPU on the same die as the FPGA, reducing external pin interconnections. 
     ARM Cortex-A9 and 53 seems to be the common one found in current FPGAs from both xilinx and altera.
+    This is pretty huge.
+    ARM processors are RISC ISA based. Your Intel i5 i7 i9 and AMD x whatever are based on x86 ISA
+    Your apple is based on ARM architecture, so RISC.
+    Anything ARM is RISC. they were the contrasting philosophy/idea/approach of x86, CISC ISA processors.
+    ARM = Advanced RISC Machines
 
 
 PCIe (extra)
 -------------------------------
 
+Soft Processor
+================================================
+Since I mentioned hard processors and all that i should also talk about the soft processors for the FPGA.
+These are processors IP cores each vendor have developed for their FPGAs.
+Xilinx has the microblaze and Altera has the NIOS. They are both based on RISC V ISA.
 
 Metastability
 ================================================

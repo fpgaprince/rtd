@@ -302,7 +302,7 @@ the address is decoded and the ROM outputs whatever is at that address location.
 
 
 Random Access Memory (RAM)
-#########################
+################################
 
 SRAM
 *********************************************
@@ -321,6 +321,7 @@ Meaning, their circuitry is part chip/FPGA is fabric, their circuitry is tightly
 They will always perform better than your LUT based equivalent.
 
 BRAM is static RAM. 
+This is the main type of RAM you will see/come across read about in relation to FPGAs.
 
 CRAM
 ======================
@@ -341,9 +342,11 @@ SDRAM
 is DRAM, but synchronized to a clock. Pretty much everything these days. 
 DDR, DDR2, DDR3, DDR4, DDR5 (i think this is where we're at at the time of this writing).
 
+DDR memory will be mentioned alot as well, now that we have SoC's where we CPU/FPGA on the same fabric.
+I guess previously you could instantiate soft processors as well.
 
 FLASH
-*********************************************
+################################
 I am only mentioning it here because in Intel's MAX10, an FPGA/CPLD i worked on had it as "dedicated hardware"
 internal to the FPGA. But more info about flash should be in the memory interface chapter/section.
 
