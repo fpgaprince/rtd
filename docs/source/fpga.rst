@@ -169,7 +169,8 @@ Tranceivers (extra)
 Hardprocessor
 -------------------------------
     As appose to soft processor or soft core IP. They're able to fit a CPU on the same die as the FPGA, reducing external pin interconnections. 
-    ARM Cortex-A9 and 53 seems to be the common one found in current FPGAs from both xilinx and altera.
+    ARM Cortex-A9 and A53 seems to be the common one found in current FPGAs from both xilinx and altera.
+    There is also the Cortex-R5.
     This is pretty huge.
     ARM processors are RISC ISA based. Your Intel i5 i7 i9 and AMD x whatever are based on x86 ISA
     Your apple is based on ARM architecture, so RISC.
@@ -185,6 +186,14 @@ Soft Processor
 Since I mentioned hard processors and all that i should also talk about the soft processors for the FPGA.
 These are processors IP cores each vendor have developed for their FPGAs.
 Xilinx has the microblaze and Altera has the NIOS. They are both based on RISC V ISA.
+while they are RISC and so are ARM. These soft processors were developed in house by these vendors using
+the RISC ISA, which is avaialabe to everyone. They are developed in house and catered to their FPGA.
+Whereas ARM takes the ISA and creates a processor and creates various flavors of processors/architecture.
+Different product lines and families. Different performance, size, cost.
+Which means you can buy either a pre made fabbed ARM chip, or buy/license the architecture and use it in your chip.
+I just read that ARM also has soft processors IP cores you can instantiate in your FPGA.. very much like
+the Microblaze, I dont know the difference at the moment, or which is better and or for what.
+
 
 Metastability
 ================================================
