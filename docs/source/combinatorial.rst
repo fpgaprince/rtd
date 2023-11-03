@@ -457,7 +457,9 @@ If 001x -> 0010 = 0011 -> 01
 If 01xx -> 0100 = 0101 = 0110 = 0111 -> 10
 if 1xxx -> 1000 = 1001 = 1010 = 1011 = 1100 = 1101 = 1110 = 1111 -> 11
 
-where x is dont care.
+where x is dont care. in this case.. the MSB '1' determines the output.
+where index is 3 2 1 0. If you have a 1 in the 1th index 001x, it doesn't 
+matter what is in the 0th index. Your output is 01.
 
 .. code-block:: vhdl
   :linenos:    
