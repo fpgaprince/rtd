@@ -94,6 +94,11 @@ When to do something, when to do something else.
 Counters can have stop/reset condition.
 Or it can be free running/wrap around. depending on your design needs.
 
+BCD counters
+Gray counters
+Ring counters
+One Hot counters
+Johnson counters
 
 
 
