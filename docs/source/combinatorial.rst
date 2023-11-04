@@ -449,7 +449,7 @@ It encodes the hot line to a binary value, hence binary encoder. or 4 to 2 encod
 In general, 2^n to n encoder.
 
 Another encoder, is the priority encoder. Where you are allowed to have more than 
-one hot line. In this implementation, the input lines have weight/or priority.
+one hot line. In this implementation, the input lines have weight/or priority/ ranking.
 Thus the index/input with high priority will determine the output result.
 
 If 0001 -> 00
@@ -457,12 +457,23 @@ If 001x -> 0010 = 0011 -> 01
 If 01xx -> 0100 = 0101 = 0110 = 0111 -> 10
 if 1xxx -> 1000 = 1001 = 1010 = 1011 = 1100 = 1101 = 1110 = 1111 -> 11
 
-where x is dont care. in this case.. the MSB '1' determines the output.
+where x is dont care. in this case.. the most significant '1' determines the output.
 where index is 3 2 1 0. If you have a 1 in the 1th index 001x, it doesn't 
-matter what is in the 0th index. Your output is 01.
+matter what is in the 0th index. Your output is 01. You ignore all the lower
+significant bits and only out
 
 .. code-block:: vhdl
   :linenos:    
+
+  if (in(3) = '1') then   -- if in(3) = '1', we dont care what the rest is, it is higher ranked higher priority.
+    p_enc <= "11";
+  else if (in(2) = '1') then    -- like wise if in(2) is '1', we dont look at the rest and so on!
+    p_enc <= "10";
+  else if (in(1) = '1') then
+    p_enc <= "01";
+  else -- (in(0) = '1')
+    p_enc <= "00";
+  end if;
 
 
 Decoder
