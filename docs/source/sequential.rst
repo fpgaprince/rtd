@@ -33,26 +33,10 @@ Time and timing is everything in this world..
     With a clock we establish a sense of time.
 
 
-Clock Divider
-####################################################
-Frequency Divider
-While we're often taught the inverter flip flop combo for divide by 2.
-This is a digital logic/design thing..
+From this point onward, all sequential circuit implies memory/storage and a clock.
+The smallest memory element, being the flip flop. D FF to be specific.
 
-You don't want to do this in an FPGA.
-What results is either a flip flop with an inverter or logic through LUTs.
 
-What this means is that your clock signal is passing through other components?
-and makes it harder to guarantee the cleanliness of your clock signals.
-
-Clock signals are supposed to be clean, minimal skew and minimal jitter.
-
-When it goes through other components before driving flops and registers.
-It is harder for the tool to guarantee or create an implementation
-that will provide the above.
-
-What you want to do is create a counter that triggers an enable signal.
-This signal is used to enable/disable flip flop/registers.
 
 
 Shift Register
@@ -81,7 +65,21 @@ Shift Registers
     Takes advantage of the cascading capability of SRLC-type primitives
     Attempts to take advantage of this cascading capability if the rest of the design uses some intermediate positions of the Shift Register
 
+    serial in serial out. 
+    parallel in serial out
+    serial in parallel out
+    parallel in parallel out
 
+    because the bits, or vectors are shift with each clock or flop. you can think of it as a delay.
+    if we were doing serial in serial out. the number of flops chained together results in the total
+    cycle delay imposed on the signal.
+
+    serial in parallel out shift register, is like a serial to parallel "word" converter.
+        maybe like something in a SPI or i2c. as things are sent serail. you'll have to collect bits and then present words
+        words can be 8bit 12bit 14bit 24, 32 whatever..
+
+    or parallel to serial is like a serializer. you present a 32bit word, and transmit it one bit at a time.
+    maybe you're word is 64, 128 512 etc..
 
 Counters
 ##########################
@@ -101,6 +99,26 @@ One Hot counters
 Johnson counters
 
 
+Clock Divider
+####################################################
+Frequency Divider
+While we're often taught the inverter flip flop combo for divide by 2.
+This is a digital logic/design thing..
+
+You don't want to do this in an FPGA.
+What results is either a flip flop with an inverter or logic through LUTs.
+
+What this means is that your clock signal is passing through other components?
+and makes it harder to guarantee the cleanliness of your clock signals.
+
+Clock signals are supposed to be clean, minimal skew and minimal jitter.
+
+When it goes through other components before driving flops and registers.
+It is harder for the tool to guarantee or create an implementation
+that will provide the above.
+
+What you want to do is create a counter that triggers an enable signal.
+This signal is used to enable/disable flip flop/registers.
 
 
 FSM Finite State Machine
