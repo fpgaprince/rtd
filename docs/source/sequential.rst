@@ -73,10 +73,19 @@ Shift Registers
     because the bits, or vectors are shift with each clock or flop. you can think of it as a delay.
     if we were doing serial in serial out. the number of flops chained together results in the total
     cycle delay imposed on the signal.
+        if the chain is long enough and the final flop is connected to the input of the first flop,
+        we create the ring counter. where only one flop is hot.
+
+        the johnson ring counter is similar, but the final flop output is negated/inverted before 
+        returning to the input of the first flop.
+
 
     serial in parallel out shift register, is like a serial to parallel "word" converter.
         maybe like something in a SPI or i2c. as things are sent serail. you'll have to collect bits and then present words
-        words can be 8bit 12bit 14bit 24, 32 whatever..
+        words can be 8bit 12bit 14bit 24, 32 whatever.. this is what i did for getting ADC values.. which mean
+        on the ADC internal/transmit side there is a parallel to serial converter.
+
+    from the ADC, there is the DAC which is its complement.. it's receiver uses a serial to parallel converter.
 
     or parallel to serial is like a serializer. you present a 32bit word, and transmit it one bit at a time.
     maybe you're word is 64, 128 512 etc..
