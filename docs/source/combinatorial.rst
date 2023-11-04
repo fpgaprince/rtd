@@ -439,11 +439,14 @@ You must guarantee one hot for this encoder to work properly.
 Based on which input is hot, the encoder encodes the binary representation of the line.
 You have to guarantee that only one of the input is ever hot.
 
-For 4 bit input, you get 2 bit output.
-  if line 0 is hot, 0000, you're output is "00"
-  if line 1 is hot, 0010, you're output is "01"
-  if line 2 is hot, 0100, you're output is "10"
-  if line 3 is hot, 1000, you're output is "11"
+::
+
+  For 4 bit input, you get 2 bit output.
+
+    if line 0 is hot, 0000, you're output is "00"
+    if line 1 is hot, 0010, you're output is "01"
+    if line 2 is hot, 0100, you're output is "10"
+    if line 3 is hot, 1000, you're output is "11"
 
 It encodes the hot line to a binary value, hence binary encoder. or 4 to 2 encoder.
 In general, 2^n to n encoder.
@@ -452,10 +455,12 @@ Another encoder, is the priority encoder. Where you are allowed to have more tha
 one hot line. In this implementation, the input lines have weight/or priority/ ranking.
 Thus the index/input with high priority will determine the output result.
 
-If 0001 -> 00
-If 001x -> 0010 = 0011 -> 01
-If 01xx -> 0100 = 0101 = 0110 = 0111 -> 10
-if 1xxx -> 1000 = 1001 = 1010 = 1011 = 1100 = 1101 = 1110 = 1111 -> 11
+::
+
+  If 0001 -> 00
+  If 001x -> 0010 = 0011 -> 01
+  If 01xx -> 0100 = 0101 = 0110 = 0111 -> 10
+  if 1xxx -> 1000 = 1001 = 1010 = 1011 = 1100 = 1101 = 1110 = 1111 -> 11
 
 where x is dont care. in this case.. the most significant '1' determines the output.
 where index is 3 2 1 0. If you have a 1 in the 1th index 001x, it doesn't 
