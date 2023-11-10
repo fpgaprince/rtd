@@ -71,7 +71,9 @@ Information Theory
 |   BCH Encoder
 |   LDPC Encoder
 |   CRC
+    Error Detection and correction
 
+    
 Data Structure
 =======================
 
