@@ -42,17 +42,37 @@ The smallest memory element, being the flip flop. D FF to be specific.
 Shift Register
 ##########################
 
-Shift register shifts the bits within the register left or right
+Shift register shifts the bits/vectors within the register left or right
+
+serial in serial out
+******************************************
+because the bits, or vectors are shift with each clock or flop. you can think of it as a delay.
+if we were doing serial in serial out. the number of flops chained together results in the total
+cycle delay imposed on the signal.
+
+
+parallel in serial out
+******************************************
+ which mean on the ADC internal/transmit side there is a parallel to serial converter.
+or parallel to serial is like a serializer. you present a 32bit word, and transmit it one bit at a time.
+maybe you're word is 64, 128 512 etc..
+
+serial in parallel out
+******************************************
+serial in parallel out shift register, is like a serial to parallel "word" converter.
+maybe like something in a SPI or i2c. as things are sent serially. you'll have to collect bits and then present words
+words can be 8bit 12bit 14bit 24, 32 whatever.. this is what i did for getting ADC values.. which mean
+on the ADC internal/transmit side there is a parallel to serial converter.
+
+from the ADC, there is the DAC which is its complement.. it's receiver uses a serial to parallel converter.
+
+parallel in parallel out
+******************************************
+similar to serial in serial out, it delays/buffers in the signal.
+
 
 Shift Registers
 :: 
-
-    A static Shift Register usually involves:
-
-        A clock
-        An optional clock enable
-        A serial data input
-        A serial data output
 
     Vivado synthesis implements inferred Shift Registers on SRL-type resources such as:
 
@@ -65,39 +85,11 @@ Shift Registers
     Takes advantage of the cascading capability of SRLC-type primitives
     Attempts to take advantage of this cascading capability if the rest of the design uses some intermediate positions of the Shift Register
 
-serial in serial out.
-******************************************
-because the bits, or vectors are shift with each clock or flop. you can think of it as a delay.
-if we were doing serial in serial out. the number of flops chained together results in the total
-cycle delay imposed on the signal.
-
-
-parallel in serial out
-******************************************
- which mean
-    on the ADC internal/transmit side there is a parallel to serial converter.
-
-serial in parallel out
-******************************************
-serial in parallel out shift register, is like a serial to parallel "word" converter.
-    maybe like something in a SPI or i2c. as things are sent serially. you'll have to collect bits and then present words
-    words can be 8bit 12bit 14bit 24, 32 whatever.. this is what i did for getting ADC values.. which mean
-    on the ADC internal/transmit side there is a parallel to serial converter.
-from the ADC, there is the DAC which is its complement.. it's receiver uses a serial to parallel converter.
-
-parallel in parallel out
-******************************************
 
 
 
 
 
-
-
-
-
-or parallel to serial is like a serializer. you present a 32bit word, and transmit it one bit at a time.
-maybe you're word is 64, 128 512 etc..
 
 Counters
 ##########################

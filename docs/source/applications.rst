@@ -64,11 +64,13 @@ Networking
 
 Algorithm
 =======================
-
+    Data compression, like music/audio and video and image
 
 Information Theory
 =======================
-
+|   BCH Encoder
+|   LDPC Encoder
+|   CRC
 
 Data Structure
 =======================
@@ -83,8 +85,7 @@ Controls
 
 Organize...
 =======================
-|   BCH Encoder
-|   LDPC Encoder
+
 |   LFSR
 |   Pseudo random binary sequence
-|   CRC
+
