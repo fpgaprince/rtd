@@ -1,9 +1,24 @@
 ************************
 Sequential Circuits
 ************************
-Are circuits with memory.
-Their output is a function of present and previous input; there is history, memory..
-There is feedback.
+
+Sequential circuits are circuits in which the output or result depend 
+on the present/current input as well as the past/previous input.
+This implies that the circuit has some form of memory or history..
+It has the ability to track the inputs.
+
+This is essentially accomplished through feedback.
+
+Circuits with feedback were introduced in the previous
+chapter, starting with the latch and building up to flip flops. 
+
+These circuits were the simplest form of memory, 
+enabling us to store/hold a digital bit, state or voltage.
+
+They are fundamental building blocks for sequential circuits and systems.
+
+flips are used to create registers and array of registers, roms and ram.
+
 
 
 Circuit Analysis
@@ -14,16 +29,22 @@ Formal/Mathematical part..
 
 Clocking the Control Signal
 ####################################################
-Up to now we've only referred to the control signal/enable signal.
-While latches do not require a clock, they do have some sort of enable signal.
-This enable signal determines when and when not to store information.
 
-If, we instead, made this signal toggle periodically.. say, with a clock/oscillator.
+We define sequential circuits simply as circuits with memory.
+These feedback circuits only need control/enable signals to function/operate
+and only so on their signal level. They are level senstive.
 
-It is when we add timing, things become interesting.
-It allow us to create more sophisticated circuits, solving more complex problems.
+Over time there was an incentive for minimizing the time/window in which these
+circuits would respond to changes in the input. We wanted it to be definitive.
 
-Time and timing is everything in this world..
+To do this, the latch was proceeded by a pulse detector.
+The resulting circuit became known as an edge triggered devices, the flip flop.
+
+And instead of using an enable signal, a clock signal was introduced/substituted.
+The clock signal is periodic and consistent?
+
+It allowed us 
+
     We can synchornize multiple events.
 
     We can predetermine when things happen.
@@ -31,6 +52,14 @@ Time and timing is everything in this world..
     We can expect things to happen at very specific times. We can predict.
 
     With a clock we establish a sense of time.
+
+It is when we add timing, things become interesting.
+It allow us to create more sophisticated circuits, solving more complex problems.
+
+
+
+    Time and timing is everything in this world..
+
 
 
 From this point onward, all sequential circuit implies memory/storage and a clock.
