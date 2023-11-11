@@ -86,15 +86,19 @@ Shift Registers
     Attempts to take advantage of this cascading capability if the rest of the design uses some intermediate positions of the Shift Register
 
 
-
-
+sequence detection/detector
+******************************************
+taps are synonymouse with shift registers andor registers sequentially related to each other.
+taps is terminology for having a way to inspect the data in between.
+normally you just have the input and output, but you can 'tap' the signals in between.
+if you have 4 registers, you can have 3 taps. basically with N registers, up to N-1 taps.
 
 
 
 Counters
 ##########################
 
-With a register, a clock and a combinational adder, we can create a counter.
+
 The counter is instrumental in sequential design and is found everywhere.
 It is how we set specific and/or determine time, how much time has passed.
 When to do something, when to do something else. 
@@ -104,6 +108,7 @@ Or it can be free running/wrap around. depending on your design needs.
 
 BCD counters
 ******************************************
+With a register, a clock and a combinational adder, we can create a counter.
     This is the typical one you'll use and see to create counter enables. and timing event to happen/occur.
 
 
@@ -113,7 +118,8 @@ Gray counters
 
 Ring counters (one hot counter)
 ******************************************
-    if the chain is long enough and the final flop is connected to the input of the first flop,
+I think this is the simplest form of a counter. It only requires registers.
+    with a chain of registers, final flop is connected to the input of the first flop,
     we create the ring counter. where only one flop is hot.
 
 Johnson counters
