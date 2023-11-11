@@ -64,8 +64,12 @@ From this point onward, all sequential circuit implies memory/storage and a cloc
 
 Shift Register
 ##########################
+Previously we introduced the register, a collection of flip flop to hold information.
 
-Shift register shifts the bits/vectors within the register left or right
+Shift register shifts the bits/vectors within the register/flip flop left or right.
+
+There are different flavors of shift registers as well as sizes.
+
 
 serial in serial out
 ******************************************
@@ -91,7 +95,8 @@ from the ADC, there is the DAC which is its complement.. it's receiver uses a se
 
 parallel in parallel out
 ******************************************
-similar to serial in serial out, it delays/buffers in the signal.
+similar to serial in serial out, it delays/buffers in the signal. this is no different than your normal/regular register.
+if you hold the information, instead of shifting.. it is just your regular/typical register.
 
 
 Shift Registers

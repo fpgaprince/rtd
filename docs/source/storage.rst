@@ -276,6 +276,13 @@ Test this out. when you reset a register made of FF. if your reset value is 0011
 I think it will use 2xFDRE (for the 00 portion) and 2xFDSE for the 11 portion.
 FDRE resets the value to 0. FDSE sets the value to 1.
 
+Here our register size is 8bits, a byte. But it can be any size you need for your application.
+In processors, you'll typically see 32bit or 64 bit nowadays.. but back then..
+they started small and overtime increased..
+
+Again, depending on your application, maybe it will be 10bits 12 or 14.. maybe 24. It depends
+on whatever you need it to hold.
+
 ******************************
 Memory
 ******************************
