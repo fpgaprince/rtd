@@ -35,35 +35,29 @@ These feedback circuits only need control/enable signals to function/operate
 and only so on their signal level. They are level senstive.
 
 Over time there was an incentive for minimizing the time/window in which these
-circuits would respond to changes in the input. We wanted it to be definitive.
+circuits would respond to changes in the input. We wanted it to be definitive, precise.
 
-To do this, the latch was proceeded by a pulse detector.
-The resulting circuit became known as an edge triggered devices, the flip flop.
+To do this, the pulse detector/edge detector was introduced.
+Its ciruit would preceed the latch.
+The resulting circuit became known as the flip flop, an edge triggered device/latch.
 
-And instead of using an enable signal, a clock signal was introduced/substituted.
-The clock signal is periodic and consistent?
+Instead of using an enable signal, a clock signal was also introduced/substituted.
 
-It allowed us 
+The clock signal is periodic signal. It allowed us to..
 
-    We can synchornize multiple events.
+    synchornize circuits and events with respect to time and each other.
 
-    We can predetermine when things happen.
+    predetermine/predefine/predict events.
 
-    We can expect things to happen at very specific times. We can predict.
-
-    With a clock we establish a sense of time.
-
-It is when we add timing, things become interesting.
-It allow us to create more sophisticated circuits, solving more complex problems.
-
-
+With timing, things become more interesting, allowing us to create more sophisticated circuits, 
+and thus.. solve more complex/complicated problems.
 
     Time and timing is everything in this world..
 
 
 
 From this point onward, all sequential circuit implies memory/storage and a clock.
-The smallest memory element, being the flip flop. D FF to be specific.
+
 
 
 

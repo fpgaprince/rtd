@@ -16,6 +16,7 @@ Input, Control and Output.
 The storage element can be made from the basic logic gates.
 
 Two basic type, latch and flip flop.
+The smallest memory element, being the flip flop. D FF to be specific.
 
 
 ******************************
