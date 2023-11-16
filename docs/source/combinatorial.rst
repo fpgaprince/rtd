@@ -168,8 +168,8 @@ The output is false, '0', if all of the inputs are the same.
         <iframe 
             width="560" 
             height="315" 
-            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLiURtC8KU-XvyoQAZgEMANgGc61SO07cALHAH81VUSEmz5SRQFkQGNDzwrTli1aopoCFmARWEXW6fPYb9qBRYAe39COxAVMEhsBVh4MkIEQhRDEG4qbCDwEFD-CKiY+Eh4xOT-bggM4O4cqjzuQ2gIURYgA" 
-            title="OR gate" >
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLiURtC8KU-XvypUAZgEMANgGc61SO07cALHAH81oqCEmz5SRQFkQGNDzwrTli1aopoCFmARWEXW6fPYb9nU4B7HUI7EBUwSGwFWHgyQgRCFEMQbipsFiCIEJ1wyOj4SDiEpJ1uCHSg7myqXO5DaAgqViA" 
+            title="XOR gate" >
         </iframe>
     </div>
 
