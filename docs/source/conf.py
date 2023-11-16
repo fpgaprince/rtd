@@ -28,6 +28,14 @@ intersphinx_disabled_domains = ['std']
 
 templates_path = ['_templates']
 
+#i think this is to add js configs though..
+# def setup(app):
+#     # (create a setup() function if you don't already have one;
+#     # or add to the existing setup() ...)
+#     app.add_js_file("mathjax-config.js")
+#     app.add_css_file()
+
+#html_static_path =[]
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'
