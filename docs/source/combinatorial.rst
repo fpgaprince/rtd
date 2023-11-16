@@ -136,7 +136,7 @@ The output is true, '1' if any of the input is true, '1'.
         <iframe 
             width="560" 
             height="315" 
-            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDARQuM+zwBYQOQiF4CqnJAhYAZLj0J4KKRdgVRwIAGYBDADYBnOtUgy5IPnCWKLVKhB0GjSEwFlBqkfxB5Lo9SmgpIA" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDARQuM+zwBYQOQiF4CqnWiwAyXHoTwUUC7PKhqAZgEMANgGc61SNNkg+cRQrNVrILXoNIjAWUEqR-EHnOi1KaAhYgA" 
             title="AND gate" >
         </iframe>
     </div>
