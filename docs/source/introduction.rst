@@ -102,3 +102,17 @@ ok done.
         <iframe width="560" height="315" src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWEA2aAWB8CcBmSy0AOBBAdkJE0sskoFMBaMMAKAHlwAmCsZWztLV60RLAOZcK3HtxA5OIqCwBOIBvPB9JmxWEKkWAY23Dt0qFFjwIMUgk45CWffNI4skNGktxWYUrTqnDpqBCE4IArg8NQwrAD2IN4atILOsVZwWKTICMicSPxJciyJtClJkOmFmVU5eQXg4CwAFnKRJUA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgDOB0YzCsIBMdJwIxkQDjQNgOxiGKJi4hwQKUUCmAtGmgFBpwCcIALLlyI+TjZ+ecEggZYUmMwDuFfOQELyvcKw4qQa3hDURSISdNjMAkluW6R5CGGgw07Zy9dusFc9q4QrP72L2sE5uoS4ecBqc1sqEfMoGEiZSUSBxAYoe+uJGyaby6bFgfPpehaKZNoEOmJ4WlbG4WXx2NYh1IDhKTO1YWL491dReWADM7WiKnezkk7ZQw-JcM2LLs2jtYHLaYB79Ox6DWwWj6+34p512XmviHrdHC55LK6RZu3fq8rgfb2mXf2OByMG20+AmoKBBAh7WhgW2P0OoMRny2ABkjLMuPEuIdsYEQAAzACGABsAM60CjqACyaSaAS6AQMqGYdIaoiZCSQrIAHkg1PQuPgQKMLvx8XxEHwAA4AJwA9jKACK0UnEgCezH5WC4aHpnU0+GiSD4AEVtWlnPwxZ1Jja+FLzcwMaI5hLDlMJESyZTqVt6gCPhczkNPPzGDR6Na8KN+CsnSA5QBLcnJgB2AHMADqUgAmmdouYAtsTyQAXWhy3Pk9UANyL5OVADFm8wuCRRZdlKNdVVWmBQYhUOGRKM+KNaqM0HHJwhE+WABaNgBGAFdCYSq7nU7nywqSwq82q98vc8f1RrcwrCTv0w25ZXq+TmAAlT5-QafpAUFkIYcIK0kT8sKcb0HA1BOPwQjcKaIAACoAOIsPyuBoB41q4GoGDtImSGIJavAeOBJTsPE6CwdKCGIaMlr4DBTAQMaSJxnhiFcNsozdqI4wDLY2y3H8QkfFs6EeCQfCvP4KwYLknRYNsEkgK8HwrECfwqeJImcX2yh6t0-Edu0vFGMIJnckEtQAaOiBcTsSBkdorFwQAxqSADWiAWhGuL8IgnDofEiDkImlCLgAXrm2YAI65qQxbklFsXkjKVbJke7advpVQ8PEogDlZI6RPIQjEaIcBTAklq9pwjAfHA-h1fOcEZnWqqXkle7kmulqMIQSD6ogQ6Oq5iDJdmMpdWunXkogE1zYlyVcAANHFYBCjN5YynmuYADy5ngzAKqKsItNwOH+pA+oSEdooitkeq1IBV1iPqrZoNFCpruWUWTeSLljbdHbMudtSWTAij+aMZFwNOyBQNdRggC5CrFiuGbEuW6XpmS55qpqQP3Wdj3tM9iP6pS5ZrjKt22SDJOXeTzBAA" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
