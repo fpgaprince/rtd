@@ -103,6 +103,8 @@ The output is true, '1' only when all inputs are true, '1'.
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe 
+            width="560" 
+            height="315" 
             src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDEpEIBYqeqM8XEHyggU1BCwAynHiGyCKxcQqFUqAMwCGAGwDOdapGmzeYQkvFdzozboNGWAWRAChIvNitxRKaJKA" 
             title="AND gate">
         </iframe>
