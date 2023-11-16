@@ -99,6 +99,6 @@ ok done.
 .. raw:: html
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <iframe width="560" height="315" src="https://www.falstad.com/circuit/circuitjs.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWEA2aAWB8CcBmSy0AOBBAdkJE0sskoFMBaMMAKAHlwAmCsZWztLV60RLAOZcK3HtxA5OIqCwBOIBvPB9JmxWEKkWAY23Dt0qFFjwIMUgk45CWffNI4skNGktxWYUrTqnDpqBCE4IArg8NQwrAD2IN4atILOsVZwWKTICMicSPxJciyJtClJkOmFmVU5eQXg4CwAFnKRJUA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 
