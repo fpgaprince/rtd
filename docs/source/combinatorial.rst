@@ -105,7 +105,7 @@ The output is true, '1' only when all inputs are true, '1'.
         <iframe 
             width="560" 
             height="315" 
-            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDEpEIBYqeqM8XEHyggUohCwAynHiGyCKxcQqFUqAMwCGAGwDOdapGmzeYQkvFdzozboNGWAWRAChIvNitxRKaJKA" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLiURtC8KU-XvypUAZgEMANgGc61SO07cALHAH81oqCEmz5SRQFkQGNDzwrTli1aopoCFmErLbp89hv2dTgPY6hHYgKmCQ2Aqw8GSECIQohiDcVNgsARBBOqHhkfCQMXEJOtwQqQHcmVTZ3IbQEFSsQA" 
             title="AND gate" >
         </iframe>
     </div>
@@ -137,7 +137,7 @@ The output is true, '1' if any of the input is true, '1'.
             width="560" 
             height="315" 
             src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDARQuM+zwBYQOQiF4CqnWiwAyXHoTwUUC7PKhqAZgEMANgGc61SNNkg+cRQrNVrILXoNIjAWUEqR-EHnOi1KaAhYAe3AQQjFTMEhsQ1h4MkIEQhRHEE4IbCDU0PC+SOjHWLh4xOTfLIzg6LC1XMhOAogqViA" 
-            title="AND gate" >
+            title="OR gate" >
         </iframe>
     </div>
 
