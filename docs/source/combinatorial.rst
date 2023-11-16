@@ -99,6 +99,22 @@ The output is true, '1' only when all inputs are true, '1'.
   1  0    0
   1  1    1 
 
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDEpEIBYqeqM8XEHyggUohCwAynHiGyCKxcQqFUqAMwCGAGwDOdapGmzeYQkvFdzozboNGWAWRAChIvNitxRKaJKA" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+
+
 OR Gate
 ====================
 The output is true, '1' if any of the input is true, '1'.
