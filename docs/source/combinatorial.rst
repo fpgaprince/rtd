@@ -130,6 +130,17 @@ The output is true, '1' if any of the input is true, '1'.
   1  0    1
   1  1    1 
 
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDARQuM+zwBYQOQiF4CqnJAhYAZLj0J4KKRdgVRwIAGYBDADYBnOtUgy5IPnCWKLVKhB0GjSEwFlBqkfxB5Lo9SmgpIA" 
+            title="AND gate" >
+        </iframe>
+    </div>
+
 XOR Gate
 ====================
 The output is true, '1', if and only if one of the input is true.
