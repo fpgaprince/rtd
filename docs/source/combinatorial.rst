@@ -162,12 +162,24 @@ The output is false, '0', if all of the inputs are the same.
   1  0    1
   1  1    0 
 
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLiURtC8KU-XvyoQAZgEMANgGc61SO07cALHAH81VUSEmz5SRQFkQGNDzwrTli1aopoCFmARWEXW6fPYb9qBRYAe39COxAVMEhsBVh4MkIEQhRDEG4qbCDwEFD-CKiY+Eh4xOT-bggM4O4cqjzuQ2gIURYgA" 
+            title="OR gate" >
+        </iframe>
+    </div>
+
+NAND Gate
+====================
+
 .. warning::
   
   Negating means to NOT the output/result, which is not the same as NOT'ing the input.
 
-NAND Gate
-====================
 The output is false, '0' if all the inputs are true, '1'.
 The output is true, '1' if any of the inputs are false, '0'.
 
@@ -185,6 +197,17 @@ The output is true, '1' if any of the inputs are false, '0'.
   0  1    0         1
   1  0    0         1
   1  1    1         0
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLiURtC8KU-XvyoQAZgEMANgGc61SO07cALHAH81VUSEmz5SRQFkQGNDzwrTli1aopoCFmAQQEXW6fPYb9qBRYAe39COxAVMEhsBVh4MkIEQhRDEG4qbCDwEFD-CKiY+Eh4xOT-bggM4O4cqjzuQ2gIURYgA" 
+            title="OR gate" >
+        </iframe>
+    </div>
 
 NOR Gate
 ====================
@@ -206,6 +229,16 @@ The output is true, '1' if all of the inputs are false, '0'.
   1  0    1         0
   1  1    1         0
 
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLiURtC8KU-XvyoQAZgEMANgGc61SO07cALHAH81VUSEmz5SRQFkQGNDzwrTli1aopoCFmATZlt0+ew37UCiwB7P0I7EBUwSDdDWHgyQgRCFEMQbipsQPAQEL9wyIUYuDiEpL9uCHSg7myqXO5oiFEWIA" 
+            title="OR gate" >
+        </iframe>
+    </div>
 
 XNOR Gate
 ====================
