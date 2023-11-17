@@ -488,6 +488,42 @@ If it is not, the tool will synthesize a priority encoder.
 It is better/good practice to use case statements when implementing MUX/selections and reserve if-else for encoding with or without
 priority. I'll probably repeat this in multiple sections and unify it at a later point..     
 
+
+.. code-block:: vhdl
+  :linenos:    
+
+      A,B   : in  std_logic;
+      sel       : in  std_logic;
+      mux_out   : out std_logic;
+
+      ...
+      
+      -- MUX using a case statement
+      process(all) is
+      begin
+    
+        case sel is
+            when "0" =>
+                mux_out <= A;
+            when others =>        -- sel = '1'
+                mux_out <= B;
+        end case;
+
+      end process;
+
+      process(all) is
+      begin
+    
+        if sel = '0' then
+          mux_out <= A;
+        else
+          mux_out <= B;
+        end if;
+
+      end process;      
+
+
+
 Demultiplexer
 ====================
 The demux is a device that does just the opposite of the mux. you have ONE input this time, and many outputs. 
