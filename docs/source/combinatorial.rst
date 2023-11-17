@@ -179,9 +179,8 @@ NAND Gate
 .. warning::
   
   Negating means to NOT the output/result, which is not the same as NOT'ing the input.
-
-The output is false, '0' if all the inputs are true, '1'.
-The output is true, '1' if any of the inputs are false, '0'.
+  The output is false, '0' if all the inputs are true, '1'.
+  The output is true, '1' if any of the inputs are false, '0'.
 
 .. math::
 
@@ -211,8 +210,8 @@ The output is true, '1' if any of the inputs are false, '0'.
 
 NOR Gate
 ====================
-The output is false, '0' if any of the inputs are true, '1'.
-The output is true, '1' if all of the inputs are false, '0'.
+  The output is false, '0' if any of the inputs are true, '1'.
+  The output is true, '1' if all of the inputs are false, '0'.
 
 .. math::
 
@@ -242,8 +241,9 @@ The output is true, '1' if all of the inputs are false, '0'.
 
 XNOR Gate
 ====================
-The output is true, '1', if only if all inputs are the same.
-The output is false, '0', if the inputs are not the same, differ.
+  The output is true, '1', if only if all inputs are the same.
+  The output is false, '0', if the inputs are not the same, differ.
+  XNOR is an XOR with the output negated.
 
 .. math::
 
@@ -259,6 +259,18 @@ The output is false, '0', if the inputs are not the same, differ.
   0  1    1         0
   1  0    1         0
   1  1    0         1
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLiURtC8KU-XvypUAZgEMANgGc61SO07cALHAH81oqCEmz5SRQFkQGSCp54LGPpYtUU0BCzAILCLnZCEEhLw51nAElvXy8zC2wrHRgkZwB7HUJ7EBUwSGwoWHgbFGJsYhUEbDAUQ2y4Mh9CMp1uKmwWRIhknTSMrPhIXPzC4tLyrqrfWoCIRsTuVqp27nKIKlYgA" 
+            title="XNOR gate" >
+        </iframe>
+    </div>
+
 
 
 Negative AND Gate
@@ -286,6 +298,20 @@ Negative AND Gate
   1  0    0  1      0
   1  1    0  0      0
 
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLCrsEUQAWYoRA8+VKgDMAhgBsAznWqR2nKvzDDBmjVF3T5ipMoCyIQnjwi8-EBl5WbVFNAQsAkqpH2ul0bphIrh4IXAI6PmHC4i4ULGCUZig22NZmFg66fIEsAO5m+F58EdjmULn5vqWESSKlynkR6sKNcGUNBfyt1Tad4iwA9rqEjmGQ2Eqw8GSEIShGIGIiA+BmI+pjE-CQ07PzfBDYy0VrYJBZUNAQVKxAA" 
+            title="Neg-AND gate" >
+        </iframe>
+    </div>
+
+
+
+
 
 Negative OR Gate
 ====================
@@ -306,6 +332,18 @@ Negative OR Gate
   0  1    1   0     1
   1  0    0   1     1
   1  1    0   0     0
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLCrsEUQAWYoRA8+VKgDMAhgBsAznWqR2nKvzDDBmjVF3T5ipMoCyIQnjwi8-EBl5WbVFNAQsAkqpH2ul0bphIrh4IXAI6PmHC4i4ULADuZvhefBHY5lDxib7phCg2aZbKCRHqwiVwGcVJ-BW5NjXiLGDeeQ5mFm1O1K4A9rqEjmGQ2FCw8Bi5xNjE-AjYYChGY3BkhCGLumIiLH0QA7rqw6PwkBMoUzNzC0snq+tGIHwQ2DuPZoOHfEsQVKxAA" 
+            title="Neg-OR gate" >
+        </iframe>
+    </div>
+
 
 
 DeMorgan's Law
