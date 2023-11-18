@@ -58,7 +58,18 @@ and thus.. solve more complex/complicated problems.
 
 From this point onward, all sequential circuit implies memory/storage and a clock.
 
+.. raw:: html
 
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="http://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASVwBYRsEUQXLnl78oUFkA" 
+            title="DFF" >
+        </iframe>
+    </div>
+
+---------
 
 
 
