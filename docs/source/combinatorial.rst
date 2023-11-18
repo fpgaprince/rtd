@@ -104,9 +104,9 @@ The output is true, '1' only when all inputs are true, '1'.
   1  1    1 
 
 
-=====  =====  ======
-    Truth Table
+Truth Table
 --------------------
+=====  =====  ======
    Inputs     Output
 ------------  ------
   X      Y      Z
