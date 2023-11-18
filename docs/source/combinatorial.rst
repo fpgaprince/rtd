@@ -17,7 +17,6 @@ but you wont have an actual AND OR gate.
 
 ---------
 
-====================
 
 ##########################
 
@@ -115,7 +114,7 @@ The output is true, '1' only when all inputs are true, '1'.
         </iframe>
     </div>
 
-
+---------
 
 OR Gate
 ====================
@@ -146,7 +145,7 @@ The output is true, '1' if any of the input is true, '1'.
         </iframe>
     </div>
 
-
+---------
 
 XOR Gate
 ====================
@@ -177,6 +176,8 @@ The output is false, '0', if all of the inputs are the same.
             title="XOR gate" >
         </iframe>
     </div>
+
+---------
 
 NAND Gate
 ====================
@@ -213,6 +214,8 @@ NAND Gate
         </iframe>
     </div>
 
+---------
+
 NOR Gate
 ====================
   The output is false, '0' if any of the inputs are true, '1'.
@@ -243,6 +246,8 @@ NOR Gate
             title="NOR gate" >
         </iframe>
     </div>
+
+---------
 
 XNOR Gate
 ====================
@@ -276,7 +281,7 @@ XNOR Gate
         </iframe>
     </div>
 
-
+---------
 
 Negative AND Gate
 ====================
@@ -314,9 +319,7 @@ Negative AND Gate
         </iframe>
     </div>
 
-
-
-
+---------
 
 Negative OR Gate
 ====================
@@ -349,7 +352,7 @@ Negative OR Gate
         </iframe>
     </div>
 
-
+---------
 
 DeMorgan's Law
 ====================
