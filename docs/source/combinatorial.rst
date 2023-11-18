@@ -94,6 +94,7 @@ The output is true, '1' only when all inputs are true, '1'.
 
 **Truth Table:**
 ::
+  :caption: Code Blocks can have captions.
 
   x, y    z
   input   output
@@ -104,6 +105,8 @@ The output is true, '1' only when all inputs are true, '1'.
 
 
 =====  =====  ======
+    Truth Table
+--------------------
    Inputs     Output
 ------------  ------
   X      Y      Z
@@ -384,13 +387,15 @@ Circuit Analysis, Implementation and Design
 
 Boolean Algebra
 ========================================
+Will explain.
 
 Truth Table
 ========================================
+Will explain.
 
 Gate-level Minimization
 ========================================
-
+The tool does this for you, optimizes the logic etc.
 
 ---------
 
@@ -537,6 +542,7 @@ priority. I'll probably repeat this in multiple sections and unify it at a later
         end if;
 
       end process;      
+
 
 
 
