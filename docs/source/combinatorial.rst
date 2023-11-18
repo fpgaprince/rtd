@@ -139,15 +139,19 @@ The output is true, '1' if any of the input is true, '1'.
 
   z = x + y
 
-**Truth Table:**
-:: 
 
-  x, y    z
-  input   output
-  0  0    0
-  0  1    1
-  1  0    1
-  1  1    1 
+=====  =====  ======
+Truth Table
+--------------------
+Inputs        Output
+------------  ------
+X      Y      Z
+=====  =====  ======
+0      0      0
+0      1      1
+1      0      1
+1      1      1
+=====  =====  ======
 
 .. raw:: html
 
