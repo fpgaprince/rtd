@@ -17,9 +17,6 @@ but you wont have an actual AND OR gate.
 
 ---------
 
-
-##########################
-
 Basics
 ##########################
 
@@ -51,6 +48,8 @@ Truth Table
   
   Notice, powers of 2's.
 
+
+---------
 
 Logic Gates
 ##########################
@@ -365,7 +364,7 @@ allowing us to go back and forth between product of sums and sum of products.
 
 
 
-
+---------
 
 Circuit Analysis, Implementation and Design
 ####################################################
@@ -384,7 +383,7 @@ Gate-level Minimization
 
 
 
-
+---------
 
 Combinatorial Components
 ####################################################
@@ -845,6 +844,7 @@ Shifting?
 ====================
 Maybe just have in sequential?
 
+---------
 
 Bringing it all together
 ####################################################
