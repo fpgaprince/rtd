@@ -392,10 +392,6 @@ Gate-level Minimization
 ========================================
 
 
-
-
-
-
 ---------
 
 Combinatorial Components
