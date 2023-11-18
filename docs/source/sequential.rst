@@ -73,30 +73,30 @@ There are different flavors of shift registers as well as sizes.
 
 serial in serial out
 ******************************************
-because the bits, or vectors are shift with each clock or flop. you can think of it as a delay.
-if we were doing serial in serial out. the number of flops chained together results in the total
-cycle delay imposed on the signal.
+    because the bits, or vectors are shift with each clock or flop. you can think of it as a delay.
+    if we were doing serial in serial out. the number of flops chained together results in the total
+    cycle delay imposed on the signal.
 
 
 parallel in serial out
 ******************************************
- which mean on the ADC internal/transmit side there is a parallel to serial converter.
-or parallel to serial is like a serializer. you present a 32bit word, and transmit it one bit at a time.
-maybe you're word is 64, 128 512 etc..
+    which mean on the ADC internal/transmit side there is a parallel to serial converter.
+    or parallel to serial is like a serializer. you present a 32bit word, and transmit it one bit at a time.
+    maybe you're word is 64, 128 512 etc..
 
 serial in parallel out
 ******************************************
-serial in parallel out shift register, is like a serial to parallel "word" converter.
-maybe like something in a SPI or i2c. as things are sent serially. you'll have to collect bits and then present words
-words can be 8bit 12bit 14bit 24, 32 whatever.. this is what i did for getting ADC values.. which mean
-on the ADC internal/transmit side there is a parallel to serial converter.
+    serial in parallel out shift register, is like a serial to parallel "word" converter.
+    maybe like something in a SPI or i2c. as things are sent serially. you'll have to collect bits and then present words
+    words can be 8bit 12bit 14bit 24, 32 whatever.. this is what i did for getting ADC values.. which mean
+    on the ADC internal/transmit side there is a parallel to serial converter.
 
-from the ADC, there is the DAC which is its complement.. it's receiver uses a serial to parallel converter.
+    from the ADC, there is the DAC which is its complement.. it's receiver uses a serial to parallel converter.
 
 parallel in parallel out
 ******************************************
-similar to serial in serial out, it delays/buffers in the signal. this is no different than your normal/regular register.
-if you hold the information, instead of shifting.. it is just your regular/typical register.
+    similar to serial in serial out, it delays/buffers in the signal. this is no different than your normal/regular register.
+    if you hold the information, instead of shifting.. it is just your regular/typical register.
 
 
 Shift Registers
@@ -207,7 +207,9 @@ FSM Finite State Machine
 
 State Machine's give order and organization to sequential tasks.
 It is like a controller. The brains. Inside all CPU/processors are some form of FSM.
+
 You may have seen..
+
     Fetch -> Decode -> Do something -> Store/Update
 
 In this simple example, that could be a 4 state, state machine.
@@ -228,10 +230,3 @@ The other process handles the output/combinational logic.
 Be weary of the simulation waveforms in the one process.
 
 
-
-
-
-MAC?
-=========================
-Multiplay Accumulate
-It belongs here because it requires storage, register and registers require clocks.
