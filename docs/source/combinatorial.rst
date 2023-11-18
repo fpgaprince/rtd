@@ -78,16 +78,16 @@ The NOT gate inverts whatever value is at its input.
   0       1
   1       0
 
-=====  =====
+=====  ======
 Truth Table
 -------------
 Inputs Output
 ------ ------
 X      Y
-=====  =====
+=====  ======
 0      1
 1      0
-=====  =====
+=====  ======
 
 Remember, these logic gates are to represent the logical operations/functions in Boolean Algebra.
 They are to realize/implement the math, logical operations and functions in actual hardware.
