@@ -92,10 +92,8 @@ The output is true, '1' only when all inputs are true, '1'.
 
 *Personally, I prefer to write the latter.*
 
-
-=====  =====  ======
 Truth Table
---------------------
+=====  =====  ======
    Inputs     Output
 ------------  ------
   X      Y        Z
