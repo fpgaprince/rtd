@@ -186,6 +186,21 @@ D Flip Flops (DFF)
 #########################
 The ONLY type in an FPGA. 
 
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="700" 
+            height="400" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASQTBRG0LxCEALFT4CqkFgFlB+Xv0F4BYqCBTQE02QKHYe-HXtXrNAGQrd5OocoUSQAMwCGAGwDOdapIBKFniKpdfzhwNWQqEzUNVRhNIA" 
+            title="WTFFFFF" >
+        </iframe>
+    </div>
+
+---------
+
+
 Flip-Flops
 :: 
     

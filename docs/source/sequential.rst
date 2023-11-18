@@ -58,32 +58,6 @@ and thus.. solve more complex/complicated problems.
 
 From this point onward, all sequential circuit implies memory/storage and a clock.
 
-.. raw:: html
-
-    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <iframe 
-            width="660" 
-            height="400" 
-            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASW20JG7xAAscXoX4CobDoLxU+FAeLlVIkpIRSLRIUfyUT2SDFrl5sKEf1osA7hSMXtGhytsCzDgTOc2QGNA6NdLRcQPEJNfmIwcyUfTBjjbm9beN5IcSiY9IkUvwdU3HEQzIcSwpzef09ZKuEQ6ukqBqFlH3VxBvbBOp9Axt8tFoquhr6G+q9Op3GfMybJhdaAJUr5qhQEHgaIczBhFGgkA6RlQ5YAGRA0MXcwQib3KggAMwBDABsAZzpqFQAPcCUXjEbBXBAQbDELZXcQAIiWAGUACqwgA6n0+1lmtVkSSGIS4W3cqTc5hUnyu+EExLypKg4BAABcAE4AVzoLAA9uBiNoioI9qCTrB4GRCJsNvTdrzsFzqOF6QJBb8RXAxRKTldqLLueIFU1lcL4JB1epNeZFHKePqBZAhVBVSajBqpdpeHLyDalXaVcbTZL1r53UA" 
-            title="DFF" >
-        </iframe>
-    </div>
-
----------
-
-
-.. raw:: html
-
-    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <iframe 
-            width="700" 
-            height="400" 
-            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASQTBRG0LxCEALFT4CqkFgFlB+Xv0F4BYqCBTQE02QKHYe-HXtXrNAGQrd5OocoUSQAMwCGAGwDOdapIBKFniKpdfzhwNWQqEzUNVRhNIA" 
-            title="WTFFFFF" >
-        </iframe>
-    </div>
-
----------
 
 
 
@@ -171,7 +145,7 @@ With a register, a clock and a combinational adder, we can create a counter.
         <iframe 
             width="560" 
             height="315" 
-            src="http://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASRQUJDyoBYwPPlChtiPfhN5VC+GSBQhsbDou7hiSwTzBbRkVZw25+IHcshnaLAO7KESkVOFVD97I81LseM3qV3ZT9vYP8wQLtzaWYfENixDy9TcyFLayiLFIswfgz7HLzo3SKghH00PBBCFDNKxOraxXkas2xI+1blJQDuht720JSggat1HmGolCaqaf99IMINWZmGpd0MHnWDKPKezeqNMAOgrh4GQbOFRbwqi6Ur+7Xb8CLCF6ey-Vyzd6qfhpzUJXXqGABK4Dkymwugi0N0imQs2gnBRBhRUSEVASILhIyhCSxihmUw0QKJQNOJhhkKo2Bp+LpNIpJMExBAm3+cK0XMC5iiXXqnOaVUWRwOwuOPBu-yKktKLAAMsVFPwBPwqrU3OAQAAzACGABsAM50aiGZUuEXmDXW7UGk1mpAWlVSm3-E6iB2m80sAAe5k80PIGC4yjV5lVIAAggARWMALgAOsbTQAXFMAIRQABpM2A85AU2mAPYpyA5iusAP8bBtHAclDYZQHOpmADKAFVM8nU3QM8bs3mC5mi8bSymC1OWCX1NVrKlIM3nbB4GR1mHZnOVLOm-PRIIl+bV3B19xN4i9zvNPuBGAjyv4JAzzVnYi9MoZ+AIIQF4fl1AJ7Pps55vj0EAqEAA" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASRQUJDyoBYwPPlChtiPfhN5VC+GSBQhsbDou7hiSwTzBbRkVZw25+IHcshnaLAO7KESkVOFVD97I81LseM3qV3ZT9vYP8wQLtzaWYfENixDy9TcyFLayiLFIswfgz7HLzo3SKghH00PBBCFDNKxOraxXkas2xI+1blJQDuht720JSggat1HmGolCaqaf99IMINWZmGpd0MHnWDKPKezeqNMAOgrh4GQbOFRbwqi6Ur+7Xb8CLCF6ey-Vyzd6qfhpzUJXXqGABK4Dkymwugi0N0imQs2gnBRBhRUSEVASILhIyhCSxihmUw0QKJQNOJhhkKo2Bp+LpNIpJMExBAm3+cK0XMC5iiXXqnOaVUWRwOwuOPBu-yKktKLAAMsVFPwBPwqrU3OAQAAzACGABsAM50aiGZUuEXmDXW7UGk1mpAWlVSm3-E6iB2m80sAAe5k80PIGC4yjV5lVIAAggARWMALgAOsbTQAXFMAIRQABpM2A85AU2mAPYpyA5iusAP8bBtHAclDYZQHOpmADKAFVM8nU3QM8bs3mC5mi8bSymC1OWCX1NVrKlIM3nbB4GR1mHZnOVLOm-PRIIl+bV3B19xN4i9zvNPuBGAjyv4JAzzVnYi9MoZ+AIIQF4fl1AJ7Pps55vj0EAqEAA" 
             title="BCD Counter" >
         </iframe>
     </div>
@@ -190,6 +164,18 @@ I think this is the simplest form of a counter. It only requires registers.
     we create the ring counter. where only one flop is hot.
 
 
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="660" 
+            height="400" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASW20JG7xAAscXoX4CobDoLxU+FAeLlVIkpIRSLRIUfyUT2SDFrl5sKEf1osA7hSMXtGhytsCzDgTOc2QGNA6NdLRcQPEJNfmIwcyUfTBjjbm9beN5IcSiY9IkUvwdU3HEQzIcSwpzef09ZKuEQ6ukqBqFlH3VxBvbBOp9Axt8tFoquhr6G+q9Op3GfMybJhdaAJUr5qhQEHgaIczBhFGgkA6RlQ5YAGRA0MXcwQib3KggAMwBDABsAZzpqFQAPcCUXjEbBXBAQbDELZXcQAIiWAGUACqwgA6n0+1lmtVkSSGIS4W3cqTc5hUnyu+EExLypKg4BAABcAE4AVzoLAA9uBiNoioI9qCTrB4GRCJsNvTdrzsFzqOF6QJBb8RXAxRKTldqLLueIFU1lcL4JB1epNeZFHKePqBZAhVBVSajBqpdpeHLyDalXaVcbTZL1r53UA" 
+            title="Ring Counter" >
+        </iframe>
+    </div>
+
+---------
 
 
 
