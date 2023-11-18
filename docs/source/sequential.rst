@@ -140,6 +140,20 @@ With a register, a clock and a combinational adder, we can create a counter.
     This is the typical one you'll use and see to create counter enables. and timing event to happen/occur.
 
 
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="http://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASRQUJDyoBYwPPlChtiPfhN5VC+GSBQhsbDou7hiSwTzBbRkVZw25+IHcshnaLAO7KESkVOFVD97I81LseM3qV3ZT9vYP8wQLtzaWYfENixDy9TcyFLayiLFIswfgz7HLzo3SKghH00PBBCFDNKxOraxXkas2xI+1blJQDuht720JSggat1HmGolCaqaf99IMINWZmGpd0MHnWDKPKezeqNMAOgrh4GQbOFRbwqi6Ur+7Xb8CLCF6ey-Vyzd6qfhpzUJXXqGABK4Dkymwugi0N0imQs2gnBRBhRUSEVASILhIyhCSxihmUw0QKJQNOJhhkKo2Bp+LpNIpJMExBAm3+cK0XMC5iiXXqnOaVUWRwOwuOPBu-yKktKLAAMsVFPwBPwqrU3OAQAAzACGABsAM50aiGZUuEXmDXW7UGk1mpAWlVSm3-E6iB2m80sAAe5k80PIGC4yjV5lVIAAggARWMALgAOsbTQAXFMAIRQABpM2A85AU2mAPYpyA5iusAP8bBtHAclDYZQHOpmADKAFVM8nU3QM8bs3mC5mi8bSymC1OWCX1NVrKlIM3nbB4GR1mHZnOVLOm-PRIIl+bV3B19xN4i9zvNPuBGAjyv4JAzzVnYi9MoZ+AIIQF4fl1AJ7Pps55vj0EAqEAA" 
+            title="BCD Counter" >
+        </iframe>
+    </div>
+
+---------
+
+
 Gray counters
 ******************************************
     I've only used this for clock domain crossing FIFOs.
@@ -149,6 +163,23 @@ Ring counters (one hot counter)
 I think this is the simplest form of a counter. It only requires registers.
     with a chain of registers, final flop is connected to the input of the first flop,
     we create the ring counter. where only one flop is hot.
+
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="http://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASW20JG7xAAscXoX5VIbDoLxU+FAQJFiKkpIRSK5o-nPGqQGUUpB5sKY3oDuFQ8fWajE6wLPGBMiy2sY0xwzscvE0IHfmIwc10gzEijLh4o63jeSEVwyNSoaJ9jGJAUPDEg9OMS3EUnXm5pWWqhKxrG9yp6rOt7Ro7Wyv9G3u6gro9+j0rmzo1GyuTx2dGWACUqnnG88YhzMGEUaCQdpHFdlgAZZfyc7DxFPKoIADMAQwAbAGc6agkAZXPzAp1qv5QcAgAAuACcAK7vKgoFgAD3yhGw+WwEG412wimuigARAtPgAVHEAHReL0s8ME7HyKGIBjIKPM2JAADsAPZggC2zyeAE9SQBLEEAcgAJqSAEZ0UkPUkABzBdDeINJdw5pJBAAtpS8ACIAMX1LDZ4DpISBAi2yIOsHgZEICHUB3ypt4xuo5paVo+trg9sdKGd5k47sUnqpkGtUF9kH9TqBTLdJp44ctkZ98FjhgDQZACXd5FT3ptmbjgYTBjdQA" 
+            title="BCD Counter" >
+        </iframe>
+    </div>
+
+---------
+
+
+
 
 Johnson counters
 ******************************************
