@@ -513,6 +513,18 @@ If it is not, the tool will synthesize a priority encoder.
 It is better/good practice to use case statements when implementing MUX/selections and reserve if-else for encoding with or without
 priority. I'll probably repeat this in multiple sections and unify it at a later point..     
 
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="600" 
+            height="400" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDDwBYQUUvjCQ2NCH5RubPFUIYUIgZKqiIMCGHjr4yDXAlSZ4DPLgGBy6Ku3qt23SGmyUCI1Uemo565c-rb9wdmd-NxVvDVCdMEoKQzsuP0IuF2oENiiEGLAOOP1MxO4xFMjaGNxs2VKxWVpU4oEeMu5eSoKWAHcQBTkO4zAYyDbuqmwAwe4nKAHOtDwOyW58Cfap8amF-qWemNWZ9ZAcASEqfcFIRIHjir8K3eP6u307m5HeI+emp9Ms+9lcxb2RsCEV6fM7tY4Jb6xP7HObgs4ASQoYFkHBmTioqLEMCQKURCBQMzm6SMWOgOJYeIJ4CpxOpO3c5MpMxe0TqHCoHLJFAG6JAmNpmN2CGRfJmHAhgoG4q4mOldL++JmyLFEOVCpi0z5EM1uzlmrlat12oWerwOyl2rNrO4VqNXAJKplkvaiu6fNEc11HoxSiBfw4vtq4D9XtMfoDbI5UtELNdLND3HZ7oOwgTh2t6bTwgjfKEfyuIyyM2GAl2flcuYc4zLORiHEBJnz+lE7MUpZYABktU7HcmsSAAGYAQwANgBnOjUfpdnMcPOz0QcwejidTzvBtvgEWLsTD8eTpDTxtq5g-KlLverw-rsDEH5+08b-uXg8TLua28-EWf58r1+7B0xjqK05yqAZANAvtILtPlMXTIs-nguDhArACmkDLpdkBTdsNFP5cNlYxnT5YwWyI812juE8MnPAZelMKl6MEMD2iY+cGzzXUOJRBsmLQrhcJ-XCsLvJ8hPbVjRIbSCG11PNpLzVDwKaH8P1EgCFlUtY-h1WD6V1QU9KCCYAFlBHxLpsE4TDuDJFgzLNFwFmIEVdJQOyAA8KDmetyDNbA+WzRMQAAWwAVw8gAdMcAEsADsABc6AAJzi0cABpooS5KYoYMcEqHJLooAIzCgcBxSscWCAA" 
+            title="4to1 mux" >
+        </iframe>
+    </div>
+
+---------
 
 .. code-block:: vhdl
   :linenos:    
@@ -547,18 +559,24 @@ priority. I'll probably repeat this in multiple sections and unify it at a later
 
       end process;      
 
+
+
+
 .. raw:: html
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe 
             width="600" 
             height="400" 
-            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDDwBYQUUvjCQ2NCH5RubPFUIYUIgZKqiIMCGHjr4yDXAlSZ4DPLgGBy6Ku3qt23SGmyUCI1Uemo565c-rb9wdmd-NxVvDVCdMEoKQzsuP0IuF2oENiiEGLAOOP1MxO4xFMjaGNxs2VKxWVpU4oEeMu5eSoKWAHcQBTkO4zAYyDbuqmwAwe4nKAHOtDwOyW58Cfap8amF-qWemNWZ9ZAcASEqfcFIRIHjir8K3eP6u307m5HeI+emp9Ms+9lcxb2RsCEV6fM7tY4Jb6xP7HObgs4ASQoYFkHBmTioqLEMCQKURCBQMzm6SMWOgOJYeIJ4CpxOpO3c5MpMxe0TqHCoHLJFAG6JAmNpmN2CGRfJmHAhgoG4q4mOldL++JmyLFEOVCpi0z5EM1uzlmrlat12oWerwOyl2rNrO4VqNXAJKplkvaiu6fNEc11HoxSiBfw4vtq4D9XtMfoDbI5UtELNdLND3HZ7oOwgTh2t6bTwgjfKEfyuIyyM2GAl2flcuYc4zLORiHEBJnz+lE7MUpZYABktU7HcmsSAAGYAQwANgBnOjUfpdnMcPOz0QcwejidTzvBtvgEWLsTD8eTpDTxtq5g-KlLverw-rsDEH5+08b-uXg8TLua28-EWf58r1+7B0xjqK05yqAZANAvtILtPlMXTIs-nguDhArACmkDLpdkBTdsNFP5cNlYxnT5YwWyI812juE8MnPAZelMKl6MEMD2iY+cGzzXUOJRBsmLQrhcJ-XCsLvJ8hPbVjRIbSCG11PNpLzVDwKaH8P1EgCFlUtY-h1WD6V1QU9KCCYAFlBHxLpsE4TDuDJFgzLNFwFmIEVdJQOyAA8KDmetyDNbA+WzRMQAAWwAVw8gAdMcAEsADsABc6AAJzi0cABpooS5KYoYMcEqHJLooAIzCgcBxSscWCAA" 
-            title="AND gate" >
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDDwBYQUUvmUQ2NODACqrMJQoZCIQl0IYB8qN1UI2UhDPCEqigWD2qxFFgHc5ePLv3XwKG5AtWbKg3K7PLhe8Vm+bl4sAJIUoiAcNgjGUaowSBqWMVRx2rJx3uECcRwqmS55XLkqYBzByTplxaXlUIUqvKm1FZFG4DrpHbJZXXipcCD99QAykY0czVyOTqoAZgCGADYAznTUzmNgVRGiNvzxIIur60ib3PjgdXtXXvPLaxsuMxc2L031lkXck9z2H1keHxdjsxC5trIDhChlQstDhpMqMNAbxbq80YDLtV0QVLGgbLl2ri2hkCe1oc4ALKCYQHbAIQwRKgoaAaakYTgiAR4clM7islgADwoKCQoqoxDK3AQ2EiPxAAFsAK6CgA6KwAlgA7AAudAATlrlgAadUAEw1+roAGMdeq5vqAPYK9UAI0djqWdAWWvVdAAjtBNMp7AcOcDTKYkq5bHIlLHnEA" 
+            title="2to1 mux" >
         </iframe>
     </div>
 
 ---------
+
+
+
 
 Demultiplexer
 ====================
