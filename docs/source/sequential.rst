@@ -63,7 +63,7 @@ From this point onward, all sequential circuit implies memory/storage and a cloc
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe 
             width="660" 
-            height="315" 
+            height="400" 
             src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLCrsEUQAWYoRA8+VKgDMAhgBsAznWqR2nKvzDDBmjVF3T5ipMoCyIQnjwi8-EBl5WbVFNAQsAkqpH2ul0bphIrh4IXAI6PmHC4i4ULADuZvhefBHY5lDxib7phCg2aZbKCRHqwiVwGcVJ-BW5NjXiLGDeeQ5mFm1O1K4A9rqEjmGQ2FCw8Bi5xNjE-AjYYChGY3BkhCGLumIiLH0QA7rqw6PwkBMoUzNzC0snq+tGIHwQ2DuPZoOHfEsQVKxAA" 
             title="DFF" >
         </iframe>
@@ -76,9 +76,9 @@ From this point onward, all sequential circuit implies memory/storage and a cloc
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe 
-            width="560" 
-            height="315" 
-            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLCrsEUQAWYoRA8+VKgDMAhgBsAznWqR2nKvzDDBmjVF3T5ipMoCyIQnjwi8-EBl5WbVFNAQsAkqpH2ul0bphIrh4IXAI6PmHC4i4ULADuZvhefBHY5lDxib7phCg2aZbKCRHqwiVwGcVJ-BW5NjXiLGDeeQ5mFm1O1K4A9rqEjmGQ2FCw8Bi5xNjE-AjYYChGY3BkhCGLumIiLH0QA7rqw6PwkBMoUzNzC0snq+tGIHwQ2DuPZoOHfEsQVKxAA" 
+            width="600" 
+            height="400" 
+            src="http://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASW20JG7xAAscXoX4CobDoLxU+FAeLlVIkpIRSLRIUfyUT2SDFrl5sKEf1osA7hSMXtGhytsCzDgTOc2QGNA6NdLRcQPEJNfmIwcyUfTBjjbm9beN5IcSiY9IkUvwdU3HEQzIcSwpzef09ZKuEQ6ukqBqFlH3VxBvbBOp9Axt8tFoquhr6G+q9Op3GfMybJhdaAJUr5qhQEHgaIczBhFGgkA6RlQ5YAGRA0MXcwQib3KggAMwBDABsAZzpqFQAPcCUXjEbBXBAQbDELZXcQAIiWAGUACqwgA6n0+1lmtVkSSGIS4W3cqTc5hUnyu+EExLypKg4BAABcAE4AVzoLAA9uBiNoioI9qCTrB4GRCJsNvTdrzsFzqOF6QJBb8RXAxRKTldqLLueIFU1lcL4JB1epNeZFHKePqBZAhVBVSajBqpdpeHLyDalXaVcbTZL1r53UA" 
             title="Neg-OR gate" >
         </iframe>
     </div>
