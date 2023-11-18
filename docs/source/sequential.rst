@@ -78,15 +78,13 @@ From this point onward, all sequential circuit implies memory/storage and a cloc
         <iframe 
             width="600" 
             height="400" 
-            src="http://www.falstad.com/circuit/circuitjs.html?ctz=CQAgDOB0YzCsIDMZIEZEDYAcmte6gJwYYhwQLlkCmAtKqgFCpyEioAsH7qATCLzBYe-CIPaxJsRgHcBQkfOFFRzVkvaF+vAOz8V4eRKmTGASQ0NtexRCyRkJk6jo6y5gTauf9Ww-d5yJ0kXWjc4NTZdfT4kTFsjVGCYSLjSAw4YTVFE5LBZNMVEeIN8i2L02MyIbwgUWH4Ii2rFFtKoBvcLPQhiEB0sbj66yEoPHo0B7kFhEbG5XkyBJcWICvAC1Y0trfy5XGW17A0y9h1SddRz9l5ZqHmzi-it9b3DwoPXzZWl5Gmlt5-d5AvizRgAJRAtBmhVoQMuAhAhAC01GAjRc0YAFkQG0-Bw+u1eKNsbist4CZUcsSIgAPfo1ODpMCIdjqf4gAAuAAcACaMelwDisviNDCoG4IUiLEAARQFZA42jAYrEYAQHPlcmhCnWOuEWDqBX1IENUNQGDsRu1MMu1y+clBik43FqHk+8QOu3u7iV-A4yliTtqHRVhpZ0rRET9UIDRRiOXq8BgHAQNPc+wTuMDqnptC4bLcQctuOWIAAxgAbADWvAAjgreLxSDppnBhDo3BzOQBnACuCp1bjhIrNcIgHIAlgBbAA6PYAVn2e5z58vJwA7ADm84ARn2AGYH6gAJx7885AHt59PL7zqJX5-fKwBDACePcbtyQ3CwnaQXZlj21Ccn23IXjO1DzpO54rgAFlBPb9nOPaXge0EbgAbk+D7vjeL7VpuO79uB8GIdOL4rqe86vpy5ZwcaGCurE+Y5hsl5GIgOQcEkjRQBKNSMBxiDCFxhg8SqoYwOcvCEIghCpogfAICgAnsEJcRINxvFSWAMlyQpcBKYE-GGBK5b1hpslaeJOlJtJGCyfJinKaZNRcnyGkSmJE52dAsD6c5RmuapZlWfwPm4n5kiBYZxkqWgYUiUgIAAGJqXA-l5DAoRuPZOXZZI-D0CAADKlbUDI87gi+nLUIwyXiOlKXcEE5ppSe1B1n21AbuWb4NcI3DNRQWXZblulgEkhUwMVErlZV1W1fVyViSNZBjXkE1JggJUACK4QNq0SutmUzVNrgdBK+2HYwQA" 
+            src="http://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASQTBRG0LxCEALFT4CqkFgFlB+Xv0F4BYqCBTQE02QKHYe-HXtXrNAGQrd5OocoUSQAMwCGAGwDOdapIBKFniKpdfzhwNWQqEzUNVRhNIA" 
             title="Neg-OR gate" >
         </iframe>
     </div>
 
 ---------
 
-
-http://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASW20JG7xAAscXoX4CobDoLxU+FAeLlVIkpIRSLRIUfyUVVIDFrl5sKEf2UsA7hSMXtGhytsCzDgTOc3DaB0d0tFxA8Qk1+YjBzJR9MaONub1s43khxSOi0iWSMeP4U3HFgjIcSwuzeP09ZKuFg6ukqBqErW3VxBvbBOp8AxsMtFoquhr6G+q9Op3GfMybJhasAJUr5qhQEHgaIczBhFGgkA6RlQ5YAGRA0MXcwQib3KggAMwBDABsAZzpqFQAPcCUXjEbBXBAQbDELZXcQAIiWAGUACqwgA6n0+1lmtVkiSGwS4W3cKTc5hUnyu+EExNy1LJ4BAABcAE4AVzoLAA9uBiNoioI9qCTrB4GRCJsNlArjzeFzqGEpQJBb8RXAxRKTtLOHLxAqmsrhfBIOr1JrzIo5Tw9QLIEKoKrjUYNVLzDxsHLyNalbaVUaTZL1oZZUA
 
 
 Shift Register
