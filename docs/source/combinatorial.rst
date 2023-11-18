@@ -119,8 +119,8 @@ The output is true, '1' only when all inputs are true, '1'.
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe 
-            width="560" 
-            height="315" 
+            width="600" 
+            height="400" 
             src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLiURtC8KU-XvypUAZgEMANgGc61SO07cALHAH81oqCEmz5SRQFkQGNDzwrTli1aopoCFmErLbp89hv2dTgPY6hHYgKmCQ2Aqw8GSECIQohiDcVNgsARBBOqHhkfCQMXEJOtwQqQHcmVTZ3IbQEFSsQA" 
             title="AND gate" >
         </iframe>
@@ -150,8 +150,8 @@ The output is true, '1' if any of the input is true, '1'.
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe 
-            width="560" 
-            height="315" 
+            width="600" 
+            height="400" 
             src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDARQuM+zwBYQOQiF4CqnWiwAyXHoTwUUC7PKhqAZgEMANgGc61SNNkg+cRQrNVrILXoNIjAWUEqR-EHnOi1KaAhYAe3AQQjFTMEhsQ1h4MkIEQhRHEE4IbCDU0PC+SOjHWLh4xOTfLIzg6LC1XMhOAogqViA" 
             title="OR gate" >
         </iframe>
@@ -182,8 +182,8 @@ The output is false, '0', if all of the inputs are the same.
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe 
-            width="560" 
-            height="315" 
+            width="600" 
+            height="400" 
             src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLiURtC8KU-XvypUAZgEMANgGc61SO07cALHAH81oqCEmz5SRQFkQGNDzwrTli1aopoCFmARWEXW6fPYb9nU4B7HUI7EBUwSGwFWHgyQgRCFEMQbipsFiCIEJ1wyOj4SDiEpJ1uCHSg7myqXO5DaAgqViA" 
             title="XOR gate" >
         </iframe>
@@ -219,8 +219,8 @@ NAND Gate
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe 
-            width="560" 
-            height="315" 
+            width="600" 
+            height="400" 
             src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLiURtC8KU-XvypUAZgEMANgGc61SO07cALHAH81oqCEmz5SRQFkQGNDzwrTli1aopoCFmAQQEXW6fPYb9nU4B7HUI7EBUwSGwFWHgyQgRCFEMQbipsFiCIEJ1wyOj4SDiEpJ1uCHSg7myqXO5DaAgqViA" 
             title="NAND gate" >
         </iframe>
@@ -252,8 +252,8 @@ NOR Gate
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe 
-            width="560" 
-            height="315" 
+            width="600" 
+            height="400" 
             src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLiURtC8KU-XvypUAZgEMANgGc61SO07cALHAH81oqCEmz5SRQFkQGNDzwrTli1aopoCFmATZlt0+ew371JwHsdQjsQFTBIN0NYeDJCBEIUQxBuKmwWQIhgnTCIhWi4WPjEnW4INMDuLKoc7iiIKlYgA" 
             title="NOR gate" >
         </iframe>
@@ -286,8 +286,8 @@ XNOR Gate
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe 
-            width="560" 
-            height="315" 
+            width="600" 
+            height="400" 
             src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLiURtC8KU-XvypUAZgEMANgGc61SO07cALHAH81oqCEmz5SRQFkQGSCp54LGPpYtUU0BCzAILCLnZCEEhLw51nAElvXy8zC2wrHRgkZwB7HUJ7EBUwSGwoWHgbFGJsYhUEbDAUQ2y4Mh9CMp1uKmwWRIhknTSMrPhIXPzC4tLyrqrfWoCIRsTuVqp27nKIKlYgA" 
             title="XNOR gate" >
         </iframe>
@@ -324,8 +324,8 @@ Negative AND Gate
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe 
-            width="560" 
-            height="315" 
+            width="600" 
+            height="400" 
             src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLCrsEUQAWYoRA8+VKgDMAhgBsAznWqR2nKvzDDBmjVF3T5ipMoCyIQnjwi8-EBl5WbVFNAQsAkqpH2ul0bphIrh4IXAI6PmHC4i4ULGCUZig22NZmFg66fIEsAO5m+F58EdjmULn5vqWESSKlynkR6sKNcGUNBfyt1Tad4iwA9rqEjmGQ2Eqw8GSEIShGIGIiA+BmI+pjE-CQ07PzfBDYy0VrYJBZUNAQVKxAA" 
             title="Neg-AND gate" >
         </iframe>
@@ -357,8 +357,8 @@ Negative OR Gate
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe 
-            width="560" 
-            height="315" 
+            width="600" 
+            height="400" 
             src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKABkLCrsEUQAWYoRA8+VKgDMAhgBsAznWqR2nKvzDDBmjVF3T5ipMoCyIQnjwi8-EBl5WbVFNAQsAkqpH2ul0bphIrh4IXAI6PmHC4i4ULADuZvhefBHY5lDxib7phCg2aZbKCRHqwiVwGcVJ-BW5NjXiLGDeeQ5mFm1O1K4A9rqEjmGQ2FCw8Bi5xNjE-AjYYChGY3BkhCGLumIiLH0QA7rqw6PwkBMoUzNzC0snq+tGIHwQ2DuPZoOHfEsQVKxAA" 
             title="Neg-OR gate" >
         </iframe>
