@@ -78,7 +78,7 @@ From this point onward, all sequential circuit implies memory/storage and a cloc
         <iframe 
             width="600" 
             height="400" 
-            src="https://tinyurl.com/ypqgm73u" 
+            src="http://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASW20JG7xAAscXoX4CobDoLxU+FAeLlVIkpIRSLRIUfyUVVIDFrl5sKEf2UsA7hSMXtGhytsCzDgTOc3DaB0d0tFxA8Qk1+YjBzJR9MaONub1s43khxSOi0iWSMeP4U3HFgjIcSwuzeP09ZKuFg6ukqBqErW3VxBvbBOp8AxsMtFoquhr6G+q9Op3GfMybJhasAJUr5qhQEHgaIczBhFGgkA6RlQ5YAGRA0MXcwQib3KggAMwBDABsAZzpqFQAPcCUXjEbBXBAQbDELZXcQAIiWAGUACqwgA6n0+1lmtVkiSGwS4W3cKTc5hUnyu+EExNy1LJ4BAABcAE4AVzoLAA9uBiNoioI9qCTrB4GRCJsNlArjzeFzqGEpQJBb8RXAxRKTtLOHLxAqmsrhfBIOr1JrzIo5Tw9QLIEKoKrjUYNVLzDxsHLyNalbaVUaTZL1oZZUA" 
             title="Neg-OR gate" >
         </iframe>
     </div>
