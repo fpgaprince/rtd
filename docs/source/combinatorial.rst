@@ -78,9 +78,9 @@ The NOT gate inverts whatever value is at its input.
   0       1
   1       0
 
-=====  =====  ======
+=====  =====
 Truth Table
---------------------
+-------------
 Inputs Output
 ------ ------
 X      Y
