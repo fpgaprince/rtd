@@ -92,20 +92,10 @@ The output is true, '1' only when all inputs are true, '1'.
 
 *Personally, I prefer to write the latter.*
 
-**Truth Table:**
-::
-  :caption: Code Blocks can have captions.
 
-  x, y    z
-  input   output
-  0  0    0
-  0  1    0
-  1  0    0
-  1  1    1 
-
-
-Truth Table
 =====  =====  ======
+Truth Table
+--------------------
    Inputs     Output
 ------------  ------
   X      Y        Z
