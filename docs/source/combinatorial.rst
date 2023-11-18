@@ -577,7 +577,6 @@ priority. I'll probably repeat this in multiple sections and unify it at a later
 
 
 
-
 Demultiplexer
 ====================
 The demux is a device that does just the opposite of the mux. you have ONE input this time, and many outputs. 
@@ -617,6 +616,21 @@ output gets the input.
 
 
 The if-else version is not a true mux, the tool interprets that as a priority encoder.
+
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="600" 
+            height="400" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDEpEIxRGx40J5ePKtigU2HLj2b9B4MCN7iEkqtJCY5QreLG01nbuGLaTS-RIDuIACzFCwuw4UiWN+492fzUd88cwUwDwW1s-DxdZELAwiM4EQMcNMEdIf0JE8EcEFCFU+Nz8nLyQF3SbDRcisrSM4zABCkIqRrqbGuxsEqFy-0TWpoHNLIrmqhQsjUn2ox5bIQRghcLlxeDFITHCFHDNufBSsaWZUpPNfFWeNCFpy+Pgm4pg7q2M3c08W+M8t8qf4w+XTbBrLKLBEEyRQxaGQpw+Ph+AAyFFKtjgqKEtkI4SoVAAZgBDAA2AGc6NR0ijzrZETSceICSTyZSWCjdLFwk9OYyQESyRSkMc0Riuo50XiWABZEACfLBPAYoJKFDQVQADyMjmweCQXyEOqxmnCAFsAK7qgA6pIAlgA7AAudAATnaSQAaa0ABxd1roAEcWLYgrx5LhwsHtZBcZp-K9eNHeN0E7i48nw0nxRixhmxSm7Iic4m8-G8w95oiM7S3DK5a4QIrWrDNGrpbL5LpG5pjBNW7Wwzwu4WW6oAJLPCs8c7xvFq6ycD6-BcRwvvFdT5aryqLr7Lw5vcc1CWYzOMueqDoi2gtOzZ-o34-DGZ+MC67s8JjQyMgT8qtvHhhFQLD8gN7VQZQAgpqx-AowP-DFf2AmDm1VcDbyoBgVmgzCthHfxdEQjk4jGIiIyiYi42LdNExWHNqPCPNaJYIA" 
+            title="1to4 demux" >
+        </iframe>
+    </div>
+
+---------
+
 
 Encoder
 ====================
