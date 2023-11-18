@@ -107,12 +107,12 @@ The output is true, '1' only when all inputs are true, '1'.
    Inputs     Output
 ------------  ------
   X      Y      Z
-=====  =====  ======
+=====  =====  =====
   0      0      0
   0      1      0
   1      0      0
   1      1      1 
-=====  =====  ======
+=====  =====  =====
 
 
 .. raw:: html
