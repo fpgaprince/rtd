@@ -76,8 +76,8 @@ From this point onward, all sequential circuit implies memory/storage and a cloc
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <iframe 
-            width="600" 
-            height="400" 
+            width="1000" 
+            height="1000" 
             src="http://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWEA2aAWB8CcBmSy0AOBBAdkJE0sskoFMBaMMAKAGMQAmNWsZWnr35QoseBAYxknHAjSz8WTnNLlRcVgCcQg8MN2dCFWrJYB5HXD20EYTtZGQWAc0u1DFXTk61fLMKTuPA4+FHwmXLzw1DCsAPY6eiI8WBRIMPCQWKTICNLpXIk4IACWAHYsCfZ8yVkUnNDpYnDZufngHXEArgAuLAAWIMUQTkA" 
             title="WTFFFFF" >
         </iframe>
