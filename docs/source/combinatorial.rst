@@ -15,6 +15,7 @@ Combinatorial logic are realized with LUTs.
 You will have NOT gates sprinkled throughout the chip to help the tool optimize,
 but you wont have an actual AND OR gate.
 
+---------
 
 Basics
 ##########################
