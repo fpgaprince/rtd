@@ -15,6 +15,17 @@ Combinatorial logic are realized with LUTs.
 You will have NOT gates sprinkled throughout the chip to help the tool optimize,
 but you wont have an actual AND OR gate.
 
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="http://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKDASW20JG7xAAscXoX5VIbDoLxU+FAQJFiKkpIRSK5o-nPGqQGUUpB5sKY3oDuFQ8fWajE6wLPGBMiy2sY0xwzscvE0IHfmIwc10gzEijLh4o63jeSEVwyNSoaJ9jGJAUPDEg9OMS3EUnXm5pWWqhKxrG9yp6rOt7Ro7Wyv9G3u6gro9+j0rmzo1GyuTx2dGWACUqnnG88YhzMGEUaCQdpHFdlgAZZfyc7DxFPKoIADMAQwAbAGc6agkAZXPzAp1qv5QcAgAAuACcAK7vKgoFgAD3yhGw+WwEG412wimuigARAtPgAVHEAHReL0s8ME7HyKGIBjIKPM2JAADsAPZggC2zyeAE9SQBLEEAcgAJqSAEZ0UkPUkABzBdDeINJdw5pJBAAtpS8ACIAMX1LDZ4DpISBAi2yIOsHgZEICHUB3ypt4xuo5paVo+trg9sdKGd5k47sUnqpkGtUF9kH9TqBTLdJp44ctkZ98FjhgDQZACXd5FT3ptmbjgYTBjdQA" 
+            title="BCD Counter" >
+        </iframe>
+    </div>
+
 ---------
 
 Basics
