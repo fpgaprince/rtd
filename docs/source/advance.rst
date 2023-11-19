@@ -126,14 +126,19 @@ Static Timing Analysis
 Everything online always tells you.. setup time is the time data needs to be steady at the input pin of the flip flop before arrival of clock.
 And yes that is true, but they not many discuss why this is so. I want to do it here. 
 I add the equations later.
+In order to understand why, we have to take a step back/do a deeper dive into..
+what is the DFF/register used by the FPGA.
 
     I thik knowing why something is the way it is helps us better understand what or how.
 
     1. My experience with FPGA registers have all been with DFF.
     2. DFF in FPGAs are made with CMOS technology, not TTL.
     3. There are numerous ways to implement a DFF. 
-        I will be referencing/using the Master-slave latch to speak of the edge triggered D flip flop. 
-    
+        I will be referencing/using the Master-slave latch to speak of the edge triggered D flip flop.
+        Which consists of CMOS inverters and transmission gates.
+
+        http://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWEBOWkwHYwGYeIExgAcERGISCkFApgLRhgBQA7iACztHhj4dch87apCYBJDkWqM+CTjz4i08CAlYV5MkADYE2hVHX4i3IdWPds2faIBK4DPqv7t7EM-CCQUwdCT4-KCg-JgAZB30tVwNpEAAzAEMAGwBnGgpDAA8Kbgw3DCQMcjchEAARdXYwSN5+bi1ROMETCOb64xRIwJhIfCYmi0k2zpRyMG7YPrZ8PQN8DD4GowW5leQbdWxIN3X3bZjN-d5LI9rRNi23LSqaxSNZrXxSpYv8al3B3dEAc0EHxz+kWQikM9mwbxG4OkNiCwgyImCammDw6M0iAPOghWxyxizORhaOLR4A6ogkmFugmeZ2C8Fk4laHiebg8SjpFAZl3c1ncCD4rNpcHpFz53Kc2ksPMxgyZpVZhxZPJlUs2ErFFA68rYfNMs3YH1mmIQtWJxr4ZkMbH1+mJ1r2bjsFG05lKemhCOocKQHpCvztXP9EJE6jdVLcOrDlo4HzhnFMcKN8gtCABFsTJVmchKCZDSddSZz2pNXpNpUxduTxeDTQjFI1plKyDGE16-Xr9vbxN2429kwZrnMXtTCcRHKtAmuPhe7Y8Ea50paFsGdYX9QBtYxqsl4u4Akx1l3phae-UA8EcN0NsLOlmFsvBzY96ihPxQA
+
     4. The time for the master to latch the data IS the SETUP TIME.
     5. The shutting off of the first latch/TG is the HOLD TIME.
     6. The time for the input to traverse the inverters to the output is the CLOCK TO Q time.
