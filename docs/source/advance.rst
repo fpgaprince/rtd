@@ -123,13 +123,32 @@ Clocking
 Static Timing Analysis
 =======================
 
-    1. Most of FPGAs use D FF.
-    2. DFF are made with CMOS technology, not TTL.
-    3. Master-slave flip flop configuration.
-    4. The time for the master to latch the data IS the SETUP TIME.
+Everything online always tells you.. setup time is the time data needs to be steady at the input pin of the flip flop before arrival of clock.
+And yes that is true, but they not many discuss why this is so. I want to do it here. 
+I add the equations later.
 
-In the diagram below, I have decreased the inverters slew rate, which increases the setup time.
-which cuts into the total period decreases or limits the max frequency.
+    I thik knowing why something is the way it is helps us better understand what or how.
+
+    1. My experience with FPGA registers have all been with DFF.
+    2. DFF in FPGAs are made with CMOS technology, not TTL.
+    3. There are numerous ways to implement a DFF. 
+        I will be referencing/using the Master-slave latch to speak of the edge triggered D flip flop. 
+    
+    4. The time for the master to latch the data IS the SETUP TIME.
+    5. The shutting off of the first latch/TG is the HOLD TIME.
+    6. The time for the input to traverse the inverters to the output is the CLOCK TO Q time.
+
+In the diagram below, I have decreased the inverters slew rate (takes longer to change voltage, go from one state to the other), 
+which increases the setup time.
+which cuts into the total period and decreases and limits the max frequency.
+
+In other words..
+
+    for a given frequency, if i keep decreasing the slew rate, at some point i wont be able to latch data correctly.
+
+In other words..
+
+    for a given slew rate, if i keep increasing the frequency, eventually the period will be too short and i wont change in time or latch the data correctly!
 
 .. raw:: html
 
