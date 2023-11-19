@@ -123,20 +123,22 @@ Clocking
 Static Timing Analysis
 =======================
 
-Everything online always tells you.. setup time is the time data needs to be steady at the input pin of the flip flop before arrival of clock.
-And yes that is true, but they not many discuss why this is so. I want to do it here. 
+Everything online always tells you.. setup time is the time data needs to be steady/stable at the input pin 
+of the flip flop before arrival of clock.
+And yes that is true, but they never discuss why this is so. 
+I want to do it here..
 I add the equations later.
-In order to understand why, we have to take a step back/do a deeper dive into..
+In order to understand why, we have to take a step back and do a deeper dive into flip flops..
 what is the DFF/register used by the FPGA.
 
-    I thik knowing why something is the way it is helps us better understand what or how.
+    I think knowing why something is the way it is helps us better understand what or how.
 
     1. My experience with FPGA registers have all been with DFF.
+        question for self.. why D over SR JK T?
     2. DFF in FPGAs are made with CMOS technology, not TTL.
     3. There are numerous ways to implement a DFF. 
         I will be referencing/using the Master-slave latch to speak of the edge triggered D flip flop.
         Which consists of CMOS inverters and transmission gates.
-
 
     4. The time for the master to latch the data IS the SETUP TIME.
     5. The shutting off of the first latch/TG is the HOLD TIME.
@@ -160,13 +162,19 @@ In other words..
         <iframe 
             width="660" 
             height="400" 
-            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWEBOWkwHYwGYeIExgAcERGISCkFApgLRhgBQA7iACztHhj4dch87apCYBJChgBsPPlOGyoUNOmRr1GzdwStBRbkOr59IbNhmiASuGmnzIeXZkQ+CItAQz8HwT5EemABkbZ14HdkVqCAAzAEMAGwBnGgooJgAPCm4MCIwkDHIIoRAAEV12MFC+Tm5GPlFovVrbY1rjFGc-WHwmRtaOAxNkGWRyMC7IHrZ8T0V8DD46tOmFudXh5dNICI3sbcjdPYjebiODtjOliqrNmZv8YqXRC-xqDf6N0QBzQVnMLz+yHqaWs2FeHVM4MqSmoCiQImUOmmf3adxCt1WJ0EmLCzya4FRKO4ogk-zmj1xyngYE0tI02nE6LMXmKzJhKjg7Dp3JkOgkZzZ2AQfDZ-ngnO5dN5h2FTlMUlO9jx8xF9geEVFh32bP6mouCrlwsVFl0Rt+Mi5AJNbAQYTRtr4hk2lvNHF2+ysFCkRmKnii3phHGo8PZOh+LrOEfBIlNAfVFFRxTxLqdNUECjxCE46eDLQzpuz9sL+Zthd9xZjNrtcLtSfK7xrjvzjTNZLN8dG4AmPRb7TO7dmG3G8O6jPkRjheYRMGpktpDLY10UCFsT1NffsZrOypMTv6ZJ3zV57QPhwNgoNAjx5m4An6V9045zDlmTrxUlfCg-N3ffzCRDBA4ACNwGzBgZAwMxTDUNIQJyJBwPAbAiBFGC8V4Rwll4IdcV0DCigUfDzgJO9CPwRw310UYLW4IgNgfNhqPlbgmIYkA6OcVccE4612IbagOPRdDuOYnh7G3PDID-RZiGOXDSSEAxCNk58xXFVxejEmRLhEtEh27TTGHsMkjJZHYxgMthGH2J06gnStZHsxzBDrKywFleNGA8kseA8v9vIcrymyiFTKLcmzCKkrwfMYA1PN0usfmsjV9mSyFpyYaxYoMCkDUqacg1SacAnCoo-21D08N4IxpKc4S1XKsreKYm8tNEvFBKxIhMPaDqiCidp9BC+pdG645Bsw2xPSBFiRhPCwlDhQMYDDdjJpkMbwCBGEqPaDZBM+UbMP-QC10YsIsMmOSRvOxY9ou3DbohZAHpu9j+sUIaIQ646+C+tdGkEgQDpGCyR0mTTOtsTq9s6cGpnAK7FDAKLiMEp1BL1Ejagu8jrrSUkVKwxTIipdSKEk6TEc-GMQN4PgGCkpCYPYB40kyDCQAYTAbGQLnGAiAjSgAHUSAAxMWMlAmQ6HwPnzGwLnyI4dMQAAYQAWQAeQAZVFjXYkSAAXGgACdRcCWIjYAYwACylvJqFllisyVpAhc13XRZ1+JYgANxoC2rbt3QVTlMPWuVVZWpag0o9VLwTCxrd7ExpVH2UuQqdEDmKkV5BFbAdhcAhIWAEVGWwm5uOG9lxUmCmrPMWui4pEaNdAtvQJMJ5fB0TIEEV3AIBg3BBdVtXAgAaSlyoLRXcJBYDIXkiNgBXAAHUW-YASwAe19o394AOwALlF1fRYAEyt2JRZ34+-dFo299F-A14AGlF634gAa2f1+iRXiQDXlLFCt5XbYUVuwBeQtbYHyvtvfeh8T7n0SJfRIN8jZ30SA-J+xtAHAM-t-P+AC36gI5lIQoL0HA4DdOPYodtYjHy+IHTBt9Ramx3l8W2RtRZARoNEPeps2FcNwSw0WNAr6sNFnvaIJDf5gOVlwHGLMaFCyYSwthWCcGxGiCbc2iQxEPy+JI6RbC5EKKYHvUw4AFoVEgIrcG8BqKeBmEoEUphrEq2hLCFGTiyZwFcVIdxRgVbYG8XQ3xHB-FFRUNgZAkAQkhkWEPSJKM7GLRRq4ZQEAohMGQrYsWEBoEUDgPzEAYsREAEc140GPtbAAnkwIAA" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWEBOWkwHYwGYeIExgAcERGISCkFApgLRhgBQA7iACztHhj4dch87apCYBJChgBsPPlOGyoUNPD4JWgotyHV8WkNmwzRAJXDSDRkPMsyIaotAQz8TwW5FOmAGXN3e1uyK1BAAZgCGADYAzjQUUEwAHhTcGEEYSBjkQUIgACIa7GD+fJzcjHyioZrlFnrleih2HrD4TNX1HNr6yDLI5GAtkG1s+M6K+Bh8FQmjUxPzvbMGkEFL2KvBGhtBvNw7W2wHM0Uly2Nn+Lkzokf41EudS6IA5oLjmC4fyJUJZtj3JoGQHFJTUBRIETKdSjD6NC5+c7zPaCZEBW41cDwuHcUQST4Ta7o5TwOBqcSIwwuXJUsEqMDIRlM5ks7jqCQHWnYBB8WmeeAMllCpls7Y82wGKT7KwYya8qxXIJ87abWmdZVHKUSnnS4waHXvGTsR7jDEIAII818HTLY1fI3rTamChSXS5ZwhV1gjjUSF09RvO0rIJBgFQs1exUUeG5DFBm1lQQKM2cJO+urJ-Wpy3ZzNsBDZ925kT6i0Qi2xwqPcvWzPVA0Eg1R-rgIZteuNA5N8ZLQaQ1oU+S6CEZ8MqMkUQqgmYICw3fWdqwGg6y-Q2zoE1e1GQNiwYoy6yXcAT7rUCTonjRDtPWcY2jFSO8KR9nB8fAJEAFbABG4FTDBkDBDAMRkEl-NIkAA8BsCIXlQIxXgbBmXhe3RDREJyBQMMOLFzyw-AbHvDR+iNbgiCWS82BIo8UAsSiQHIuw5xwJi9TYRibw4zd0JYmjGCsFd0Mgd9pmIXY0PxIRtCwsSb35UlyWqfiZGOXiEV7Nt2h4KwCWUwRchbPsSRGHhNhtCphxLNgLJvGyowQsBxSjRgnLzHgnPfVyrPc2sQlkojrLAMysOElw3MYLVnLUys3kYVVNjipVARLMwIu0IktWKcMfXiMcYVMnJ33ioIHMBBE7PCtSisKtjaJUzLeIPZYuMaIgkMaDEtBCVqiD8yoNDa3ZWqQvcmDMH5uCWCbwGMJQIW9GAAwYkaZEG8AfjBYjGiWDjngGpCPy-ecqICZDhnE-qTumbbTrQq6gWQW7LoY3rFC6oFOoOvh3vnaoOIEXa+gGTS-t7CwWsm5p+2GISiWmUKcI4m0OI1XDylOgiLoSfFZOQqTghJBTJ2shGzqfEtf14PgGGE6DQPYK4EmSRCQAYTBzGQVnGBDJN8gAHWiAAxQWkj-GQ6HwTmjGwVmCI4XmAGEAFkAHkAGUBaV8JogAFxoAAnAXvHCHWAGMAAtRYyagJcmgtZaQTCQGV9WBbVyJwgANxoI2TYtjQ5QlQOmtleYmuokOA7DhV9FR5crBRmUrxkuQRKZv8cBQGWwHYXAgSdgBFCkULOFi+rpUlhmJ6CvWQhmsdEJW-zhv99Budx1GSBAZdwCBQNwHncgV7wAGlReKI1Z0CEMvSd2IdYAVwABwFz2AEsAHsPZ1zeADsAC4BfngWABMTfCAW193z2BZ1jeBfwBeABoBdNyIAGtb-v6J7kgBfRdgsee2KEZbsCnk7c2W8T6r03tvPeh9ojH2iGfHWF9ohXxvrrb+v9n6vw-l-AWCB-7MykNkR61hM7GkHkEC24Rd4vB9sg8+At9ZrxeObHWAtvw0FCBvfWjDWHoPoQLGgJ8GECw3qEPB78AFyy4Ojem5Cna0PoYwlBaDwihD1obaIgir4vBEWIxhkjpHjxsDycg2AgIUA2PLXIoQACOAsWDawFuEfWG8F672gdEBARBzYAC8mAbwMDNOaQUZbQ3gCRZwYwlC8gMME+WoJwQRNyuOGJUg4m6HltgJJmcUkcDSTAUk0hJbYGQGA3A2SMnSFiX6aYPd8lBTCakqu-YIAhCYDBUJgsICgIoHALmIBBb8IcQvGgu9TYAE8mBAA" 
             title="Ring Counter" >
         </iframe>
     </div>
 
+If I decrease the slew rate of the clock buffers, increasing the time for the "input" clock to reach
+the TG, it gives more time for D, the input to change. It increases the hold time. Meaning, data 
+must remain stable for this hold time requirement or else any change in D will get passed.
+It will get passed because although the rising edge has already arrived at the flop, that rising edge
+has NOT arrived at the TG to actually shut off the input. Therefore change can still actually happen!
+
 ---------
-    
+   
 
 Timing Closure
 =======================
