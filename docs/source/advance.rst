@@ -123,6 +123,28 @@ Clocking
 Static Timing Analysis
 =======================
 
+    1. Most of FPGAs use D FF.
+    2. DFF are made with CMOS technology, not TTL.
+    3. Master-slave flip flop configuration.
+    4. The time for the master to latch the data IS the SETUP TIME.
+
+In the diagram below, I have decreased the inverters slew rate, which increases the setup time.
+which cuts into the total period decreases or limits the max frequency.
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="660" 
+            height="400" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgDOB0YzCsICc0wEYDsqDM34CZUAOVEOCBM0gUwFpVUAoVOREVAFnZEIjzEO4ReEVLDGwGAdxB8B9PDP5tECsExaK5KmegWptwtuPEMAkjLxceMwgOtCUsEnDM27vW2wBsQqOOdSbOheSCEYIXi64K6WvFGxmuBQFIHhOgoJkaoMAEpBEVHWWWwybHhY0Fx4kAjVCA4uADJsnIJt9kkAZgCGADYAzlSk0QCybm1YWCEddQwAHiDoWKQhiOSsVVwAIoF4nqg+4-rZ0ntaGVHH0aeWbbJtaqdK8on2DAD23F8Q7KIK9ZASCIPkhviBfmB-lAgWwQaIwb94QCYYxPqgFAIfn9hmBAUlGFgBMsAGIw3H+Ep0EAAZV6VEkAB1+jlugAXKgMQngkCkpLksQkUQwEBU2n0pks9mcuw8kjLLhkCBU4kAJyoAEcAK5UAB2AGMAJ4MIA" 
+            title="Ring Counter" >
+        </iframe>
+    </div>
+
+---------
+    
+
 Timing Closure
 =======================
 
