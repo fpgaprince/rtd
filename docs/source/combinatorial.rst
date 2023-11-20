@@ -274,6 +274,8 @@ XNOR Gate
   The output is false, '0', if all inputs are not the same or equal, differ.
   XNOR is an XOR with the output negated.
 
+  why
+
 .. math::
 
   z &= (x \oplus y)'\\
