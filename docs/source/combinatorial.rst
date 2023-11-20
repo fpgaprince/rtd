@@ -270,8 +270,8 @@ NOR Gate
 
 XNOR Gate
 ====================
-  The output is true, '1', if only if all inputs are the same.
-  The output is false, '0', if the inputs are not the same, differ.
+  The output is true, '1', if only if all inputs are the same or equal.
+  The output is false, '0', if all inputs are not the same or equal, differ.
   XNOR is an XOR with the output negated.
 
 .. math::
