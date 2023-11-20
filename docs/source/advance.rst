@@ -190,6 +190,41 @@ has NOT arrived at the TG to actually shut off the input. Therefore change can s
 
 ---------
    
+Fan out in general. 
+    
+    This applies to flip flops driving other registers/logic.
+    This applies to clock fan out, hence FPGAs implement global clock routing.
+    This applies to reset fan out.
+
+In general the more fanout, the more load on the driving circuit. This stresses the driving circuit
+in regards to it having to supply more current.
+
+More load means more capacitance on the line. More capacitance means longer charge/discharge time.
+Longer charge/discharge means longer time before input hits threshold for output to switch.
+As a result this limits switching frequency.
+Chain these effects together over several gates and you have longer propagation delay.
+Or longer combinational delay. This eats into your frequency and period,
+thus capping/limiting your max frequency or even lowering your max frequency.
+
+In general, your vendor tool should be able to detect high fan out and optimize it.
+But you should understand why high fanout can be bad and affect timing.
+
+If you duplicate the driving circuit or logic, you can cut the fanout in half or whatever.
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="660" 
+            height="400" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWEDYCYDMqDsrUE4AOLSAgsJANnWWUmQFMBaMMAKADNwsKQC7UALHT7hw0JDEioOXHmG4hBdeT2XioaVgHdFQkHh5LwqAlG27lJi+Ap1I5lb2UKwV+zsevTnhfYAyIBQCNspytlAR7ACGADYAzvQ09gBK1kHWYKoRehIRMAisAOYZeKjWuMF2rABOIEKWpgLpXhFgcKwAxnXNVk3Bjnaw8JB4o2PjE3gg6NBgRAToCIsUqEFzkKpDbMV9st39pXnmRi3YZS32cdMU3r1wxqbKINHx9KxX6DeKgnX3Fa3PWIJIr7RQ4UEmR5mLq7f6w8GDYYjSYo0ZiFbodDkVAIVzYASuLAaOBsWr1b7BWE-ZTtD5fTC-OgMp4vYE7dIiXYGI4w9IM3YiRHDASolGbYYUBBLMBNPgLT7oImSSCkxnTMq7ZngWnXUyYOjk-UA1lvdnBT6NPkESrQ0FGzVfIVwLEIUXjQzQAgUIKQBCoSACLB4FgIJrElU1NX2vn+1rtHQW9VM2NG9xJ9NG-5pzM-RNZ8xGlqJi4F2NFlNlbMV3Xqsw6M4PdMtNg6XYtBDhEutmPIcLM8xU4Id-jUgcxujD9NVkfmstuBxWZsuee1Hq3ddx+xdZuLxeHJ1wEVu911aB4P14X3OlVEcUR4rNw6nEhHVJr1qLxTIAie0yodT-rk+RjsEjDpJOYGVKWdCQTWsH2GS9ywbs8HaluoLIekzBZMq8BHseoybP6HZ+vgkDoBs2B4EqWwgihmSgnYZh0qYyFIekTEmtBtZGvBrAAB4gIw1p1GU-oQAISDBD8HQxAA1gAOnEyQAMJKQALgA9kp1T0AkAC2ABGMT0Dp9CxEpslyQJQkiasci4ooFBTNJwRxFoACW6kdAAFkpHkAHZKfpmm6UpABEhRROpenhTZwnSYQ4BhhREm6CAUUxXEwWaQAJvQJm5UpUTZcpKnxUQ0wdlVRKLC56UhWFcTRAFmkAK7qUpCkAI45U1HRtdUukBZ1cS5dUHkAG6mXEundW1Hm6blFV6gsYJIOgXp1A1oUzS17WjT1SmFLp0X0NUlk+VE1SFDN6kefpbyCcJLltIoBAamA1CuRlp0xRdcS+ddt0aQ9M1HXEMSaVo53BVE-FKew3WsJpgQ2NkbSVkMcDcPg6B4JJWI4hoEDKCj0zeFkeIE6ekxYAQoxSG0d4qq05MMgxBqY0ksxs5t6UAGKk+GeEEWMLPImLUzMCAKlRAADlEHReVEAUdG8-MCGUQvTNt-owRAAtzW19BqwAnqwQA" 
+            title="Ring Counter" >
+        </iframe>
+    </div>
+
+---------
+
+
 
 Timing Closure
 =======================
