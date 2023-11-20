@@ -140,6 +140,19 @@ what is the DFF/register used by the FPGA.
         I will be referencing/using the Master-slave latch to speak of the edge triggered D flip flop.
         Which consists of CMOS inverters and transmission gates.
 
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="660" 
+            height="400" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWEBOWkwHYwGYeIExgAcERGISCkFApgLRhgBQAMuBgGzhj4gcAs3XtQgAzAIYAbAM40KUJgA8KREBkEYkGcoPyCAIk1Eh8RVZi6nzplFzDQkMSPiMmzIfqqu2U5e49gXAHcTBDseEwxeRmEmEPwooUjeZC5IOJBsSEFUzOyk9JCswR5VYoKM8piPMHDY+LCk-D0KovxqXO9c9IBzULtOfvBkYQUAJUz2n2wp2qh5-mpHeZgEDPxG0qGLBXjErYToiMK3ay9Nm3SASXY6kxbq6lWKJhudvWpm3UWVhxeb8ofTIIXhAp5-NZFEEmH7YDheH4nQ4wz4tMGVfJA7zo+LuLHuHYnOEI6jEjyqInw8mnanpZSEJB0XDA3h0GzfEAAYQAsgB5ADKAB1pCxxAAXADGAAt1ol8SSFNyandPCJjiYHEoKNgTGAkMhkLrVBzOSwANKsW4ovjfJ7gEASGRyRxMABOyqS-DmhPA8CYfS9Ay4geGo3SAHt5nNqF7IDqAvBIMhOGENvNRtgmJGEuA0jVnFBoHqOGmYBAREwgA" 
+            title="Ring Counter" >
+        </iframe>
+    </div>
+        
+---------
+
     4. The time for the master to latch the data IS the SETUP TIME.
     5. The shutting off of the first latch/TG is the HOLD TIME.
     6. The time for the input to traverse the inverters to the output is the CLOCK TO Q time.
@@ -162,10 +175,12 @@ In other words..
         <iframe 
             width="660" 
             height="400" 
-            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWEBOWkwHYwGYeIExgAcERGISCkFApgLRhgBQA7iACztHhj4dch87apCYBJChgBsPPlOGyoUNHDDJ1GzVu4JWgotyHV8BkNmwzRAJXDSzFkPPsyIfBEWgIZ+T4N8jPJgAZWxdeR3ZFaggAMwBDABsAZxoKKCYADwpuDEiMJAxySKEQABE9djAwvk5uRj5RGP06uxM6kxQXf1h8Jia2jkNTZBlkcjBuyF62fC9FfAw+evSZxfm1kZWzSEjN7B2ovX3I3m5jw7Zz5crqrdnb-BLl0Uv8ak2BzdEAc0E5zG8-2QDXSNmwb06ZghVSU1AUSBEyl0M3+HXuoTua1Ogix4RezXAaNR3FEEgB8yeeOU8HQWjpmh04gx5m8JRZsJUanp9MZEnO7OwCD47IC8C53O0FCOQucZikZwc+IWwocj0iIqOB3ZAw1l3lsqFCssekNfxk7A+c3xCHC6JtfCMWwtgPNewO1goUmMJS80S9sI41ARHN0v2d20i4fBiOt-rVFDRJXx4cdtUECmtnHTQdaGZNWbtBbzbAQBZ9RZEJtt8NtSYqHxrDrzTVN5NN8bG4EmvRbHXO7bmmwmCJ6TPkxnhuZjKlpEslyI4MOWCDszxNfYcpvOStMjoG5J3LRkrbs+IsRrl3AEZ-1AgG1704+zjjmjvxUlfCg-t3f-3CRHBQ4ACNwCzBgZAwcwzHUdIQNyJBwPAbAiGFGD8V4Jxll4Ic8T0DDigUfCLkJO9CPwJw3z0MZzW4IhNgfNhqMvFA7AYkA6JcVccE4402A459+IPPDuOYxgHG3PDID-JZiBOXCySEQxCNk59RTFOd5z6HhxIOMSXUhYdqR7bSeJMwQSk7QyYCmYSDkdeoJ0rNgHOfFz43QsAZXjRgvOLHgvL-XynP8ptohUyjnLAOzCKk7w-MYfVvJE9ymF+RgtV0qL1QhSsbASwxKX1KoY0DNJpwXdLij-DLIg8iF0Tc+LkuqqreJYmRzzMzr8UEjoiEwjoeqIaI+uG4j+pOPrMNPJgbGBbhNnm8BLCUeEAxgUN2OmmQJvAYFYSojpNn4r49F25YAJkhoqPCLCpjk67GNuo7btwp6+EW17HvYsaLrG06+Mw-9ftwpp+IEE7RnGbstMEuxeoWroRxs5z7sUKLpK2fjHX43USLqZ6geuskVKwxSompdSNI0RlUcxjG4srEDeD4BgpKQmD2EedIsgwkAGEwWxkH5xhI3TMoAB0kgAMWlzJQJkOh8GFixsH58iOHFgBhABZAB5ABlKWdbiJIABcaAAJyloI4jNgBjAALeX8moJWFtLdWkAIkBdcNqWDYSOIADcaBtu2nb0ZVZWj7qo7WTqmLj1YVW8Uw8a3BxccVR9lLkTHRF5yo1eQNWwHYXBIR9gBFJlsNubiwpBayqep5BaaQ-0sK5h70h10DKSWLgCZBHxdCyBA1dwCAYNwMWSi1oIAGl5aqc0VwiSN-R9lIzYAVwAByl4OAEsAHsg7N8+ADsAC4pd3qWABM7biKWT+v4OpbNs+pfwPeAA0Ut7YJAANbf1-kkN4kA97yxQleT22E1bsA3j7R2F8n7H3PpfG+98kiPySC-M2b8kgfy-ubSB0DAHALARAqWCBYG8ykEUZAEApA4A4MgeekQnZxGvt8MOhDX5S0tifb4jszZSyAjQGIZ9LaCNEaQ-hUsaBPwEVLM+MQaGgLgRrYePBOasM1iUXh-DBFEJIXEGIFtrZJEUR-b4Ki1GCM0do1eTghTkGwJBCg+xjGRBiAARyliwU2Us4iWzPnva+mCkjuEdgALyYGfMwy1VpRTVsjeA1EvCzCUMKMwyTNYwjhBksqM4clSDycYTW2AikcJKYuSAmSjLBiWFPepUU0mlKmOUiA0QmDIVSdLCAyCKBwBFiAaW8jAl7xoNfe2ABPJgQA" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWEBOWkwHYwGYeIExgAcERGISCkFApgLRhgBQA7iACztHhj4dch87apCYBJChgBsPPlOGyoUNHDDJ1GzVu4JWgotyHV8BkNmwzRAGXDTF8xSJAAzAIYAbAM40KUJgA8Kbgx2EAwkDHJQoRAAET12MBlGPk5uFL9nfXS7E3STFGToJBhIfCYsvI5DU2QZZHIwYuUyvXwEZN5BDD4M0TZ8HsVBvjq-NmxIULHJ0L69WfACxfmJqcVEzr5+wQ7hmNWzfGoxqrHRAHNd5Ny9tW2-ACUjk5lsY-BLJQUSpRhdAZ3ArtG6WNpDXiGCFdHZVSHXJbcUQSTBbQQHGEteBqLS4jQ6cS2N4WdGhcxfUqqPHUgkSRbkswIPgMkQqHHU7QUBZMswkizcFng5kk-AxQVrMki0zisxSAUkpnysFsRUI9inPY7BBdEEUHUKHbqmS6o1mdaiZ4dYwxK2fJzUH5-ZS6K6mxZuj4iPS20WhVW+8YcU4KNKCA3ezhh6gIXLhlWR3UIBNxigJm3Jr0q-XRnUxQ3BnN8IyZCgFVGlwwxBrgZqlcpZVWLf17MZNEqwcoSeTGH6x+0qdAc3EEtibRQxtFa5YK5bmtqmYtwuyw0zl1Xlnb83lvOXVQNbgRVAQ7btRkBSPbFk+XhQXyd6O+KIjvRxMABG4EjDBkGHMZnUfgfiESDfuA2BEMyAE7LwDgZLwrYwnoMHRAoyGvmwvCHqh+AOFeegNDIAhEGMx74XYW4EXuOzEaCPAkhueg0WeTEMRhOA7uk7FmqE0GQHcXSMEQcyISiQiGKhxAof28CDkOmgElkjB8usSnGi2RTtq0ilceWqmkigjS1h2SFgOsxYpD2mayJZ1n6dBYA8gGjCOSmzlFvxLlWW5Z6CVJgaMGZqF8carlJJWwkinmTBXAFZIqaZZKek8PC7k5YV2k6jr9gCPBmfx6yLPZHy6hZZ72SK+XRJqZEcXRtXUa2BRELBBTUUQ1DwgYHWIWwzVzE1sHLkwzzIAUYyjekFIcNGTr-NFIB9USC2waNfz4WNMhMecjGwV0z69D1KACQJZTCds+ECWNx3nWwyBdON12Bl1T7tYUT27Xwz3zFkTFEeN9SGZp9YLa2dgsRtNZA0hp2KKZ-E3SDIXUExMqYZxvQ4WdfgopJsNiY4WJUnJ+JchhwWw+TeEfrwfAMHxYEAewop+IEMEgAwmC2Mg7OMKEKFxAAOp4ABiwsBJ+Mh0Pg3MWNg7M4RwYYgAAwgAsgA8gAykLquuJ4AAuNAAE5C1Yrj6wAxgAFuL4TUFL3DIEm8tIPzata0LmvuK4ABuNCm+b1tCtu3TMrusJDBR5Hh8HDJVDKjYkijJInhJcjwyzn44CgctgOwuBvfzACKhLwWi7HdQ8lJE8TyAjmBUiV5+GLnarzdY3nq6YvgxTiwgcu4BAAG4HzSvK1YADS4tJIRMbnpG7CN4rMTePrACuAAOQs+wAlgA9t7+v7wAdgAXELq9CwAJubrhCzvx8+0L+t70L+BrwANELFvuAA1s-r9PDHEgGvcWEFuDsGdvBOWkCohKytgfK+2996HxPufTwl9PA331nfTwD8n4G0AcAz+38-4AKFggUBrMpBRDuuebO6pR4xGtq4Y+Fx-ZYNvkLI2O8LhW31kLN8NBnB7yNhwnheC2FCxoFfdhQs97OFIb-MBCsuCcUZnQ-mLC2EcOwbg1wzhDYm08BIh+FxpGyI4QopR08HBMnINgX8FBJjL1CM4AAjkLFgeshauCNnvNex8kGeAQEQK2AAvJgNhywMgcCycALgPDeF8KIPeZhPjfFMnLaukBpDS2wMgSBuB2iE0gARDoJTjDpOwEwNJAkviJEgNkgceTkAFKKbwTS8BylSEqYIJYZhangDKRkh0pk+DtggB1JgQA" 
             title="Ring Counter" >
         </iframe>
     </div>
+
+---------
 
 If I decrease the slew rate of the clock buffers, increasing the time for the "input" clock to reach
 the TG, it gives more time for D, the input to change. It increases the hold time. Meaning, data 
@@ -202,3 +217,10 @@ Floating Point
 ====================
 
 
+IDK
+====================
+I hadn't really thought about it before but.. because we use LUTs to capture logic functions.
+We are no longer using gates. 
+We are using SRAM.
+Therefore the prop delay is of the SRAM and not the actual function or gate as taught in digital logic courses.
+Which also means.. the delay is constant for all function using that LUT.
