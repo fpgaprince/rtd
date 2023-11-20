@@ -91,3 +91,18 @@ and Embedded engineers are also crossing over into the FPGA realm.
 
 
 ok done.
+
+not..
+
+at the end of the day.. i view myself as a hardware designer.
+i constantly am thinking about the hardware, architecture, signals,
+controls, datapath, timing, electrical requirements and limitations.
+speed, area, power..
+i am aware of the resistance, inductance, capacitance 
+frequency impedance components placement routing..
+
+it just happens that i discribe circuit (digital) functionality
+thru a language instead of capturing it in a schematic.
+
+i am in the in between, the crossroads.
+i am neither this nor that.
