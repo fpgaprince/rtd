@@ -78,8 +78,38 @@ Clock Domain Crossing
 Slower to faster
 -----------------------
 
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="660" 
+            height="400" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcBmWBOA7AFjA5AmMSADjGIDYIFIQlraBTAWjDAChcllIsR8N8ILHD4CoUDgiTlhowRmTk54yGwBKIciRDJivBGEG7eEQfhH5oSS0howE68Fl7deWYjp7g+4C1b7+dlYcxB5gGEr4svhRfLJEQuD4bADuTi5eYM5xdqnpOeARBapprsr8ZmIl+WW1XtU4kWIyNBUSaQpN8giVgqqcIBS8bWhayrlpLZ68U8btmrJzGD06evPLRl4bq7zVo61imF0SWDEgnUIeGGvuKrCQZv4Ok9pzs2v99ETa4UqsmUVWuIHABJQZgJS3IaXO50PLQtrQiETQYycBjb5hMbVf4mIqsRSFJR7MbIQmYnSEnFwDxkv408BoPqSJDbRG3NoovQeRFozl5bZzaFzarCtbC+psAAefEgaEKyEGyDxkLiIAAJgwAC4MADGWoAlgA7ADmAB0AM4W40mgA2DEtACMDVrLbqAPZGrUAJ3dtst1pNRoAhraLZaAGa+gC2Adt7pSlq17sjwYtrot6vd0eDxpZfFiNAIdl8hfztxoWV2pd2eWL4iwBBUeRi1arzbSFZATCbKPbUUr2VYzNK5h0RjHw-m9an7anOKHhhqzJlBEEWDQNAwkAwQjQiuGvC1AAsDeHreeje6MxH3d6Az6GMHozaAwxvQbQ5b1cGtcGAISAdK440M4SgKOuG6JLEFrHu6ACutrqpaV4ZsewYAG4OhajrBrqADWSYpjheGERaYAAOTnnelqQFRwEbh4Ui8MQCDylIu6HiAuHWrqlr4JaABigmWghWoAA7wRmZ5Jse2H2lh-pWgAnkaurAcQChJIIhjhEkSBccG6rqq+6anueMlmdhDDqia2Gajq+oGp6bCOqiLGVq2QjbhIbncoMNBaBAWAYLuqhuVgaIQkkyC7ngirhUITYsEuTAhUI6WfJWDKNOARBuNFQI0M8IBHMoZXCCiFUiBSlXzP5dKDLcjYjk1Hgtb42gdTi+VCNFrArLlqgymgawsJWeBKEwnFqjZdnftqerSeeJruu6yEWre95WvGibpsREZphmAAUloAHyWmAVgAPT4FKqbpu+ACUwH5bSYSNu1wVqlmDCXtelopHeZFbQ9GbJnGCayQhJrHnkuVtHV-JpKMOgrPgoRoyufBgIqWj0hgEBaPKXEADIAKIAGrk6TloAMoAJoAHIAMKWsGRobeTAAiADi5OWtz5MACrkyzwv08zbMWgAgmoAsWoJADyaj06TSsAOqWsLStCTLdMSxa3NKwAsjLIJM0BMqEDM2TXB4MgzbELqWpZJ7WWmBrvqJRoMP+Tp8ZtR2AwatpKRaz7ifarsZtGiGGlH2GGtGf1sO6OgLA2RCKrY9xwEcCDkPgtg+IqyBp6VmegdntBQHncoRIXxfiII8rl+nghotXkA53X8AN+QTcl2YOgVwkXd9T3tcwP3BdF8Pvijx3SgTzgU+57Pjfzy3fBKOXQA" 
+            title="Ring Counter" >
+        </iframe>
+    </div>
+        
+---------
+
+
 Faster to Slower
 -----------------------
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="660" 
+            height="400" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWEBOaB2AHAZmcjAWBLANgwCYwsQFJrraEBTAWjDACgwEktJ8QyaMiHxwBQqFE7cQxUeOFoSCyZHYAlWZAwgsBamGF7+EYWDFloSS0lowEGkK0O6+TsttcmBr2jYFWqlacGDrMWMIeOmDEAp7mIiAY7ADuTnJe6fxRUmnMGTnhkZ5qabzZEoKREqVZmeWZtfgxKnJ+NakgSrFVXQjVwmpcSBgFEsjE7YO5svINbbr6tQvGfUZLnWj9mVvr-LUTU+BwOr1q+GRm5vwIyFfbt9MwcJGBDmmTOqsrGwCS4GB9I9wGQItQ7kEkO8kmNhKMTJMZvDwIjzPFEbU2G4wGhYmxlDjYpiTio0dEIUMZLsVARTjVqJ1aTTYTNqatkatahz9By3GoAB5OZqLWgRCB6KjZfgAWQAwgAFAA6AGcALYAVwANgAXACWKoAxgBPA2axgqgAOAENtQALFUAOwA9iqAGaMRgAEwARlaDQBrdiCiLCfDIWhoSBoETISUCfh23XKlVJx1O7Vup0AJxVyu1WcYVtVuodAHNc4ws7qrZqVZ6bVaAITNoO6CgiGhdLCSoiJMj8ZW2p1az1pjODq0AN3Nyt9AZV2pds79-pVYAA5MnldmVZBN62wzpuPwMLdqAho1KQL7lbqDSqyCqAGJPlXD7UW9Xj1N520zs3TrWyrKkaDoGq25jbGQxB4jgPTEMgfb8FanqeiW5a-j+P52jOXqljOnqMNqjAGnqToOuw3pJPgOgYLQkwQPgaDRk0YjdrEoi0GA+D7J0nHgDx8ZcYJTQtL0zR4i4omSZE8hsIMIQmIJ8ngLiAJmJA-bgHxYkSPxZydISQmqT0JSGcpLgTOpMxWb0dkdB8UpcWp-Z2J0VkqbZHRcCYJJGViJhqX4dAOMMIJHmQpxaf0OhuT5bbUJF4WJbFPgMOw-ysLECAuGCOVPG8GVOC0CCCXlIlQIVjnGRkCzLPwCzMDRsxuXkzWNc1pW8W1R6CVl1AiZ0lw3ElDQxTMw0pQIWn4BktSTbN-BNToi0zMtIgZOt+VrZ1Lj9dtmJJQgiLOMIx2tcVLjnZdRh8q2zj0TBKJUDBiFXsqRYzq66pgWRDoqlaW44SqGr8vdhAiElpAiFgjHxiAn6asqM4gWBnSnZk+T8A0AoCAgOgwbEBBIK9SEgAAKgAEr8ADKKrygAqgAMjTACiKZbq6O7Kk+ACCNPkyqAAiADy0q878AByKrkyLKo00zIsAOrC2LEuS-dXBUGwIhbAJZOLrm+ZEQa9rbl+C5-paWrIyDhYOluNPyuorO80Llszga5H5k6QG3qWDo1tA0Ca6VIg6EoDBw1pgMAyqBbKlq2oADQe9bSOe7qWYGuqurapu6e28qBaqlaJZbiWcfKqWurTv9wHaja-7kfhOa-uqW4AER5gW2qm+hnfsE6ugopIzSaXQzzwMguLHWQtg+FQWBD5Do+0OPZ2VfAkAz8Qc8L6GRgr4hLTr+Ym9T3Au-75IwiIcvw8JKfIjn5PsDT7PxDz7fxy6CvYAnyJC-Ceth35X0-t-YKAC-6PyQM-Deb9t7Xy-gfcAPAV7tnga-UBSCIGoPbA-HwWCQFbw-nvFBP8j5AA" 
+            title="Ring Counter" >
+        </iframe>
+    </div>
+        
+---------
+
+
+
 
 
 Reset 
@@ -228,7 +258,7 @@ Positive hold time, data cannot change after the clock arrives
 
 Negative Hold Time. data cannot change before the clock arrives
     isn't this like setup time?
-    
+
 .. raw:: html
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
