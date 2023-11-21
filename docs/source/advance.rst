@@ -108,10 +108,15 @@ i will create several calculators here. or spreadsheet. something interactive.
 
 the second approach is basically a handshaking relationship between the two. where the req/ack is full/empty.
 When the fifo is empty, do not read. when the fifo is full do not write. two pointers are created and each
-track the write event and read event, respectively. The two pointers are shared between the domain.
+track the write event and read event, respectively. 
+
+The two pointers are shared between the domain.
 Both domain needs each other's pointer value, the value must be passed across the domain.
-and the domain isn't necessarily the same. If it is, no problem. If it isn't, additional steps must be taken
-to pass the pointer value. 
+and the domain isn't necessarily the same. 
+
+    If it is, no problem. This is a synchronous FIFO.
+
+    If it isn't, additional steps must be taken to pass the pointer value. This is an asynchronous FIFO.
 
 the respective flags are calculated in their own domain, and are not passed to each other.
 
