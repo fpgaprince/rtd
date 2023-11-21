@@ -80,6 +80,58 @@ vectors, or words of whatever length say 16bit. then this FIFO is depth is 8 or 
         
 ---------
 
+For this 1x8. we are streaming the data. if the src clk is greater than the receive clk, and you constantly stream.
+at some point you're going to lose data. the read cant possibly keep up if the writes are constantly happening at a faster rate.
+it's just a matter of time before the cup overflows.
+
+it doesn't have to be a serial stream. just in general, if you are constantly writing faster than you are reading.. at some point,
+you'll wrap around and catch up.
+
+you can do one of two things, 
+    if the FIFO is not using flags (full,/empty) or the writes/reads occur at some known rate and period, 
+    the src needs to burst the wr/rd event/data and the FIFO needs to be large enough to accomodate the read/write differences. 
+
+    if you are using flags (full,empty) then they will control your write/read events.
+
+
+
+what has to be done here is bursting the read and write. the faster write domain has to accomadate the slower domain.. by bursting
+a block of data.. either filling up the FIFO or not. and waiting. the read just reads whenever, as long as it's not empty.
+
+because of this bursting, the incoming data over some time is set. as well as the read.
+the FIFO needs to be large enough to hold the write data while it is being read out.
+
+this is called the fifo depth.
+
+i will create several calculators here. or spreadsheet. something interactive.
+
+
+the second approach is basically a handshaking relationship between the two. where the req/ack is full/empty.
+When the fifo is empty, do not read. when the fifo is full do not write. two pointers are created and each
+track the write event and read event, respectively. The two pointers are shared between the domain.
+Both domain needs each other's pointer value, the value must be passed across the domain.
+and the domain isn't necessarily the same. If it is, no problem. If it isn't, additional steps must be taken
+to pass the pointer value. 
+
+the respective flags are calculated in their own domain, and are not passed to each other.
+
+the pointer on the other hand often is a BCD counter value.
+Passing multi value across domain has risks of skew? not arriving at the same time. 
+mis-clocking a pointer value will mess up the flag calculations.
+
+to mitigate this, we convert the BCD counter value to its Gray Code Equivalent.
+Gray Code increments / changes one bit at a time.
+Therefore while the number is "incrementing" only one bit is changing at a time..
+which is like sending a single bit across the domain.
+
+this gray code counter value is now used to determine the FIFO state and whether
+we can write/read.
+
+
+
+
+
+
 Pipeline
 =======================
 *   Pipelining the design, can increase fmax.
@@ -139,6 +191,10 @@ Faster to Slower
         
 ---------
 
+The above method can also be used to send multibit/parallel data.
+The data arrives first, then an assert signal, which becomes the pulse. detected as a level.
+a pulse is recreated in the slow side and now it can be ready to receive the fast data.
+in which the fast data has already been ready/standby this whole time.
 
 
 
