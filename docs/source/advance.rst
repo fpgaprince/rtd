@@ -49,6 +49,22 @@ FIFO
     occurs.
     We'll keep it brief here and discuss it more in the CDC section.
 
+Below is a quick and dirty simulation of the write and read pointers.
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe 
+            width="660" 
+            height="400" 
+            src="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWEDYCYDMqDsrUE4AOLSAgsJANnWWUmQFMBaMMAKADNwsKQC7UALHT7hw0JDEioOXHmG4hBdeT2XioaVgHdFQkHh5LwqAlG27lJi+Ap1I5lb2UKwV+zsevTnhfYAyIBQCNspytlAR7ACGADYAzvQ09gBK1kHWYKoRehIRMAisAOYZeKjWuMF2rABOIEKWpgLpXhFgcKwAxnXNVk3Bjnaw8JB4o2PjE3gg6NBgRAToCIsUqEFzkKpDbMV9st39pXnmRi3YZS32cdMU3r1wxqbKINHx9KxX6DeKgnX3Fa3PWIJIr7RQ4UEmR5mLq7f6w8GDYYjSYo0ZiFbodDkVAIVzYASuLAaOBsWr1b7BWE-ZTtD5fTC-OgMp4vYE7dIiXYGI4w9IM3YiRHDASolGbYYUBBLMBNPiEAgCLBYCCSSCkxnTMq7ZngWnXUyYOjkw0A1lvdnBT6NPkKnmgk3ar5CuBYhCi8aGaAEChBSAIVCQRV4FgIJrEtU1DUOvkB1rtHRWzVM2Mm9xJ9Mm-5pzM-RNZ8wmlqJi4F2NFlNlbMV-Wasw6M4PdMtNg6XYtBDhEutmPIcLM8xU4Id-jUgcxujD9NVkeWstuBxWZsuee1Hq3ddx+xdZuLxeHZ1wEXuj11aBjAjBzIkNodlVbEHNw6nEhHVJr1qLxTIAhe0yodT-rk+RjsEjDpJOYGVKWdCQTWsH2GS9ywbs8G6luoLIekzBZKq8BHseozimqapKnhfBkAIoZEqq2wYZkoJ2GYdKmMhSHpIxZrQbWJrwawAAeICMLaAhlAGECUXUuggB0MQANYADpxMkADCikAC4APaKdU9AJAAtgARjE9DafQsSKTJsn8YJtqrHIuKKBQUzBD8cRaAAlmpHQABaKe5AB2il6RpOmKQARIUURqbpYXWUJLmEOAYboGqkk-JF0VxEFGkACb0MZOWKVEWVKcpcVENMHaVUSizOVJwWhXE0T+RpACuamKfJACO2WNR0rXVDp-kdXEOXVO5ABuJlxDpXWte5Ok5eVBoLGCSDoN6aXBA103NW1I3dYphQ6VF9DVBZ3lRNUhTTWp7l6W8AlCc5bSKAQWpgNQLnBMdZnRedcQ+VdN3qfd02HXEMQaVoZ1BVEfGKewXWsBpgQ2NkbSVkMcDcPg6B4JRWI4hoKrgCj0zeFkeIE6ekxYBeeBSG0RGpco5MMvRRqY0ksytKwG1SQAYqTuGHgRYws8i4tTMwIDKVEAAOUQdJ5UT+R0bwCyJIDC9MaVIRAguza19DqwAnqwQA" 
+            title="Ring Counter" >
+        </iframe>
+    </div>
+        
+---------
+
+
 Pipeline
 =======================
 *   Pipelining the design, can increase fmax.
