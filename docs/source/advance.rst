@@ -275,19 +275,6 @@ Positive hold time, data cannot change after the clock arrives
 Negative Hold Time. data cannot change before the clock arrives
     isn't this like setup time?
 
-.. raw:: html
-
-    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <iframe 
-            width="660" 
-            height="400" 
-            src="https://www.edn.com/wp-content/uploads/media-1158084-296936-setup-and-hold-fig8.jpg" 
-            title="Ring Counter" >
-        </iframe>
-    </div>
-
----------
-
 
 
 Timing Closure
