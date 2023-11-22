@@ -71,13 +71,12 @@ FPGA SPI (Serial Peripheral Interface) refers to the integration and utilization
 
 Here are key aspects of FPGA SPI:
 
-SPI Basics:
+1.  SPI Basics:
+    SPI is a simple, synchronous, full-duplex serial communication protocol. It typically involves a master device and one or more slave devices. Communication occurs over multiple wires, including a serial data line (MOSI), a serial clock line (SCLK), a chip select line (CS/SS), and a serial data input line for the slave (MISO).
 
-SPI is a simple, synchronous, full-duplex serial communication protocol. It typically involves a master device and one or more slave devices. Communication occurs over multiple wires, including a serial data line (MOSI), a serial clock line (SCLK), a chip select line (CS/SS), and a serial data input line for the slave (MISO).
-FPGA as SPI Master or Slave:
-
-An FPGA can be configured to act as an SPI master or slave. As a master, it generates the clock signal and controls the data transfer to slave devices. As a slave, it responds to commands from an external master device.
-Configuration and Integration:
+2.  FPGA as SPI Master or Slave:
+    An FPGA can be configured to act as an SPI master or slave. As a master, it generates the clock signal and controls the data transfer to slave devices. As a slave, it responds to commands from an external master device.
+    Configuration and Integration:
 
 The FPGA is typically programmed to handle SPI communication by configuring its I/O pins, implementing state machines, and managing the SPI protocol timing. This can be done using a hardware description language (HDL) like VHDL or Verilog.
 SPI IP Cores:
