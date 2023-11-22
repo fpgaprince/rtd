@@ -168,39 +168,39 @@ USB, 2.0, 3.0
 *********************
 Using an FPGA with USB (Universal Serial Bus) involves implementing the USB communication protocol in FPGA-based systems. USB is a widely used standard for connecting and communicating between various devices such as computers, peripherals, and embedded systems. Implementing USB in an FPGA allows for versatile connectivity and communication capabilities. Here's an overview of how an FPGA can interface with USB:
 
-USB Basics:
+1.  USB Basics:
+    USB is a standardized communication protocol that supports high-speed data transfer and power delivery. It uses a host-device model, where a host (such as a computer) communicates with one or more connected devices. USB supports various data transfer rates, including USB 2.0, USB 3.0, and USB 3.1.
 
-USB is a standardized communication protocol that supports high-speed data transfer and power delivery. It uses a host-device model, where a host (such as a computer) communicates with one or more connected devices. USB supports various data transfer rates, including USB 2.0, USB 3.0, and USB 3.1.
-USB PHY and Controller Integration:
+2.  USB PHY and Controller Integration:
+    FPGAs often require external components, such as USB PHY (Physical Layer) and USB controller IP cores, to interface with USB devices. The PHY handles the electrical signaling, while the controller manages the higher-level protocol.
 
-FPGAs often require external components, such as USB PHY (Physical Layer) and USB controller IP cores, to interface with USB devices. The PHY handles the electrical signaling, while the controller manages the higher-level protocol.
-Configuration of FPGA I/O Pins:
+3.  Configuration of FPGA I/O Pins:
+    FPGA I/O pins need to be configured appropriately to interface with the USB PHY and controller. This includes setting the pins for USB data lines (D+ and D-) and managing other control signals.
 
-FPGA I/O pins need to be configured appropriately to interface with the USB PHY and controller. This includes setting the pins for USB data lines (D+ and D-) and managing other control signals.
-USB Communication Protocol Handling:
+4.  USB Communication Protocol Handling:
+    USB communication involves handling various aspects such as enumeration, packetizing data, error handling, and managing different USB transfer types (control, bulk, interrupt, and isochronous). The FPGA must be configured to support these features.
 
-USB communication involves handling various aspects such as enumeration, packetizing data, error handling, and managing different USB transfer types (control, bulk, interrupt, and isochronous). The FPGA must be configured to support these features.
-Endpoint Configuration:
+5.  Endpoint Configuration:
+    USB devices communicate through endpoints, each serving a specific purpose (e.g., control transfers, data transfers). The FPGA must be configured to handle endpoint configuration and data transfer according to the USB device's requirements.
 
-USB devices communicate through endpoints, each serving a specific purpose (e.g., control transfers, data transfers). The FPGA must be configured to handle endpoint configuration and data transfer according to the USB device's requirements.
-USB Device Classes:
+6.  USB Device Classes:
+    USB supports various device classes (e.g., human interface devices, storage devices, audio devices). The FPGA design may need to be tailored to support specific USB device classes.
 
-USB supports various device classes (e.g., human interface devices, storage devices, audio devices). The FPGA design may need to be tailored to support specific USB device classes.
-Power Delivery:
+7.  Power Delivery:
+    USB provides power to connected devices, and the FPGA design must consider power delivery requirements. Some USB-powered devices may require negotiation for higher power levels.
 
-USB provides power to connected devices, and the FPGA design must consider power delivery requirements. Some USB-powered devices may require negotiation for higher power levels.
-USB PHY Signaling:
+8.  USB PHY Signaling:
+    The PHY handles the signaling of USB data lines, including differential signaling. It may involve the use of serializers/deserializers (SERDES) for high-speed data transfer.
 
-The PHY handles the signaling of USB data lines, including differential signaling. It may involve the use of serializers/deserializers (SERDES) for high-speed data transfer.
-Real-Time Applications:
+9.  Real-Time Applications:
+    FPGAs are well-suited for real-time applications. The low-latency nature of FPGAs allows for quick processing of USB data, making them suitable for applications where rapid responses are essential.
 
-FPGAs are well-suited for real-time applications. The low-latency nature of FPGAs allows for quick processing of USB data, making them suitable for applications where rapid responses are essential.
-Testing and Compliance:
+10. Testing and Compliance:
+    USB compliance testing is essential to ensure that the FPGA-based USB interface adheres to the USB standard. Compliance testing tools and procedures are available to verify the correctness of the implementation.
 
-USB compliance testing is essential to ensure that the FPGA-based USB interface adheres to the USB standard. Compliance testing tools and procedures are available to verify the correctness of the implementation.
-USB IP Cores:
+11. USB IP Cores:
+    FPGA vendors often provide USB IP cores that simplify the integration of USB interfaces into FPGA designs. These IP cores may include configurable parameters, making it easier for designers to adapt the USB interface to their specific requirements.
 
-FPGA vendors often provide USB IP cores that simplify the integration of USB interfaces into FPGA designs. These IP cores may include configurable parameters, making it easier for designers to adapt the USB interface to their specific requirements.
 When working with FPGA-based USB interfaces, it's important to refer to the datasheets of both the USB PHY, controller, and the FPGA, and to leverage the features of the FPGA development environment to streamline the design and testing processes. Additionally, understanding the USB standard and the specific requirements of the connected USB devices is crucial for successful implementation.
 
 
