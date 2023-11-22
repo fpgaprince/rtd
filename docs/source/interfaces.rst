@@ -267,36 +267,36 @@ Using an FPGA with RS-422 (Recommended Standard 422) involves implementing the R
 
 Here's a general overview of how an FPGA can interface with RS-422:
 
-RS-422 Basics:
+1.  RS-422 Basics:
+    RS-422 is a differential signaling standard that uses two wires for communication: one for transmitting data (TxD) and another for receiving data (RxD). This differential signaling helps in noise rejection and allows for longer communication distances compared to single-ended signals.
 
-RS-422 is a differential signaling standard that uses two wires for communication: one for transmitting data (TxD) and another for receiving data (RxD). This differential signaling helps in noise rejection and allows for longer communication distances compared to single-ended signals.
-Transceiver Integration:
+2.  Transceiver Integration:
+    The FPGA needs to interface with an RS-422 transceiver to handle the electrical characteristics of RS-422 signaling. RS-422 transceivers often have differential inputs and outputs, and they may include features like driver and receiver enable controls.
 
-The FPGA needs to interface with an RS-422 transceiver to handle the electrical characteristics of RS-422 signaling. RS-422 transceivers often have differential inputs and outputs, and they may include features like driver and receiver enable controls.
-Configuration of FPGA I/O Pins:
+3.  Configuration of FPGA I/O Pins:
+    FPGA I/O pins need to be configured appropriately to interface with the RS-422 transceiver. This includes setting the pins to differential signaling mode, configuring data direction controls, and managing the control signals for the RS-422 transceiver.
 
-FPGA I/O pins need to be configured appropriately to interface with the RS-422 transceiver. This includes setting the pins to differential signaling mode, configuring data direction controls, and managing the control signals for the RS-422 transceiver.
-Communication Protocol Handling:
+4.  Communication Protocol Handling:
+    RS-422 typically uses a point-to-point communication model with a master and a slave device. The FPGA is configured to handle the communication protocol, including start and stop bits, parity, and the data frame format.
 
-RS-422 typically uses a point-to-point communication model with a master and a slave device. The FPGA is configured to handle the communication protocol, including start and stop bits, parity, and the data frame format.
-Baud Rate Configuration:
+5.  Baud Rate Configuration:
+    The FPGA is configured to set the baud rate of the RS-422 communication. Baud rate refers to the number of bits transmitted per second. Matching the baud rate on both ends of the communication link is crucial for successful data exchange.
 
-The FPGA is configured to set the baud rate of the RS-422 communication. Baud rate refers to the number of bits transmitted per second. Matching the baud rate on both ends of the communication link is crucial for successful data exchange.
-Data Transfer:
+6.  Data Transfer:
+    The FPGA reads and writes data to and from the RS-422 transceiver. Differential signaling helps in noise rejection, making RS-422 suitable for environments with high electromagnetic interference.
 
-The FPGA reads and writes data to and from the RS-422 transceiver. Differential signaling helps in noise rejection, making RS-422 suitable for environments with high electromagnetic interference.
-Error Handling:
+7.  Error Handling:
+    Implementing error-detection mechanisms, such as parity or cyclic redundancy check (CRC), within the FPGA design can enhance the reliability of RS-422 communication.
 
-Implementing error-detection mechanisms, such as parity or cyclic redundancy check (CRC), within the FPGA design can enhance the reliability of RS-422 communication.
-Real-Time Applications:
+8.  Real-Time Applications:
+    FPGAs are well-suited for real-time applications. The low-latency nature of FPGAs allows for quick processing of RS-422 data, making them suitable for applications where rapid responses are essential.
 
-FPGAs are well-suited for real-time applications. The low-latency nature of FPGAs allows for quick processing of RS-422 data, making them suitable for applications where rapid responses are essential.
-Testing and Debugging:
+9.  Testing and Debugging:
+    Debugging tools provided by FPGA development environments are crucial for validating the correctness of the FPGA design and troubleshooting any issues that may arise during the integration of RS-422 communication.
 
-Debugging tools provided by FPGA development environments are crucial for validating the correctness of the FPGA design and troubleshooting any issues that may arise during the integration of RS-422 communication.
-Integration with Other Protocols:
+10. Integration with Other Protocols:
+    In some applications, RS-422 may be part of a larger communication system that includes other protocols. The FPGA can be configured to handle multiple communication protocols simultaneously.
 
-In some applications, RS-422 may be part of a larger communication system that includes other protocols. The FPGA can be configured to handle multiple communication protocols simultaneously.
 When working with FPGA-based RS-422 interfaces, it's important to refer to the datasheets of both the RS-422 transceiver and the FPGA, and to leverage the features of the FPGA development environment to streamline the design and testing processes.
 
 
@@ -317,30 +317,30 @@ FPGA RS-485 refers to the implementation of the RS-485 communication standard in
 
 Key aspects of implementing RS-485 in an FPGA-based system include:
 
-Differential Signaling:
+1.  Differential Signaling:
+    RS-485 uses differential signaling, where data is transmitted as the voltage difference between two lines: A (non-inverted) and B (inverted). This differential signaling helps in noise rejection and allows for longer communication distances compared to single-ended signals.
 
-RS-485 uses differential signaling, where data is transmitted as the voltage difference between two lines: A (non-inverted) and B (inverted). This differential signaling helps in noise rejection and allows for longer communication distances compared to single-ended signals.
-Transceiver Integration:
+2.  Transceiver Integration:
+    FPGAs often integrate programmable I/O pins that can be configured to implement RS-485 transceivers. However, external RS-485 transceiver ICs can also be used and interfaced with the FPGA through standard interfaces like UART (Universal Asynchronous Receiver/Transmitter).
 
-FPGAs often integrate programmable I/O pins that can be configured to implement RS-485 transceivers. However, external RS-485 transceiver ICs can also be used and interfaced with the FPGA through standard interfaces like UART (Universal Asynchronous Receiver/Transmitter).
-UART Communication:
+3.  UART Communication:
+    RS-485 communication is typically implemented using UART communication protocols. The FPGA generates the necessary UART signals, including start and stop bits, and interfaces with the RS-485 transceiver for physical layer communication.
 
-RS-485 communication is typically implemented using UART communication protocols. The FPGA generates the necessary UART signals, including start and stop bits, and interfaces with the RS-485 transceiver for physical layer communication.
-Driver and Receiver Enable Control:
+4.  Driver and Receiver Enable Control:
+    RS-485 transceivers have control lines such as Driver Enable (DE) and Receiver Enable (RE) to control the direction of communication. These control lines are managed by the FPGA to switch between transmission and reception modes.
 
-RS-485 transceivers have control lines such as Driver Enable (DE) and Receiver Enable (RE) to control the direction of communication. These control lines are managed by the FPGA to switch between transmission and reception modes.
-Baud Rate Configuration:
+5.  Baud Rate Configuration:
+    The FPGA is configured to set the baud rate, data frame format, and other communication parameters. These configurations must match the settings on the other end of the RS-485 link for successful communication.
 
-The FPGA is configured to set the baud rate, data frame format, and other communication parameters. These configurations must match the settings on the other end of the RS-485 link for successful communication.
-Termination and Line Biasing:
+6.  Termination and Line Biasing:
+    Considerations such as termination resistors and line biasing may be necessary for proper RS-485 operation. The FPGA design should account for these factors to optimize signal integrity.
 
-Considerations such as termination resistors and line biasing may be necessary for proper RS-485 operation. The FPGA design should account for these factors to optimize signal integrity.
-Error Handling:
+7.  Error Handling:
+    Implementing error-detection mechanisms, such as parity or cyclic redundancy check (CRC), within the FPGA design can enhance the reliability of RS-485 communication.
 
-Implementing error-detection mechanisms, such as parity or cyclic redundancy check (CRC), within the FPGA design can enhance the reliability of RS-485 communication.
-FPGA Development Tools:
+8.  FPGA Development Tools:
+    FPGA development tools provided by vendors (e.g., Xilinx, Intel/Altera) include utilities for configuring I/O pins, generating programming files, and testing RS-485 communication within the FPGA design.
 
-FPGA development tools provided by vendors (e.g., Xilinx, Intel/Altera) include utilities for configuring I/O pins, generating programming files, and testing RS-485 communication within the FPGA design.
 Implementing RS-485 in an FPGA requires a good understanding of the RS-485 standard, careful consideration of electrical characteristics, and appropriate FPGA programming. It is important to consult the documentation provided by the FPGA vendor and any relevant RS-485 transceiver datasheets during the implementation process.
 
     new, replaced rs422.
@@ -366,52 +366,53 @@ CAN
 Implementing CAN (Controller Area Network) functionality in an FPGA involves integrating CAN modules or IP cores into the FPGA design to enable communication in automotive and industrial applications. CAN is a robust and widely used communication protocol known for its reliability in noisy environments. Here's an overview of the steps involved in implementing CAN in an FPGA:
 
 Key Components and Concepts:
-CAN Controller:
 
-The CAN controller is responsible for managing the communication protocol, including message framing, arbitration, error detection, and acknowledgment.
-CAN Transceiver:
+1.  CAN Controller:
+    The CAN controller is responsible for managing the communication protocol, including message framing, arbitration, error detection, and acknowledgment.
 
-The CAN transceiver interfaces with the physical layer and converts the digital signals from the CAN controller into differential signals suitable for transmission over the CAN bus.
-CAN Standards:
+2.  CAN Transceiver:
+    The CAN transceiver interfaces with the physical layer and converts the digital signals from the CAN controller into differential signals suitable for transmission over the CAN bus.
 
-CAN supports various standards, including Classical CAN (ISO 11898-1) and CAN FD (Flexible Data-rate). Choose the standard that aligns with your application's requirements for data rate and message size.
-Bit Timing Configuration:
+3.  CAN Standards:
+    CAN supports various standards, including Classical CAN (ISO 11898-1) and CAN FD (Flexible Data-rate). Choose the standard that aligns with your application's requirements for data rate and message size.
 
-Configure the bit timing parameters, such as the synchronization jump width, time quantum, and sample point, based on the CAN standard and the network's requirements.
+4.  Bit Timing Configuration:
+    Configure the bit timing parameters, such as the synchronization jump width, time quantum, and sample point, based on the CAN standard and the network's requirements.
+
 Implementation Steps:
-Select an FPGA with CAN Support:
+1.  Select an FPGA with CAN Support:
+    Choose an FPGA that has sufficient resources and interfaces for integrating CAN functionality. Some FPGAs come with dedicated CAN controllers and transceivers or provide IP cores for CAN.
 
-Choose an FPGA that has sufficient resources and interfaces for integrating CAN functionality. Some FPGAs come with dedicated CAN controllers and transceivers or provide IP cores for CAN.
-CAN IP Core Integration:
+2.  CAN IP Core Integration:
+    If available, integrate a CAN IP core provided by the FPGA vendor into your design. Configure the IP core with the required settings, such as the chosen CAN standard, bit timing parameters, and filter configurations.
 
-If available, integrate a CAN IP core provided by the FPGA vendor into your design. Configure the IP core with the required settings, such as the chosen CAN standard, bit timing parameters, and filter configurations.
-External CAN Transceiver (Optional):
+3.  External CAN Transceiver (Optional):
+    If using an external CAN transceiver, interface it with the FPGA. This involves connecting the appropriate pins and managing the communication protocols.
 
-If using an external CAN transceiver, interface it with the FPGA. This involves connecting the appropriate pins and managing the communication protocols.
-Bit Timing Configuration:
+4.  Bit Timing Configuration:
+    Implement logic to configure the bit timing parameters for the CAN controller. Ensure that the bit timing aligns with the requirements of the CAN standard and the network.
 
-Implement logic to configure the bit timing parameters for the CAN controller. Ensure that the bit timing aligns with the requirements of the CAN standard and the network.
-Message Handling:
+5.  Message Handling:
+    Implement logic for message handling, including message transmission and reception. This involves managing message IDs, data fields, and error handling.
 
-Implement logic for message handling, including message transmission and reception. This involves managing message IDs, data fields, and error handling.
-Error Detection and Handling:
+6.  Error Detection and Handling:
+    Incorporate logic for error detection and handling. CAN includes mechanisms for detecting errors such as bit errors, frame errors, and CRC errors.
 
-Incorporate logic for error detection and handling. CAN includes mechanisms for detecting errors such as bit errors, frame errors, and CRC errors.
-Application Logic:
+7.  Application Logic:
+    Implement the specific application logic that utilizes the CAN functionality. This may include tasks such as sensor interfacing, actuator control, or data exchange with other CAN nodes.
 
-Implement the specific application logic that utilizes the CAN functionality. This may include tasks such as sensor interfacing, actuator control, or data exchange with other CAN nodes.
-Testing and Debugging:
+8.  Testing and Debugging:
+    Use simulation tools and debugging features to test and validate your CAN implementation. Verify proper message transmission, reception, error handling, and overall system stability.
 
-Use simulation tools and debugging features to test and validate your CAN implementation. Verify proper message transmission, reception, error handling, and overall system stability.
-Power Considerations:
+9.  Power Considerations:
+    Consider power consumption, especially for applications where power efficiency is crucial. Optimize your design for power efficiency while meeting performance requirements.
 
-Consider power consumption, especially for applications where power efficiency is crucial. Optimize your design for power efficiency while meeting performance requirements.
-Compliance Testing:
+10. Compliance Testing:
+    If applicable, perform compliance testing to ensure that your CAN implementation complies with the relevant CAN standards and certifications.
 
-If applicable, perform compliance testing to ensure that your CAN implementation complies with the relevant CAN standards and certifications.
-Integration with Other Components:
+11. Integration with Other Components:
+    Integrate the CAN functionality with other components of your FPGA design, such as processors, memory, or custom logic.
 
-Integrate the CAN functionality with other components of your FPGA design, such as processors, memory, or custom logic.
 Implementing CAN in an FPGA enables reliable communication in applications where a robust and deterministic communication protocol is required, such as automotive and industrial systems. Refer to the documentation provided by the FPGA vendor and the CAN IP core or transceiver manufacturer for specific guidance and resources related to CAN implementation on your chosen FPGA platform.
 
 SERDES
