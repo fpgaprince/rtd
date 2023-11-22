@@ -214,36 +214,36 @@ RS232
 *********************
 Using an FPGA with RS-232 (Recommended Standard 232) involves implementing the RS-232 communication protocol in FPGA-based systems. RS-232 is a widely used serial communication standard that defines the electrical characteristics of the signals and the protocol for asynchronous communication between devices. Here's an overview of how an FPGA can interface with RS-232:
 
-RS-232 Basics:
+1.  RS-232 Basics:
+    RS-232 uses a serial communication format with two wires: one for transmitting data (TX) and another for receiving data (RX). It operates in an asynchronous mode, meaning that data is transmitted without a shared clock signal. Additional signals, such as ground (GND) and sometimes others like Data Terminal Ready (DTR) and Data Set Ready (DSR), may also be part of the RS-232 connection.
 
-RS-232 uses a serial communication format with two wires: one for transmitting data (TX) and another for receiving data (RX). It operates in an asynchronous mode, meaning that data is transmitted without a shared clock signal. Additional signals, such as ground (GND) and sometimes others like Data Terminal Ready (DTR) and Data Set Ready (DSR), may also be part of the RS-232 connection.
-Transceiver Integration:
+2.  Transceiver Integration:
+    The FPGA needs to interface with an RS-232 transceiver or level shifter to handle the electrical characteristics of RS-232 signaling. RS-232 signals are typically bipolar, and they have voltage levels that may not be directly compatible with the I/O standards of FPGAs.
 
-The FPGA needs to interface with an RS-232 transceiver or level shifter to handle the electrical characteristics of RS-232 signaling. RS-232 signals are typically bipolar, and they have voltage levels that may not be directly compatible with the I/O standards of FPGAs.
-Configuration of FPGA I/O Pins:
+3.  Configuration of FPGA I/O Pins:
+    FPGA I/O pins need to be configured appropriately to interface with the RS-232 transceiver. This includes setting the pins for serial communication and configuring the voltage levels to match the RS-232 standard.
 
-FPGA I/O pins need to be configured appropriately to interface with the RS-232 transceiver. This includes setting the pins for serial communication and configuring the voltage levels to match the RS-232 standard.
-Communication Protocol Handling:
+4.  Communication Protocol Handling:
+    RS-232 communication involves managing the start and stop bits, data format (usually 8 data bits, no parity, and 1 or 2 stop bits), and handling the flow control if necessary (hardware or software flow control).
 
-RS-232 communication involves managing the start and stop bits, data format (usually 8 data bits, no parity, and 1 or 2 stop bits), and handling the flow control if necessary (hardware or software flow control).
-Baud Rate Configuration:
+5.  Baud Rate Configuration:
+    The FPGA is configured to set the baud rate of the RS-232 communication. Baud rate represents the speed of data transmission, and it must be matched between the transmitting and receiving devices.
 
-The FPGA is configured to set the baud rate of the RS-232 communication. Baud rate represents the speed of data transmission, and it must be matched between the transmitting and receiving devices.
-Data Transfer:
+6.  Data Transfer:
+    The FPGA reads and writes data to and from the RS-232 transceiver. The asynchronous nature of RS-232 communication requires careful synchronization of data transmission and reception.
 
-The FPGA reads and writes data to and from the RS-232 transceiver. The asynchronous nature of RS-232 communication requires careful synchronization of data transmission and reception.
-Flow Control:
+7.  Flow Control:
+    RS-232 communication may involve flow control mechanisms to manage the data flow between the sender and receiver. This can be implemented using hardware (RTS/CTS) or software (XON/XOFF) flow control.
 
-RS-232 communication may involve flow control mechanisms to manage the data flow between the sender and receiver. This can be implemented using hardware (RTS/CTS) or software (XON/XOFF) flow control.
-Error Handling:
+8.  Error Handling:
+    Implementing error-detection mechanisms, such as parity or cyclic redundancy check (CRC), within the FPGA design can enhance the reliability of RS-232 communication.
 
-Implementing error-detection mechanisms, such as parity or cyclic redundancy check (CRC), within the FPGA design can enhance the reliability of RS-232 communication.
-Real-Time Applications:
+9.  Real-Time Applications:
+    FPGAs are well-suited for real-time applications. The low-latency nature of FPGAs allows for quick processing of RS-232 data, making them suitable for applications where rapid responses are essential.
 
-FPGAs are well-suited for real-time applications. The low-latency nature of FPGAs allows for quick processing of RS-232 data, making them suitable for applications where rapid responses are essential.
-Testing and Debugging:
+10. Testing and Debugging:
+    Debugging tools provided by FPGA development environments are crucial for validating the correctness of the FPGA design and troubleshooting any issues that may arise during the integration of RS-232 communication.
 
-Debugging tools provided by FPGA development environments are crucial for validating the correctness of the FPGA design and troubleshooting any issues that may arise during the integration of RS-232 communication.
 When working with FPGA-based RS-232 interfaces, it's important to refer to the datasheets of both the RS-232 transceiver and the FPGA, and to leverage the features of the FPGA development environment to streamline the design and testing processes. Additionally, understanding the specific requirements of the RS-232 devices involved in the communication is crucial for successful implementation.
 
 
