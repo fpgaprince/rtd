@@ -76,10 +76,11 @@ Here are key aspects of FPGA SPI:
 
 2.  FPGA as SPI Master or Slave:
     An FPGA can be configured to act as an SPI master or slave. As a master, it generates the clock signal and controls the data transfer to slave devices. As a slave, it responds to commands from an external master device.
-    Configuration and Integration:
 
-The FPGA is typically programmed to handle SPI communication by configuring its I/O pins, implementing state machines, and managing the SPI protocol timing. This can be done using a hardware description language (HDL) like VHDL or Verilog.
-SPI IP Cores:
+3.  Configuration and Integration:
+    The FPGA is typically programmed to handle SPI communication by configuring its I/O pins, implementing state machines, and managing the SPI protocol timing. This can be done using a hardware description language (HDL) like VHDL or Verilog.
+
+4.  SPI IP Cores:
 
 Many FPGA vendors provide intellectual property (IP) cores that simplify the integration of SPI interfaces into FPGA designs. These IP cores may include configurable parameters, making it easier for designers to adapt the SPI interface to their specific requirements.
 Applications:
