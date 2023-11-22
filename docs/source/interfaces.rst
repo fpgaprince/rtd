@@ -71,24 +71,24 @@ FPGA SPI (Serial Peripheral Interface) refers to the integration and utilization
 
 Here are key aspects of FPGA SPI:
 
-1.  SPI Basics:
+1.  **SPI Basics:**
     SPI is a simple, synchronous, full-duplex serial communication protocol. It typically involves a master device and one or more slave devices. Communication occurs over multiple wires, including a serial data line (MOSI), a serial clock line (SCLK), a chip select line (CS/SS), and a serial data input line for the slave (MISO).
 
-2.  FPGA as SPI Master or Slave:
+2.  **FPGA as SPI Master or Slave:**
     An FPGA can be configured to act as an SPI master or slave. As a master, it generates the clock signal and controls the data transfer to slave devices. As a slave, it responds to commands from an external master device.
 
-3.  Configuration and Integration:
+3.  **Configuration and Integration:**
     The FPGA is typically programmed to handle SPI communication by configuring its I/O pins, implementing state machines, and managing the SPI protocol timing. This can be done using a hardware description language (HDL) like VHDL or Verilog.
 
-4.  SPI IP Cores:
+4.  **SPI IP Cores:**
+    Many FPGA vendors provide intellectual property (IP) cores that simplify the integration of SPI interfaces into FPGA designs. These IP cores may include configurable parameters, making it easier for designers to adapt the SPI interface to their specific requirements.
 
-Many FPGA vendors provide intellectual property (IP) cores that simplify the integration of SPI interfaces into FPGA designs. These IP cores may include configurable parameters, making it easier for designers to adapt the SPI interface to their specific requirements.
-Applications:
+5.  **Applications:**
+    FPGA SPI is commonly used in various applications, such as interfacing with sensors like accelerometers and gyros, communicating with external memory devices, connecting to display modules, or interfacing with other digital components that support the SPI protocol.
 
-FPGA SPI is commonly used in various applications, such as interfacing with sensors like accelerometers and gyros, communicating with external memory devices, connecting to display modules, or interfacing with other digital components that support the SPI protocol.
-Programming Tools:
+6.  **Programming Tools:**
+    FPGA development tools, provided by vendors like Xilinx or Intel (formerly Altera), offer utilities for configuring and implementing SPI interfaces within FPGA designs. Designers can use these tools to define SPI configurations, assign pins, and generate programming files.
 
-FPGA development tools, provided by vendors like Xilinx or Intel (formerly Altera), offer utilities for configuring and implementing SPI interfaces within FPGA designs. Designers can use these tools to define SPI configurations, assign pins, and generate programming files.
 When working with FPGA SPI, it's essential to consult the documentation and resources provided by the FPGA vendor, as specific implementations and capabilities can vary. Additionally, thorough testing and simulation are crucial to ensuring reliable SPI communication in FPGA-based systems.
 
 
