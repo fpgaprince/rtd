@@ -273,7 +273,7 @@ Here's a general overview of how an FPGA can interface with RS-422:
 2.  **Transceiver Integration:**
     The FPGA needs to interface with an RS-422 transceiver to handle the electrical characteristics of RS-422 signaling. RS-422 transceivers often have differential inputs and outputs, and they may include features like driver and receiver enable controls.
 
-3.  **Configuration of FPGA I/O Pins:
+3.  **Configuration of FPGA I/O Pins:**
     FPGA I/O pins need to be configured appropriately to interface with the RS-422 transceiver. This includes setting the pins to differential signaling mode, configuring data direction controls, and managing the control signals for the RS-422 transceiver.
 
 4.  **Communication Protocol Handling:**
@@ -323,7 +323,7 @@ Key aspects of implementing RS-485 in an FPGA-based system include:
 2.  **Transceiver Integration:**
     FPGAs often integrate programmable I/O pins that can be configured to implement RS-485 transceivers. However, external RS-485 transceiver ICs can also be used and interfaced with the FPGA through standard interfaces like UART (Universal Asynchronous Receiver/Transmitter).
 
-3.  **UART Communication:
+3.  **UART Communication:**
     RS-485 communication is typically implemented using UART communication protocols. The FPGA generates the necessary UART signals, including start and stop bits, and interfaces with the RS-485 transceiver for physical layer communication.
 
 4.  **Driver and Receiver Enable Control:**
@@ -380,6 +380,7 @@ Implementing CAN (Controller Area Network) functionality in an FPGA involves int
     Configure the bit timing parameters, such as the synchronization jump width, time quantum, and sample point, based on the CAN standard and the network's requirements.
 
 **Implementation Steps:**
+
 1.  **Select an FPGA with CAN Support:**
     Choose an FPGA that has sufficient resources and interfaces for integrating CAN functionality. Some FPGAs come with dedicated CAN controllers and transceivers or provide IP cores for CAN.
 
@@ -529,6 +530,7 @@ In many Ethernet standards, including Gigabit Ethernet, 10 Gigabit Ethernet, and
 Alignment and Synchronization:**
 
 The PCS ensures alignment and synchronization of transmitted data to facilitate accurate decoding at the receiver.
+
 **Physical Medium Attachment (PMA):**
 
 1.  **Responsibilities:**
@@ -567,42 +569,57 @@ An Ethernet MAC (Media Access Control) is a crucial component in networking syst
 **Key Components and Concepts:**
 
 1.  **MAC Address:**
-Every networked device on an Ethernet network is assigned a unique MAC address. The MAC address is a hardware address burned into the network interface card (NIC) and is used for addressing frames on the network.
+    Every networked device on an Ethernet network is assigned a unique MAC address. The MAC address is a hardware address burned into the network interface card (NIC) and is used for addressing frames on the network.
+
 2.  **Frame Format:**
-Ethernet communication involves the exchange of frames. An Ethernet frame typically includes fields such as destination and source MAC addresses, EtherType, payload (data), and a CRC for error checking.
+    Ethernet communication involves the exchange of frames. An Ethernet frame typically includes fields such as destination and source MAC addresses, EtherType, payload (data), and a CRC for error checking.
+
 3.  **Half-Duplex and Full-Duplex:**
-Ethernet supports both half-duplex and full-duplex communication. In half-duplex mode, devices share the same communication medium and must take turns transmitting and receiving. In full-duplex mode, devices can transmit and receive simultaneously.
+    Ethernet supports both half-duplex and full-duplex communication. In half-duplex mode, devices share the same communication medium and must take turns transmitting and receiving. In full-duplex mode, devices can transmit and receive simultaneously.
+
 4.  **Carrier Sense Multiple Access with Collision Detection (CSMA/CD):**
-Ethernet traditionally used CSMA/CD for half-duplex communication, where devices listen for a carrier signal before transmitting and detect collisions if they occur. Full-duplex communication eliminates the need for CSMA/CD.
+    Ethernet traditionally used CSMA/CD for half-duplex communication, where devices listen for a carrier signal before transmitting and detect collisions if they occur. Full-duplex communication eliminates the need for CSMA/CD.
+
 5.  **Media-Independent Interface (MII) and Gigabit Media-Independent Interface (GMII):**
-MII and GMII are standard interfaces between the MAC and the PHY (Physical Layer) in Ethernet communication. They define the signals and protocols for communication between the MAC and the PHY.
+    MII and GMII are standard interfaces between the MAC and the PHY (Physical Layer) in Ethernet communication. They define the signals and protocols for communication between the MAC and the PHY.
+
 6.  **Clocking and Timing:**
-Synchronization and timing are critical in Ethernet communication. The MAC needs to synchronize with the incoming clock from the PHY and adhere to specific timing requirements for accurate data transmission and reception.
+    Synchronization and timing are critical in Ethernet communication. The MAC needs to synchronize with the incoming clock from the PHY and adhere to specific timing requirements for accurate data transmission and reception.
 
 **Implementation Steps:**
 
 1.  **Selecting an Ethernet MAC IP Core:**
-FPGA vendors, such as Xilinx and Intel, provide pre-designed Ethernet MAC IP cores that can be easily integrated into FPGA designs. These cores handle the low-level details of Ethernet communication.
+    FPGA vendors, such as Xilinx and Intel, provide pre-designed Ethernet MAC IP cores that can be easily integrated into FPGA designs. These cores handle the low-level details of Ethernet communication.
+
 2.  **Custom MAC Implementation (Optional):**
-For more control and customization, you can implement a custom Ethernet MAC using HDL. This involves designing the logic for frame processing, addressing, and interfacing with the PHY.
+    For more control and customization, you can implement a custom Ethernet MAC using HDL. This involves designing the logic for frame processing, addressing, and interfacing with the PHY.
+
 3.  **Integrating the MAC into the Design:**
-Integrate the chosen Ethernet MAC solution into your overall FPGA design. Connect the MAC to other components, such as processors or memory, depending on your application requirements.
+    Integrate the chosen Ethernet MAC solution into your overall FPGA design. Connect the MAC to other components, such as processors or memory, depending on your application requirements.
+
 4.  **Configuring MAC Parameters:**
-If using an IP core, configure parameters such as the MAC address, speed, and duplex mode through the vendor's development environment.
+    If using an IP core, configure parameters such as the MAC address, speed, and duplex mode through the vendor's development environment.
+
 5.  **Handling Ethernet Frames:**
-Implement logic to handle incoming and outgoing Ethernet frames. This includes parsing frame headers, extracting MAC addresses, and managing the frame payload.
+    Implement logic to handle incoming and outgoing Ethernet frames. This includes parsing frame headers, extracting MAC addresses, and managing the frame payload.
+
 6.  **PHY Interface:**
-Interface with the PHY using MII or GMII. Ensure proper configuration and synchronization with the PHY's clock.
+    Interface with the PHY using MII or GMII. Ensure proper configuration and synchronization with the PHY's clock.
+
 7.  **Collision Handling (Optional):**
-If designing for half-duplex communication, implement collision detection and handling mechanisms. In full-duplex mode, collisions are typically not a concern.
+    If designing for half-duplex communication, implement collision detection and handling mechanisms. In full-duplex mode, collisions are typically not a concern.
+
 8.  **Testing and Debugging:**
-Utilize simulation tools and debugging features to verify the correctness of your Ethernet MAC implementation. Test various scenarios, including different frame types and network conditions.
+    Utilize simulation tools and debugging features to verify the correctness of your Ethernet MAC implementation. Test various scenarios, including different frame types and network conditions.
+
 9.  **Power Considerations:**
-Consider power consumption in your design, especially for applications with specific power requirements. Optimize your design for power efficiency where possible.
+    Consider power consumption in your design, especially for applications with specific power requirements. Optimize your design for power efficiency where possible.
+
 10.  **Compliance Testing:**
-Ensure that your Ethernet MAC design complies with relevant Ethernet standards. Perform compliance testing to ensure interoperability with other Ethernet devices.
+    Ensure that your Ethernet MAC design complies with relevant Ethernet standards. Perform compliance testing to ensure interoperability with other Ethernet devices.
+
 11.  **Documentation:**
-Document your Ethernet MAC implementation, including configuration settings, signal assignments, and any custom logic.
+    Document your Ethernet MAC implementation, including configuration settings, signal assignments, and any custom logic.
 
 By selecting or implementing an Ethernet MAC in an FPGA, you can enable network connectivity for your FPGA-based applications, allowing them to communicate with other devices over Ethernet networks.
     
