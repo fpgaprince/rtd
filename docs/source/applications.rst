@@ -1,3 +1,4 @@
+************************
 Applications
 ************************
 
@@ -11,7 +12,7 @@ other areas will be brief.
 
 
 Digital Systems
-=======================
+##########################
 The world is analog. We need a means to go to and fro.
 
     DAC
@@ -19,12 +20,13 @@ The world is analog. We need a means to go to and fro.
     ADC
 
 Computer Architecture
-=======================
+##########################
 
 Signals and System
-=======================
+##########################
 
-    DSP (Digital Signal Processing)
+DSP (Digital Signal Processing)
+******************************************
 FPGA-based Digital Signal Processing (DSP) involves using the configurable logic and dedicated DSP resources within an FPGA to implement signal processing algorithms. FPGAs are well-suited for DSP applications due to their parallel processing capabilities, reconfigurability, and ability to efficiently implement complex algorithms. Here's an overview of the steps involved in implementing DSP in an FPGA:
 
 Select an FPGA with DSP Blocks:
@@ -76,8 +78,11 @@ When working on FPGA-based DSP, it's important to leverage the documentation and
 
 
 
-    Image and Video Processing
+Image Processing 
+******************************************
 
+Video Processing
+******************************************
 Implementing video processing in an FPGA (Field-Programmable Gate Array) allows for real-time and high-performance video processing tasks. Video processing in FPGAs is commonly used in applications such as image and video processing, computer vision, and multimedia systems. Here's an overview of the steps involved in implementing video processing in an FPGA:
 
 Choose an FPGA with Sufficient Resources:
@@ -130,24 +135,29 @@ When working on video processing in an FPGA, it's essential to refer to the docu
 
 
 Wired/Wireless Communication
-=======================
+##########################
 
-    Encoding
-    
-    Mapping
-    
-    Filter
-    
-    Modulation
+Encoding
+******************************************
 
-    Demodulating
+Mapping
+******************************************
 
-    Decoding
+Filter
+******************************************
 
+Modulation
+******************************************
+
+Demodulating
+******************************************
+
+Decoding
+******************************************
 
 
 Networking    
-=======================
+##########################
     Ethernet
 ::
 
@@ -164,11 +174,11 @@ Networking
 
 
 Algorithm
-=======================
+##########################
     Data compression, like music/audio and video and image
 
 Information Theory
-=======================
+##########################
 |   BCH Encoder
 |   LDPC Encoder
 |   CRC
@@ -176,18 +186,18 @@ Information Theory
 
     
 Data Structure
-=======================
+##########################
 
 
 Controls
-=======================
+##########################
 
 
 
 
 
 Organize...
-=======================
+##########################
 
 |   LFSR
 |   Pseudo random binary sequence

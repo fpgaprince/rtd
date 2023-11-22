@@ -507,9 +507,11 @@ Integration with Other Components:
 Integrate the Ethernet communication module with other components of your FPGA design, such as processors, memory, or custom logic.
 When working on FPGA-based Ethernet communication, it's important to refer to the documentation provided by the FPGA vendor, understand the specifics of the Ethernet standard, and thoroughly test your implementation to ensure its correctness and performance.
 
-    10/100/1G
+10/100/1G
+==========================
 
-    PCS/PMA
+PCS/PMA
+==========================
 In Ethernet communication, the PCS (Physical Coding Sublayer) and PMA (Physical Medium Attachment) are two sublayers within the physical layer that work together to manage the transmission and reception of data. The Ethernet physical layer is divided into several sublayers, and the PCS and PMA sublayers are part of the standard defined by the IEEE 802.3 Ethernet standard.
 
 Physical Coding Sublayer (PCS):
@@ -557,7 +559,8 @@ Thorough testing and compliance testing with relevant Ethernet standards are ess
 By understanding and appropriately configuring the PCS and PMA components in an FPGA, developers can enable reliable and high-performance Ethernet communication in their applications. It's important to refer to the documentation provided by the FPGA vendor and adhere to Ethernet standards to ensure interoperability with other Ethernet devices.
 
 
-    MAC
+MAC
+==========================
 An Ethernet MAC (Media Access Control) is a crucial component in networking systems, responsible for managing access to the physical network medium and controlling the flow of data between devices. In the context of FPGA development, an Ethernet MAC is often implemented using dedicated IP (Intellectual Property) cores provided by FPGA vendors or as custom logic designed using HDL (Hardware Description Language) like Verilog or VHDL. Below are the key aspects involved in understanding and implementing an Ethernet MAC in an FPGA:
 
 Key Components and Concepts:
@@ -614,10 +617,12 @@ Documentation:
 
 Document your Ethernet MAC implementation, including configuration settings, signal assignments, and any custom logic.
 By selecting or implementing an Ethernet MAC in an FPGA, you can enable network connectivity for your FPGA-based applications, allowing them to communicate with other devices over Ethernet networks.
-    10G
+    
+10G
+==========================
 
-    40G/50G
-
+40G/50G
+==========================
 ::
         
     MAC - media access controller. This is the part of the system which converts a packet from the OS into a stream of bytes to be put on the wire (or fibre). Often interfaces to the host processor over something like PCI Express (for example).
