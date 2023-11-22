@@ -564,59 +564,46 @@ MAC
 ==========================
 An Ethernet MAC (Media Access Control) is a crucial component in networking systems, responsible for managing access to the physical network medium and controlling the flow of data between devices. In the context of FPGA development, an Ethernet MAC is often implemented using dedicated IP (Intellectual Property) cores provided by FPGA vendors or as custom logic designed using HDL (Hardware Description Language) like Verilog or VHDL. Below are the key aspects involved in understanding and implementing an Ethernet MAC in an FPGA:
 
-Key Components and Concepts:
-MAC Address:
+**Key Components and Concepts:**
 
+1.  **MAC Address:**
 Every networked device on an Ethernet network is assigned a unique MAC address. The MAC address is a hardware address burned into the network interface card (NIC) and is used for addressing frames on the network.
-Frame Format:
-
+2.  **Frame Format:**
 Ethernet communication involves the exchange of frames. An Ethernet frame typically includes fields such as destination and source MAC addresses, EtherType, payload (data), and a CRC for error checking.
-Half-Duplex and Full-Duplex:
-
+3.  **Half-Duplex and Full-Duplex:**
 Ethernet supports both half-duplex and full-duplex communication. In half-duplex mode, devices share the same communication medium and must take turns transmitting and receiving. In full-duplex mode, devices can transmit and receive simultaneously.
-Carrier Sense Multiple Access with Collision Detection (CSMA/CD):
-
+4.  **Carrier Sense Multiple Access with Collision Detection (CSMA/CD):**
 Ethernet traditionally used CSMA/CD for half-duplex communication, where devices listen for a carrier signal before transmitting and detect collisions if they occur. Full-duplex communication eliminates the need for CSMA/CD.
-Media-Independent Interface (MII) and Gigabit Media-Independent Interface (GMII):
-
+5.  **Media-Independent Interface (MII) and Gigabit Media-Independent Interface (GMII):**
 MII and GMII are standard interfaces between the MAC and the PHY (Physical Layer) in Ethernet communication. They define the signals and protocols for communication between the MAC and the PHY.
-Clocking and Timing:
-
+6.  **Clocking and Timing:**
 Synchronization and timing are critical in Ethernet communication. The MAC needs to synchronize with the incoming clock from the PHY and adhere to specific timing requirements for accurate data transmission and reception.
-Implementation Steps:
-Selecting an Ethernet MAC IP Core:
 
+**Implementation Steps:**
+
+1.  **Selecting an Ethernet MAC IP Core:**
 FPGA vendors, such as Xilinx and Intel, provide pre-designed Ethernet MAC IP cores that can be easily integrated into FPGA designs. These cores handle the low-level details of Ethernet communication.
-Custom MAC Implementation (Optional):
-
+2.  **Custom MAC Implementation (Optional):**
 For more control and customization, you can implement a custom Ethernet MAC using HDL. This involves designing the logic for frame processing, addressing, and interfacing with the PHY.
-Integrating the MAC into the Design:
-
+3.  **Integrating the MAC into the Design:**
 Integrate the chosen Ethernet MAC solution into your overall FPGA design. Connect the MAC to other components, such as processors or memory, depending on your application requirements.
-Configuring MAC Parameters:
-
+4.  **Configuring MAC Parameters:**
 If using an IP core, configure parameters such as the MAC address, speed, and duplex mode through the vendor's development environment.
-Handling Ethernet Frames:
-
+5.  **Handling Ethernet Frames:**
 Implement logic to handle incoming and outgoing Ethernet frames. This includes parsing frame headers, extracting MAC addresses, and managing the frame payload.
-PHY Interface:
-
+6.  **PHY Interface:**
 Interface with the PHY using MII or GMII. Ensure proper configuration and synchronization with the PHY's clock.
-Collision Handling (Optional):
-
+7.  **Collision Handling (Optional):**
 If designing for half-duplex communication, implement collision detection and handling mechanisms. In full-duplex mode, collisions are typically not a concern.
-Testing and Debugging:
-
+8.  **Testing and Debugging:**
 Utilize simulation tools and debugging features to verify the correctness of your Ethernet MAC implementation. Test various scenarios, including different frame types and network conditions.
-Power Considerations:
-
+9.  **Power Considerations:**
 Consider power consumption in your design, especially for applications with specific power requirements. Optimize your design for power efficiency where possible.
-Compliance Testing:
-
+10.  **Compliance Testing:**
 Ensure that your Ethernet MAC design complies with relevant Ethernet standards. Perform compliance testing to ensure interoperability with other Ethernet devices.
-Documentation:
-
+11.  **Documentation:**
 Document your Ethernet MAC implementation, including configuration settings, signal assignments, and any custom logic.
+
 By selecting or implementing an Ethernet MAC in an FPGA, you can enable network connectivity for your FPGA-based applications, allowing them to communicate with other devices over Ethernet networks.
     
 10G
@@ -691,8 +678,11 @@ Implementing PCIe in an FPGA is a complex task that requires a good understandin
 
 
 
-Bluetooth
+Wireless
 *********************
+
+Bluetooth
+=====================
 Implementing Bluetooth functionality in an FPGA involves integrating Bluetooth modules or IP cores into the FPGA design to enable wireless communication. Bluetooth is a widely used wireless communication standard that allows devices to connect and communicate over short distances. Here's an overview of the steps involved in implementing Bluetooth in an FPGA:
 
 Key Components and Concepts:
@@ -743,7 +733,7 @@ Implementing Bluetooth in an FPGA enables wireless communication capabilities, a
 
 
 WIFI
-*********************
+=====================
 
 Implementing Wi-Fi functionality in an FPGA involves integrating Wi-Fi modules or IP cores into the FPGA design to enable wireless communication. Wi-Fi is a widely used wireless communication standard that allows devices to connect and communicate over local area networks. Here's an overview of the steps involved in implementing Wi-Fi in an FPGA:
 
