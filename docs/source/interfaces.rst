@@ -642,47 +642,51 @@ By selecting or implementing an Ethernet MAC in an FPGA, you can enable network 
 PCIe
 *********************
 
-Implementing PCIe (Peripheral Component Interconnect Express) in an FPGA involves configuring the FPGA to interface with the PCIe protocol for high-speed data communication. PCIe is a high-performance serial computer expansion bus standard used for connecting various hardware devices, including graphics cards, storage controllers, network cards, and more. Here's an overview of the process to implement PCIe in an FPGA:
+Implementing PCIe (Peripheral Component Interconnect Express) in an FPGA involves configuring the FPGA to 
+interface with the PCIe protocol for high-speed data communication. 
+PCIe is a high-performance serial computer expansion bus standard used for connecting various hardware devices, 
+including graphics cards, storage controllers, network cards, and more. Here's an overview of the process to implement PCIe in an FPGA:
 
-Select an FPGA with PCIe Support:
 
-Choose an FPGA that includes built-in PCIe support or PCIe-enabled transceivers. FPGAs from major vendors like Xilinx and Intel (formerly Altera) offer PCIe-enabled devices.
-Understand PCIe Architecture:
+    **Select an FPGA with PCIe Support:**
+    Choose an FPGA that includes built-in PCIe support or PCIe-enabled transceivers. FPGAs from major vendors like Xilinx and Intel (formerly Altera) offer PCIe-enabled devices.
 
-Familiarize yourself with the PCIe architecture, including concepts like lanes, links, root complex, endpoints, and Transaction Layer Packets (TLPs). PCIe operates with multiple lanes (x1, x4, x8, x16), providing different data transfer rates.
-Configure PCIe IP Core:
+    **Understand PCIe Architecture:**
+    Familiarize yourself with the PCIe architecture, including concepts like lanes, links, root complex, endpoints, and Transaction Layer Packets (TLPs). PCIe operates with multiple lanes (x1, x4, x8, x16), providing different data transfer rates.
 
-Use the PCIe IP core provided by the FPGA vendor. This IP core abstracts the complexity of the PCIe protocol and facilitates the integration of PCIe into your FPGA design. The IP core typically includes configurable parameters for lane width, data rate, and other settings.
-FPGA Design Integration:
+    **Configure PCIe IP Core:**
+    Use the PCIe IP core provided by the FPGA vendor. This IP core abstracts the complexity of the PCIe protocol and facilitates the integration of PCIe into your FPGA design. The IP core typically includes configurable parameters for lane width, data rate, and other settings.
 
-Integrate the PCIe IP core into your FPGA design using the FPGA development environment provided by the vendor (Vivado for Xilinx, Quartus for Intel). This involves configuring the IP core, connecting it to your custom logic, and handling necessary signals like clock, reset, and interrupts.
-Address Spaces and BARs:
+    **FPGA Design Integration:**
+    Integrate the PCIe IP core into your FPGA design using the FPGA development environment provided by the vendor (Vivado for Xilinx, Quartus for Intel). This involves configuring the IP core, connecting it to your custom logic, and handling necessary signals like clock, reset, and interrupts.
 
-PCIe uses address spaces, and devices communicate through Base Address Registers (BARs). Configure the BARs in your PCIe design to define the memory or I/O regions that can be accessed by the CPU or other devices.
-Transaction Layer:
+    **Address Spaces and BARs:**
+    PCIe uses address spaces, and devices communicate through Base Address Registers (BARs). Configure the BARs in your PCIe design to define the memory or I/O regions that can be accessed by the CPU or other devices.
 
-Implement the Transaction Layer logic in your FPGA design. This layer manages the communication between the FPGA and the rest of the PCIe system, handling data transfers, acknowledgments, and various PCIe-specific operations.
-Data Link Layer:
+    **Transaction Layer:**
+    Implement the Transaction Layer logic in your FPGA design. This layer manages the communication between the FPGA and the rest of the PCIe system, handling data transfers, acknowledgments, and various PCIe-specific operations.
 
-The Data Link Layer manages the flow control and error detection of the PCIe communication. Ensure that this layer is appropriately configured and connected within your FPGA design.
-Physical Layer:
+    **Data Link Layer:**
+    The Data Link Layer manages the flow control and error detection of the PCIe communication. Ensure that this layer is appropriately configured and connected within your FPGA design.
 
-Configure the Physical Layer, which involves setting up the transceivers and ensuring proper signal integrity. Consider factors like impedance matching and signal termination.
-Electrical Characteristics:
+    **Physical Layer:**
+    Configure the Physical Layer, which involves setting up the transceivers and ensuring proper signal integrity. Consider factors like impedance matching and signal termination.
 
-PCIe has specific electrical characteristics, including voltage levels and impedance requirements. Ensure that your FPGA design adheres to these standards for reliable communication.
-Testing and Debugging:
+    **Electrical Characteristics:**
+    PCIe has specific electrical characteristics, including voltage levels and impedance requirements. Ensure that your FPGA design adheres to these standards for reliable communication.
 
-Use the debugging tools provided by the FPGA development environment to validate the correctness of your PCIe implementation. This may involve simulation, hardware testing, and monitoring PCIe transactions.
-Compliance Testing:
+    **Testing and Debugging:**
+    Use the debugging tools provided by the FPGA development environment to validate the correctness of your PCIe implementation. This may involve simulation, hardware testing, and monitoring PCIe transactions.
 
-PCIe devices must undergo compliance testing to ensure they meet PCIe standards. Familiarize yourself with PCIe compliance testing requirements and procedures to validate your FPGA-based PCIe implementation.
-Driver and Software Integration:
+    **Compliance Testing:**
+    PCIe devices must undergo compliance testing to ensure they meet PCIe standards. Familiarize yourself with PCIe compliance testing requirements and procedures to validate your FPGA-based PCIe implementation.
 
-Develop or use appropriate drivers and software to communicate with the PCIe-enabled FPGA from the host system. This involves handling PCIe configuration, enumeration, and data transfer in the software stack.
-Security Considerations:
+    **Driver and Software Integration:**
+    Develop or use appropriate drivers and software to communicate with the PCIe-enabled FPGA from the host system. This involves handling PCIe configuration, enumeration, and data transfer in the software stack.
 
-Depending on your application, you may need to consider security aspects of PCIe communication. Implement measures to secure data transfer and protect against potential security vulnerabilities.
+    **Security Considerations:**
+    Depending on your application, you may need to consider security aspects of PCIe communication. Implement measures to secure data transfer and protect against potential security vulnerabilities.
+
 Implementing PCIe in an FPGA is a complex task that requires a good understanding of the PCIe standard, FPGA architecture, and the specific requirements of your application. Refer to the documentation provided by the FPGA vendor and PCIe specifications for detailed guidance.
 
 
@@ -702,50 +706,43 @@ Bluetooth
 =====================
 Implementing Bluetooth functionality in an FPGA involves integrating Bluetooth modules or IP cores into the FPGA design to enable wireless communication. Bluetooth is a widely used wireless communication standard that allows devices to connect and communicate over short distances. Here's an overview of the steps involved in implementing Bluetooth in an FPGA:
 
-Key Components and Concepts:
-Bluetooth Module or IP Core:
+    **Key Components and Concepts:**
 
-FPGA vendors may provide Bluetooth IP cores that include the necessary logic for wireless communication. Alternatively, external Bluetooth modules or chips can be interfaced with the FPGA.
-Bluetooth Standards:
+    **Bluetooth Module or IP Core:**
+    FPGA vendors may provide Bluetooth IP cores that include the necessary logic for wireless communication. Alternatively, external Bluetooth modules or chips can be interfaced with the FPGA.
 
-Bluetooth operates based on various standards, such as Bluetooth Classic (e.g., Bluetooth 2.1, 3.0) and Bluetooth Low Energy (BLE or Bluetooth 4.0 and later). Choose the standard that aligns with your application's requirements for data rate, range, and power consumption.
-Wireless Security:
+    **Bluetooth Standards:**
+    Bluetooth operates based on various standards, such as Bluetooth Classic (e.g., Bluetooth 2.1, 3.0) and Bluetooth Low Energy (BLE or Bluetooth 4.0 and later). Choose the standard that aligns with your application's requirements for data rate, range, and power consumption.
 
-Implement security features such as pairing, encryption, and authentication to secure the Bluetooth communication and protect against unauthorized access.
-Bluetooth Profiles:
+    **Wireless Security:**
+    Implement security features such as pairing, encryption, and authentication to secure the Bluetooth communication and protect against unauthorized access.
 
-Bluetooth profiles define the functionality and features supported by a device. Select the relevant profiles based on the intended use of your Bluetooth-enabled FPGA.
-Implementation Steps:
-Select an FPGA with Bluetooth Support:
+    **Bluetooth Profiles:**
+    Bluetooth profiles define the functionality and features supported by a device. Select the relevant profiles based on the intended use of your Bluetooth-enabled FPGA.
 
-Choose an FPGA that has sufficient resources and interfaces for integrating Bluetooth functionality. Some FPGAs come with dedicated transceivers or IP cores for wireless communication.
-Bluetooth IP Core Integration:
+    **Implementation Steps:**
 
-If available, integrate a Bluetooth IP core provided by the FPGA vendor into your design. Configure the IP core with the required settings, such as Bluetooth version, modulation scheme, and security parameters.
-External Bluetooth Module Integration (Optional):
+    **Select an FPGA with Bluetooth Support:**
+    Choose an FPGA that has sufficient resources and interfaces for integrating Bluetooth functionality. Some FPGAs come with dedicated transceivers or IP cores for wireless communication.
+    **Bluetooth IP Core Integration:**
+    If available, integrate a Bluetooth IP core provided by the FPGA vendor into your design. Configure the IP core with the required settings, such as Bluetooth version, modulation scheme, and security parameters.
+    **External Bluetooth Module Integration (Optional):**
+    If using an external Bluetooth module or chip, interface it with the FPGA. This involves connecting the appropriate pins, managing communication protocols, and handling data exchange.
+    **Bluetooth Profile Implementation:**
+    Implement the Bluetooth profiles relevant to your application. This may include profiles for serial communication (SPP), audio streaming (A2DP), or other specialized profiles depending on your use case.
+    **Wireless Security Implementation:**
+    Implement the necessary security features to protect Bluetooth communication. This includes pairing mechanisms, encryption, and authentication.
+    **Application Logic:**
+    Implement the specific application logic that utilizes the Bluetooth functionality. This may involve data exchange, sensor interfacing, or any other wireless communication requirements.
+    **Testing and Debugging:**
+    Use simulation tools and debugging features to test and validate your Bluetooth implementation. Verify the connection to other Bluetooth devices, data exchange, and overall system stability.
+    **Power Considerations:**
+    Consider power consumption, especially for battery-powered or energy-efficient applications. Optimize your design for power efficiency while meeting performance requirements.
+    **Compliance Testing:**
+    If applicable, perform compliance testing to ensure that your Bluetooth implementation complies with relevant Bluetooth standards and certifications.
+    **Integration with Other Components:**
+    Integrate the Bluetooth functionality with other components of your FPGA design, such as processors, memory, or custom logic.
 
-If using an external Bluetooth module or chip, interface it with the FPGA. This involves connecting the appropriate pins, managing communication protocols, and handling data exchange.
-Bluetooth Profile Implementation:
-
-Implement the Bluetooth profiles relevant to your application. This may include profiles for serial communication (SPP), audio streaming (A2DP), or other specialized profiles depending on your use case.
-Wireless Security Implementation:
-
-Implement the necessary security features to protect Bluetooth communication. This includes pairing mechanisms, encryption, and authentication.
-Application Logic:
-
-Implement the specific application logic that utilizes the Bluetooth functionality. This may involve data exchange, sensor interfacing, or any other wireless communication requirements.
-Testing and Debugging:
-
-Use simulation tools and debugging features to test and validate your Bluetooth implementation. Verify the connection to other Bluetooth devices, data exchange, and overall system stability.
-Power Considerations:
-
-Consider power consumption, especially for battery-powered or energy-efficient applications. Optimize your design for power efficiency while meeting performance requirements.
-Compliance Testing:
-
-If applicable, perform compliance testing to ensure that your Bluetooth implementation complies with relevant Bluetooth standards and certifications.
-Integration with Other Components:
-
-Integrate the Bluetooth functionality with other components of your FPGA design, such as processors, memory, or custom logic.
 Implementing Bluetooth in an FPGA enables wireless communication capabilities, allowing the FPGA to connect to other Bluetooth-enabled devices. Refer to the documentation provided by the FPGA vendor and the Bluetooth module manufacturer for specific guidance and resources related to Bluetooth implementation on your chosen FPGA platform.
 
 
@@ -754,53 +751,55 @@ WIFI
 
 Implementing Wi-Fi functionality in an FPGA involves integrating Wi-Fi modules or IP cores into the FPGA design to enable wireless communication. Wi-Fi is a widely used wireless communication standard that allows devices to connect and communicate over local area networks. Here's an overview of the steps involved in implementing Wi-Fi in an FPGA:
 
-Key Components and Concepts:
-Wi-Fi Module or IP Core:
+    **Key Components and Concepts:**
 
-FPGA vendors may provide Wi-Fi IP cores that include the necessary logic for wireless communication. Alternatively, external Wi-Fi modules or chips can be interfaced with the FPGA.
-Wi-Fi Standards:
+    **Wi-Fi Module or IP Core:**
+    FPGA vendors may provide Wi-Fi IP cores that include the necessary logic for wireless communication. Alternatively, external Wi-Fi modules or chips can be interfaced with the FPGA.
 
-Wi-Fi operates based on various IEEE 802.11 standards, such as 802.11a, 802.11b, 802.11g, 802.11n, 802.11ac, and 802.11ax. Choose the standard that aligns with your application's requirements for data rate, range, and frequency bands.
-Wireless Security:
+    **Wi-Fi Standards:**
+    Wi-Fi operates based on various IEEE 802.11 standards, such as 802.11a, 802.11b, 802.11g, 802.11n, 802.11ac, and 802.11ax. Choose the standard that aligns with your application's requirements for data rate, range, and frequency bands.
 
-Implement security features such as WEP, WPA, or WPA2 to secure the wireless communication and protect against unauthorized access.
-TCP/IP Stack:
+    **Wireless Security:**
+    Implement security features such as WEP, WPA, or WPA2 to secure the wireless communication and protect against unauthorized access.
 
-Integrate a TCP/IP stack into your FPGA design to enable higher-layer networking protocols. This is necessary for communication between the FPGA and other devices on the network.
-Implementation Steps:
-Select an FPGA with Wi-Fi Support:
+    **TCP/IP Stack:**
+    Integrate a TCP/IP stack into your FPGA design to enable higher-layer networking protocols. This is necessary for communication between the FPGA and other devices on the network.
 
-Choose an FPGA that has sufficient resources and interfaces for integrating Wi-Fi functionality. Some FPGAs come with dedicated transceivers or IP cores for wireless communication.
-Wi-Fi IP Core Integration:
+    **Implementation Steps:**
 
-If available, integrate a Wi-Fi IP core provided by the FPGA vendor into your design. Configure the IP core with the required settings, such as frequency band, modulation scheme, and security parameters.
-External Wi-Fi Module Integration (Optional):
+    **Select an FPGA with Wi-Fi Support:**
+    Choose an FPGA that has sufficient resources and interfaces for integrating Wi-Fi functionality. Some FPGAs come with dedicated transceivers or IP cores for wireless communication.
 
-If using an external Wi-Fi module or chip, interface it with the FPGA. This involves connecting the appropriate pins, managing communication protocols, and handling data exchange.
-TCP/IP Stack Integration:
+    **Wi-Fi IP Core Integration:**
+    If available, integrate a Wi-Fi IP core provided by the FPGA vendor into your design. Configure the IP core with the required settings, such as frequency band, modulation scheme, and security parameters.
 
-Incorporate a TCP/IP stack into your FPGA design. This stack facilitates communication between the FPGA and other devices on the network using standard networking protocols.
-Wireless Security Implementation:
+    **External Wi-Fi Module Integration (Optional):**
+    If using an external Wi-Fi module or chip, interface it with the FPGA. This involves connecting the appropriate pins, managing communication protocols, and handling data exchange.
 
-Implement the necessary security features to protect wireless communication. This includes encryption, authentication, and key management.
-Network Configuration:
+    **TCP/IP Stack Integration:**
+    Incorporate a TCP/IP stack into your FPGA design. This stack facilitates communication between the FPGA and other devices on the network using standard networking protocols.
 
-Configure network settings such as IP addresses, subnet masks, and gateways to allow the FPGA to communicate within the local network.
-Application Logic:
+    **Wireless Security Implementation:**
+    Implement the necessary security features to protect wireless communication. This includes encryption, authentication, and key management.
 
-Implement the specific application logic that utilizes the Wi-Fi functionality. This may involve data exchange, sensor interfacing, or any other wireless communication requirements.
-Testing and Debugging:
+    **Network Configuration:**
+    Configure network settings such as IP addresses, subnet masks, and gateways to allow the FPGA to communicate within the local network.
 
-Use simulation tools and debugging features to test and validate your Wi-Fi implementation. Verify the connection to the network, data exchange, and overall system stability.
-Power Considerations:
+    **Application Logic:**
+    Implement the specific application logic that utilizes the Wi-Fi functionality. This may involve data exchange, sensor interfacing, or any other wireless communication requirements.
 
-Consider power consumption, especially for battery-powered or energy-efficient applications. Optimize your design for power efficiency while meeting performance requirements.
-Compliance Testing:
+    **Testing and Debugging:**
+    Use simulation tools and debugging features to test and validate your Wi-Fi implementation. Verify the connection to the network, data exchange, and overall system stability.
 
-If applicable, perform compliance testing to ensure that your Wi-Fi implementation complies with relevant Wi-Fi standards and certifications.
-Integration with Other Components:
+    **Power Considerations:**
+    Consider power consumption, especially for battery-powered or energy-efficient applications. Optimize your design for power efficiency while meeting performance requirements.
 
-Integrate the Wi-Fi functionality with other components of your FPGA design, such as processors, memory, or custom logic.
+    **Compliance Testing:**
+    If applicable, perform compliance testing to ensure that your Wi-Fi implementation complies with relevant Wi-Fi standards and certifications.
+
+    **Integration with Other Components:**
+    Integrate the Wi-Fi functionality with other components of your FPGA design, such as processors, memory, or custom logic.
+
 Implementing Wi-Fi in an FPGA enables wireless communication capabilities, allowing the FPGA to connect to local networks and communicate with other devices. Refer to the documentation provided by the FPGA vendor and the Wi-Fi module manufacturer for specific guidance and resources related to Wi-Fi implementation on your chosen FPGA platform.
 
 
