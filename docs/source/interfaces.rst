@@ -615,10 +615,10 @@ An Ethernet MAC (Media Access Control) is a crucial component in networking syst
 9.  **Power Considerations:**
     Consider power consumption in your design, especially for applications with specific power requirements. Optimize your design for power efficiency where possible.
 
-10.  **Compliance Testing:**
+10. **Compliance Testing:**
     Ensure that your Ethernet MAC design complies with relevant Ethernet standards. Perform compliance testing to ensure interoperability with other Ethernet devices.
 
-11.  **Documentation:**
+11. **Documentation:**
     Document your Ethernet MAC implementation, including configuration settings, signal assignments, and any custom logic.
 
 By selecting or implementing an Ethernet MAC in an FPGA, you can enable network connectivity for your FPGA-based applications, allowing them to communicate with other devices over Ethernet networks.
@@ -1015,6 +1015,12 @@ Integrate the DisplayPort system with other components of your FPGA design or ex
 When working on FPGA-based DisplayPort interfaces, it's important to refer to the documentation provided by the FPGA vendor, understand the specifics of the DisplayPort standard, and thoroughly test your implementation to ensure its correctness and performance.
 
 
+MIPI CSI-2
+*********************
+
+
+MIPI DSI
+*********************
 
 
 Memory
@@ -1084,7 +1090,8 @@ Flash
 Audio
 ##########################
 
-
+I2S
+*********************
 
 Sensors
 ##########################
