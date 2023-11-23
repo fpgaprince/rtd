@@ -27,6 +27,8 @@ Signals and System
 
 DSP (Digital Signal Processing)
 ******************************************
+FPGAs are often used for implementing DSP algorithms such as filtering, modulation, and demodulation. Their parallel processing capabilities make them well-suited for real-time signal processing tasks.
+
 FPGA-based Digital Signal Processing (DSP) involves using the configurable logic and dedicated DSP resources within an FPGA to implement signal processing algorithms. FPGAs are well-suited for DSP applications due to their parallel processing capabilities, reconfigurability, and ability to efficiently implement complex algorithms. Here's an overview of the steps involved in implementing DSP in an FPGA:
 
 Select an FPGA with DSP Blocks:
@@ -77,6 +79,20 @@ Consider power consumption, especially for applications where power efficiency i
 When working on FPGA-based DSP, it's important to leverage the documentation and tools provided by the FPGA vendor, understand the specifics of the DSP algorithms you are implementing, and thoroughly test your design to ensure it meets the desired performance criteria.
 
 
+Filter
+========================================
+
+Modulation
+========================================
+
+Demodulating
+========================================
+
+
+
+Image and Video Processing 
+******************************************
+FPGAs excel in video and image processing applications. They are used for tasks such as video compression/decompression, image recognition, and enhancement. FPGAs can be found in cameras, video processing equipment, and displays.
 
 Image Processing 
 ******************************************
@@ -135,29 +151,23 @@ When working on video processing in an FPGA, it's essential to refer to the docu
 
 
 Wired/Wireless Communication
-##########################
+################################
+FPGAs are utilized in wireless communication systems for tasks like baseband processing, modulation, and demodulation. They play a key role in software-defined radio (SDR) applications.
 
-Encoding
-******************************************
 
 Mapping
 ******************************************
 
-Filter
-******************************************
-
-Modulation
-******************************************
-
-Demodulating
-******************************************
-
-Decoding
-******************************************
 
 
-Networking    
-##########################
+
+
+
+
+Communications and Networking    
+####################################
+FPGAs are employed in networking equipment, including routers, switches, and network interface cards. They can be used to implement communication protocols, packet processing, and encryption/decryption tasks.
+
     Ethernet
 ::
 
@@ -175,10 +185,17 @@ Networking
 
 Algorithm
 ##########################
-    Data compression, like music/audio and video and image
+    
 
 Information Theory
 ##########################
+
+Encoding
+******************************************
+Decoding
+******************************************
+
+
 |   BCH Encoder
 |   LDPC Encoder
 |   CRC
