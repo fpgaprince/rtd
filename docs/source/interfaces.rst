@@ -739,26 +739,26 @@ Memory Mapped
 =====================
 Memory-mapped refers to a technique in computer architecture where specific regions of the computer's address space are assigned to correspond directly to the memory or registers of hardware devices. In a memory-mapped system, devices, such as input/output (I/O) devices or control registers, are treated as if they were locations in the computer's memory. This allows the CPU to interact with these devices using the same read and write instructions that it uses for regular memory access.
 
-Here are key points about memory-mapped systems:
+**Here are key points about memory-mapped systems:**
 
-Address Space Mapping:
+    **Address Space Mapping:**
+    Memory-mapped I/O involves mapping the addresses of I/O devices or control registers directly into the address space of the computer's memory. Each device or register is given a specific memory address.
 
-Memory-mapped I/O involves mapping the addresses of I/O devices or control registers directly into the address space of the computer's memory. Each device or register is given a specific memory address.
-Unified Access:
+    **Unified Access:**
+    By using memory-mapped I/O, the CPU can access devices and memory in a uniform way. It simplifies the programming model by treating I/O devices as if they were memory locations, using standard load (read) and store (write) instructions.
 
-By using memory-mapped I/O, the CPU can access devices and memory in a uniform way. It simplifies the programming model by treating I/O devices as if they were memory locations, using standard load (read) and store (write) instructions.
-Simplified Programming:
+    **Simplified Programming:**
+    Memory-mapped I/O simplifies programming for developers because they can use standard memory access instructions to interact with peripheral devices, rather than having to use specialized I/O instructions.
 
-Memory-mapped I/O simplifies programming for developers because they can use standard memory access instructions to interact with peripheral devices, rather than having to use specialized I/O instructions.
-Memory-Mapped Registers:
+    **Memory-Mapped Registers:**
+    Control registers and status registers of peripheral devices are often memory-mapped. Writing to specific addresses might configure the device, while reading from certain addresses might retrieve status information.
 
-Control registers and status registers of peripheral devices are often memory-mapped. Writing to specific addresses might configure the device, while reading from certain addresses might retrieve status information.
-Example Usage:
+    **Example Usage:**
+    For example, in a memory-mapped system, writing a value to a specific memory address might control the behavior of a display adapter, while reading from another address might retrieve the status of a network interface card.
 
-For example, in a memory-mapped system, writing a value to a specific memory address might control the behavior of a display adapter, while reading from another address might retrieve the status of a network interface card.
-Potential for Direct Memory Access (DMA):
+    **Potential for Direct Memory Access (DMA):**
+    Memory-mapped regions are also used in the context of direct memory access (DMA), where peripherals or devices can transfer data directly to and from the main memory without CPU intervention.
 
-Memory-mapped regions are also used in the context of direct memory access (DMA), where peripherals or devices can transfer data directly to and from the main memory without CPU intervention.
 Memory-mapped I/O simplifies the software interface to hardware, making it more straightforward for programmers to interact with devices. However, it's important to manage potential conflicts and ensure that the memory-mapped regions used for I/O do not interfere with areas reserved for program or data storage. Careful coordination is necessary to avoid conflicts between memory accesses intended for regular data and those meant for controlling peripheral devices.
 
 
