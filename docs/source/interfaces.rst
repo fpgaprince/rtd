@@ -6,7 +6,7 @@ It is just a means to transport/transfer data from one place to another.
 Depending on your system and application, 
 what you are trying to interface to and the performance requirement.
 
-    Electrical requirements
+    Electrical requirements and connection/connector.
 
     Data rate and distance. 
 
@@ -17,7 +17,19 @@ we will manipulate. process it in some way.
 we need to either return the data. or act on the data. store the data.
 
 
+A digital interface is a communication link or connection point between different digital devices, subsystems, or components that allows them to exchange information in a digital format. Digital interfaces play a crucial role in connecting various elements within a digital system, enabling them to communicate and work together seamlessly. These interfaces define the protocols, signaling methods, and electrical characteristics necessary for the accurate and reliable exchange of digital data.
 
+**Key characteristics of digital interfaces include:**
+
+    **Digital Signaling:** Digital interfaces transmit data using discrete, binary signals (0s and 1s). This is in contrast to analog interfaces, which use continuous signals.
+
+    **Protocol:** A digital interface typically follows a specific communication protocol that defines the rules for data transmission, addressing, error detection, and other aspects of the communication process.
+
+    **Data Rate:** The data rate of a digital interface indicates how much data can be transmitted per unit of time. It is measured in bits per second (bps) or a multiple thereof (e.g., kilobits per second, megabits per second).
+
+    **Voltage Levels:** Digital interfaces often have defined voltage levels for representing binary values. Common standards include TTL (Transistor-Transistor Logic) and CMOS (Complementary Metal-Oxide-Semiconductor).
+
+Connectors and Physical Media: The physical aspects of a digital interface include the connectors and the medium through which data is transmitted. This can include cables, fiber optics, wireless connections, and more.
 
 Data
 ##########################
@@ -164,7 +176,7 @@ Using an FPGA with I2C (Inter-Integrated Circuit) involves implementing the I2C 
 
 When working with FPGA-based I2C interfaces, it's important to refer to the datasheets of both the I2C transceiver and the FPGA, and to leverage the features of the FPGA development environment to streamline the design and testing processes. Additionally, understanding the specific requirements of the I2C devices involved in the communication is crucial for successful implementation.
 
-USB, 2.0, 3.0
+USB
 *********************
 Using an FPGA with USB (Universal Serial Bus) involves implementing the USB communication protocol in FPGA-based systems. USB is a widely used standard for connecting and communicating between various devices such as computers, peripherals, and embedded systems. Implementing USB in an FPGA allows for versatile connectivity and communication capabilities. Here's an overview of how an FPGA can interface with USB:
 
@@ -461,8 +473,7 @@ Ethernet
 *********************
 Implementing Ethernet communication in an FPGA involves configuring the FPGA to interface with Ethernet hardware, managing the Ethernet communication protocol, and handling data transmission and reception. Here's a general overview of the steps involved:
 
-**Select an FPGA with Ethernet Support:**
-
+    **Select an FPGA with Ethernet Support:**
     Choose an FPGA that includes built-in Ethernet MAC (Media Access Control) and PHY (Physical Layer) support or has transceivers capable of handling Ethernet signaling.
 
     **Understand Ethernet Basics:**
@@ -692,12 +703,43 @@ including graphics cards, storage controllers, network cards, and more. Here's a
 Implementing PCIe in an FPGA is a complex task that requires a good understanding of the PCIe standard, FPGA architecture, and the specific requirements of your application. Refer to the documentation provided by the FPGA vendor and PCIe specifications for detailed guidance.
 
 
-    DMA
+DMA
+=====================
+
+DMA stands for Direct Memory Access. It is a feature of computer systems that allows peripherals or devices to transfer data to and from the main memory without involving the central processing unit (CPU). DMA is particularly useful for enhancing overall system performance by offloading data transfer tasks from the CPU.
+
+**Here's how DMA typically works:**
+
+**CPU Initiation:**
+The CPU sets up the data transfer by providing the DMA controller with details such as the source and destination addresses in memory, the number of data bytes to transfer, and the direction of the transfer (read from the device or write to the device).
+
+**DMA Controller Takes Control:**
+Once the CPU initiates the transfer, the DMA controller takes control of the system bus and manages the data transfer independently of the CPU.
+
+**Data Transfer:**
+The DMA controller transfers data directly between the peripheral device and the main memory without involving the CPU in each data movement. This is more efficient than having the CPU handle every byte of data.
+
+**Interrupts or Notification:**
+After completing the data transfer, the DMA controller can generate an interrupt to notify the CPU that the transfer is finished. Alternatively, the DMA controller might use other methods to inform the CPU, depending on the system architecture.
+
+DMA is commonly used in scenarios where high-speed data transfer is crucial, such as in multimedia applications, network interfaces, disk controllers, and other I/O (Input/Output) operations. It helps improve overall system performance by allowing the CPU to focus on other tasks while data is being transferred between peripheral devices and memory.
+
+**There are different types of DMA, including:**
+
+**Cycle Stealing DMA:** The DMA controller transfers one data word at a time and then yields control of the system bus back to the CPU before reclaiming it for the next data word.
+
+**Burst Mode DMA:** The DMA controller transfers multiple data words in rapid succession without releasing control of the system bus, enhancing data transfer rates.
+
+**Demand Transfer DMA:**** The DMA controller transfers data only when the peripheral device is ready, reducing bus contention.
+
+DMA is a crucial component in the efficient operation of many computer systems, especially those requiring fast and continuous data transfers between peripherals and memory.
+
 
     memory mapped
+=====================
 
     stream
-
+=====================
 
 
 
