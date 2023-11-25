@@ -11,12 +11,6 @@ other areas will be brief.
 
 
 
-Digital Systems
-##########################
-
-
-Computer Architecture
-##########################
 
 Signals and System
 ##########################
@@ -678,9 +672,14 @@ CRC
 
 
 
-Data Structure
+Digital Systems
 ##########################
 
+Computer Architecture
+##########################
+
+Data Structure
+##########################
 
 Controls
 ##########################
