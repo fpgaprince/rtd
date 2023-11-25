@@ -1,22 +1,6 @@
 ***********************************
 Digital Interfaces and Protocols
 ***********************************
-It is just a means to transport/transfer data from one place to another.
-
-Depending on your system and application, 
-what you are trying to interface to and the performance requirement.
-
-    Electrical requirements and connection/connector.
-
-    Data rate and distance. 
-
-It will dictact what is adequate/necessary for your design.
-
-will need a means to access/acquire data.
-we will manipulate. process it in some way.
-we need to either return the data. or act on the data. store the data.
-
-
 A digital interface is a communication link or connection point between different digital devices, subsystems, or components that allows them to exchange information in a digital format. Digital interfaces play a crucial role in connecting various elements within a digital system, enabling them to communicate and work together seamlessly. These interfaces define the protocols, signaling methods, and electrical characteristics necessary for the accurate and reliable exchange of digital data.
 
 **Key characteristics of digital interfaces include:**
@@ -29,10 +13,72 @@ A digital interface is a communication link or connection point between differen
 
     **Voltage Levels:** Digital interfaces often have defined voltage levels for representing binary values. Common standards include TTL (Transistor-Transistor Logic) and CMOS (Complementary Metal-Oxide-Semiconductor).
 
-Connectors and Physical Media: The physical aspects of a digital interface include the connectors and the medium through which data is transmitted. This can include cables, fiber optics, wireless connections, and more.
+    **Connectors and Physical Media:** The physical aspects of a digital interface include the connectors and the medium through which data is transmitted. This can include cables, fiber optics, wireless connections, and more.
+
+
+
+In the context of digital communication, a protocol refers to a set of rules and conventions that define how data is exchanged between devices or systems. Digital protocols are essential for ensuring that information is transmitted, received, and interpreted consistently. They specify the format, timing, sequencing, and error handling for data communication. Here are some key aspects of digital protocols:
+    
+    **Message Format:**
+    Specifies how data is structured within a message. This includes the order of data fields, the size of each field, and any delimiters or markers that indicate the start and end of a message.
+
+    **Data Encoding:**
+    Describes how digital data is represented and encoded for transmission. Common encoding schemes include binary, ASCII, and Unicode. The choice of encoding affects the efficiency of data transmission and the range of representable characters.
+
+    **Physical Layer Characteristics:**
+    Defines the physical characteristics of the communication medium, such as voltage levels, signaling rates, and modulation schemes. This layer ensures that the devices can transmit and receive signals in a compatible manner.
+
+    **Data Link Layer Protocols:**
+    Specifies how devices establish and terminate connections, detect and correct errors, and manage the flow of data. Protocols like HDLC (High-Level Data Link Control) and PPP (Point-to-Point Protocol) operate at the data link layer.
+
+    **Network Layer Protocols:**
+    Governs the routing and addressing of data packets across a network. Internet Protocol (IP) is a fundamental network layer protocol that enables communication between devices on different networks.
+
+    **Transport Layer Protocols:**
+    Manages end-to-end communication, ensuring reliable and error-checked data transfer. Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) are common transport layer protocols.
+
+    **Session Layer:**
+    Establishes, maintains, and terminates communication sessions between devices. Session layer protocols manage the coordination of data exchange and synchronization.
+
+    **Presentation Layer:**
+    Handles data formatting, translation, and encryption to ensure that data is presented in a readable and usable format. This layer ensures compatibility between different data representations.
+
+    **Application Layer Protocols:**
+    Defines the rules and conventions for specific applications or services. Examples include HTTP (Hypertext Transfer Protocol) for web communication, SMTP (Simple Mail Transfer Protocol) for email, and FTP (File Transfer Protocol) for file exchange.
+
+    **Synchronization:**
+    Specifies how devices synchronize their clocks to ensure proper timing for data transmission. Clock synchronization is crucial for accurate and reliable communication.
+
+    **Error Handling:**
+    Describes how errors in transmitted data are detected and corrected. Error detection and correction techniques, such as CRC (Cyclic Redundancy Check) or FEC (Forward Error Correction), may be employed.
+
+    **Acknowledgment and Flow Control:**
+    Defines mechanisms for acknowledging received data and controlling the flow of information between sender and receiver. This ensures that data is transmitted at a rate that the receiver can handle.
+
+    **Security Protocols:**
+    Specifies encryption, authentication, and integrity-checking mechanisms to secure data transmission. SSL/TLS (Secure Sockets Layer/Transport Layer Security) is an example of a security protocol.
+
+Digital protocols are essential for enabling interoperability and standardized communication between diverse devices and systems. The choice of a protocol depends on factors such as the application, network architecture, and communication requirements. Standards organizations, such as the Internet Engineering Task Force (IETF) and the International Telecommunication Union (ITU), play a crucial role in developing and maintaining digital communication protocols.
+
+
 
 Data
 ##########################
+It is just a means to transport/transfer data from one place to another.
+
+Depending on your system and application, 
+what you are trying to interface to and the performance requirement.
+
+    Electrical requirements and connection/connector.
+
+    Data rate and distance. 
+
+It will dictate what is adequate/necessary for your design.
+
+will need a means to access/acquire data.
+we will manipulate. process it in some way.
+we need to either return the data. or act on the data. store the data.
+
 
 JTAG
 *********************
@@ -1174,11 +1220,11 @@ Sensors
 This is a type of data. Depending on data rate and throughput, 
 some may connect to i2c or spi. 
 
-    Gyro
+Gyro
 *********************
 
 
-    Accelerometer
+Accelerometer
 *********************
 Using an FPGA with an accelerometer is a common application in various fields, including robotics, aerospace, automotive, and industrial automation. An accelerometer measures acceleration, which can be used to determine the orientation, tilt, or movement of an object. Here's a general overview of how an FPGA can interface with an accelerometer:
 
@@ -1214,11 +1260,11 @@ Using an FPGA with an accelerometer is a common application in various fields, i
 
 When implementing an FPGA-based accelerometer interface, it's important to refer to the datasheets of both the accelerometer and the FPGA, and to leverage the features of the FPGA development environment to streamline the design and testing processes.
 
-    Inertial
+Inertial
 *********************
 
 
-    Camera
+Camera
 *********************
 Using an FPGA with a camera is a common application in various fields, including image processing, computer vision, robotics, and industrial automation. The integration of an FPGA with a camera allows for real-time image acquisition, processing, and analysis. Here's a general overview of how an FPGA can interface with a camera:
 
@@ -1257,19 +1303,190 @@ Using an FPGA with a camera is a common application in various fields, including
 
 When implementing an FPGA-based camera interface, it's important to refer to the datasheets of both the camera and the FPGA, and to leverage the features of the FPGA development environment to streamline the design and testing processes. Additionally, considerations for power consumption, real-time requirements, and the specific needs of the application should be taken into account during the design process.
 
-    Temp 
+Temp 
 *********************
 
 
-    Display
+Display
 *********************
 
 
-|   FMC
-|   HMC
-|   NAND
-|   AXIe
-|   PXIe
+Input/Output (IO)
+##################################
+Everything leaves the FPGA through the IO pins. they can be General Purpose Input/Output(GPIO), single ended or differential IO.
+
+FPGA I/O (Input/Output) refers to the connections that allow the FPGA to interact with the external world, 
+including other electronic components, sensors, displays, memory, and communication interfaces. FPGA I/O can be 
+general-purpose digital I/O, dedicated high-speed serial interfaces, analog interfaces, 
+or specialized interfaces designed for specific applications. Here are some key aspects of FPGA I/O:
+
+General-Purpose Digital I/O (GPIO):
+Purpose: Enables the FPGA to interface with digital devices through configurable input and output pins.
+Application: Used for connecting buttons, LEDs, switches, sensors, and other digital peripherals.
+
+Dedicated High-Speed Serial Interfaces:
+Purpose: Facilitates high-speed, serial data communication between the FPGA and other devices.
+Examples: UART, SPI, I2C, JTAG, HDMI, USB, PCIe.
+
+Analog-to-Digital Converters (ADC) and Digital-to-Analog Converters (DAC):
+Purpose: Allows the FPGA to interface with analog signals by converting between digital and analog representations.
+Application: Used in applications such as data acquisition, audio processing, and sensor interfacing.
+
+Clock Inputs:
+Purpose: Provides external clock signals for clocking internal logic within the FPGA.
+Application: Essential for synchronization and timing in digital designs.
+
+Reset Inputs:
+Purpose: Allows external devices to reset the FPGA or specific portions of its logic.
+Application: Useful for system-level resets and initialization.
+
+LVDS (Low Voltage Differential Signaling) Interfaces:
+Purpose: High-speed, low-power, differential signaling for data transmission.
+Application: Used in applications requiring high-speed data transfer, such as connecting to high-resolution displays or high-speed data links.
+
+When working with FPGA I/O, designers need to consider factors such as voltage levels, signal integrity, timing, and power consumption. The FPGA vendor provides tools, libraries, and IP cores to assist in implementing and configuring I/O interfaces in FPGA designs. The specific choice of I/O depends on the requirements of the application and the devices or systems with which the FPGA needs to interact.
+
+GPIO
+*********************
+
+CMOS
+====================
+CMOS (Complementary Metal-Oxide-Semiconductor) and TTL (Transistor-Transistor Logic) are two different families of digital logic circuits, each with its own characteristics and use cases. Here's a comparison between CMOS and TTL:
+
+CMOS (Complementary Metal-Oxide-Semiconductor):
+Power Consumption:
+
+Advantage: CMOS generally consumes less power compared to TTL. CMOS circuits draw minimal power when static (no switching), making them suitable for battery-powered devices.
+Noise Immunity:
+
+Advantage: CMOS has high noise immunity, meaning it is less susceptible to noise on the signal lines compared to TTL. This makes CMOS suitable for applications where noise is a concern.
+Voltage Levels:
+
+Advantage: CMOS operates over a broader range of voltage levels. Common CMOS voltage levels include 3.3V and 5V, but modern CMOS technologies can operate at even lower voltages.
+Speed:
+
+Disadvantage: Historically, TTL had an edge in terms of speed, but modern CMOS technologies have closed the gap. TTL may still be preferred in applications requiring extremely high-speed operation.
+Temperature Sensitivity:
+
+Advantage: CMOS is less temperature-sensitive compared to TTL. Temperature variations have a smaller impact on CMOS circuit performance.
+Manufacturing Technology:
+
+Advantage: CMOS is the dominant technology for modern integrated circuits due to its low power consumption and versatility. Most digital ICs today, including microprocessors and FPGAs, are based on CMOS technology.
+Logic Levels:
+
+Operation: CMOS logic uses both N-type and P-type transistors, allowing it to achieve a symmetrical and complementary output.
+TTL (Transistor-Transistor Logic):
+Power Consumption:
+
+Disadvantage: TTL consumes more power compared to CMOS, especially when static. This higher power consumption limits its use in battery-powered devices.
+Noise Immunity:
+
+Disadvantage: TTL is more susceptible to noise compared to CMOS. It may require additional measures, such as shielding or careful PCB layout, to mitigate noise effects.
+Voltage Levels:
+
+Disadvantage: TTL has a narrower operating voltage range, typically around 5V. Some older TTL devices operate at higher voltage levels.
+Speed:
+
+Advantage: Historically, TTL had an advantage in terms of speed. It was the preferred technology for high-speed applications before the development of faster CMOS technologies.
+Temperature Sensitivity:
+
+Disadvantage: TTL is more temperature-sensitive compared to CMOS. Temperature variations can significantly impact the performance of TTL circuits.
+Manufacturing Technology:
+
+Disadvantage: While TTL was widely used in the past, especially in the era of discrete logic ICs, it has become less common in modern integrated circuits due to its higher power consumption.
+Logic Levels:
+
+Operation: TTL logic uses bipolar transistors (NPN and PNP), and its outputs are not complementary. This can lead to asymmetrical signal characteristics.
+Common Considerations:
+Compatibility: When interfacing different logic families, level-shifting buffers or voltage translators may be required to ensure proper signal compatibility.
+
+Application Specific: The choice between CMOS and TTL often depends on the specific requirements of the application, including power constraints, speed requirements, and environmental conditions.
+
+In summary, while CMOS is the dominant technology in modern digital circuits, TTL is still used in specific applications where its characteristics, such as higher speed, may be advantageous. Designers need to carefully consider the trade-offs between CMOS and TTL based on the requirements of their particular applications.
+
+
+TTL
+====================
+
+Differential IO
+*********************
+FPGA (Field-Programmable Gate Array) devices often support differential I/O (Input/Output) standards, which involve transmitting data using pairs of signals with opposite voltage swings. This approach provides benefits such as improved noise immunity, reduced electromagnetic interference (EMI), and better signal integrity. Common differential I/O standards include LVDS (Low Voltage Differential Signaling) and LVPECL (Low Voltage Positive Emitter-Coupled Logic). Here are some key points about FPGA differential I/O:
+
+LVDS (Low Voltage Differential Signaling):
+Signal Characteristics:
+
+Differential Pair: LVDS uses a differential pair of signals, typically denoted as P (positive) and N (negative). The information is encoded in the voltage difference between these two lines.
+Voltage Levels:
+
+Typical Voltage Range: LVDS often operates with a common-mode voltage of around 1.2V and a voltage swing (differential) of about 350 mV.
+Applications:
+
+High-Speed Data Transmission: LVDS is commonly used for high-speed data transmission, such as in interfaces between FPGAs, communication between chips on a printed circuit board (PCB), or in high-speed serial communication links.
+Termination:
+
+Differential Termination: LVDS signals often use differential termination to improve signal integrity. This can include on-chip termination resistors.
+Clocking:
+
+Clock Distribution: LVDS is suitable for clock distribution due to its low jitter and high-speed capabilities.
+Data Rate:
+
+High Data Rates: LVDS supports high data rates, making it suitable for applications with demanding speed requirements.
+LVPECL (Low Voltage Positive Emitter-Coupled Logic):
+Signal Characteristics:
+
+Emitter-Coupled Logic: LVPECL is based on a differential emitter-coupled logic topology, similar to traditional ECL (Emitter-Coupled Logic).
+Voltage Levels:
+
+Common-Mode Voltage: LVPECL often uses a common-mode voltage below ground, making it suitable for applications where a negative supply voltage is available.
+Applications:
+
+High-Speed Applications: LVPECL is commonly used in high-speed applications that require fast signal transitions and low jitter.
+Termination:
+
+Termination: Like LVDS, LVPECL signals may use differential termination for signal integrity.
+Clocking:
+
+Clock Distribution: LVPECL is often used in clock distribution networks where high-speed clock signals are required.
+Data Rate:
+
+High Data Rates: LVPECL supports high data rates and is often used in applications where fast signal transitions are critical.
+FPGA Configuration for Differential I/O:
+Differential I/O Standards:
+
+FPGA devices support differential I/O standards, and designers can configure specific pins to operate in differential mode.
+Voltage Levels and Standards:
+
+Designers need to select the appropriate differential I/O standard and configure voltage levels based on the requirements of the application.
+Termination and Signal Integrity:
+
+FPGA tools provide options for configuring termination settings, including on-chip resistors, to optimize signal integrity.
+Clocking Resources:
+
+Differential I/O standards are often used for clock distribution within FPGAs due to their advantages in terms of jitter reduction and noise immunity.
+High-Speed Serial Communication:
+
+FPGAs often include dedicated transceivers for high-speed serial communication protocols like SERDES (Serializer/Deserializer), which may also use differential signaling.
+When designing with differential I/O in FPGAs, it's crucial to refer to the specific FPGA device's documentation, as different vendors and families may have variations in the supported standards and configurations. Differential signaling is commonly used in high-speed and noise-sensitive applications, and FPGAs offer flexibility in configuring I/O to meet the requirements of diverse interfaces and communication protocols.
+
+
+LVDS
+====================
+
+Connectors
+###################################
+While many of the previously mentioned interface and protocol have their own connectors.. these are some more.
+As before, everything depends on your application and what you're interfacing to/with.
+
+FMC
+*********************
+HMC
+*********************
+NAND
+*********************
+AXIe
+*********************
+PXIe
+*********************
 
 
 you need to compare parallel vs serial interfaces.. and the protocols for that too.
