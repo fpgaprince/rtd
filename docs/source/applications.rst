@@ -262,12 +262,12 @@ When working on video processing in an FPGA, it's essential to refer to the docu
 
 
 
-Wired/Wireless Communication
+Communication
 ################################
 FPGAs are utilized in wireless communication systems for tasks like baseband processing, modulation, and demodulation. They play a key role in software-defined radio (SDR) applications.
 
-
-
+Wired/Wireless 
+******************************************
 
 Encoding
 ******************************************
@@ -496,8 +496,8 @@ FPGA vendors often provide specialized libraries and IP cores for common decodin
 
 
 
-Communications and Networking    
-####################################
+Networking    
+******************************************
 FPGAs are employed in networking equipment, including routers, switches, and network interface cards. They can be used to implement communication protocols, packet processing, and encryption/decryption tasks.
 
     Ethernet
@@ -515,9 +515,6 @@ FPGAs are employed in networking equipment, including routers, switches, and net
     WIFI
 
 
-Algorithm
-##########################
-At the heart of everything are algorithms. and state machines.
 
 Information Theory
 ##########################
@@ -672,18 +669,6 @@ CRC
 
 
 
-Digital Systems
-##########################
-
-Computer Architecture
-##########################
-
-Data Structure
-##########################
-
-Controls
-##########################
-
 
 Artificial Intelligence (AI)
 ####################################################
@@ -728,6 +713,18 @@ Quantum Computing Acceleration:
 
 Hybrid Computing: FPGAs can be used in hybrid computing architectures alongside quantum processors to accelerate certain classical computing tasks involved in quantum computing workflows.
 It's worth noting that while FPGAs offer advantages for certain aspects of AI, they are not the only hardware solution, and the choice of hardware depends on factors such as the specific AI workload, performance requirements, and development constraints. Additionally, dedicated AI accelerators like GPUs and TPUs are also commonly used for both training and inference tasks in AI applications.
+
+
+
+
+Digital Systems
+##########################
+
+
+
+
+Controls
+##########################
 
 
 Organize...
