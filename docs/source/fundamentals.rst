@@ -918,12 +918,3 @@ Hardware Descriptive Language (VHDL or Verilog)
             &\text{Sometimes you will see this base notation}\\
 
 
-Computer Architecture
-##########################
-
-Data Structure
-##########################
-
-Algorithm
-##########################
-At the heart of everything are algorithms. and state machines.

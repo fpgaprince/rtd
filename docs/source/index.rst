@@ -36,6 +36,7 @@ Contents
    interfaces
    applications
    advance
+   additional
    glossary
 
 .. toctree::
