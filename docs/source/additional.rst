@@ -7,8 +7,22 @@ Because it is versatile, it is also a cross-section of many different engineerin
 NOTE ONLY COVER THAT WHICH YOU'VE DONE. 
 other areas will be brief.
 
+Digital Electronics
+##########################
+
+Signal and Systems
+##########################
+
+DSP
+##########################
 
 VLSI 
+##########################
+
+Circuits
+##########################
+
+Microelectronics
 ##########################
 
 Computer Architecture
@@ -21,7 +35,8 @@ Algorithm
 ##########################
 At the heart of everything are algorithms. and state machines.
 
-
+Controls
+##########################
 
 Networking
 ##########################
