@@ -205,6 +205,27 @@ a pulse is recreated in the slow side and now it can be ready to receive the fas
 in which the fast data has already been ready/standby this whole time.
 
 
+.. code-block:: vhdl
+  :linenos:   
+
+    process (clk, rst) begin      
+        if rising_edge(clk) then
+            if data_in = '1' then
+               q0 <= not q0;
+            end if;
+        end if;
+    end process;
+ 
+    process (clk2, rst2) begin
+        if rising_edge(clk2) then
+            q1 <= q0;
+            q2 <= q1;
+            q3 <= q2;
+         end if;
+    end process;      
+
+    data_out1 <= q3 xor q2;
+    
 
 
 Reset 
