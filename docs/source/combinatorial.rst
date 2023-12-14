@@ -173,8 +173,8 @@ The output is false, '0', if all of the inputs are the same.
 
 .. math::
   
-  z &= x'y + xy'
-  z &= \overline{x}y + x\overline{y}
+  z &= x'y + xy'\\
+  z &= \overline{x}y + x\overline{y}\\
   z &= x \oplus y
 
 **Truth Table:**
@@ -280,8 +280,8 @@ XNOR Gate
 
 .. math::
 
-  z &= xy + x'y'
-  z &= xy + \overline{x}\overline{y}
+  z &= xy + x'y'\\
+  z &= xy + \overline{x}\overline{y}\\
   z &= (x \oplus y)'\\
     &= \overline{(x \oplus y)}
 
