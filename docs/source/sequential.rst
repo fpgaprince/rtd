@@ -242,11 +242,17 @@ Be weary of the simulation waveforms in the one process.
 
 State Encoding
 ******************************************
+
 Binary vs. Gray vs. One-hot (one hot)
-Least to Greatest
-Flip flops required: Binary and Gray are the same 2N-1. One hot requires one register per state 
-Flip flop/register transitions per state transition: Grey, one hot, binary
-Supporting logic: one hot, gray, binary
-Logic transitions: one hot, binary, gray
+
+    Least to Greatest
+    
+    Flip flops required: Binary and Gray are the same 2N-1. One hot requires one register per state 
+    
+    Flip flop/register transitions per state transition: Grey, one hot, binary
+    
+    Supporting logic: one hot, gray, binary
+    
+    Logic transitions: one hot, binary, gray
 
 
