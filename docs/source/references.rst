@@ -21,6 +21,8 @@ FPGA
     https://www.fpga4student.com/
 
     https://www.fpga4fun.com/    
+    
+    https://surf-vhdl.com/
         
 DSP
     https://dsprelated.com/
