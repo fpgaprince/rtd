@@ -23,6 +23,9 @@ FPGA
     https://www.fpga4fun.com/    
     
     https://surf-vhdl.com/
+
+    https://www.rapidwright.io/docs/index.html
+
         
 DSP
     https://dsprelated.com/
