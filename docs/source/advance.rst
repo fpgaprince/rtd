@@ -370,6 +370,19 @@ Reset
             two synchronizers are needed for passing the individual pointers, to and fro.
             gray code/counter is used for this in which only one bit can change at a time. decreasing probability of incoherent data!
 
+XPM - xilinx parameterized macros for CDC!
+    
+    single bit
+    pulse
+    gray code
+    handshake synchronizers
+
+    this is 4 of them.. there are 7 
+
+
+
+    
+
 Clocking
 =======================
 
