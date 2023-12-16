@@ -345,15 +345,30 @@ Reset
     this is bits of the bus need to arrive together, at the same time. ensuring parallel data arriving in timely manner. could be counter value, system state.. effects
         solution..
 
-            capturing bus when bus is known to be stable.. ie using valid signals.. handshaking..
+            capturing bus when bus is known to be stable.. 
                 source is slow.. then data can appear at fast registers, clk'd by faster clk.. but controlled by enable CE.
                 CE is a result of leading edge detect of of slow clock SYNCHRONIZED to the new clock domain.
                 3 FFs. the last FF is used as a leading edge detect. the leading edge result/pulse is used as CE into fast FF to 
                 register slow data.s
 
+                OR ie using valid signals.. handshaking..                
+                the datavalid is passed thru sync into the faster domain. the edge detect of valid in new domain enables, CE
+                FF register.
+                if fast to slow, the valid signal needs to be longer than one slow clock pulse. and cannot occur multiples time to back.
+                or else there is no way for the slow domain to capture it.
+                    rule of thumb is for valid to only occur once every four destination clock.
+
+                going from slow to fast is not as much of a challenge because the fast clock domain will most likely register the value several times!
+                usual double flop will work.
+
             allowing only one bit to change at a time, gray code.. pointers, counters..
 
-            using a clock crossing FIFO, ie. async FIFO. again with handshaking or... not? if data rates are known and depth is good.    
+            using a clock crossing FIFO, ie. async FIFO. again with handshaking or... not? if data rates are known and depth is good.   
+            the trick is the full flag in the write domain and the empty in the read domain.
+            in which. the full flag in the write domain needs the updated read pointer.
+            vice versa.. the empty flag needs the write pointer from the write domain.
+            two synchronizers are needed for passing the individual pointers, to and fro.
+            gray code/counter is used for this in which only one bit can change at a time. decreasing probability of incoherent data!
 
 Clocking
 =======================
