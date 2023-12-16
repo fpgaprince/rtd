@@ -279,13 +279,18 @@ Reset
     either that or whatever down stream using these buffers/registers will also have data valid signals passed on.
     meaning that while there is garbage in and garbage out, the data valid is de-asserted, so the data is not used, trashed.
     you dont have to worry about it.
+    synchronizers dont need them.
 
-    registers that hold status or control do not necessarily need to be reset, set the initial value for start up.
-    
+
     state machine should have reset state.
     counters should have a reset state.
-
+    control output to other device will want a reset state, if it is used immediately by other devices.
+    but if the control signal isn't used immediately, it probably does not need a reset.
+    
+    
     not having reset on every register helps with place and route. minimizes congestion.
+
+    note: there are certain xilinx modules that need async reset, just double check documentation.
 
 Clocking
 =======================
