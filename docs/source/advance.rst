@@ -190,19 +190,23 @@ Clock Domain Crossing
     Create CDC blocks/modules to organize all CDC techniques. Have these modules between the two modules clock by different clocks. Partitioning.
 
     Synchronizer circuit
+    async FIFO
     Pulse
     Handshake
     Sample and hold
 
     if two clocks have the same frequency, but come from different sources, they are async. needs to be handled.
     if they're the same frequency but have different phases.. or the phase can not be guaranteed, it is async. handle it.
-    if they have different frequency (one faster, one slower), they're def async.
-        even if the source is the same.
+    
     if a signal comes in the input pin and you have no information whatsoever about it, it is async. sync it.
 
+    
     double check.. if a clock is a derivative or multiple of the source clock from the pll (MMCM), it is sync.
     the generated clocks are synchronous to the source clock.
+    ??    if they have different frequency (one faster, one slower), they're def async.
+        even if the source is the same.
 
+    MAKE A TABLE!
 
     logically exclusive clocks - when two clocks are muxed to the same FF set. only one will be active at any given time, never both/together.
     the FF will only see one or the other. never both.
