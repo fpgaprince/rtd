@@ -163,6 +163,18 @@ Clock Domain Crossing
 
     Create CDC blocks/modules to organize all CDC techniques. Have these modules between the two modules clock by different clocks. Partitioning.
 
+    Synchronizer circuit
+    Pulse
+    Handshake
+    Sample and hold
+
+    if two clocks have the same frequency, but come from different sources, they are async. needs to be handled.
+    if they're the same frequency but have different phases, it is async. handle it.
+    if they have different frequency (one faster, one slower), they're def async.
+    if a signal comes in the input pin and you have no information whatsoever about it, it is async. sync it.
+
+
+
 Slower to faster
 -----------------------
 Slow to Fast.
@@ -394,6 +406,8 @@ Register balancing.
 Clock gating
 ===============
     No clock gating in an FPGA. you just use enables. You enable/disable a flip flop/register.
+    
+    Do no use FF output to drive clocks of other FFs.
 
 Division
 ====================
