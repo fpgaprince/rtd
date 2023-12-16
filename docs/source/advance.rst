@@ -154,12 +154,19 @@ By adding registers or flip flop to break up the combinatorial logic,
 we reduce the critical path or data path, such that we can lower the period
 between registers, in other words, increase the overall frequency.
 
-Bc we add more registers/FF in the datapath, we add more clk to q.
-overall, this increases latency. you have to be aware of the added latency
+Bc we add more registers/FF in the datapath, we add one more clock cycle delay
+for each, this increases latency. you have to be aware of the added latency
 and how it affects the overall latency. what are the
 requirements and limits.
 
+furthermore.. there is a period in which the pipe needs to be filled up
+before you get sensible / usable data.
 
+when piping, also remember to pipe the control signals for that logic.
+for instance if you have two adders going to a mux. and you pipe the results 
+of the two adders. these adders go to a mux.. the select line needs to be 
+piped so that the selection and results will appear at the mux at the same time.
+as if you never piped it. it needs to look the same to the mux, or hidden from the mux.
 
 
 
