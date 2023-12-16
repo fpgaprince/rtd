@@ -144,6 +144,25 @@ Pipeline
 *   Increases latency
 *   Increases area
 
+Sometimes there are several logic levels between a source FF and a dest FF.
+adding a register between these two FF can split up the logic level between 
+the original FF. Say it was 4 logic level between FF1 and FF2.
+Adding a pipe register FF3 between 1 and 2, you can split it to 2 logic level.
+2 between FF1 and FF3 and 2 between FF3 and FF2. You can further pipe this.
+
+By adding registers or flip flop to break up the combinatorial logic,
+we reduce the critical path or data path, such that we can lower the period
+between registers, in other words, increase the overall frequency.
+
+Bc we add more registers/FF in the datapath, we add more clk to q.
+overall, this increases latency. you have to be aware of the added latency
+and how it affects the overall latency. what are the
+requirements and limits.
+
+
+
+
+
 Clock Domain Crossing
 =======================
     What is a clock domain. A domain is basically what clock all the registers or set of registers/components/modules are clocked with.
