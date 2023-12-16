@@ -273,7 +273,19 @@ Reset
 
     In regards to fully sync reset and asyc+sync, you need to always synchronize the reset signal the whatever clock domain it is being applied to. 
 
+    not digital component/module needs to have a reset.
+    for instance.. a shift register, or delay or buffer do not need it.
+    this is because over whatever cycles, it will flush itself out. it will flush the bad/unused values out.
+    either that or whatever down stream using these buffers/registers will also have data valid signals passed on.
+    meaning that while there is garbage in and garbage out, the data valid is de-asserted, so the data is not used, trashed.
+    you dont have to worry about it.
 
+    registers that hold status or control do not necessarily need to be reset, set the initial value for start up.
+    
+    state machine should have reset state.
+    counters should have a reset state.
+
+    not having reset on every register helps with place and route. minimizes congestion.
 
 Clocking
 =======================
