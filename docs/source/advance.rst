@@ -174,10 +174,8 @@ Clock Domain Crossing
         even if the source is the same.
     if a signal comes in the input pin and you have no information whatsoever about it, it is async. sync it.
 
-    double check.. if a clock is a derivative or multiple of the source clock from the pll and the phase is guranteed, it is sync.
-    if it is a derivative or multiple, but phase not match, it is async.
-    if it is a derivative, but the phase are different, it is async.
-
+    double check.. if a clock is a derivative or multiple of the source clock from the pll (MMCM), it is sync.
+    the generated clocks are synchronous to the source clock.
 
 
 Slower to faster
