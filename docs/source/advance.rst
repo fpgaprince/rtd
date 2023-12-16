@@ -178,6 +178,17 @@ Clock Domain Crossing
     the generated clocks are synchronous to the source clock.
 
 
+    logically exclusive clocks - when two clocks are muxed to the same FF set. only one will be active at any given time, never both/together.
+    the FF will only see one or the other. never both.
+
+    physically exclusive is similar, but one may be a debug/test clock. the other is the actual clock. so again.. the FF would never see both at the same time
+    or together.
+
+    in both case you have would not have one set of FF driven by one clock and another set of FF driven by the others.
+    
+    they are exclusive, meaning FF only sees one or the other.
+
+
 Slower to faster
 -----------------------
 Slow to Fast.
