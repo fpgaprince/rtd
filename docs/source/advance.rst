@@ -341,7 +341,19 @@ Reset
     remember to syncrhonize reset signals to clock domain it is being used! double flopping is sufficient, slow changing signal.
 
 
+    bus coherency. means bits arrive at the same time. it should just be.. data coherency.. you dont want 1101 to arrive as 1001. 
+    this is bits of the bus need to arrive together, at the same time. ensuring parallel data arriving in timely manner. could be counter value, system state.. effects
+        solution..
 
+            capturing bus when bus is known to be stable.. ie using valid signals.. handshaking..
+                source is slow.. then data can appear at fast registers, clk'd by faster clk.. but controlled by enable CE.
+                CE is a result of leading edge detect of of slow clock SYNCHRONIZED to the new clock domain.
+                3 FFs. the last FF is used as a leading edge detect. the leading edge result/pulse is used as CE into fast FF to 
+                register slow data.s
+
+            allowing only one bit to change at a time, gray code.. pointers, counters..
+
+            using a clock crossing FIFO, ie. async FIFO. again with handshaking or... not? if data rates are known and depth is good.    
 
 Clocking
 =======================
