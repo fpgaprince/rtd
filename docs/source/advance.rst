@@ -652,16 +652,20 @@ and for timing to be met... propagation delay must be less than clock period and
 
 
 
+opt_design -remap
+report_qor_suggestions
+
+
+dedicated blocks have more stringent timing requirements that FF registers and LUTs
+
+before piping dedicated blocks (BRAM DSP etc), enable all registers first!
 
 
 
 
 
 
-
-
-
-
+revisit baselining for timing and design closure.
 
 
 
