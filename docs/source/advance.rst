@@ -372,16 +372,16 @@ Reset
 
 XPM - xilinx parameterized macros for CDC!
     
-    single bit
+    single bit 
     pulse
     gray code
     handshake synchronizers
 
     this is 4 of them.. there are 7 
 
+add more info here!
 
 
-    
 
 Clocking
 =======================
@@ -495,6 +495,30 @@ Positive hold time, data cannot change after the clock arrives
 Negative Hold Time. data cannot change before the clock arrives
     isn't this like setup time?
 
+
+    setup slack (positive pass, negative fail!)
+
+    slack = data required time - data arrival time
+    
+    slack = [capture edge time + destination clock delay - clock uncertainty - setup time] - [launch edge time + (source clock delay + data path delay)].
+    
+    PERIOD = capture edge time - launch edge time
+    
+    slack = PERIOD + [destination clock delay - clock uncertainty - setup time] - [source clock delay + data path delay]
+
+positive means data arrives within period and setup with time to spare.
+subtract uncertainty to shorten available time for data to arrive, worse case..
+
+hold slack (positive pass, negative fail)
+slack = (source clock delay + data path delay) - (destination clock delay) + clock uncertainty
+positive means it takes the data time to get to the destination flop, such that data doesn't change immediately
+on a clock edge, data is held for the hold requirement.
+
+    hold slack = data arrival time - data required time
+
+    [capture edge time + destination clock path delay + clock uncertainty + hold time] - [launch edge time + source clock path delay + datapath delay]
+
+    PERIOD + [destination clock path delay + clock uncertainty + hold time] - [source clock path delay + datapath delay]
 
 
 Timing Closure
