@@ -656,17 +656,26 @@ opt_design -remap
 report_qor_suggestions
 
 
-dedicated blocks have more stringent timing requirements that FF registers and LUTs
+dedicated blocks have more stringent timing requirements that FF registers, SRL and LUTs
 
 before piping dedicated blocks (BRAM DSP etc), enable all registers first!
 
 
 
-
-
-
 revisit baselining for timing and design closure.
 
+
+
+Net Delay..
+is something to look at POST ROUTE. you can look at it's estimate after synthesis before routing..
+but net delay and congestions is something that kinda happens afte routing.
+
+net delay is wire delay and is the RC models you learn in digital classes
+the difference ish with FPGA and ASIC is that the fabric/IC is components are 
+already placed. you are merely selecting this component and that component to implement.
+and so the route is in a sense predefined, the tool knows what the wire RC is.. or delay is.
+from one cell to another. or from one lut to another or from whatever to whatever so on.
+reword.
 
 
 
