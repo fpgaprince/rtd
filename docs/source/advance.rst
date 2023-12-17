@@ -496,7 +496,7 @@ Negative Hold Time. data cannot change before the clock arrives
     isn't this like setup time?
 
 
-    setup slack (positive pass, negative fail!)
+    setup slack (positive pass, negative fail!) Just remember WNS, worst negative.
 
     slack = data required time - data arrival time
     
@@ -511,7 +511,7 @@ Negative Hold Time. data cannot change before the clock arrives
 positive means data arrives within period and setup with time to spare.
 subtract uncertainty to shorten available time for data to arrive, worse case..
 
-hold slack (positive pass, negative fail)
+hold slack (positive pass, negative fail), just think 
 
     slack = (source clock delay + data path delay) - (destination clock delay) + clock uncertainty
 
@@ -569,6 +569,70 @@ so you basically have skew.. and then jitter on top of that. jitter happens rega
 
 Timing Closure
 =======================
+
+High Cell Delay
+    Modify RTL, use parallel or more efficient operator
+    Add pipeline reg, use synth retiming
+    pipe DSP BRAM
+    opt SRL
+
+High Route Delay
+    check pnr constraints
+    check high fanout nets
+    check congestion level
+
+High Clock skew or uncertainty
+    reduce skew, use parallel buffers instead of cascade
+    check asynch clocks
+
+    reduce uncertainty, check MMCM settings
+
+
+Logic Delay
+Net Delay
+Clock Skew
+Clock Uncertainty
+
+
+reduce muxf mapping to lower congestion
+improve logic levels
+reduce control setse
+optimize high fanout nets
+register replication
+prioritize critical logic
+fix hold violations prior to routing
+addressing congestion
+tuning compile flow
+floorplanning
+
+addressing congestion
+
+    lower utilization
+    disable LUT combining and MUXF inference
+    balance SLR utilization for SSI
+    use block level synthesis strat
+    use alternative pnr directives
+    limit high fanout nets in congested area
+    turn off cross-boundary optimization.
+
+
+unlike ASIC where you have a physical designer responsible for placement and route..
+FPGA is all in one with their vendor tool. you generally let the tool 
+perform the pnr.
+and use directives to focus on performance, area, speed, power.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
