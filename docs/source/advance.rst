@@ -524,8 +524,8 @@ on a clock edge, data is held for the hold requirement.
 
 adding clock uncertainty, means we're saying the clock arrival takes longer, giving more time for data to travel. such that data doesn't "get there too soon".
 
-hold violation is when the data changes too quickly upon a clock edge. meaning new data from some flop before arrived too early.
-which means the data path was short in comparison to the 
+hold violation is when the data changes too quickly upon a clock edge. meaning new data from some flop before arrived too early. and effects the current flop's launching.
+which means the data path was short in comparison to the clock delay path to the destination flop.
 
 
 jitter and skew are similar as in the have to do with the clock and its arrival to a register. it can sooner or later.
