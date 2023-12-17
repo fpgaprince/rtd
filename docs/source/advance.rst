@@ -520,6 +520,9 @@ on a clock edge, data is held for the hold requirement.
 
     PERIOD + [destination clock path delay + clock uncertainty + hold time] - [source clock path delay + datapath delay]
 
+adding clock uncertainty, means we're saying the clock arrival takes longer, giving more time for data to travel. such that data doesn't "get there too soon".
+
+
 
 Timing Closure
 =======================
