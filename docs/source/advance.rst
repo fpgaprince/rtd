@@ -505,6 +505,8 @@ Negative Hold Time. data cannot change before the clock arrives
     PERIOD = capture edge time - launch edge time
     
     slack = PERIOD + [destination clock delay - clock uncertainty - setup time] - [source clock delay + data path delay]
+            period - setup + [destination clock delay - clock uncertainty] - [source clock delay + data path delay]
+
 
 positive means data arrives within period and setup with time to spare.
 subtract uncertainty to shorten available time for data to arrive, worse case..
@@ -516,11 +518,29 @@ on a clock edge, data is held for the hold requirement.
 
     hold slack = data arrival time - data required time
 
-    [capture edge time + destination clock path delay + clock uncertainty + hold time] - [launch edge time + source clock path delay + datapath delay]
+   = [launch edge time + source clock path delay + datapath delay] - [capture edge time + destination clock path delay + clock uncertainty + hold time]
 
-    PERIOD + [destination clock path delay + clock uncertainty + hold time] - [source clock path delay + datapath delay]
+    launch edge time - capture edge time + hold time
 
 adding clock uncertainty, means we're saying the clock arrival takes longer, giving more time for data to travel. such that data doesn't "get there too soon".
+
+hold violation is when the data changes too quickly upon a clock edge. meaning new data from some flop before arrived too early.
+which means the data path was short in comparison to the 
+
+
+jitter and skew are similar as in the have to do with the clock and its arrival to a register. it can sooner or later.
+the difference is in the source of these phenomenon?
+jitter is inherent in the clock, whether it is external, from an oscillator/crystal. or even MMCM / PLL.
+it is what it is and must be accounted for.
+
+skew is due to routing, the clock path to a various registers spread out across the fpga. as in while the same clock edge or source rises..
+it must propagate across the fpga to the intended registers. and if one is further away.. physically, it will physically take longer
+for the clock to propagate. 
+
+two registers that need to be clocked by the same clk.. may actually see the clock arrive at different absolute time.
+
+so you basically have skew.. and then jitter on top of that. jitter happens regardless and again is innate, known, accepted, accounted for. with clock uncertainty!
+
 
 
 
