@@ -512,7 +512,9 @@ positive means data arrives within period and setup with time to spare.
 subtract uncertainty to shorten available time for data to arrive, worse case..
 
 hold slack (positive pass, negative fail)
-slack = (source clock delay + data path delay) - (destination clock delay) + clock uncertainty
+
+    slack = (source clock delay + data path delay) - (destination clock delay) + clock uncertainty
+
 positive means it takes the data time to get to the destination flop, such that data doesn't change immediately
 on a clock edge, data is held for the hold requirement.
 
@@ -526,6 +528,27 @@ adding clock uncertainty, means we're saying the clock arrival takes longer, giv
 
 hold violation is when the data changes too quickly upon a clock edge. meaning new data from some flop before arrived too early. and effects the current flop's launching.
 which means the data path was short in comparison to the clock delay path to the destination flop.
+
+you have to FF, 1 and 2 
+let data from FF1 already be ready at FF2, we're waiting for the arrival of the clock.
+the clock arrives at both 1 and 2.
+the data at FF2 from FF1 is getting passed/latched right now.
+FF1 also pushes out new data, but this travels super fast to FF2 and changes FF2's value before FF2 actually latches the last value.
+this 
+
+if launch clk arrives early, it gives even more time for data to get to the capturing flop on the same edge, we dont want that.
+if clock arrive at capturing later.. again gives more time for launch data to arrive at capturing on the same edge.
+
+notice.. hold is regarding the same clock edge on two flops.
+the analysis is done on the launch and capture flop, one the same edge in time.
+launch data cannot arrive at capturing flop within the hold window. or data will be corrupted.
+
+setup is launch edge on launching flop, followed by capturing edge on capture flop. 
+laucnh data must arrive at capture before next edge.
+
+you must look for the shortest data path and make sure it is not shorter than the hold requirement.
+
+for setup.. you look for the longest data path and make sure it does not exceed the period and setup.
 
 
 jitter and skew are similar as in the have to do with the clock and its arrival to a register. it can sooner or later.
