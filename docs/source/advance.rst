@@ -643,6 +643,43 @@ registers can be pulled into or out of BRAMs
 
 retiming moves reigsters across combinational logic levels
 
+logic delay is time from input to output of LUT.
+
+slower clock allows more logic level.
+faster clock have more stringent requirement, requiring less logic levels.
+because logic level is time thru LUTs which is logic propagation delay
+and for timing to be met... propagation delay must be less than clock period and setup time.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Somewhere
 =======================
