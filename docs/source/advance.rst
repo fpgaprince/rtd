@@ -598,6 +598,7 @@ reduce muxf mapping to lower congestion
 improve logic levels
 reduce control setse
 optimize high fanout nets
+    replicate drivers.. ie register replication.. which is like buffering the data. or buffer amplifier
 register replication
 prioritize critical logic
 fix hold violations prior to routing
@@ -609,7 +610,7 @@ addressing congestion
 
     lower utilization
     disable LUT combining and MUXF inference
-    balance SLR utilization for SSI
+    balance SLR (super logic region) utilization for SSI (stack silicon interconnect)
     use block level synthesis strat
     use alternative pnr directives
     limit high fanout nets in congested area
@@ -622,18 +623,25 @@ perform the pnr.
 and use directives to focus on performance, area, speed, power.
 
 
+there is delay penalty for data propagating across SLR
+pipeline data!
 
 
 
 
+there is post placement optimization (enabled by default) and post route (disabled)..
 
 
+restructuring/re-wiring LUT, creates new LUT functions so that the critical path or function/logic
+is faster
+
+cell replication and register replication serves the purpose of improving timing
 
 
+registers can be pulled into or out of DSPs. like wise..
+registers can be pulled into or out of BRAMs
 
-
-
-
+retiming moves reigsters across combinational logic levels
 
 
 Somewhere
