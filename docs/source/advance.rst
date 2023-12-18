@@ -3,14 +3,20 @@ Advance
 Honestly, I think all FPGA designers should read/refresh every year.
 It will either solidfy your knowledge, test/question your understanding or teach you something new.
 
-(UG949)
 https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Creation-with-RTL
+
+https://www.intel.com/content/www/us/en/docs/programmable/683082/23-1/recommended-hdl-coding-styles.html
+
+
 https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Closure
 
-(UG906)    
 https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Introduction
 https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Timing-Analysis
 
+After you do something for awhile.. 
+you find the things you found advance weren't really so..
+
+but there is only so much one can absorb at a given time.
 
 
 
