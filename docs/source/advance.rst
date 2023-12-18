@@ -1,5 +1,18 @@
 Advance
 ***********************
+Honestly, I think all FPGA designers should read/refresh every year.
+It will either solidfy your knowledge, test/question your understanding or teach you something new.
+
+(UG949)
+https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Creation-with-RTL
+https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Closure
+
+(UG906)    
+https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Introduction
+https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Timing-Analysis
+
+
+
 
 In the way you write HDL..
 
@@ -382,6 +395,32 @@ XPM - xilinx parameterized macros for CDC!
 add more info here!
 
 
+AMD devices have a dedicated global set/reset signal (GSR). This signal sets the initial value of all sequential cells in hardware at the end of device configuration.
+
+If an initial state is not specified, sequential primitives are assigned a default value. In most cases, the default value is zero. Exceptions are the FDSE and FDPE primitives that default to a logic one. Every register will be at a known state at the end of configuration. Therefore, it is not necessary to code a global reset for the sole purpose of initializing a device on power up.
+
+AMD highly recommends that you take special care in deciding when the design requires a reset, and when it does not. In many situations, resets might be required on the control path logic for proper operation. However, resets are generally less necessary on the data path logic. Limiting the use of resets:
+
+Limits the overall fanout of the reset net.
+Reduces the amount of interconnect necessary to route the reset.
+Simplifies the timing of the reset paths.
+Results in many cases in overall improvement in clock frequency, area, and power.
+
+Evaluate each synchronous block, and attempt to determine whether a reset is required for proper operation. Do not code the reset by default without ascertaining its real need.
+Functional simulation should easily identify whether a reset is needed or not.
+
+If a reset is needed, AMD recommends using synchronous resets. Synchronous resets have the following advantages over asynchronous resets:
+
+Synchronous resets can directly map to more resource elements in the device architecture.
+Asynchronous resets impact the maximum clock frequency of the general logic structures. Because all AMD device general-purpose registers can program the set/reset as either asynchronous or synchronous, it might seem like there is no penalty in using asynchronous resets. If a global asynchronous reset is used, it does not increase the control sets. However, the need to route this reset signal to all register elements increases routing complexity.
+Asynchronous resets have a greater probability of corrupting memory contents of block RAMs, LUTRAMs, and SRLs during reset assertion. This is especially true for registers with asynchronous resets that drive the input pins of block RAMs, LUTRAMs, and SRLs.
+Synchronous resets offer more flexibility for control set remapping when higher density or fine tuned placement is needed. A synchronous reset can be remapped to the data path of the register if an incompatible reset is found in the more optimally placed slice. This can reduce routing resource utilization and increase placement density where needed to allow proper fitting and improved achievable clock frequency.
+Some resources such as the DSP48 and block RAM have only synchronous resets for the register elements within the block. When asynchronous resets are used on register elements associated with these elements, those registers may not be inferred directly into those blocks without impacting functionality.
+Following are additional considerations:
+
+The clock works as a filter for small reset glitches for synchronous resets. However, if these glitches occur near the active clock edge, the flip-flop might become metastable.
+Synchronous resets might need to stretch the pulse width to ensure that the reset signal pulse is wide enough for the reset to be present during an active edge of the clock.
+When using asynchronous resets, remember to synchronize the deassertion of the asynchronous reset. Although the relative timing between clock and reset can be ignored during reset assertion, the reset release must be synchronized to the clock. Avoiding the reset release edge synchronization can lead to metastability. During reset release, setup and hold timing conditions must be satisfied for the reset pin relative to the clock pin of a register. A violation of the setup and hold conditions for asynchronous reset (e.g., reset recovery and removal timing) might cause the flip-flop to become metastable, causing design failure due to switching to an unknown state. Note that this situation is similar to the violation of setup and hold conditions for the flip-flop data pin.
 
 Clocking
 =======================
@@ -680,19 +719,26 @@ reword.
 
 
 
+congestion..
+use less than 70-80% utilization in device or SLR
 
 
 
+small setup time violation may still work in lab. lower fq initially 
+there is more focus by tool to fix hold violations
+
+hold violations are critical, design will most likely not work.
+    check multi cycle constraints
+    check clock skews
+reduce number of control setes
+
+A control set is the grouping of control signals (set/reset, clock enable and clock) that drives any given SRL, LUTRAM, or register. For any unique combination of control signals, a unique control set is formed. This is important, because registers within a 7 series slice all share common control signals, and thus, only registers with a common control set can be packed into the same slice. For example, if a register with a given control set has just one register as a load, the other seven registers in the slice it occupies will be unusable.
+Designs with too many unique control sets might have many wasted resources as well as fewer options for placement, resulting in higher power and lower achievable clock frequency. Designs with fewer control sets have more options and flexibility in terms of placement, generally resulting in improved results.
 
 
+avoid mixed-mode control signals for sequential calls.
 
-
-
-
-
-
-
-
+only use clock enable and set/reset when necessary, usually first and last stage.
 
 Somewhere
 =======================
