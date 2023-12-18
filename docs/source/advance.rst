@@ -605,10 +605,22 @@ skew is due to routing, the clock path to a various registers spread out across 
 it must propagate across the fpga to the intended registers. and if one is further away.. physically, it will physically take longer
 for the clock to propagate. 
 
+"time difference between the clock signal arriving at the source and destination flip flops in a given clock path"
+"Positive skew : source FF receives clk earlier than the desination"
+"Negative skew : source FF receives the clock later than the destination"
+the clock is time from a common source or start point. common node.
+    this is why there is destination clock path delay and source clock path delay 
+
+
 two registers that need to be clocked by the same clk.. may actually see the clock arrive at different absolute time.
 
 so you basically have skew.. and then jitter on top of that. jitter happens regardless and again is innate, known, accepted, accounted for. with clock uncertainty!
 
+skew on designs >300MHz can become issue
+intra clock 300ps. between balance sync clock 500
+when utilization is high, harder for clock. because it has to spread across the fpga
+REMEMBER, a CLOCK is also a signal. it too, needs to propagate just like anything else.
+and must adhere/obey the same laws!
 
 
 
