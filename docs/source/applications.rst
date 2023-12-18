@@ -5,6 +5,14 @@ Applications
 
 Remember.. FPGAs are just a means to an end.
 
+Once you understand the complexities of the FPGA,
+its potential, its power, its speed, where it excels
+its limitations
+advantages as well as disadvantages..
+The area of work you do with it is or becomes the fun and interesting part!
+
+Here are some..
+
 
 
 
