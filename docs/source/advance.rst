@@ -20,7 +20,7 @@ you find the things you found advance weren't really so..
 
 but there is only so much one can absorb at a given time.
 
-
+---------
 
 In the way you write HDL..
 
@@ -767,6 +767,7 @@ reword.
 congestion..
 use less than 70-80% utilization in device or SLR
 
+3 types: global, short, long
 
 
 small setup time violation may still work in lab. lower fq initially 
@@ -784,6 +785,18 @@ Designs with too many unique control sets might have many wasted resources as we
 avoid mixed-mode control signals for sequential calls.
 
 only use clock enable and set/reset when necessary, usually first and last stage.
+
+
+
+
+
+
+
+
+
+
+
+
 
 Somewhere
 =======================
