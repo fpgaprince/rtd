@@ -13,6 +13,8 @@ https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Closure
 https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Introduction
 https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Timing-Analysis
 
+
+
 After you do something for awhile.. 
 you find the things you found advance weren't really so..
 
@@ -622,6 +624,11 @@ when utilization is high, harder for clock. because it has to spread across the 
 REMEMBER, a CLOCK is also a signal. it too, needs to propagate just like anything else.
 and must adhere/obey the same laws!
 
+there are 4 types of timing exceptions:
+    Multicycle paths
+    false paths
+    min and max delays
+    clock groups
 
 
 Timing Closure
@@ -788,3 +795,11 @@ We are no longer using gates.
 We are using SRAM.
 Therefore the prop delay is of the SRAM and not the actual function or gate as taught in digital logic courses.
 Which also means.. the delay is constant for all function using that LUT.
+
+
+for me.
+https://docs.xilinx.com/r/en-US/ug572-ultrascale-clocking/Introduction-to-UltraScale-Architecture
+
+https://docs.xilinx.com/r/en-US/ug572-ultrascale-clocking/Clock-Structure
+
+https://docs.xilinx.com/r/en-US/ug572-ultrascale-clocking/Clock-Management-Tile
