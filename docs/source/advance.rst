@@ -631,6 +631,26 @@ there are 4 types of timing exceptions:
     clock groups
 
 
+clock uncertainty.
+uncertainty relative to ideal clock. which can be due to 
+user specificed external clock information, system jitter. or duty cycle distortion.    
+input jitter, discrete jitter, phase error, user added uncertainty.
+clock modifying blocks can add jitter and phase error to clock
+
+    use clocking wizard, it provides accurate uncertainty data.
+
+reserve slack margine to represent noise.
+NEVER add extra uncertainty to ensure proper hardware functionality. tool is conservative.
+can over constrain that path related to a clock or a clock pair.
+
+uncertainty helps model hardware operationg conditions accurately. "run time"
+
+
+consider using BUFGCE_DIV, it is a divider. instead of using MMCM.
+
+
+
+
 Timing Closure
 =======================
 
@@ -798,8 +818,14 @@ Which also means.. the delay is constant for all function using that LUT.
 
 
 for me.
-https://docs.xilinx.com/r/en-US/ug572-ultrascale-clocking/Introduction-to-UltraScale-Architecture
+https://docs.xilinx.com/r/en-US/ug572-ultrascale-clocking/UltraScale-Architecture-Clocking-Resources-User-Guide
 
-https://docs.xilinx.com/r/en-US/ug572-ultrascale-clocking/Clock-Structure
 
-https://docs.xilinx.com/r/en-US/ug572-ultrascale-clocking/Clock-Management-Tile
+MMCM vs. PLL.
+Fvco = Fclkinn x M/D
+
+Fout = Fclkin x (M/(DxO))
+
+VCO = voltage controlled oscillator
+
+A phase-locked loop (PLL) circuit is a feedback system that combines a voltage controlled oscillator (VCO) and a phase detector in such a way that the oscillator signal tracks an applied frequency or phase modulated signal with the correct frequency and phase.
