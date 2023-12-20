@@ -109,23 +109,55 @@ by the BRAM. so the structure is external searched and then pointed to the RAM..
 what if we read before write.. such that we present the address and well before we put the data in we frame/structure/TAG! it some way..
 so that we can decode and know whether we can write to it or not all within or before a period/cycle.
 
+can we jump to an address and then start the search? again.. this requires some addressing system. and then its N iterations as we read.
 
 can we use cache ing techniques to store incoming data into BRAM?
 
     associative mapping
+        store the content and addresses of the memory word. Any block can go into any line of the cache. This means that the word id bits are used to identify which word in the block is needed, but the tag becomes all of the remaining bits.
+        ah.. it stores the WORD, not blocks so in direct map.. we store blocks of N words. here we store a single WORD with its address as part of the TAG. and so it is unique. and can be placed anywhere.
+        when you search though you compare ALL tags in the cache for a hit/miss.
+        this last 2 bit thing regarding which word in the data block.. tells me the block of data comes in with an address. that address is used to create the tag.. so tag is unique.
+        when writing from main to cache, it just steps thru or looks for an empty line/unused/unoccupied. adds tag and block.
+        when checking. check if empty. if empty. write there. if not increment line until empty.
+        when searching cpu will present desired or search tag. check valid first, means somewhere its in there. then ln by ln or check all at once and flag the ln the data is in. and present data.
 
     direct mapped, block address reserved for certain data types
+        The simplest technique, known as direct mapping, maps each block of main memory into only one possible cache line. 
+        or In Direct mapping, assign each memory block to a specific line in the cache. 
+        If a line is previously taken up by a memory block when a new block needs to be loaded, the old block is trashed. "overwritten"
+        "thrashing", results in high misses.
+
+        so a block contains a x words, say 4 words 32bit each. say main memory has 10blocks.
+        cache has 5 lines. blocks 1 ln1, 2 ln2, ...5 ln5, 6 ln1, 7ln2, 10 ln 5.. 
+        block# mod 5. so if block 10 comes in, and you already have something at ln 5, it gets over written.. even if the old data belonged to block 5.
 
     set associative
+        Set associative addresses the problem of possible thrashing in the direct mapping method. It does this by saying that instead of having exactly one line that a block can map to in the cache, we will group a few lines together creating a set.
+
+just for reference, CPUs 
+CPU registers, counters, pointers, etc
+L1 cache can be 2KB to 64KB (kinda like our BRAMs!!), holds instructions
+L2 cache can range from 256KB to 512KB.
+L3 cache can be 1MB to 8MB.
 
 
 
 
+Using Dedicated Blocks or Distributed RAMs
+RAMs can be implemented in either the dedicated block RAM or within LUTs using distributed RAM. The choice not only impacts resource selection, but can also significantly impact performance and power.
 
+In general, the required depth of the RAM is the first criterion. Memory arrays described up to 64 bits deep are generally implemented in LUTRAMs, where depths of 32 bits and less are mapped 2 bits per LUT and depths up to 64-bits can be mapped one bit per LUT. Deeper RAMs can also be implemented in LUTRAM depending on available resources and synthesis tool assignment.
 
+Memory arrays deeper than 256 bits are generally implemented in block memory. Xilinx devices have the flexibility to map such structures in different width and depth combinations. Familiarize yourself with these configurations to understand the number and structure of block RAMs used for larger memory array declarations in the code.
 
-
-
+cache takes blocks of words from main memory. and adds a tag/header. a cache "line" can hold multiple main memory words. a word can be 32bit, 64bit, etc. so you could have N words per tag! N words making up a "block".
+in other words..
+cache is made up of "lines" 
+each line has a tag and block of memory.
+each block of memory consists of words.
+if for instance a block is defined as 4 words, and a word is 32bits.
+then each cache line holds 4*32bits of memory.. 128bits plus the tag.
 
 ------------------
 
