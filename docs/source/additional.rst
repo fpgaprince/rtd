@@ -131,7 +131,6 @@ If you want to find the position in an unsorted array of n
 
 
 ---------
-https://www.cs.umd.edu/~meesh/411/CA-online/chapter/computer-architectureintroduction/index.html
 
 it seems what i need to look at is cache..
 
@@ -170,6 +169,21 @@ can we use cache ing techniques to store incoming data into BRAM?
 
     set associative
         Set associative addresses the problem of possible thrashing in the direct mapping method. It does this by saying that instead of having exactly one line that a block can map to in the cache, we will group a few lines together creating a set.
+
+        An intermediate possibility is a set-associative cache.
+        — The cache is divided into groups of blocks, called sets.
+        — Each memory address maps to exactly one set in the cache, but data 
+        may be placed in any block within that set.
+
+        N way associative = N blocks in a set. cache is divdied into sets.
+
+
+
+in summary.. direct map uses creates memory blocks, so there is overlap, think of mod function. nothing to handle overlap, just overwrite.. 
+associative uses entire addr so each cache line is unique, memory can be written anywhere.
+set associative is hybrid of the two. part of the address is used to index into cache set. which is like directmapping. 
+once in a set, use associative. ie use the rest of address. so that ln is unique, and you can place anywhere
+in both associative method, replacement is done by LRU.
 
 
 when CPU does find data in cache and operates on it and returns it to cache, this needs to flow back to main memory or whereever.
