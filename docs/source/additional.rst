@@ -32,6 +32,8 @@ Data Structure
 ##########################
 these are just conversations with myself..
 
+
+
 try to implement or think about everything with a RAM. what are the challenge, limitations, is it even worth
 RAM is address and data. it is basically an array, with the address being the indices!
     if data is added to the RAM, unsorted, it will take o(n) time to search for it.
@@ -74,6 +76,8 @@ BRAM is the memory. FIFO is just a data structure we apply. Data structure is ba
 
 can you implement trees like binary tree or other trees using BRAM?
 
+
+
 everything has led me to, you want to make a mini database with the RAM. or cache? 
 https://www.cise.ufl.edu/~mschneid/Research/papers/HS05BoCh.pdf
 
@@ -106,10 +110,32 @@ B tree vs B+ tree?
 Can we create BRAM binary tree? in which each block is like a node with children. but this would be like creating that mapping externally.. not linked
 by the BRAM. so the structure is external searched and then pointed to the RAM.. which is kind of like hashing isn't it?
 
+if you use multiple BRAM, you pay the price of a clock cycle to talk one before the other, if there are multiple level etc.
+
 what if we read before write.. such that we present the address and well before we put the data in we frame/structure/TAG! it some way..
 so that we can decode and know whether we can write to it or not all within or before a period/cycle.
 
 can we jump to an address and then start the search? again.. this requires some addressing system. and then its N iterations as we read.
+
+if we create an external tree.. we'd still need some form of memory right? we'd use registers.. and so then every entry into bram would require registers to hold value.
+and point to some address location.. well.. won't we start using up the FF resources with this approach? yes..
+
+it seems the best is to have some method/function/hash/encoder/decoder so that we can determine it in one cycle.
+
+
+
+If you want to find the position in an unsorted array of n
+ integers that stores a particular value, you cannot really do better than simply looking through the array from the beginning and move toward the end until you find what you are looking for. This algorithm is called sequential search. If you do find it, we call this a successful search. If the value is not in the array, eventually you will reach the end.
+
+
+
+
+---------
+https://www.cs.umd.edu/~meesh/411/CA-online/chapter/computer-architectureintroduction/index.html
+
+it seems what i need to look at is cache..
+
+as that is basically data storage and retrieval at the hw level. and is the fastest memory type next to registers.
 
 can we use cache ing techniques to store incoming data into BRAM?
 
@@ -159,7 +185,7 @@ each block of memory consists of words.
 if for instance a block is defined as 4 words, and a word is 32bits.
 then each cache line holds 4*32bits of memory.. 128bits plus the tag.
 
-------------------
+---------
 
 stack - LIFO, last in first out. push pop. max size/ top. stack/frame pointer. check overflow underflow 
 which is the same as checking full vs. empty in our fifos.
@@ -180,7 +206,7 @@ binary search tree
 
 the above are definitely things that can be implemented in HDL/hardware.
 
-heap 
+heap - is dynamic memory
 
 do i reallly need to know lists?
 maybe revisit comp arch to see which of the comsci can be applied
@@ -220,4 +246,21 @@ packets
 
 Operating Systems
 ##########################
+
+
+
+IDK..
+##########################
+log10(n)/log10(2) --> log2(n)
+    10^x = y
+
+ln(n)/ln(2)
+    e^x = y
+
+    e = 2.71828 = euler's number
+pi = 3.14159
+3db point = half power point = 0.70712 = 1/sqrt(2)
+
+POWER is 10log10(x)
+AMPLITUDE is 20log10(x), gain vs frequency bode
 
