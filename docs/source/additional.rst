@@ -139,14 +139,24 @@ as that is basically data storage and retrieval at the hw level. and is the fast
 
 can we use cache ing techniques to store incoming data into BRAM?
 
-    associative mapping
+    (fully) associative mapping
         store the content and addresses of the memory word. Any block can go into any line of the cache. This means that the word id bits are used to identify which word in the block is needed, but the tag becomes all of the remaining bits.
         ah.. it stores the WORD, not blocks so in direct map.. we store blocks of N words. here we store a single WORD with its address as part of the TAG. and so it is unique. and can be placed anywhere.
+            This indicates that there is no need for a block field. 
+
         when you search though you compare ALL tags in the cache for a hit/miss.
         this last 2 bit thing regarding which word in the data block.. tells me the block of data comes in with an address. that address is used to create the tag.. so tag is unique.
         when writing from main to cache, it just steps thru or looks for an empty line/unused/unoccupied. adds tag and block.
         when checking. check if empty. if empty. write there. if not increment line until empty.
         when searching cpu will present desired or search tag. check valid first, means somewhere its in there. then ln by ln or check all at once and flag the ln the data is in. and present data.
+
+        when cache full, can use LRU least recent used to determine which to drop/overwrite.
+
+         However, a fully associative cache is expensive to implement.
+            — Because there is no index field in the address anymore, the entire
+            address must be used as the tag, increasing the total cache size.
+            — Data could be anywhere in the cache, so we must check the tag of 
+            every cache block. 
 
     direct mapped, block address reserved for certain data types
         The simplest technique, known as direct mapping, maps each block of main memory into only one possible cache line. 
@@ -160,6 +170,9 @@ can we use cache ing techniques to store incoming data into BRAM?
 
     set associative
         Set associative addresses the problem of possible thrashing in the direct mapping method. It does this by saying that instead of having exactly one line that a block can map to in the cache, we will group a few lines together creating a set.
+
+
+when CPU does find data in cache and operates on it and returns it to cache, this needs to flow back to main memory or whereever.
 
 just for reference, CPUs 
 CPU registers, counters, pointers, etc
@@ -186,6 +199,8 @@ if for instance a block is defined as 4 words, and a word is 32bits.
 then each cache line holds 4*32bits of memory.. 128bits plus the tag.
 
 ---------
+
+SHA - secure hash algorithm
 
 stack - LIFO, last in first out. push pop. max size/ top. stack/frame pointer. check overflow underflow 
 which is the same as checking full vs. empty in our fifos.
