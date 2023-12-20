@@ -51,6 +51,13 @@ RAM is address and data. it is basically an array, with the address being the in
     i think if it is a dual port RAM, you can read from both ports.. and cut the search in half.
     but each half is still an o(n) search..
 
+    it seems at this point.. the best thing to do is to have some way of determining where to place the data/what address to use.
+    a system for inputing/inserting/adding/ and reading/retrieving data.
+    a hash function.. then you can find it precisely without having to search later. 
+        this brings up.. what if the data coming in results in the same key.. how do you prevent over writing if data is already there.
+        how do you now data is already there or not?
+
+    when data comes in we must parse it. or if data is there and something else needs to look or search for it, it is query/querying the database.
 
 review cache, i think by using the BRAM, we can implement a cache system.. and so all that stuff is going to apply.    
 
@@ -63,9 +70,64 @@ Terminology..
     simple dual-port (SDP)
     true dual-port (TDP) memory)
 
-BRAM is the memory. FIFO is just a data structure we apply. Data structure is basically rules we set for organizing data for storage and retrieval.
+BRAM is the memory. FIFO is just a data structure we apply. Data structure is basically rules we set for organizing data for storage, retrieval and/or modification.
+
+can you implement trees like binary tree or other trees using BRAM?
+
+everything has led me to, you want to make a mini database with the RAM. or cache? 
+https://www.cise.ufl.edu/~mschneid/Research/papers/HS05BoCh.pdf
+
+some things to maybe explore.. SQL (structured query language).. meh... DBMS (database management system)
 
 
+i imagine t o speed up algorithms or what not, you want to implement some of the data structure in hardware. that way you can offload or 
+do some of the decisions in the FPGA before even passing it on, as in it may not even need to go up to the next level. we can handle it
+in the low/hardware level. but to do that we have to imitate/replicate the structure used above.
+
+i imagine at the next layer up.. it is basically a database, that is constantly changing as more info comes in.
+
+
+reminder o(n) is "linear"... duh.. so sometimes they'll just say linear complexity or the search is linear or the algo is linear. like wise with retrieval.
+
+merge sort divides in half, but each half has to iterate n. half is logn. n times. o(nlogn)
+
+
+
+
+Hash functions calculate the address of the page in which the record is to be stored based on one or more fields in the record
+hashing functions chosen to ensure that addresses are spread evenly across the address space
+‘occupancy’ is generally 40% to 60% of the total file size
+unique address not guaranteed so collision detection and collision resolution mechanisms are required
+Open addressing
+Chained/unchained overflow
+
+B tree vs B+ tree?
+
+Can we create BRAM binary tree? in which each block is like a node with children. but this would be like creating that mapping externally.. not linked
+by the BRAM. so the structure is external searched and then pointed to the RAM.. which is kind of like hashing isn't it?
+
+what if we read before write.. such that we present the address and well before we put the data in we frame/structure/TAG! it some way..
+so that we can decode and know whether we can write to it or not all within or before a period/cycle.
+
+
+can we use cache ing techniques to store incoming data into BRAM?
+
+    associative mapping
+
+    direct mapped, block address reserved for certain data types
+
+    set associative
+
+
+
+
+
+
+
+
+
+
+------------------
 
 stack - LIFO, last in first out. push pop. max size/ top. stack/frame pointer. check overflow underflow 
 which is the same as checking full vs. empty in our fifos.
@@ -103,6 +165,9 @@ O(n log n) - Bad, loops of cut in half lol
 O(n^2), O(2^n) and O(n!) - Horrible/Worst, nested loops
 
 https://www.bigocheatsheet.com/
+
+
+parsing data.
 
 
 Controls
