@@ -583,8 +583,14 @@ the data at FF2 from FF1 is getting passed/latched right now.
 FF1 also pushes out new data, but this travels super fast to FF2 and changes FF2's value before FF2 actually latches the last value.
 this 
 
+one more.. 
+clk arrives at FF1, FF1 launches 'new' data. same clock edge arrives at FF2, which is supposed to clock FF1 'old data' but because 
+new data traveled thru some super short path, it arrives ON THE SAME clock edge within the hold duration of FF2. this causes a hold violation at FF2
+in which the new data from FF1 contaminates or corrupts FF2 from latch the 'old data'.
+i think this is the best tone..
+
 if launch clk arrives early, it gives even more time for data to get to the capturing flop on the same edge, we dont want that.
-if clock arrive at capturing later.. again gives more time for launch data to arrive at capturing on the same edge.
+if clock arrive at capturing later.. again gives more time for launch data to arrive at capturing on the same edge. bad
 
 notice.. hold is regarding the same clock edge on two flops.
 the analysis is done on the launch and capture flop, one the same edge in time.
