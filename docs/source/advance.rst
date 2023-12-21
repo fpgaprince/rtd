@@ -563,7 +563,8 @@ hold slack (positive pass, negative fail), just think
     slack = (source clock delay + data path delay) - (destination clock delay) + clock uncertainty
 
 positive means it takes the data time to get to the destination flop, such that data doesn't change immediately
-on a clock edge, data is held for the hold requirement.
+on a clock edge, old data at FF2 is held for the hold requirement. old data is stable before new data arrives.
+it means it took more time for data to arrive than the required time, therefore the subtraction result is positive..
 
     hold slack = data arrival time - data required time
 
