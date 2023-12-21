@@ -357,7 +357,7 @@ Reset
 
     note: there are certain xilinx modules that need async reset, just double check documentation.
 
-    RESET BRIDGE means.. assert asynchronously and deasserted synhcronously.
+    RESET BRIDGE means.. assert asynchronously and deasserted synhcronously. and also to use two flip flops to synchronize to the domain.
 
     remember to syncrhonize reset signals to clock domain it is being used! double flopping is sufficient, slow changing signal.
 

@@ -109,7 +109,7 @@ Carry Logic (CL)
 
 Multiplexer (MUX)
 ------------------------------------------
-    MUXF7/8/9
+    MUXF7/MUXF7/MUXF9
 
 Shift Registers (SRL)
 ------------------------------------------
@@ -203,3 +203,7 @@ is given to it. I guess.. for the most part or for small designs.. you can get b
 Likewise with static timing analysis and timing closure.. but they are all essential parts? of FPGA development.
 And are fundamental to it.
 We may decompose the advance chapter and introduce it early on?
+
+
+
+

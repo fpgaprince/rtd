@@ -861,9 +861,16 @@ Register/FlipFlops (FF)
 There is only D FF in an FPGA.. other styles FF you learn in digital logic class do not exist.
 If you try implementing other flavors (SR, JK, T), you'll just use the available DFF and surrounding LUTs to realize their functionality.
 
+    Do initialize at the top. Not every register needs a reset condition. 
+    Know if register state matters when reset.. means trace how it is used and specifically when.
+
+    Code for active high.. avoid active low. ie. make clock enables high. if so and so = '1' then .. blah blah.
+
 Reset
 #########################
 Asynchronously setting or resetting registers are synthesized into preset or clear registers.
+
+avoid async reset on BRAM (block ram) DSPs
 
 Sequential functionality in device resources, such as block RAM components and DSP blocks, can be set or reset synchronously only.
 
@@ -877,6 +884,7 @@ There can be other, less expensive, ways to achieve the desired effect,
 such as taking advantage of the circuit global reset by defining an initial content.
 Always describe the clock enable, set, and reset control inputs of flip-flop primitives as active-High. 
 If they are described as active-Low, the resulting inverter logic penalizes circuit performance.
+
 
 .. code-block:: vhdl
   :linenos:   
@@ -897,8 +905,16 @@ If they are described as active-Low, the resulting inverter logic penalizes circ
 
 
 
-Inferring and Inference
+Inferring and Instantiation
 ##################################################
+SRL, F7 F8 F9 mux, CL
+multiplier and counters using DSP 
+BUFG
+IO reg (SDR)
+input DDR reg
+Select IO
+
+
 
 Synthesis/Implementation
 ##################################################
@@ -954,7 +970,7 @@ if you dont use it you lose it. its already there for you.
 
 
 
-
+Dedicated resource/hardware consumes less power, is faster than LUTs/flip flops and their timing have already been done/taken care of.
 
 
 

@@ -212,6 +212,14 @@ each block of memory consists of words.
 if for instance a block is defined as 4 words, and a word is 32bits.
 then each cache line holds 4*32bits of memory.. 128bits plus the tag.
 
+
+i think you can implement hashing system on the BRAM. your key can be a time stamp or something in addition to whatever, this way we ensure uniqueness.
+at this point i dont even know what the data is 
+
+building an efficient order book, with efficient ways to manage best bid/ask) is important because I care about speed and scalability of processing market data 
+
+
+
 ---------
 
 SHA - secure hash algorithm
