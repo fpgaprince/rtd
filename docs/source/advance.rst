@@ -303,7 +303,11 @@ in which the fast data has already been ready/standby this whole time.
 
     data_out1 <= q3 xor q2;
     
+double flop should only be used for slow changing signal, again going from slow domain to a fast domain.
+double flop should be placed physical close to each other during imp to increase MTBF. ASYNC_REG
 
+se_clock_groups to specify unrelated clocks, rather than use set false path. you'll have to specify too many this way.
+se_clock_groups is more concise, clean. -asynchronous
 
 Reset 
 =======================
@@ -429,6 +433,22 @@ Following are additional considerations:
 The clock works as a filter for small reset glitches for synchronous resets. However, if these glitches occur near the active clock edge, the flip-flop might become metastable.
 Synchronous resets might need to stretch the pulse width to ensure that the reset signal pulse is wide enough for the reset to be present during an active edge of the clock.
 When using asynchronous resets, remember to synchronize the deassertion of the asynchronous reset. Although the relative timing between clock and reset can be ignored during reset assertion, the reset release must be synchronized to the clock. Avoiding the reset release edge synchronization can lead to metastability. During reset release, setup and hold timing conditions must be satisfied for the reset pin relative to the clock pin of a register. A violation of the setup and hold conditions for asynchronous reset (e.g., reset recovery and removal timing) might cause the flip-flop to become metastable, causing design failure due to switching to an unknown state. Note that this situation is similar to the violation of setup and hold conditions for the flip-flop data pin.
+
+Reset bridge
+
+.. code-block:: vhdl
+  :linenos:   
+
+    process (clk, rst) begin      
+        if (rst) then
+            rst_out <= '1';
+
+        elsif rising_edge(clk) then
+            reg <= '0';
+            rst_out <= reg;
+        end if;
+    end process;
+ 
 
 Clocking
 =======================
@@ -656,7 +676,16 @@ uncertainty helps model hardware operationg conditions accurately. "run time"
 consider using BUFGCE_DIV, it is a divider. instead of using MMCM.
 
 
+it seems you are more probable to have setup issues with input timing. due to board signal propagation or poor characterization of external devices.
+if it were internal.. it is most likely due to place and route and the results of poor placement of resources, components, logic.
+which can also be a result of poor coding.
 
+hold violations are usually internal. and most likely due to clock domains and imporoper constraints.
+
+i think* the output timing face similar issues.
+
+these are more complicated constraints because we need external device specs and board/pcb specs as well.
+and you wont truly see this/these failures and or violations without having the actual HW.
 
 Timing Closure
 =======================

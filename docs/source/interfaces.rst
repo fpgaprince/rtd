@@ -748,6 +748,42 @@ including graphics cards, storage controllers, network cards, and more. Here's a
 
 Implementing PCIe in an FPGA is a complex task that requires a good understanding of the PCIe standard, FPGA architecture, and the specific requirements of your application. Refer to the documentation provided by the FPGA vendor and PCIe specifications for detailed guidance.
 
+x1, x2, x4, x8, x12, x16, x32 lanes.. or link width
+2.5GT/s per lane. upto 32GT/s
+32bit and 64bit.
+memory, IO, configuration address spaces.
+point to point.
+packet based protocol.
+once was 8b/10b, now 128b/130b. note. for every 128bit, 2 extra bit encoded.
+
+
+posted transsaction, no reply or acknowledge. memory wr
+non-posted, acknowledge. IO and configuration. memory rd.
+
+a lane = diff pair. Gen1: 2.5Gbps, Gen2: 5.0 Gbps, Gen3 8.0Gbps, Gen4: 16Gbps
+
+conversion.. transfer*encoding, which 8/10 or 128/130
+GT*(128/130) = Gbps
+
+root complex is upstream, downstream is towards end point. think vertical.
+root complex can be cpu or northbridge
+
+use 3 layer like "OSI", transaction, data link layer, physical.
+
+::
+
+    transaction packet.                         header:data:ECRC
+    datalink, add                  [sequence#] [header:data:ECRC] [LCRC]
+    physical layer          [start][sequence#:header:data:ECRC:LCRC][end]
+
+data up to 4K bytes. for reference ethernet payload 1500 bytes, TCP packet up to 64K, 65535 bytes.
+payloads are all broken down into smaller packets and framed for transmission. same concept.
+
+what is striping done in the physical area?
+stripe/striping
+encoding(8b/10b)
+parallel to serial.
+
 
 DMA
 =====================
@@ -806,6 +842,30 @@ Memory-mapped refers to a technique in computer architecture where specific regi
     Memory-mapped regions are also used in the context of direct memory access (DMA), where peripherals or devices can transfer data directly to and from the main memory without CPU intervention.
 
 Memory-mapped I/O simplifies the software interface to hardware, making it more straightforward for programmers to interact with devices. However, it's important to manage potential conflicts and ensure that the memory-mapped regions used for I/O do not interfere with areas reserved for program or data storage. Careful coordination is necessary to avoid conflicts between memory accesses intended for regular data and those meant for controlling peripheral devices.
+
+
+
+AXI-4
+=====================
+Point to point protocol. Developed by ARM, AMBA.
+It is point to point, if you need a master w/ several/multiple slave device/connections. use AXI interconnect and probably AXI DMA.
+AXI Interconnect only works with memory mapped and lite, NOT with streaming.
+
+AXI-4 Memory Map - full
+    Full version. full signal and buswidth. Supports data burst. high performance. probably to DDR 
+
+AXI-4 Lite
+    Reduced set. Does not need full streaming capability either. good for start up and setup/configuring a peripheral,
+    only supports single burst or a single piece data per transaction. control and status stuff. can be 32bit or 64bit wide.
+
+
+AXI-4 Stream
+    Moves only moves from master to slave. Audio/Video high speed streaming, throughput/ data. ethernet too.
+    up to 1024
+        packet is group of bytes. frame is made up of packets. 
+        a video frame will be broken up into smaller packets and streamed across.
+        if data needs to be stream back and forth, you need 2 instantiations, one streaming only in each direction.
+        meaning a master on both side and a slave on both side.
 
 
 
@@ -1150,6 +1210,7 @@ Memory
 
 SRAM
 *********************
+
 DDR
 *********************
 DDR (Double Data Rate) is a type of synchronous dynamic random-access memory (SDRAM) that transfers data on both the rising and falling edges of the clock signal, effectively doubling the data transfer rate compared to traditional SDRAM. Implementing DDR memory in an FPGA involves configuring the FPGA to interface with DDR memory devices, manage memory transactions, and handle the complexities of DDR signaling. Here's an overview of the steps involved:
@@ -1201,6 +1262,30 @@ DDR (Double Data Rate) is a type of synchronous dynamic random-access memory (SD
 
 Implementing DDR memory in an FPGA requires a good understanding of DDR basics, the specific requirements of the DDR memory used, and careful consideration of timing, signal integrity, and system-level integration. Refer to the documentation provided by the FPGA vendor for detailed guidance.
 
+::
+    Friendly name	Industry name	Peak Transfer Rate	Data transfers/second (in millions)
+    DDR4-2400		PC4-19200		19200 MB/s			2400		/2 = 1200 Mhz IO clk/4 = 300mhz mem clk
+    DDR4-2666		PC4-21300		21300 MB/s			2666
+    DDR4-2933		PC4-23400		23400 MB/s			2933		/2 = 1466.5 Mhz IO clk/4 = 366.625mhz mem clk.
+    DDR4-3000		PC4-24000		24000 MB/s			3000		
+    DDR4-3200		PC4-25600		25600 MB/s			3200		/2 = 1600mhz IO clk/4 = 400mhz mem clk
+    DDR4-3600		PC4-28800		28800 MB/s			3600
+    DDR4-4000		PC4-32000		32000 MB/s			4000
+    DDR4-4400		PC4-35200		35200 MB/s			4400
+
+    Friendly name	Industry name	Peak Transfer Rate	Data transfers/second (in millions)
+    DDR3-800	PC3-6400	6400 MB/s	800
+    DDR3-1066	PC3-8500	8533 MB/s	1066
+    DDR3-1333	PC3-10600	10667 MB/s	1333
+    DDR3-1600	PC3-12800	12800 MB/s	1600
+
+    DDR2-400	PC2-3200	3200 MB/s	400
+    DDR2-533	PC2-4200	4266 MB/s	533
+    DDR2-667	PC2-5300	5333 MB/s	667
+    DDR2-800	PC2-6400	6400 MB/s	800
+    DDR2-1000	PC2-8000	8000 MB/s	1000
+
+    4200MB/s = 4.2GB/s
 
 SD
 *********************
