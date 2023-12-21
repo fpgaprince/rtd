@@ -772,7 +772,7 @@ use 3 layer like "OSI", transaction, data link layer, physical.
 
 ::
 
-    transaction packet.                         header:data:ECRC
+    transaction packet.                         header:data:ECRC                   E means, end to end
     datalink, add                  [sequence#] [header:data:ECRC] [LCRC]
     physical layer          [start][sequence#:header:data:ECRC:LCRC][end]
 
@@ -780,10 +780,24 @@ data up to 4K bytes. for reference ethernet payload 1500 bytes, TCP packet up to
 payloads are all broken down into smaller packets and framed for transmission. same concept.
 
 what is striping done in the physical area?
+link training 
 stripe/striping
+scrambling/ descrambling
 encoding(8b/10b)
-parallel to serial.
+parallel to serial and parallel to serial
+clock recovery and data recovery.
 
+what is BAR? base address registers
+what was flow control, this applied to others as well. i think in serialIO.
+straddle i think it was for axi, TLP straddle?
+
+
+aggregate
+    A data aggregator is an organization that collects data from one or more sources, provides some value-added processing, and repackages the result in a usable form. 
+
+arbitrator/ arbiter/ arbitration
+    A bus arbiter is a device used in a multi-master bus system to decide which bus master will be allowed to control the bus for each bus cycle. 
+    basically controls access to shared resources.
 
 DMA
 =====================
