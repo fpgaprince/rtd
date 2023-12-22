@@ -799,6 +799,13 @@ arbitrator/ arbiter/ arbitration
     A bus arbiter is a device used in a multi-master bus system to decide which bus master will be allowed to control the bus for each bus cycle. 
     basically controls access to shared resources.
 
+
+remember like in ethernet.. the line speed might be high or data rate is high.. but internally the clock is not, but we make use of parallel data/word that are 512b or more.
+in which when we get down to the last level, it is either broken up/down and serialized. the reverse is true. where data comes in fast.. and we keep shifting/collecting 
+and we output a word/vector. 64, 128, 256, 512.
+
+
+
 DMA
 =====================
 
