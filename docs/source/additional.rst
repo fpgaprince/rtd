@@ -327,7 +327,7 @@ modify TCP/UDP
 
 data feed handler
     ie decoder, parser
-    ITCH OUCH encode decode
+    FIX ITCH OUCH encode decode
 
 packet processor, router/traffic management
 
@@ -366,6 +366,8 @@ thus the 312.5 requirement.. and 390.625
 
 note available line code types.. 8/10, 64/66, 128/130
 
+one more..
+ CAUI-10 (10 lanes x 10.3125G), CAUI-4 (4 lanes x 25.78125G) 
 
 
 note to self...
