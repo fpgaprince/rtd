@@ -301,3 +301,11 @@ pi = 3.14159
 POWER is 10log10(x)
 AMPLITUDE is 20log10(x), gain vs frequency bode
 
+
+AMDAHL's LAW!
+impact of optimization to overall system.
+
+S(latency) = 1/ [(1-p)=(p/s)]
+
+multiple components
+= 1/[p1/s1 + p2/s2 + p3/s3]

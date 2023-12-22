@@ -222,6 +222,30 @@ Using an FPGA with I2C (Inter-Integrated Circuit) involves implementing the I2C 
 
 When working with FPGA-based I2C interfaces, it's important to refer to the datasheets of both the I2C transceiver and the FPGA, and to leverage the features of the FPGA development environment to streamline the design and testing processes. Additionally, understanding the specific requirements of the I2C devices involved in the communication is crucial for successful implementation.
 
+
+
+
+SPI vs I2C vs UART
+*********************
+spi is fastest, then i2c then uart (slowest).
+	SPI: 50-400Mbps (no limit?). i2c: dif mode 100kbps,400kbps, 3.4Mbps. UART: 5mbps
+spi and i2c are clocked tf. sync, uart is async.
+spi and uart are one master, i2c is not, can have more than one master.
+spi and i2c can have slaves, uart cannot, it is point to point.
+I2C and uart are 2 lines, SPI is 4 lines min. and will increase by 1 with # of slaves (chip select line).
+	i2c: 112 devices with 7-bit addressing, SPI only limited by board wiring.
+i2c and uart have flow control and/or error handling, SPI does not.
+
+distance?
+I2c consumes more power than SPI because pin open drain/pull resistor vs. push pull of SPI.
+
+THESE are generally/commonly used for embedded. uC or CPU to sensors (adc/dac, camera/image, temp, IMU) inertial measurement unit.
+imu is accelerometer, magnetometer and gyroscope
+
+
+
+
+
 USB
 *********************
 Using an FPGA with USB (Universal Serial Bus) involves implementing the USB communication protocol in FPGA-based systems. USB is a widely used standard for connecting and communicating between various devices such as computers, peripherals, and embedded systems. Implementing USB in an FPGA allows for versatile connectivity and communication capabilities. Here's an overview of how an FPGA can interface with USB:
@@ -1724,3 +1748,6 @@ and talk about actual IO.
     TTL vs CMOS vs LVDS
 
     single end vs differential.
+
+
+
