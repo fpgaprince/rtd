@@ -309,3 +309,62 @@ S(latency) = 1/ [(1-p)=(p/s)]
 
 multiple components
 = 1/[p1/s1 + p2/s2 + p3/s3]
+
+
+
+IDK..
+##########################
+Level2 is not free.
+low latency ethernet (MAC and PCS/PMA)
+    systems are currently 10G
+    is traffic continuous?
+        most likely not
+
+802.3, which is within 100 ppm of 312.5 MHz for 40G and 390.625 MHz for 50G.
+
+time stamp 1588v2 PTP 1-step and 2-step timestamping
+modify TCP/UDP 
+
+data feed handler
+    ie decoder, parser
+    ITCH OUCH encode decode
+
+packet processor, router/traffic management
+
+
+update books
+
+
+cycle counts..
+1us = 1000ns
+300mhz = 3.33ns
+
+390.625mhz = 2.56ns
+
+312.5 = 3.2ns
+156.25mhz = 6.4ns
+
+xaui input 
+if 156.25
+64bit
+64 + (64/8 * 2) = 80
+64(10/8) = 80
+80*156.25 = 12500 Mbps = 12.5Gbps / 4 = 3.125Gbps per lane --> 12.5G/10G
+if we double the fq.. 
+80*312.5 = 25000 Mbps = 25Gbps / 4 = 6.250Gbps per lane --> 25G/20G
+
+
+256(66/64) = 264
+264 * 156.25 = 41250 Mbps = 41.250 Gbps / 4 = 10.3125 Gbps per lane --> 40G, this is wrong.
+
+128(66/64) = 192
+192 * 156.25 = 30,000 Mbps too low.. this is wrong
+
+thus the 312.5 requirement..
+192 * 312.5 = 60,000Mbps = 60Gbps = 60G this is write, can support 40G and 50G
+
+
+
+
+
+note available line code types.. 8/10, 64/66, 128/130

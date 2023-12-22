@@ -804,7 +804,9 @@ data up to 4K bytes. for reference ethernet payload 1500 bytes, TCP packet up to
 payloads are all broken down into smaller packets and framed for transmission. same concept.
 
 what is striping done in the physical area?
-link training 
+auto/ negotiation
+link training, i think this is a SERDES thing or high speed transceiver
+
 stripe/striping
 scrambling/ descrambling
 encoding(8b/10b)
@@ -1737,8 +1739,14 @@ PXIe
 *********************
 SFP
 *********************
+Small Form-factor
+up to 10Gbps (10G)
+
 QSFP
 *********************
+Quad Small Form-factor
+4x10G = 40G, 10G per fiber
+
 FireFly
 *********************
 
