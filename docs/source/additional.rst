@@ -360,11 +360,28 @@ if we double the fq..
 128(66/64) = 192
 192 * 156.25 = 30,000 Mbps too low.. this is wrong
 
-thus the 312.5 requirement..
+thus the 312.5 requirement.. and 390.625
 192 * 312.5 = 60,000Mbps = 60Gbps = 60G this is write, can support 40G and 50G
-
-
-
-
+192 * 390.625 = 75000Mbps = 75Gbps (up to)
 
 note available line code types.. 8/10, 64/66, 128/130
+
+
+
+note to self...
+RX is 128 bit, but we get 64bit at a time or only 64bit is enabled..
+ENA1 for top half. EN0 is bot half.
+I think this is straddle.. where we present 128, but only 64 viewed /process
+
+what is axi straddle packet
+The AXI4-Stream transmit interface consists of two segments, 
+where each is 64-bits (8 bytes) wide. 
+128bit = 16 bytes
+
+This segmented approach or straddled AXI4-Stream approach 
+as it is referred to allows for greater efficiency 
+such that a packet can start and end in any given segment or cycle.
+
+need to send 73bytes? 73/16 = 4.5626 --> need 5 cycles.
+need to send 115byte? 115/16 = 7.1875 --> need 8 cycles.
+need to send 81bytes? 81/16 = 5.0625 --> need 6 cycles.
