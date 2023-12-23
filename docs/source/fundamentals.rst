@@ -729,7 +729,7 @@ where the decimal is. Basically, we define how many bits we're using to the left
 ::
 
     mmmm.nnnn       mmmm.nn         mmmmmmmmm.nnn
-    Q4.4            Q4.2            Q8.4
+    Q4.4            Q4.2            Q8.3
 
 The bits to the left represent the integer as we've been dealing with. nothing different. same rules.
 the right is similar, but the weights are different.. the powers of 2's are negative, creating fractional weights.
