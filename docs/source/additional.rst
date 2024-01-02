@@ -387,3 +387,132 @@ such that a packet can start and end in any given segment or cycle.
 need to send 73bytes? 73/16 = 4.5626 --> need 5 cycles.
 need to send 115byte? 115/16 = 7.1875 --> need 8 cycles.
 need to send 81bytes? 81/16 = 5.0625 --> need 6 cycles.
+
+
+
+
+IDK too
+##########################
+
+end to end application
+runtime
+
+valgrind
+callgrind
+gprof
+
+functions which consume the most execution time
+measure runtime gprof.
+add timers and performance counter 
+
+
+throughput, volume data process per run time
+usually limited by PCIe
+
+xbultil to test DMA to determine upper bound of throughput/data transfers
+
+
+look at profiling, in multi threaded app, consider effects of parallelism
+identify bottleneck and potential
+
+    computational complexity of the functions.. cubing? dividing? multiplying?
+    
+    computational intensity of the function.. what does that mean? like how often? or how long it takes?
+    
+    data access locality, do we have to access global memory. 
+    global memory is the "local" DDR. ie memory on the FPGA PCB. in which the PCB is the ALVEO PCB 
+        this is similar to GPU in which it has local DDR memory.
+            which is differnt to the DDR memory on the motherboard used by the CPU. they call CPU memory host memory.
+                host memory is the DDr on the mobo, or server mobo. like at home.
+    
+    throughput of the function, how much data /run time or per clock cyle.
+
+
+use multiple kernel instances.
+
+a kernel is the FPGA RTL which accelerates whatever function for the CPU.
+inside the kernel is the compute unit
+
+an FPGA can have multiple kernels. for different applications!
+
+reduce CPU idle time, maximize FPGA/ kernel utilization ... ie CPU is sequential. we're taking a piece of that sequence out 
+and doing it in the fpga. therefore we need to get the CPU to do something else in the mean time/ until data is ready again.
+custom data path
+
+reduce overhead of enqueing kernel with data?
+optimizing data movement.. transfers betweeen host, memory and kernel.
+scheduling compute units, again to maximize their usage.
+    i think i saw somewhere, where it may need to time to ramp up like a fifo.. so there is penalty for something like that.
+
+memory accesses or basically penalties.
+
+for FPGA.
+throughput goal, latency, datapath width, number of engines, interface bandwidth
+
+
+parition code into load, compute, store.
+    memory architecture is responsible for moving data in/out of kernel.
+
+ping pong / buffer io?
+
+decompose compute block to identify throughput goals
+look for single loop nest
+connect compute using dat flow?
+
+loop unrolling
+array partitioning
+
+io contentions? memory being accessed multiple times in one loop iteration..
+
+loop carried dependencies.
+
+create internal cache..
+reconfiguring io and memories architecture
+
+interface optimization. use burst data transfers. use full axi data width.
+    pipeline code for burst transfers
+
+optimizing kernel to kernel communication. stream data between K2K, axi stream
+optimze mem architecture, array partition.
+optimize computational paralllism.. coding data parallism. task parallelism. dta flow.
+        looop parallisim, unrolling loops. pipelining loops.
+
+optimizie compute units device resources.. data width, macro operations. fixed point arithmetic.
+                                                        using optimized libraries.
+
+topological optimization. use multiple compute units... using multiple DDR banks.
+
+
+
+i think the key to acceleration is determing which functions or algo we want to run on FPGA.
+convert these functions to C/C++ kernels. and convert host code to use openCL, which 
+talks to PCIe or kernel. so we can call and schedule or use the fpga/kernel, which has the compute.
+but we all need to load, compute, store.
+
+
+
+
+reminder.. note
+pointer points to a memory location.
+
+
+
+command from host thru pcie to fpga can take 30 to 60us! thats signifiicant latency.
+
+
+
+optimize data transfer before, data movement. before data computation.
+
+CU = compute unit
+
+
+
+
+
+
+
+
+
+
+
+
