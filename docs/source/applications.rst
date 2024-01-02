@@ -162,6 +162,19 @@ Image and Video Processing
 ******************************************
 FPGAs excel in video and image processing applications. They are used for tasks such as video compression/decompression, image recognition, and enhancement. FPGAs can be found in cameras, video processing equipment, and displays.
 
+
+A kernel is basically a matrix which is moved over the image to perform convolution of this kernel matrix and the image data.
+
+In image processing, a kernel, convolution matrix, or mask is a small matrix. It is used for blurring, sharpening, embossing, edge detection, and more. This is accomplished by doing a convolution between a kernel and an image.
+
+In image processing, the kernel size refers to the size of the matrix used for convolution operations on an image. Convolution is a mathematical operation that involves sliding a small matrix, known as a kernel, over an image and calculating the sum of the element-wise product of the kernel and the corresponding image pixels within the kernel.
+
+The kernel size determines the size of the region in the image that is considered for each convolution operation. For example, a 3x3 kernel size means that the convolution operation is performed on a 3x3 pixel region of the image. Common kernel sizes in image processing are 3x3, 5x5, and 7x7.
+
+The choice of kernel size depends on the specific image processing task and the characteristics of the image being processed. A larger kernel size can capture more complex features in the image, but may also result in more computational overhead and slower processing times. A smaller kernel size can be faster but may not capture as much detail in the image.
+
+
+
 Image Processing 
 ******************************************
 FPGA (Field-Programmable Gate Array) devices are well-suited for image processing applications due to their parallel processing capabilities, flexibility, and reconfigurability. Image processing on FPGA involves designing and implementing algorithms to manipulate and analyze digital images. Here are key considerations for FPGA-based image processing:
