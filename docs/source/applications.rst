@@ -174,6 +174,19 @@ The kernel size determines the size of the region in the image that is considere
 The choice of kernel size depends on the specific image processing task and the characteristics of the image being processed. A larger kernel size can capture more complex features in the image, but may also result in more computational overhead and slower processing times. A smaller kernel size can be faster but may not capture as much detail in the image.
 
 
+The figure above shows SOP carried out for a full image being processed. If you look carefully when output pixels are produced line by line, it is not required to have all the image pixels in memory. Only the lines where the filtering mask overlaps are required which is essentially FILTER_V_SIZE lines, which can even be reduced to FILTER_V_SIZE-1. Essentially, that is the amount of data that needs to be on-chip or housed by a data mover at any given time.
+https://github.com/Xilinx/Vitis-Tutorials/blob/2023.2/Hardware_Acceleration/Design_Tutorials/01-convolution-tutorial/lab1_app_introduction_performance_estimation.md
+https://github.com/Xilinx/Vitis-Tutorials/blob/2023.2/Hardware_Acceleration/Design_Tutorials/01-convolution-tutorial/lab2_conv_filter_kernel_design.md
+
+should make a calc..
+
+Res
+1920*1080 = 2073600 pixels
+RGB = 8bit per color * 3 = 24bits per pixel..
+= 2073600pixel * 24bits = 49766400
+49766400/8bits per byte = 6220800 bytes
+6220800/1024 = 6075 kB / 1024 = 5.93262MB
+
 
 Image Processing 
 ******************************************
