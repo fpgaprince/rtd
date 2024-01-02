@@ -20,6 +20,8 @@ Here are some..
 Signals and System
 ##########################
 
+https://pysdr.org/content/frequency_domain.html
+
 DSP (Digital Signal Processing)
 ******************************************
 FPGAs are often used for implementing DSP algorithms such as filtering, modulation, and demodulation. Their parallel processing capabilities make them well-suited for real-time signal processing tasks.
@@ -175,6 +177,7 @@ The choice of kernel size depends on the specific image processing task and the 
 
 
 The figure above shows SOP carried out for a full image being processed. If you look carefully when output pixels are produced line by line, it is not required to have all the image pixels in memory. Only the lines where the filtering mask overlaps are required which is essentially FILTER_V_SIZE lines, which can even be reduced to FILTER_V_SIZE-1. Essentially, that is the amount of data that needs to be on-chip or housed by a data mover at any given time.
+
 https://github.com/Xilinx/Vitis-Tutorials/blob/2023.2/Hardware_Acceleration/Design_Tutorials/01-convolution-tutorial/lab1_app_introduction_performance_estimation.md
 https://github.com/Xilinx/Vitis-Tutorials/blob/2023.2/Hardware_Acceleration/Design_Tutorials/01-convolution-tutorial/lab2_conv_filter_kernel_design.md
 
