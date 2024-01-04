@@ -189,6 +189,9 @@ of the two adders. these adders go to a mux.. the select line needs to be
 piped so that the selection and results will appear at the mux at the same time.
 as if you never piped it. it needs to look the same to the mux, or hidden from the mux.
 
+.. image:: images/add_reg.png
+  :width: 660
+  :alt: Alternative text
 
 
 Clock Domain Crossing
