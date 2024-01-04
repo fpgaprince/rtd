@@ -194,6 +194,9 @@ as if you never piped it. it needs to look the same to the mux, or hidden from t
     :alt: Alternative text
     :align: center
 
+
+.. This is a comment    
+
 Clock Domain Crossing
 =======================
     What is a clock domain. A domain is basically what clock all the registers or set of registers/components/modules are clocked with.
