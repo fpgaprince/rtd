@@ -158,8 +158,8 @@ we can write/read.
 
 
 
-Pipeline
-=======================
+Pipeline vs. Buffering vs. Registering
+==============================================
 *   Pipelining the design, can increase fmax.
 *   Help with Timing
 *   Increases latency
@@ -189,13 +189,13 @@ of the two adders. these adders go to a mux.. the select line needs to be
 piped so that the selection and results will appear at the mux at the same time.
 as if you never piped it. it needs to look the same to the mux, or hidden from the mux.
 
-.. image:: images/add_reg.png
+.. comment_out image:: images/add_reg.png
     :width: 660
     :alt: Alternative text
     :align: center
 
 
-.. This is a comment    
+.. comment_out    
 
 Clock Domain Crossing
 =======================
