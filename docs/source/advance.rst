@@ -190,7 +190,7 @@ piped so that the selection and results will appear at the mux at the same time.
 as if you never piped it. it needs to look the same to the mux, or hidden from the mux.
 
 .. image:: images/add_reg.png
-    :width: 330
+    :width: 660
     :alt: Alternative text
     :align: center
 
