@@ -869,7 +869,14 @@ typing so much words................
 .. note::
 
     reminder to self: log(decimal value) / log(2) because base2. binary...
-   
+
+
+convert fixed point decimal value to integer and binary equivalent.
+    fixed point value * 2^fractional bits = integer representation
+    integer rep to binary goes into register or used for calculations.
+
+
+
 Fixed-point rounding
 ****************************************
 sigh.............
@@ -882,26 +889,57 @@ Later... a little more advance topic..
 
 Binary Arithmetic
 ****************************************
+There is integer, fixed and floats.
 
 2s comp
 ====================
 
 Addition
 --------------------
+    Can do in FPGA
 
 Subtract
 --------------------
+    Subtraction is just like addition.
 
 Multiply
 --------------------
+    Is shift and adds. Can do in FPGA.
+    You basically have to do this N times. therefore the naive approach will also require N clock cycles and be determined by the data width.
+    
 
-Devision
+Addition and multiplications make up the MAC operations used in many applications.
+Left shifting an array is equivalent to multiplying by a power 2.
+
+21A = 16A + 4A + 1A.
+    = (4L)A + (2L)A + A.
+
+
+The process of multiplication can be split into 3 steps:[7][8]
+
+generating partial product
+reducing partial product
+computing final product
+
+Older multiplier architectures employed a shifter and accumulator to sum each partial product, often one partial product per cycle, trading off speed for die area. Modern multiplier architectures use the (Modified) Baugh–Wooley algorithm,[9][10][11][12] Wallace trees, or Dadda multipliers to add the partial products together in a single cycle. The performance of the Wallace tree implementation is sometimes improved by modified Booth encoding one of the two multiplicands, which reduces the number of partial products that must be summed.
+
+For speed, shift-and-add multipliers require a fast adder (something faster than ripple-carry).[13]
+
+A "single cycle" multiplier (or "fast multiplier") is pure combinational logic.
+
+In a fast multiplier, the partial-product reduction process usually contributes the most to the delay, power, and area of the multiplier.
+
+
+
+Division
 --------------------
+The division is a bit more complex case. Generally, the deployment of the division requires a much more complex logic circuit, and for this reason, we tend to avoid, where possible, the use of the division operator unless there are special cases.
 
-
+Simple division in which the divisor is a power of 2 can be done, simply by right shifting a vector or array. This is contrary to the multiplication method.
 
 sign extension
 ====================
+sign must be preserved when increasing data width.
 
 1s comp
 ====================
