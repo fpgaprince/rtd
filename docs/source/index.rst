@@ -36,11 +36,10 @@ Contents
    interfaces
    applications
    advance
-   additional
    glossary
 
 .. toctree::
    :hidden:
-
+   additional
    references
    syntax

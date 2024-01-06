@@ -284,6 +284,10 @@ packets
 Operating Systems
 ##########################
 
+<<<<<<< HEAD
+Linear Algebra
+##########################
+=======
 
 
 IDK..
@@ -516,3 +520,5 @@ CU = compute unit
 
 
 
+
+>>>>>>> a51d9f50d900c04260d48674647ae55426bda731
