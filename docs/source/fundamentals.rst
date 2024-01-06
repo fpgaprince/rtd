@@ -716,7 +716,7 @@ Later..
 
 
 Fixed-Point
-****************************************
+====================
 
 We briefly touched on this topic when talking about fractional decimal numbers.
 
@@ -878,12 +878,12 @@ convert fixed point decimal value to integer and binary equivalent.
 
 
 Fixed-point rounding
-****************************************
+-------------------------------------------------------------
 sigh.............
 
 
 Floating-Point
-****************************************
+====================
 Later... a little more advance topic..
 
 
