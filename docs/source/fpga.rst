@@ -156,6 +156,11 @@ DSP (extra)
 -------------------------------
     While pretty common these days, I'll leave it here.
 
+In general, the DSP slice supports both sequential and cascaded operations due to the
+dynamic OPMODE and cascade capabilities. Fast Fourier Transforms (FFTs), floating
+point, computation (multiply, add/sub, divide), counters, and large bus multiplexers are
+some applications of the DSP slice. 
+
 
 XADC (extra)
 -------------------------------

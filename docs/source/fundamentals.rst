@@ -887,6 +887,10 @@ Floating-Point
 Later... a little more advance topic..
 
 
+
+
+
+
 Binary Arithmetic
 ****************************************
 There is integer, fixed and floats.
@@ -894,19 +898,29 @@ There is integer, fixed and floats.
 2s comp
 ====================
 
-Addition
+Add/Addition
 --------------------
-    Can do in FPGA
+    Can do in FPGA. FPGAs have hard carry chain/logic. When addition is implemented with LUTs, it will utilize the carry chains.
+    It will probably have better performance if you tell it to use the DSPs. for larger width summation.
 
-Subtract
---------------------
-    Subtraction is just like addition.
+    For fixed point addition, align the point, and extend as necessary. take care of over flow.
 
-Multiply
+Subtract/Subtraction
 --------------------
+    Subtraction is just like addition. align point, extend as necessary and check over flow.
+    "Point" bookkeeping.
+
+Multiply/Multiplication
+--------------------
+
     Is shift and adds. Can do in FPGA.
     You basically have to do this N times. therefore the naive approach will also require N clock cycles and be determined by the data width.
     
+    Floating point multiplication is fundamentaly the same as 2s comp/ integer multiplication.
+    you ignore the decimal locations during the computation and reapply at the end.
+
+Assume that a and b are two numbers in Qn1.m1 and Qn2.m2 formats, respectively. The product a×b will be in Qn.m format where n=n1+n2 and m=m1+m2. This product wordlength, i.e. n+m, is long enough to avoid any potential overflow. To find 
+a×b, we can ignore the binary point of a and b, perform the multiplication, and, then, put the binary point to the left of the mth bit of the product to obtain the correct multiplication result.    
 
 Addition and multiplications make up the MAC operations used in many applications.
 Left shifting an array is equivalent to multiplying by a power 2.
@@ -929,13 +943,33 @@ A "single cycle" multiplier (or "fast multiplier") is pure combinational logic.
 
 In a fast multiplier, the partial-product reduction process usually contributes the most to the delay, power, and area of the multiplier.
 
+Fixed-point multiplication is the same as 2's compliment multiplication but requires the position of the "point" to be determined after the multiplication to interpret the correct result.
 
+multiplicaton cycles worse case will be the length of the longest multiplicand.
+it is inefficient, and with optimization, breaking up the algorithm it can be reduced. but worse case would be N length.
+optimize by looking at the long mulitplication, the shifting and adding.. and where you can reduce.
+
+
+You can also implement multiplication directly in logic (LUTs and flip-flops), but it takes significant resources. Using dedicated DSP blocks for multiplication makes sense from a performance and logic-use perspective. Hence, even small FPGAs dedicate space to DSP blocks.
+Xilinx 7 Series (DSP48E1): 25 × 18 bit
+Xilinx Ultrascale+ (DSP48E2): 27 x 18 bit
+
+Conclusion.. use DSP.
 
 Division
 --------------------
 The division is a bit more complex case. Generally, the deployment of the division requires a much more complex logic circuit, and for this reason, we tend to avoid, where possible, the use of the division operator unless there are special cases.
 
 Simple division in which the divisor is a power of 2 can be done, simply by right shifting a vector or array. This is contrary to the multiplication method.
+
+You can’t synthesize it with regular Verilog unless it’s by a power of two, which uses a right shift.
+
+If must, can do division by a constant.. in which A/B = A*(1/B), 
+
+Using vendor IP..
+These solutions have some drawbacks. They are generally demanding in terms of area and they need many clock cycles of execution time.
+
+Conclusion. Use DSP or do in CPU.
 
 sign extension
 ====================
