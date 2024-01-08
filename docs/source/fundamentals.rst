@@ -889,29 +889,27 @@ Later... a little more advance topic..
 
 
 
-
-
 Binary Arithmetic
 ****************************************
-There is integer, fixed and floats.
+There are integer, fixed and floats. Maybe re-org this later on.
 
 2s comp
 ====================
 
 Add/Addition
---------------------
+====================
     Can do in FPGA. FPGAs have hard carry chain/logic. When addition is implemented with LUTs, it will utilize the carry chains.
     It will probably have better performance if you tell it to use the DSPs. for larger width summation.
 
     For fixed point addition, align the point, and extend as necessary. take care of over flow.
 
 Subtract/Subtraction
---------------------
+========================================
     Subtraction is just like addition. align point, extend as necessary and check over flow.
     "Point" bookkeeping.
 
 Multiply/Multiplication
---------------------
+========================================
 
     Is shift and adds. Can do in FPGA.
     You basically have to do this N times. therefore the naive approach will also require N clock cycles and be determined by the data width.
@@ -956,8 +954,8 @@ Xilinx Ultrascale+ (DSP48E2): 27 x 18 bit
 
 Conclusion.. use DSP.
 
-Division
---------------------
+Divide/Division
+====================
 The division is a bit more complex case. Generally, the deployment of the division requires a much more complex logic circuit, and for this reason, we tend to avoid, where possible, the use of the division operator unless there are special cases.
 
 Simple division in which the divisor is a power of 2 can be done, simply by right shifting a vector or array. This is contrary to the multiplication method.
