@@ -956,16 +956,29 @@ Conclusion.. use DSP.
 
 Divide/Division
 ====================
-The division is a bit more complex case. Generally, the deployment of the division requires a much more complex logic circuit, and for this reason, we tend to avoid, where possible, the use of the division operator unless there are special cases.
+Division, in general, is a more complex operation than the others.. requiring more logic, area and time (clock cycles).
 
-Simple division in which the divisor is a power of 2 can be done, simply by right shifting a vector or array. This is contrary to the multiplication method.
+The initial approach is to apply the long division method to the binary representation.
+The reduces/boils down to comparing, and subtracting operations.. until you have your remainder less than your divisor.
+Until you can subtract no more.. without going negative!
+You are essentially shifting and subtracting. again, the contrary of multiplication which involved shifting and adds.
+But then again.. a binary subtraction is an addition!
+This shifting is a sequential/parallel approach. I believe there is a sequential serial approach as well.
 
-You can’t synthesize it with regular Verilog unless it’s by a power of two, which uses a right shift.
+The number of shifts and subtracts equates to the numberators data width.
 
+Simple division, in which the divisor is a power of 2 can be done,
+in a straightforward manner, by simply right shifting a vector or array. 
+This is contrary to the multiplication method.
+
+If the numerator (dividend) is not a power of 2, you will lose precision/accuracy, 
+as in the operation is not irreversible!.
+
+Floating point is even more demanding.
+There are many algorithm and/or techniques for doing it.
+
+One approach is to divide by a constant.
 If must, can do division by a constant.. in which A/B = A*(1/B), 
-
-Using vendor IP..
-These solutions have some drawbacks. They are generally demanding in terms of area and they need many clock cycles of execution time.
 
 Conclusion. Use DSP or do in CPU.
 
@@ -988,3 +1001,4 @@ Hardware Descriptive Language (VHDL or Verilog)
             &\text{Sometimes you will see this base notation}\\
 
 
+USE_DSP instructs the synthesis tool how to deal with synthesis arithmetic structures. By default, unless there are timing concerns or threshold limits, synthesis attempts to infer mults, mult-add, mult-sub, and mult-accumulate type structures into DSP blocks.
