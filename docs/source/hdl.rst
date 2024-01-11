@@ -383,7 +383,7 @@ unsigned to integer
 .. code-block:: vhdl
   :linenos:   
 
-    int_signal <= integer(unsigned_signal);
+    int_signal <= to_integer(unsigned_signal);
 
 
 signed to integer
@@ -392,7 +392,7 @@ signed to integer
 .. code-block:: vhdl
   :linenos:   
 
-    int_signal <= integer(signed_signal);
+    int_signal <= to_integer(signed_signal);
 
 
 
@@ -401,6 +401,7 @@ resize
 *********************************************
 Again, make sure you're using IEEE.numeric_std.ALL
 Use this to resize "sign extend" your vector/register that holds your signed/unsigned value.
+This is because the MSB in a signed value needs to be repeated to maintain original value.
 Use before doing arithmetic.
 
 .. code-block:: vhdl
