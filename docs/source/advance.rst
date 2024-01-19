@@ -30,9 +30,15 @@ Speed can mean different things.
     **Throughput** 
     is the amount of data or bits passing through or processed per cycle or over time, depending what level you are inspecting/analyzing the system.. 
 
+    the usual example for this is the processor's fetch, decode and execute routine.. where initially decode and execute must complete before the next fetch occurs. 
+    meaning we must wait 3 cycles before fetching the next instruction. if for example* processed 32bits of data, that would be 32bit per 3 clocks.
+    If we piped the 3 routines such that they're constantly running.. we can processed 32bits per clock. then in the same 3 clock time.. we'd processed 96bits of data.
+
+    pipelining is done at a "higher level", it a system level determination, an architecturural decision.
 
         sequential vs. pipelined.. 
         shared resources vs. duplicating resources (increases area)
+        
 
     **Latency** 
     is the elapsed time or delta time for when data arrives until it departs. 
