@@ -454,7 +454,8 @@ Reset bridge
             rst_out <= reg;
         end if;
     end process;
- 
+
+
 
 Clocking
 =======================
@@ -830,9 +831,17 @@ only use clock enable and set/reset when necessary, usually first and last stage
 
 
 
+Give priority to improving the code instead of modifying the Compiler Settings.
+Analyze whether critical paths can be re-coded.
+Check if logic can be pushed across register boundaries.
+Check if part of the logic can be done in parallel, or in a different data cycle (a cycle before or later).
 
+Excessive levels of combinational logic in your design can increase the delay on a path and cause that path to become critical.
+conditional statements are always translated as additional levels of logic. 
 
+Wide distribution of registers is one of the main causes of excess delay on timing paths.
 
+Your design can have synchronous or asynchronous reset signals. Typically resets coming into FPGA devices are asynchronous. You can convert an external asynchronous reset to a synchronous reset by feeding it through a synchronizer circuit. You can then use this signal to reset the rest of the design. This clock creates a clean reset signal that is at least one cycle wide, and synchronous to the domain in which it applies.
 
 
 
