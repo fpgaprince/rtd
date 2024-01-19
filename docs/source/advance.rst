@@ -1,7 +1,7 @@
 Advance
 ***********************
-Honestly, I think all FPGA designers should read/refresh every year.
-It will either solidfy your knowledge, test/question your understanding or teach you something new.
+Honestly, I think all FPGA Developers should read and refresh every year!
+It will either solidify your knowledge, test/question your understanding or teach you something new!
 
 https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Creation-with-RTL
 
@@ -11,23 +11,24 @@ https://www.intel.com/content/www/us/en/docs/programmable/683082/23-1/recommende
 https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Closure
 
 https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Introduction
+
 https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Timing-Analysis
 
 
 
-After you do something for awhile.. 
-you find the things you found advance weren't really so..
-
-but there is only so much one can absorb at a given time.
+After you do something for awhile.. or in other words, with time and experience, 
+things becomes common practice and methodical.
+You find the things you found advance weren't really so, but there is only so much one can absorb at a given time.
 
 ---------
 
 In the way you write HDL..
 
-Speed
-    Throughput 
-        data or bits per cycel.
-        sequential vs. pipelined.. shared resources vs. duplicating resources (increases area)
+Speed can mean different things.
+
+    **Throughput** is the amount of data or bits passing through or processed per cycle. 
+        sequential vs. pipelined.. 
+        shared resources vs. duplicating resources (increases area)
 
     Latency
         Cycle count.
