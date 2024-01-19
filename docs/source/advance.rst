@@ -46,8 +46,9 @@ or similarly, if there was an ALU in the above example, there are 2 clock cycles
 it is always being used, we increase the throughput and efficiency of our design. 
 
 The ALU in the above example is a shared resources. Even though we've piped it to be constantly pumping/processing data.. we can do better.
-Howa? by duplicating resources, drawing on one of the FPGA's strength, parallelism.
-        
+How? by duplicating resources, drawing on one of the FPGA's strength, parallelism.
+
+       
 
 **Latency** is the elapsed time or delta time for when data arrives until it departs. 
     
@@ -62,11 +63,12 @@ this latency also dictactes your period and clock rate, frequency.
 By implementing a pipelined architecture, and not changing the previous period, 30ns. the 3 steps can be broken into 3 cycles.
 This increases the total processing time to 90ns (3*30ns). 
 
+this can also be seen from the inital input of the data until we get the first result. the depth of a pipeline will determine the latency.
+
 Any sort of pipelining or registering of input/outputs will introduct additonal cycles, increase cycle count and as a result, latency. 
 Therefore in low latency designs/applications, pipelining and registering / excessive registering is undesirable. 
 
 The removal of register often time makes it harder to meet timing requirements, because we now have more logic and logic levels between registers. 
-
 
 
 
@@ -105,6 +107,67 @@ Power
 ---------
 
 
+
+Pipeline vs. Registering/Buffering
+==============================================
+
+Pipelining and registering are not the same.
+It may be confusing because we are adding additional registers to the design.
+It is similar because it affects cycle time and latency.
+It affects ours period/ frequency. 
+
+I would say.. pipelining is an achitectural system level development whereas 
+registering and buffering is circuit/component level, in this case register transfer level (RTL).
+
+
+Pipeline
+------------------------------------------------
+*   Pipelining the design, can increase fmax.
+*   Help with Timing
+*   Increases latency
+*   Increases area
+
+when piping, also remember to pipe the control signals for that logic.
+for instance if you have two adders going to a mux. and you pipe the results 
+of the two adders. these adders go to a mux.. the select line needs to be 
+piped so that the selection and results will appear at the mux at the same time.
+as if you never piped it. it needs to look the same to the mux, or hidden from the mux.
+
+furthermore.. there is a period in which the pipe needs to be filled up
+before you get sensible / usable data.
+
+
+Registering / Buffering
+------------------------------------------------
+Registering is a method of splitting up logic. It eases place and route.
+Allowing us to duplicate registers/logic and reduce fan out.
+
+Sometimes there are several logic levels between a source FF and a dest FF.
+adding a register between these two FF can split up the logic level between 
+the original FF. Say it was 4 logic level between FF1 and FF2.
+Adding a pipe register FF3 between 1 and 2, you can split it to 2 logic level.
+2 between FF1 and FF3 and 2 between FF3 and FF2. You can further pipe this.
+
+By adding registers or flip flop to break up the combinatorial logic,
+we reduce the critical path or data path, such that we can lower the period
+between registers, in other words, increase the overall frequency.
+
+Bc we add more registers/FF in the datapath, we add one more clock cycle delay
+for each, this increases latency. you have to be aware of the added latency
+and how it affects the overall latency. what are the
+requirements and limits.
+
+
+
+
+
+.. comment_out image:: images/add_reg.png
+    :width: 660
+    :alt: Alternative text
+    :align: center
+
+
+.. comment_out    
 
 FIFO
 =======================
@@ -204,45 +267,6 @@ we can write/read.
 
 
 
-
-Pipeline vs. Buffering vs. Registering
-==============================================
-*   Pipelining the design, can increase fmax.
-*   Help with Timing
-*   Increases latency
-*   Increases area
-
-Sometimes there are several logic levels between a source FF and a dest FF.
-adding a register between these two FF can split up the logic level between 
-the original FF. Say it was 4 logic level between FF1 and FF2.
-Adding a pipe register FF3 between 1 and 2, you can split it to 2 logic level.
-2 between FF1 and FF3 and 2 between FF3 and FF2. You can further pipe this.
-
-By adding registers or flip flop to break up the combinatorial logic,
-we reduce the critical path or data path, such that we can lower the period
-between registers, in other words, increase the overall frequency.
-
-Bc we add more registers/FF in the datapath, we add one more clock cycle delay
-for each, this increases latency. you have to be aware of the added latency
-and how it affects the overall latency. what are the
-requirements and limits.
-
-furthermore.. there is a period in which the pipe needs to be filled up
-before you get sensible / usable data.
-
-when piping, also remember to pipe the control signals for that logic.
-for instance if you have two adders going to a mux. and you pipe the results 
-of the two adders. these adders go to a mux.. the select line needs to be 
-piped so that the selection and results will appear at the mux at the same time.
-as if you never piped it. it needs to look the same to the mux, or hidden from the mux.
-
-.. comment_out image:: images/add_reg.png
-    :width: 660
-    :alt: Alternative text
-    :align: center
-
-
-.. comment_out    
 
 Clock Domain Crossing
 =======================
