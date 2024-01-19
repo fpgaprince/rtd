@@ -23,15 +23,26 @@ You find the things you found advance weren't really so, but there is only so mu
 ---------
 
 In the way you write HDL..
+You have either control/alogirithm path or data/processing path.
 
 Speed can mean different things.
 
-    **Throughput** is the amount of data or bits passing through or processed per cycle. 
+    **Throughput** 
+    is the amount of data or bits passing through or processed per cycle or over time, depending what level you are inspecting/analyzing the system.. 
+
+
         sequential vs. pipelined.. 
         shared resources vs. duplicating resources (increases area)
 
-    Latency
-        Cycle count.
+    **Latency** 
+    is the elapsed time or delta time for when data arrives until it departs. 
+    
+        from when it is received until it is returned (transmitted).
+        from the time of input to output.
+        from when it enters a component or block until it leaves.
+
+        there are different approach for measuring this delta.
+
         Remove pipeline registers reduces latency, because each register in the path introduces an additional cycle.
         Harder to meet timing
 
