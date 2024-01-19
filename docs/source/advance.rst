@@ -23,7 +23,7 @@ You find the things you found advance weren't really so, but there is only so mu
 ---------
 
 
-Speed, Area and Power
+The Three Pillars
 =======================
 In the way you write HDL..
 You have either control/alogirithm path or data/processing path.
@@ -71,7 +71,7 @@ The removal of register often time makes it harder to meet timing requirements, 
 
 
 **Timing** is the arrival time of data at the input of a register/flip flop with respect to a clock edge. More commonly known as setup time and or hold time.
-These are hardware timing requirements.
+These are hardware timing requirements. This basically happens because for whatever reason.. the registers are set too far apart.
 
 Pipeline the design. in otherwords.. Adding register layers.. allows us to separate logic. with less logic between registers, the required clock periods can decrease.
 Pipelining increase fmax. Decrease delay requirements from register to register.
@@ -80,6 +80,7 @@ Pipelining increase fmax. Decrease delay requirements from register to register.
         Reducing logic level/stages.
 
 Have you started to notice the trade-offs? In the use of pipelining and registering.
+And how they're used in different case/application to meet different goals.
 
 Area
 ---------
