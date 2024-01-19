@@ -22,43 +22,68 @@ You find the things you found advance weren't really so, but there is only so mu
 
 ---------
 
+
+Speed, Area and Power
+=======================
 In the way you write HDL..
 You have either control/alogirithm path or data/processing path.
+There are three major corners to a design/development. Speed, area and power.
 
-Speed can mean different things.
+Speed
+---------
 
-    **Throughput** 
-    is the amount of data or bits passing through or processed per cycle or over time, depending what level you are inspecting/analyzing the system.. 
+can mean different things.
 
-    the usual example for this is the processor's fetch, decode and execute routine.. where initially decode and execute must complete before the next fetch occurs. 
-    meaning we must wait 3 cycles before fetching the next instruction. if for example* processed 32bits of data, that would be 32bit per 3 clocks.
-    If we piped the 3 routines such that they're constantly running.. we can processed 32bits per clock. then in the same 3 clock time.. we'd processed 96bits of data.
+**Throughput** is the amount of data passing through or processed per cycle or bits over time, depending what level you are inspecting/analyzing the system.
 
-    pipelining is done at a "higher level", it a system level determination, an architecturural decision.
+the usual example for this is the processor's fetch, decode and execute routine.. where initially decode and execute must complete before the next fetch occurs. 
+meaning we must wait 3 cycles before fetching the next instruction. if for example* processed 32bits of data, that would be 32bit per 3 clocks.
+If we piped the 3 routines such that they're constantly running.. we can processed 32bits per clock. then in the same 3 clock time.. we'd processed 96bits of data.
 
-        sequential vs. pipelined.. 
-        shared resources vs. duplicating resources (increases area)
+pipelining is done at a "higher level", it is a system level determination, an architecturural decision.
+
+or similarly, if there was an ALU in the above example, there are 2 clock cycles, fetch and decode where the ALU isn't being used. By pipelining such that
+it is always being used, we increase the throughput and efficiency of our design. 
+
+The ALU in the above example is a shared resources. Even though we've piped it to be constantly pumping/processing data.. we can do better.
+Howa? by duplicating resources, drawing on one of the FPGA's strength, parallelism.
         
 
-    **Latency** 
-    is the elapsed time or delta time for when data arrives until it departs. 
+**Latency** is the elapsed time or delta time for when data arrives until it departs. 
     
-        from when it is received until it is returned (transmitted).
-        from the time of input to output.
-        from when it enters a component or block until it leaves.
+    from when it is received until it is returned (transmitted).
+    from the time of input to output.
+    from when it enters a component or block until it leaves.
+    there are different approach for measuring this delta.
 
-        there are different approach for measuring this delta.
+If in the previous processor fetch decode and execute routine, each step took 10ns, it would required a total of 30ns. this is considered the latency.
+this latency also dictactes your period and clock rate, frequency.
 
-        Remove pipeline registers reduces latency, because each register in the path introduces an additional cycle.
-        Harder to meet timing
+By implementing a pipelined architecture, and not changing the previous period, 30ns. the 3 steps can be broken into 3 cycles.
+This increases the total processing time to 90ns (3*30ns). 
 
-    Timing
-        Pipeline the design. in otherwords.. Adding register layers.. 
-            Pipelining increase fmax. Decrease delay requirements from register to register.
+Any sort of pipelining or registering of input/outputs will introduct additonal cycles, increase cycle count and as a result, latency. 
+Therefore in low latency designs/applications, pipelining and registering / excessive registering is undesirable. 
+
+The removal of register often time makes it harder to meet timing requirements, because we now have more logic and logic levels between registers. 
+
+
+
+
+**Timing** is the arrival time of data at the input of a register/flip flop with respect to a clock edge. More commonly known as setup time and or hold time.
+These are hardware timing requirements.
+
+Pipeline the design. in otherwords.. Adding register layers.. allows us to separate logic. with less logic between registers, the required clock periods can decrease.
+Pipelining increase fmax. Decrease delay requirements from register to register.
+    
         Parallelize the design. Analyze function/algorithm, break up into smaller chunks/operations that can be done in parallel.
         Reducing logic level/stages.
 
+Have you started to notice the trade-offs? In the use of pipelining and registering.
+
 Area
+---------
+
     not pipelining. sharing logic resources. remove duplicate logic. use/add control logic, state machine to share sources.
     there are different types of resources. there are the actual FF and LUT that are used to implement your combo logic.
     there are LUT made operations (ie. adder, multiplier, shift) that can be shared, 
@@ -76,6 +101,9 @@ Area
 
     
 Power
+---------
+
+
 
 FIFO
 =======================
