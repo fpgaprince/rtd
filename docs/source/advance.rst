@@ -3,17 +3,6 @@ Advance
 Honestly, I think all FPGA Developers should read and refresh every year!
 It will either solidify your knowledge, test/question your understanding or teach you something new!
 
-https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Creation-with-RTL
-
-https://www.intel.com/content/www/us/en/docs/programmable/683082/23-1/recommended-hdl-coding-styles.html
-
-
-https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Closure
-
-https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Introduction
-
-https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Timing-Analysis
-
 
 
 After you do something for awhile.. or in other words, with time and experience, 
@@ -171,10 +160,13 @@ requirements and limits.
 
 FIFO
 =======================
-This basic sequential circuit/component/module.. is increadibly important in many application.
+First In First Out.
 
-First thing first, FIFOs were probably first introduced in data structure with queue and stack alogorithm/data storage.
-FIFO is a structure/implementation/rule applied to data/memory. Our FIFOs are realized with the BRAMs. which means
+This sequential module is pretty important and used in many application.
+It is best to master this quick. Youl will see it everywhere!
+
+First thing first, FIFOs were probably first introduced in data structure along with queue and stack alogorithms for data storage.
+FIFO is a structure for how data is stored and retrieved. Our FIFOs are realized with the BRAMs. which means
 you need to write/read to them as well as keep track off the addressing/pointer.
 
 Its write/read functionality are quite straightforward in nature when everything is within the same clock domain,
@@ -217,34 +209,33 @@ vectors, or words of whatever length say 16bit. then this FIFO is depth is 8 or 
 
 For this 1x8. we are streaming the data. if the src clk is greater than the receive clk, and you're constantly streaming..
 at some point you're going to lose data. because the read cant possibly keep up if the writes are constantly happening at a faster rate!
-it's just a matter of time before the cup overflows.
+It's just a matter of time before the cup overflows.
 
-it doesn't have to be a serial stream.
-you could have a stream of words, words which are 14 bits, 16bit, 32, 64, 128, whatever size!
+It doesn't have to be a serial stream.
+You could have a stream of words, words which are 14 bits, 16bit, 32, 64, 128, whatever size!
 
-just in general, if you are constantly writing faster than you are reading.. at some point,
+Just in general, if you are constantly writing faster than you are reading.. at some point,
 you'll wrap around and catch up. you don't want that. you'll want to have logic in place to prevent "overrunning".
 
-you can do one of two things, 
+You can do one of two things,
+
     if the FIFO is not using flags (full,/empty) or the writes/reads occur at some known rate and period, 
     the src needs to burst the wr/rd event/data and the FIFO needs to be large enough to accomodate the read/write differences. 
 
     if you are using flags (full,empty) then they will control your write/read events.
 
 
-what has to be done here is bursting the read and write. the faster write domain has to accomadate the slower domain.. by bursting
+What has to be done here is bursting the read and write. the faster write domain has to accomadate the slower domain.. by bursting
 a block of data.. either filling up the FIFO or not. and waiting. the read just reads whenever, as long as it's not empty.
 because of this bursting, the incoming data over some time is set. as well as the read.
-the FIFO needs to be large enough to hold the write data while it is being read out.
-
-this is called the fifo depth.
+the FIFO needs to be large enough to hold the write data while it is being read out. This is called the fifo depth.
 
 .. note::
 
-    i will create several calculators here. or spreadsheet. something interactive.
+    I will create several calculators here. or spreadsheet. something interactive.
 
 
-the second approach is basically a handshaking relationship between the two. where the req/ack is full/empty.
+The second approach is basically a handshaking relationship between the two. where the req/ack is full/empty.
 When the fifo is empty, do not read. when the fifo is full do not write. two pointers are created and each
 track the write event and read event, respectively. 
 
@@ -256,9 +247,9 @@ and the domain isn't necessarily the same.
 
     If it isn't, additional steps must be taken to pass the pointer value. This is an asynchronous FIFO.
 
-the respective flags are calculated in their own domain, and are not passed to each other.
+The respective flags are calculated in their own domain, and are not passed to each other.
 
-the pointer on the other hand often is a BCD counter value.
+The pointer on the other hand often is a BCD counter value.
 Passing multi value across domain has risks of skew? not arriving at the same time. 
 mis-clocking a pointer value will mess up the flag calculations.
 to mitigate this, we convert the BCD counter value to its Gray Code equivalent
@@ -266,7 +257,7 @@ to mitigate this, we convert the BCD counter value to its Gray Code equivalent
 Therefore while the number is "incrementing" only one bit is changing at a time..
 which is like sending a single bit across the domain.
 
-this gray code counter value is now used to determine the FIFO state and whether
+This gray code counter value is now used to determine the FIFO state and whether
 we can write/read.
 
 
@@ -547,6 +538,21 @@ Reset bridge
 
 Clocking
 =======================
+for me.
+https://docs.xilinx.com/r/en-US/ug572-ultrascale-clocking/UltraScale-Architecture-Clocking-Resources-User-Guide
+
+
+MMCM vs. PLL.
+Fvco = Fclkinn x M/D
+
+Fout = Fclkin x (M/(DxO))
+
+VCO = voltage controlled oscillator
+
+A phase-locked loop (PLL) circuit is a feedback system that combines a voltage controlled oscillator (VCO) and a phase detector in such a way that the oscillator signal tracks an applied frequency or phase modulated signal with the correct frequency and phase.
+
+
+
 
 Static Timing Analysis
 =======================
@@ -969,15 +975,18 @@ Therefore the prop delay is of the SRAM and not the actual function or gate as t
 Which also means.. the delay is constant for all function using that LUT.
 
 
-for me.
-https://docs.xilinx.com/r/en-US/ug572-ultrascale-clocking/UltraScale-Architecture-Clocking-Resources-User-Guide
+
+Additional Reading
+====================
+
+https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Creation-with-RTL
+
+https://www.intel.com/content/www/us/en/docs/programmable/683082/23-1/recommended-hdl-coding-styles.html
 
 
-MMCM vs. PLL.
-Fvco = Fclkinn x M/D
+https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Closure
 
-Fout = Fclkin x (M/(DxO))
+https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Introduction
 
-VCO = voltage controlled oscillator
+https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Timing-Analysis
 
-A phase-locked loop (PLL) circuit is a feedback system that combines a voltage controlled oscillator (VCO) and a phase detector in such a way that the oscillator signal tracks an applied frequency or phase modulated signal with the correct frequency and phase.
