@@ -207,12 +207,12 @@ vectors, or words of whatever length say 16bit. then this FIFO is depth is 8 or 
         
 ---------
 
-For this 1x8. we are streaming the data. if the src clk is greater than the receive clk, and you're constantly streaming..
-at some point you're going to lose data. because the read cant possibly keep up if the writes are constantly happening at a faster rate!
-It's just a matter of time before the cup overflows.
+For this 1x8. We are streaming the data serially, 1 bit at a time. If the src clk is greater than the receive clk, and you're constantly streaming..
+at some point you're going to lose data! The read cant possibly keep up if the writes are constantly happening at a faster rate!
+If writing is like filling a cup up with water and reading is like a person drinking it.
+If your fill rate is greater than your consumption rate, it's just a matter of time before the cup overflows.
 
-It doesn't have to be a serial stream.
-You could have a stream of words, words which are 14 bits, 16bit, 32, 64, 128, whatever size!
+Again, it doesn't have to be a serial stream. You could have a stream of words, words which are 14 bits, 16bit, 32, 64, 128, whatever size!
 
 Just in general, if you are constantly writing faster than you are reading.. at some point,
 you'll wrap around and catch up. you don't want that. you'll want to have logic in place to prevent "overrunning".
@@ -405,35 +405,41 @@ Reset
 
     Using set/reset pins can prevent combinatorial logic optimization.
 
-    Asynchronous Reset vs. Synchronous Reset
-    Advantage/Disadvantages
-    Asynchronous can happen anytime, you dont care about the clock edges. Synchronous is like all the other signals we've dealt with,
-    the clock edge we register the reset signal.
+Asynchronous Reset vs. Synchronous Reset
+-----------------------------------------------------
     
-    The problem with async reset is in releasing the reset signal, starting operation, in relation to the clock. The point is, there is no relation. So when it is released, 
-    all the signals in the FPGA start going to work without knowledge of the clock, which creates a recipe for disaster in a synchronous design.
-    When we dont have an idea of the clock periods, or edges, we cannot guarantee our setup/hold times, we that is not guaranteed,
-    metastability is highly probable.
+Advantage/Disadvantages
+Asynchronous can happen anytime, you dont care about the clock edges. Synchronous is like all the other signals we've dealt with,
+the clock edge we register the reset signal.
 
-    The problem with sync reset, is the requirement for a clock. IF for some reason we lose the clock we wont register a reset. Or if logic is spread out through the FPGA
-    such that the propagation of the clock is not equal in different areas, we wont reset all at the same time. This will create an uncertainty
-    in our reset state/condition.
+The problem with async reset is in releasing the reset signal, starting operation, in relation to the clock. The point is, there is no relation. So when it is released, 
+all the signals in the FPGA start going to work without knowledge of the clock, which creates a recipe for disaster in a synchronous design.
+When we dont have an idea of the clock periods, or edges, we cannot guarantee our setup/hold times, we that is not guaranteed,
+metastability is highly probable.
 
-    So async issue is the end, and sync's issue is the beginning. To combat this, what is called 'async assertion, sync de-assertion' has been developed/created.
-    Async assertion takes care of sync's beginning of requiring a clock to reset, and the sync de-assertion handles, the end of the async to ensure everything
-    starts in a known state/value/ at the same time.
+The problem with sync reset, is the requirement for a clock. IF for some reason we lose the clock we wont register a reset. Or if logic is spread out through the FPGA
+such that the propagation of the clock is not equal in different areas, we wont reset all at the same time. This will create an uncertainty
+in our reset state/condition.
 
-    Don't mix async and sync resets, because FF and registers are not fabricated in this way, you will create additional surrounding logic to implement such functionality.
+So async issue is the end, and sync's issue is the beginning. To combat this, what is called 'async assertion, sync de-assertion' has been developed/created.
+Async assertion takes care of sync's beginning of requiring a clock to reset, and the sync de-assertion handles, the end of the async to ensure everything
+starts in a known state/value/ at the same time.
 
-    In regards to fully sync reset and asyc+sync, you need to always synchronize the reset signal the whatever clock domain it is being applied to. 
+When writing HDL, don't mix async and sync resets, because FF and registers are not fabricated in this way, 
+you will create additional surrounding logic to implement such functionality.
 
-    not digital component/module needs to have a reset.
-    for instance.. a shift register, or delay or buffer do not need it.
-    this is because over whatever cycles, it will flush itself out. it will flush the bad/unused values out.
-    either that or whatever down stream using these buffers/registers will also have data valid signals passed on.
-    meaning that while there is garbage in and garbage out, the data valid is de-asserted, so the data is not used, trashed.
-    you dont have to worry about it.
-    synchronizers dont need them.
+In regards to fully sync reset and asyc+sync, you need to always synchronize the reset signal the whatever clock domain it is being applied to. 
+It is just like any other signal!
+
+.. note::
+
+    Not every digital component/module needs to have a reset coded.
+    
+For instance.. a shift register, or delay or buffer do not need it.
+This is because over whatever cycles, it will flush itself out. it will flush the bad/unused values out.
+either that or whatever down stream using these buffers/registers will also have data valid signals passed on.
+meaning that while there is garbage in and garbage out, the data valid is de-asserted, so the data is not used, trashed.
+you dont have to worry about it. In a similar fashion, synchronizers dont need them.
 
 
     state machine should have reset state.
@@ -519,7 +525,7 @@ The clock works as a filter for small reset glitches for synchronous resets. How
 Synchronous resets might need to stretch the pulse width to ensure that the reset signal pulse is wide enough for the reset to be present during an active edge of the clock.
 When using asynchronous resets, remember to synchronize the deassertion of the asynchronous reset. Although the relative timing between clock and reset can be ignored during reset assertion, the reset release must be synchronized to the clock. Avoiding the reset release edge synchronization can lead to metastability. During reset release, setup and hold timing conditions must be satisfied for the reset pin relative to the clock pin of a register. A violation of the setup and hold conditions for asynchronous reset (e.g., reset recovery and removal timing) might cause the flip-flop to become metastable, causing design failure due to switching to an unknown state. Note that this situation is similar to the violation of setup and hold conditions for the flip-flop data pin.
 
-Reset bridge
+Reset bridge, asynchronous reset, synchronous release/ synchronous de-assert deassert
 
 .. code-block:: vhdl
   :linenos:   
