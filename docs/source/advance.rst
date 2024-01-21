@@ -425,6 +425,33 @@ So async issue is the end, and sync's issue is the beginning. To combat this, wh
 Async assertion takes care of sync's beginning of requiring a clock to reset, and the sync de-assertion handles, the end of the async to ensure everything
 starts in a known state/value/ at the same time.
 
+Reset bridge, asynchronous reset, synchronous release/ synchronous de-assert deassert
+Reset bridge means.. assert asynchronously and deasserted synhcronously. and also to use two flip flops to synchronize to the domain.
+
+    
+.. code-block:: vhdl
+  :linenos:   
+
+    process (clk, rst) begin      
+        if (rst) then
+            rst_out <= '1';
+
+        elsif rising_edge(clk) then
+            reg <= '0';
+            rst_out <= reg;
+        end if;
+    end process;
+
+
+Reset distribution network. Is used to synchronize the reset and ease the place and route. It is like piping a signal.
+The distribution tree allows for spreading the registers. These reset to various blocks will have several cycle delay,
+depending on the piping and where it is tapped.
+
+remember to syncrhonize reset signals to clock domain it is being used! double flopping is sufficient, because it is a slow changing signal.
+
+----------
+
+
 When writing HDL, don't mix async and sync resets, because FF and registers are not fabricated in this way, 
 you will create additional surrounding logic to implement such functionality.
 
@@ -442,49 +469,44 @@ meaning that while there is garbage in and garbage out, the data valid is de-ass
 you dont have to worry about it. In a similar fashion, synchronizers dont need them.
 
 
-    state machine should have reset state.
-    counters should have a reset state.
+    state machine should have reset state. generally some IDLE or START state.
+    counters should have a reset state. usually zero or some other modulo count value.
     control output to other device will want a reset state, if it is used immediately by other devices.
     but if the control signal isn't used immediately, it probably does not need a reset.
-    
     
     not having reset on every register helps with place and route. minimizes congestion.
 
     note: there are certain xilinx modules that need async reset, just double check documentation.
 
-    RESET BRIDGE means.. assert asynchronously and deasserted synhcronously. and also to use two flip flops to synchronize to the domain.
 
-    remember to syncrhonize reset signals to clock domain it is being used! double flopping is sufficient, slow changing signal.
+bus coherency. means bits arrive at the same time. it should just be.. data coherency.. you dont want 1101 to arrive as 1001. 
+this is bits of the bus need to arrive together, at the same time. ensuring parallel data arriving in timely manner. could be counter value, system state.. effects
+    solution..
 
+    capturing bus when bus is known to be stable.. 
+        source is slow.. then data can appear at fast registers, clk'd by faster clk.. but controlled by enable CE.
+        CE is a result of leading edge detect of of slow clock SYNCHRONIZED to the new clock domain.
+        3 FFs. the last FF is used as a leading edge detect. the leading edge result/pulse is used as CE into fast FF to 
+        register slow data.s
 
-    bus coherency. means bits arrive at the same time. it should just be.. data coherency.. you dont want 1101 to arrive as 1001. 
-    this is bits of the bus need to arrive together, at the same time. ensuring parallel data arriving in timely manner. could be counter value, system state.. effects
-        solution..
+        OR ie using valid signals.. handshaking..                
+        the datavalid is passed thru sync into the faster domain. the edge detect of valid in new domain enables, CE
+        FF register.
+        if fast to slow, the valid signal needs to be longer than one slow clock pulse. and cannot occur multiples time to back.
+        or else there is no way for the slow domain to capture it.
+            rule of thumb is for valid to only occur once every four destination clock.
 
-            capturing bus when bus is known to be stable.. 
-                source is slow.. then data can appear at fast registers, clk'd by faster clk.. but controlled by enable CE.
-                CE is a result of leading edge detect of of slow clock SYNCHRONIZED to the new clock domain.
-                3 FFs. the last FF is used as a leading edge detect. the leading edge result/pulse is used as CE into fast FF to 
-                register slow data.s
+        going from slow to fast is not as much of a challenge because the fast clock domain will most likely register the value several times!
+        usual double flop will work.
 
-                OR ie using valid signals.. handshaking..                
-                the datavalid is passed thru sync into the faster domain. the edge detect of valid in new domain enables, CE
-                FF register.
-                if fast to slow, the valid signal needs to be longer than one slow clock pulse. and cannot occur multiples time to back.
-                or else there is no way for the slow domain to capture it.
-                    rule of thumb is for valid to only occur once every four destination clock.
+    allowing only one bit to change at a time, gray code.. pointers, counters..
 
-                going from slow to fast is not as much of a challenge because the fast clock domain will most likely register the value several times!
-                usual double flop will work.
-
-            allowing only one bit to change at a time, gray code.. pointers, counters..
-
-            using a clock crossing FIFO, ie. async FIFO. again with handshaking or... not? if data rates are known and depth is good.   
-            the trick is the full flag in the write domain and the empty in the read domain.
-            in which. the full flag in the write domain needs the updated read pointer.
-            vice versa.. the empty flag needs the write pointer from the write domain.
-            two synchronizers are needed for passing the individual pointers, to and fro.
-            gray code/counter is used for this in which only one bit can change at a time. decreasing probability of incoherent data!
+    using a clock crossing FIFO, ie. async FIFO. again with handshaking or... not? if data rates are known and depth is good.   
+    the trick is the full flag in the write domain and the empty in the read domain.
+    in which. the full flag in the write domain needs the updated read pointer.
+    vice versa.. the empty flag needs the write pointer from the write domain.
+    two synchronizers are needed for passing the individual pointers, to and fro.
+    gray code/counter is used for this in which only one bit can change at a time. decreasing probability of incoherent data!
 
 XPM - xilinx parameterized macros for CDC!
     
@@ -495,50 +517,67 @@ XPM - xilinx parameterized macros for CDC!
 
     this is 4 of them.. there are 7 
 
-add more info here!
+Below is from Xilinx
 
+::
+        
+    AMD devices have a dedicated global set/reset signal (GSR). 
+    This signal sets the initial value of all sequential cells in hardware at the end of device configuration.
 
-AMD devices have a dedicated global set/reset signal (GSR). This signal sets the initial value of all sequential cells in hardware at the end of device configuration.
+    If an initial state is not specified, sequential primitives are assigned a default value. In most cases, the default value is zero. 
+    Exceptions are the FDSE and FDPE primitives that default to a logic one. Every register will be at a known state at the end of configuration. 
+    Therefore, it is not necessary to code a global reset for the sole purpose of initializing a device on power up.
 
-If an initial state is not specified, sequential primitives are assigned a default value. In most cases, the default value is zero. Exceptions are the FDSE and FDPE primitives that default to a logic one. Every register will be at a known state at the end of configuration. Therefore, it is not necessary to code a global reset for the sole purpose of initializing a device on power up.
+    AMD highly recommends that you take special care in deciding when the design requires a reset, and when it does not. 
+    In many situations, resets might be required on the control path logic for proper operation. 
+    However, resets are generally less necessary on the data path logic. Limiting the use of resets:
 
-AMD highly recommends that you take special care in deciding when the design requires a reset, and when it does not. In many situations, resets might be required on the control path logic for proper operation. However, resets are generally less necessary on the data path logic. Limiting the use of resets:
+    Limits the overall fanout of the reset net.
+    Reduces the amount of interconnect necessary to route the reset.
+    Simplifies the timing of the reset paths.
+    Results in many cases in overall improvement in clock frequency, area, and power.
 
-Limits the overall fanout of the reset net.
-Reduces the amount of interconnect necessary to route the reset.
-Simplifies the timing of the reset paths.
-Results in many cases in overall improvement in clock frequency, area, and power.
+    Evaluate each synchronous block, and attempt to determine whether a reset is required for proper operation. 
+    Do not code the reset by default without ascertaining its real need.
+    Functional simulation should easily identify whether a reset is needed or not.
 
-Evaluate each synchronous block, and attempt to determine whether a reset is required for proper operation. Do not code the reset by default without ascertaining its real need.
-Functional simulation should easily identify whether a reset is needed or not.
+    If a reset is needed, AMD recommends using synchronous resets. Synchronous resets have the following advantages over asynchronous resets:
 
-If a reset is needed, AMD recommends using synchronous resets. Synchronous resets have the following advantages over asynchronous resets:
+    Synchronous resets can directly map to more resource elements in the device architecture.
+    Asynchronous resets impact the maximum clock frequency of the general logic structures. 
+    Because all AMD device general-purpose registers can program the set/reset as either asynchronous or synchronous, 
+    it might seem like there is no penalty in using asynchronous resets. If a global asynchronous reset is used, 
+    it does not increase the control sets. However, the need to route this reset signal to all register elements increases routing complexity.
+    Asynchronous resets have a greater probability of corrupting memory contents of block RAMs, LUTRAMs, and SRLs during reset assertion. 
+    This is especially true for registers with asynchronous resets that drive the input pins of block RAMs, LUTRAMs, and SRLs.
+    Synchronous resets offer more flexibility for control set remapping when higher density or fine tuned placement is needed. 
+    A synchronous reset can be remapped to the data path of the register if an incompatible reset is found in the more optimally placed slice. 
+    This can reduce routing resource utilization and increase placement density where needed to allow proper fitting and improved achievable clock frequency.
+    Some resources such as the DSP48 and block RAM have only synchronous resets for the register elements within the block. 
+    When asynchronous resets are used on register elements associated with these elements, 
+    those registers may not be inferred directly into those blocks without impacting functionality.
 
-Synchronous resets can directly map to more resource elements in the device architecture.
-Asynchronous resets impact the maximum clock frequency of the general logic structures. Because all AMD device general-purpose registers can program the set/reset as either asynchronous or synchronous, it might seem like there is no penalty in using asynchronous resets. If a global asynchronous reset is used, it does not increase the control sets. However, the need to route this reset signal to all register elements increases routing complexity.
-Asynchronous resets have a greater probability of corrupting memory contents of block RAMs, LUTRAMs, and SRLs during reset assertion. This is especially true for registers with asynchronous resets that drive the input pins of block RAMs, LUTRAMs, and SRLs.
-Synchronous resets offer more flexibility for control set remapping when higher density or fine tuned placement is needed. A synchronous reset can be remapped to the data path of the register if an incompatible reset is found in the more optimally placed slice. This can reduce routing resource utilization and increase placement density where needed to allow proper fitting and improved achievable clock frequency.
-Some resources such as the DSP48 and block RAM have only synchronous resets for the register elements within the block. When asynchronous resets are used on register elements associated with these elements, those registers may not be inferred directly into those blocks without impacting functionality.
-Following are additional considerations:
+    Following are additional considerations:
 
-The clock works as a filter for small reset glitches for synchronous resets. However, if these glitches occur near the active clock edge, the flip-flop might become metastable.
-Synchronous resets might need to stretch the pulse width to ensure that the reset signal pulse is wide enough for the reset to be present during an active edge of the clock.
-When using asynchronous resets, remember to synchronize the deassertion of the asynchronous reset. Although the relative timing between clock and reset can be ignored during reset assertion, the reset release must be synchronized to the clock. Avoiding the reset release edge synchronization can lead to metastability. During reset release, setup and hold timing conditions must be satisfied for the reset pin relative to the clock pin of a register. A violation of the setup and hold conditions for asynchronous reset (e.g., reset recovery and removal timing) might cause the flip-flop to become metastable, causing design failure due to switching to an unknown state. Note that this situation is similar to the violation of setup and hold conditions for the flip-flop data pin.
+    The clock works as a filter for small reset glitches for synchronous resets. 
+    However, if these glitches occur near the active clock edge, the flip-flop might become metastable.
+    Synchronous resets might need to stretch the pulse width to ensure that the reset signal pulse is wide enough for the reset to be present during an active edge of the clock.
+    When using asynchronous resets, remember to synchronize the deassertion of the asynchronous reset. 
+    Although the relative timing between clock and reset can be ignored during reset assertion, 
+    the reset release must be synchronized to the clock. Avoiding the reset release edge synchronization can lead to metastability. 
+    During reset release, setup and hold timing conditions must be satisfied for the reset pin relative to the clock pin of a register. 
+    A violation of the setup and hold conditions for asynchronous reset (e.g., reset recovery and removal timing) 
+    might cause the flip-flop to become metastable, causing design failure due to switching to an unknown state. 
+    Note that this situation is similar to the violation of setup and hold conditions for the flip-flop data pin.
 
-Reset bridge, asynchronous reset, synchronous release/ synchronous de-assert deassert
+Synchronous Registers
+FDSE - Set, for setting '1'
+FDRE - Reset, for resetting to '0'
 
-.. code-block:: vhdl
-  :linenos:   
+Asynchronous Registers
+FDPE - Preset, for preseting to '1'
+FDCE - Clear, for clearing to '0'
 
-    process (clk, rst) begin      
-        if (rst) then
-            rst_out <= '1';
-
-        elsif rising_edge(clk) then
-            reg <= '0';
-            rst_out <= reg;
-        end if;
-    end process;
 
 
 
