@@ -111,8 +111,12 @@ registering and buffering is circuit/component level, in this case register tran
 
 Pipeline
 ------------------------------------------------
+
+**Benefits:**
 *   Pipelining the design, can increase fmax.
 *   Help with Timing
+
+**Considerations:**
 *   Increases latency
 *   Increases area
 
