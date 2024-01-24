@@ -120,18 +120,19 @@ Pipeline
 *   Increases latency
 *   Increases area
 
-when piping, also remember to pipe the control signals for that logic.
-for instance if you have two adders going to a mux. and you pipe the results 
+When piping, also remember to pipe the control signals for that logic, for example data valid.
+For instance if you have two adders going to a mux. and you pipe the results 
 of the two adders. these adders go to a mux.. the select line needs to be 
 piped so that the selection and results will appear at the mux at the same time.
 as if you never piped it. it needs to look the same to the mux, or hidden from the mux.
 
 furthermore.. there is a period in which the pipe needs to be filled up
-before you get sensible / usable data.
+before you get sensible / usable data. This is also the latency.
 
 
-Registering / Buffering
+Registering
 ------------------------------------------------
+Registering is buffering. Registering adds additional clock cycles.
 Registering is a method of splitting up logic. It eases place and route.
 Allowing us to duplicate registers/logic and reduce fan out.
 
@@ -151,6 +152,25 @@ and how it affects the overall latency. what are the
 requirements and limits.
 
 
+
+Register Data Paths at Logical Boundaries
+Register the outputs of hierarchical boundaries to contain critical paths
+within a single module or boundary. Consider registering the inputs also
+at the hierarchical boundaries. It is always easier to analyze and repair 
+timing paths which lie within a module, rather than a path spanning 
+multiple modules. Any paths that are not registered at hierarchy boundaries 
+should be synthesized with hierarchy rebuilt or flat to allow cross 
+hierarchy optimization. Registering the datapaths at logical boundaries 
+helps to retain traceability (for debug) through the design process 
+because cross hierarchical optimizations are kept to a minimum and 
+logic does not move across modules.
+
+
+DSP designs generally allow latency to be added to the design. 
+This allows registers to be added to them to implement a higher clock frequency 
+design. In addition, registers can be used to increase placement flexibility. 
+This is important because at high clock frequency, signals cannot traverse the 
+die in one clock cycle. Adding registers can allow hard-to-reach areas to be used.
 
 
 
@@ -529,7 +549,10 @@ Below is from Xilinx
     This signal sets the initial value of all sequential cells in hardware at the end of device configuration.
 
     If an initial state is not specified, sequential primitives are assigned a default value. In most cases, the default value is zero. 
-    Exceptions are the FDSE and FDPE primitives that default to a logic one. Every register will be at a known state at the end of configuration. 
+    Exceptions are the FDSE and FDPE primitives that default to a logic one. 
+    
+    Every register will be at a known state at the end of configuration. 
+
     Therefore, it is not necessary to code a global reset for the sole purpose of initializing a device on power up.
 
     AMD highly recommends that you take special care in deciding when the design requires a reset, and when it does not. 
@@ -843,25 +866,51 @@ i think* the output timing face similar issues.
 these are more complicated constraints because we need external device specs and board/pcb specs as well.
 and you wont truly see this/these failures and or violations without having the actual HW.
 
+
+Slack (setup/recovery) = setup path requirement
+- datapath delay (max)
+
++ clock skew
+
+- clock uncertainty
+
+- setup/recovery time
+
+Slack (hold/removal) = hold path requirement
++ datapath delay (min)
+
+- clock skew
+
+- clock uncertainty
+
+- hold/removal time
+
+For timing analysis, clock skew is always calculated as follows:
+
+Clock Skew = destination clock delay - source clock delay (after the common node if any)
+
+
+
 Timing Closure
 =======================
 
-High Cell Delay
-    Modify RTL, use parallel or more efficient operator
-    Add pipeline reg, use synth retiming
-    pipe DSP BRAM
-    opt SRL
+**High Cell Delay**
+*   Modify RTL, use parallel or more efficient operator
+*   Add pipeline reg, use synth retiming
+*   Pipe DSP BRAM and URAM
+*   Optimize SRL
 
-High Route Delay
-    check pnr constraints
-    check high fanout nets
-    check congestion level
+**High Route Delay**
+*   Check PnR constraints, adjust floorplan constraints
+*   Check high fanout nets
+*   Check congestion level, resolve levels greater than 4
 
-High Clock skew or uncertainty
-    reduce skew, use parallel buffers instead of cascade
-    check asynch clocks
-
-    reduce uncertainty, check MMCM settings
+**High Clock Skew or Uncertainty**
+*   Reduce skew, use parallel buffers instead of cascaded buffers
+*   Use CLOCK_DELAY_GROUP
+*   Check asynch clocks, add timing exceptions
+*   Reduce uncertainty, check MMCM settings
+*   Use BUFGCE_DIV for clock divider or dividing clocks.
 
 
 Logic Delay
@@ -970,8 +1019,16 @@ hold violations are critical, design will most likely not work.
     check clock skews
 reduce number of control setes
 
-A control set is the grouping of control signals (set/reset, clock enable and clock) that drives any given SRL, LUTRAM, or register. For any unique combination of control signals, a unique control set is formed. This is important, because registers within a 7 series slice all share common control signals, and thus, only registers with a common control set can be packed into the same slice. For example, if a register with a given control set has just one register as a load, the other seven registers in the slice it occupies will be unusable.
-Designs with too many unique control sets might have many wasted resources as well as fewer options for placement, resulting in higher power and lower achievable clock frequency. Designs with fewer control sets have more options and flexibility in terms of placement, generally resulting in improved results.
+Control Signals and Control Sets
+A control set is the grouping of control signals (set/reset, clock enable and clock) that drives any given SRL, 
+LUTRAM, or register. For any unique combination of control signals, a unique control set is formed. This is important, 
+because registers within a 7 series slice all share common control signals, and thus, only registers with a 
+common control set can be packed into the same slice. For example, if a register with a given control set has just 
+one register as a load, the other seven registers in the slice it occupies will be unusable.
+
+Designs with too many unique control sets might have many wasted resources as well as fewer options for placement, 
+resulting in higher power and lower achievable clock frequency. Designs with fewer control sets have more options and 
+flexibility in terms of placement, generally resulting in improved results.
 
 
 avoid mixed-mode control signals for sequential calls.
@@ -997,6 +1054,35 @@ You can then use this signal to reset the rest of the design.
 This clock creates a clean reset signal that is at least one cycle wide, and synchronous to the domain in which it applies.
 
 
+From this table, you can isolate which characteristics are introducing the timing violation for each path:
+
+High logic delay percentage (Logic Delay)
+    Are there many levels of logic? (LOGIC_LEVELS)
+    Are there any constraints or attributes that prevent logic optimization? (DONT_TOUCH, MARK_DEBUG)
+    Does the path include a cell with high logic delay such as block RAM or DSP? (Logical Path, Start Point Pin Primitive, End Point Pin Primitive)
+    Is the path requirement too tight for the current path topology? (Requirement)
+
+High net delay percentage (Net Delay)
+    Are there any high fanout nets in the path? (High Fanout, Cumulative Fanout)
+    Are the cells assigned to several Pblocks that can be placed far apart? (Pblocks)
+    Are the cells placed far apart? (Bounding Box Size, Clock Region Distance)
+    For SSI technology devices, are there nets crossing SLR boundaries? (SLR Crossings)
+    Are one or several net delay values a lot higher than expected while the placement seems correct? Select the path and visualize its placement and routing in the Device window.
+    Is there a missing pipeline register in a block RAM or DSP cell? (Comb DSP, MREG, PREG, DOA_REG, DOB_REG)
+
+High skew (<-0.5 ns for setup and >0.5 ns for hold) (Clock Skew)
+    Is it a clock domain crossing path? (Start Point Clock, End Point Clock)
+    Are the clocks synchronous or asynchronous? (Clock Relationship)
+    Is the path crossing I/O columns? (IO Crossings)
+
+Datapath Delay and Logic Levels
+In general, the number of LUTs and other primitives in the path is most important factor in contributing to the delay. Because LUT delays are reported differently in different devices, separate cell delay and route delay ranges must be considered.
+
+Clock Skew and Uncertainty
+AMD devices use various types of routing resources to support most common clocking schemes and requirements such as high fanout clocks, short propagation delays, and extremely low skew. Clock skew affects any register-to-register path with either a combinational logic or interconnect between them.
+Clock skew in high frequency clock domains (+300 MHz) can impact performance. In general, the clock skew should be no more than 500 ps. For example, 500 ps represents 15% of a 300 MHz clock period, which is equivalent to the timing budget of 1 or 2 logic levels. In cross domain clock paths the skew can be higher, because the clocks use different resources and the common node is located further up the clock trees. 
+If the clock uncertainty is over 100 ps, then you must review the clock topology and jitter numbers to understand why the uncertainty is so high.
+
 
 
 Somewhere
@@ -1015,6 +1101,7 @@ Pushing the Logic from the Control Pin to the Data Pin
 During analysis of critical paths, you might find multiple paths ending at control pins. 
 You must analyze these paths to determine if there is a way to push the logic into the datapath without incurring penalties, 
 such as extra logic levels. 
+
 There is less delay in a path to the D pin than CE/R/S pins given the same levels of logic because there is a direct connection
 from the output of the last LUT to the D input of the FF. 
 The following coding examples show how to push the logic from the control pin to the data pin of a register.
@@ -1038,6 +1125,7 @@ Register balancing.
 duplicate register
 register replication
 
+Replicate High Fanout Net Drivers
 Register replication can increase the speed of critical paths by making copies 
 of registers to reduce the fanout of a given signal. 
 This gives the implementation tools more flexibility in placing and routing the different 
@@ -1057,6 +1145,22 @@ because the cells included in a hierarchy are often placed together.
 For example, in the balanced reset tree shown in the following figure, 
 the high fanout reset FF RST2 is replicated in RTL to balance the fanout across the different modules. 
 If required, physical synthesis can perform further replication to improve WNS based on placement information.
+
+
+Often, a better approach to reducing fanout is to use a balanced tree for the high fanout signals. 
+Consider manually replicating registers based on the design hierarchy, because the cells included in a hierarchy are often placed together.
+
+AMD devices contain dedicated SRL16 and SRL32 resources (integrated in LUTs). These allow efficiently implemented shift registers without using flip-flop resources. However, these elements support only LEFT shift operations, and have a limited number of I/O signals:
+
+Clock
+Clock Enable
+Serial Data In
+Serial Data Out
+
+
+A commonly used pipelining technique is to identify a large combinatorial logic path, break it into smaller paths, and introduce a register stage between these paths, ideally balancing each pipeline stage.
+
+
 
 Clock gating
 ===============
@@ -1103,13 +1207,15 @@ Additional Reading
 ====================
 
 https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Creation-with-RTL
+https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/RTL-Coding-Guidelines
+https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Closure
+https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Timing-Closure
+https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/UltraScale-Device-Clocking
 
 https://www.intel.com/content/www/us/en/docs/programmable/683082/23-1/recommended-hdl-coding-styles.html
-
-
-https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Closure
 
 https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Introduction
 
 https://docs.xilinx.com/r/en-US/ug906-vivado-design-analysis/Timing-Analysis
 
+https://docs.xilinx.com/r/en-US/ug1388-acap-system-integration-validation-methodology/Timing-Closure
