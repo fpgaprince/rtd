@@ -161,6 +161,23 @@ dynamic OPMODE and cascade capabilities. Fast Fourier Transforms (FFTs), floatin
 point, computation (multiply, add/sub, divide), counters, and large bus multiplexers are
 some applications of the DSP slice. 
 
+The DSP blocks within the AMD devices can perform many different functions, including:
+
+Multiplication
+Addition and subtraction
+Comparators
+Counters
+General logic
+
+DSP58 slice registers within AMD devices contain only resets, and not sets. Accordingly, unless necessary, do not code a set (value equals logic 1 upon an applied signal) around multipliers, adders, counters, or other logic that can be implemented within a DSP58 slice.
+
+DSP58 blocks use a signed arithmetic implementation. AMD recommends code using signed values in the HDL source to best match the resource capabilities and, in general, obtain the most efficient mapping. If unsigned bus values are used in the code, the synthesis tools may still be able to use this resource, but might not obtain the full bit precision of the component due to the unsigned-to-signed conversion.
+
+If the target design is expected to contain a large number of adders, AMD recommends that you evaluate the design to make greater use of the DSP58 slice pre-adders and post-adders. For example, with FIR filters, the adder cascade can be used to build a systolic filter rather than using multiple successive add functions (adder trees). If the filter is symmetric, you can evaluate using the dedicated pre-adder to further consolidate the function into both fewer LUTs and flip-flops and also fewer DSP slices as well (in most cases, half the resources).
+
+
+
+
 
 XADC (extra)
 -------------------------------

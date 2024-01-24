@@ -578,7 +578,13 @@ Asynchronous Registers
 FDPE - Preset, for preseting to '1'
 FDCE - Clear, for clearing to '0'
 
-
+When no reset is provided..
+Vivado synthesis generally defaults to zero with a few exceptions such as one-hot state machine encodings.
+AMD highly recommends that you initialize all synchronous elements accordingly. 
+Initialization of registers is completely inferable by all major device synthesis tools. 
+This lessens the need to add a reset for the sole purpose of initialization, 
+and makes the RTL code more closely match the implemented design in functional simulation, 
+as all synchronous element start with a known value in the device after configuration.
 
 
 Clocking
@@ -980,16 +986,44 @@ conditional statements are always translated as additional levels of logic.
 
 Wide distribution of registers is one of the main causes of excess delay on timing paths.
 
-Your design can have synchronous or asynchronous reset signals. Typically resets coming into FPGA devices are asynchronous. You can convert an external asynchronous reset to a synchronous reset by feeding it through a synchronizer circuit. You can then use this signal to reset the rest of the design. This clock creates a clean reset signal that is at least one cycle wide, and synchronous to the domain in which it applies.
-
-
-
+Your design can have synchronous or asynchronous reset signals. 
+Typically resets coming into FPGA devices are asynchronous. 
+You can convert an external asynchronous reset to a synchronous reset by feeding it through a synchronizer circuit. 
+You can then use this signal to reset the rest of the design. 
+This clock creates a clean reset signal that is at least one cycle wide, and synchronous to the domain in which it applies.
 
 
 
 
 Somewhere
 =======================
+A control set is the grouping of control signals (set/reset, clock enable and clock).
+For any unique combination of control signals, a unique control set is formed. 
+This is important, because registers share common control signals, 
+which governs the packing of registers with different control sets into the same slice.
+Designs with too many unique control sets might have many wasted resources as well as fewer options for placement, 
+resulting in higher power and lower achievable clock frequency. Designs with fewer control sets have more options 
+and flexibility in terms of placement, generally resulting in improved results.
+
+    which means understand when to use set/reset and when to use the clock enable.
+
+Pushing the Logic from the Control Pin to the Data Pin
+During analysis of critical paths, you might find multiple paths ending at control pins. 
+You must analyze these paths to determine if there is a way to push the logic into the datapath without incurring penalties, 
+such as extra logic levels. 
+There is less delay in a path to the D pin than CE/R/S pins given the same levels of logic because there is a direct connection
+from the output of the last LUT to the D input of the FF. 
+The following coding examples show how to push the logic from the control pin to the data pin of a register.
+
+
+Tips for Control Signals
+Check whether a global reset is really needed.
+Avoid asynchronous control signals.
+Keep clock, enable, and reset polarities consistent.
+Do not code a set and reset into the same register element.
+If an asynchronous reset is absolutely needed, remember to synchronize its deassertion.
+
+
 Duplicate logic to reduce fan out (from a register)
     Helps with timing. easier to route, but increases area.
 
@@ -997,11 +1031,51 @@ Logic flattening. Understanding the nature of the function/algorithm from a syst
 Knowing the range of input/output? 
 Register balancing.
 
+duplicate register
+register replication
+
+Register replication can increase the speed of critical paths by making copies 
+of registers to reduce the fanout of a given signal. 
+This gives the implementation tools more flexibility in placing and routing the different 
+loads and associated logic. Synthesis tools use this technique extensively.
+
+Most synthesis tools use a fanout threshold limit to automatically determine 
+whether to duplicate a register. Lowering this global threshold allows automatic 
+duplication of high fanout nets. However, it does not allow control over which 
+registers are duplicated or how their loads are grouped. In addition, the global 
+replication mechanism does not assess timing slack accurately, 
+which can lead to unnecessary replicated cells, logic utilization increase, 
+and potentially higher power consumption.
+
+For high frequency designs, a better approach to reducing fanout is to use a balanced tree for the high fanout signals. 
+Consider manually replicating registers based on the design hierarchy, 
+because the cells included in a hierarchy are often placed together. 
+For example, in the balanced reset tree shown in the following figure, 
+the high fanout reset FF RST2 is replicated in RTL to balance the fanout across the different modules. 
+If required, physical synthesis can perform further replication to improve WNS based on placement information.
+
 Clock gating
 ===============
     No clock gating in an FPGA. you just use enables. You enable/disable a flip flop/register.
+    use clock enable.
     
     Do no use FF output to drive clocks of other FFs.
+
+.. code-block:: vhdl
+  :linenos:   
+
+    process (clk, rst) begin      
+        if rising_edge(clk) then
+            if data_vld = '1' then      -- data_vld is the clock enable
+               din <= data_in;
+            end if;
+        end if;
+    end process;
+ 
+Clock enables are created when an incomplete conditional statement is coded into a synchronous block. 
+A clock enable is inferred to retain the last value when the prior conditions are not met. 
+When this is the desired functionality, it is valid to code in this manner. 
+
 
 Division
 ====================
