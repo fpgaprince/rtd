@@ -1,3 +1,4 @@
+***********************
 Advance
 ***********************
 Honestly, I think all FPGA Developers should read and refresh every year!
@@ -13,7 +14,7 @@ You find the things you found advance weren't really so, but there is only so mu
 
 
 The Three Pillars
-=======================
+##########################
 In the way you write HDL..
 You have either control/alogirithm path or data/processing path.
 There are three major corners to a design/development. Speed, area and power.
@@ -98,8 +99,7 @@ Power
 
 
 Pipelining vs. Registering
-==============================================
-
+####################################################
 Pipelining and registering are not the same.
 It may be confusing because we are adding additional registers to the design.
 It is similar because it affects cycle time and latency.
@@ -183,7 +183,7 @@ die in one clock cycle. Adding registers can allow hard-to-reach areas to be use
 .. comment_out    
 
 FIFO
-=======================
+##########################
 First In First Out.
 
 This sequential module is pretty important and used in many application.
@@ -301,7 +301,7 @@ In all cases, it operates in the same manner.
 
 
 Clock Domain Crossing
-=======================
+####################################################
     What is a clock domain. A domain is basically what clock all the registers or set of registers/components/modules are clocked with.
     You have clock domain which are multiples/factors of the other. So they are synchronous.
     You have completely different clock domain in which the two are asynchronous, meaning neither have information on the other.
@@ -419,7 +419,7 @@ se_clock_groups to specify unrelated clocks, rather than use set false path. you
 se_clock_groups is more concise, clean. -asynchronous
 
 Reset 
-=======================
+##########################
 
     Dedicated BRAM and DSP should be synchronously reset because these are dedicated HW in the FPGA. They were 'fabricated' that way, so in order
     to use them correctly.. their resets should be syncrhronous.
@@ -892,7 +892,7 @@ Clock Skew = destination clock delay - source clock delay (after the common node
 
 
 Timing Closure
-=======================
+##########################
 Timing closure and static timing analysis (STA) are one..
 You use STA to close timing.
 
@@ -907,80 +907,20 @@ Cause of violation
     Clock Uncertainty
 
 Addressing Violations
-----------------------------------------    
+========================
 
-**High Cell Delay**
+High Cell Delay
+-------------------------------------
 
 *   Modify RTL, use parallel or more efficient operator
 *   Add pipeline reg, use synth retiming
 *   Pipe DSP BRAM and URAM
 *   Optimize SRL
 
-**High Route Delay**
-
-*   Check PnR constraints, adjust floorplan constraints
-*   Check high fanout nets
-*   Check congestion level, resolve levels greater than 4
-
-**High Clock Skew or Uncertainty**
-
-*   Reduce skew, use parallel buffers instead of cascaded buffers
-*   Use CLOCK_DELAY_GROUP
-*   Check asynch clocks, add timing exceptions
-*   Reduce uncertainty, check MMCM settings
-*   Use BUFGCE_DIV for clock divider or dividing clocks.
 
 
 
 
-reduce muxf mapping to lower congestion
-improve logic levels
-reduce control setse
-optimize high fanout nets
-    replicate drivers.. ie register replication.. which is like buffering the data. or buffer amplifier
-register replication
-prioritize critical logic
-fix hold violations prior to routing
-addressing congestion
-tuning compile flow
-floorplanning
-
-addressing congestion
-
-    lower utilization
-    disable LUT combining and MUXF inference
-    balance SLR (super logic region) utilization for SSI (stack silicon interconnect)
-    use block level synthesis strat
-    use alternative pnr directives
-    limit high fanout nets in congested area
-    turn off cross-boundary optimization.
-
-
-unlike ASIC where you have a physical designer responsible for placement and route..
-FPGA is all in one with their vendor tool. you generally let the tool 
-perform the pnr. and use directives to focus on performance, area, speed, power.
-
-
-
-there is delay penalty for data propagating across SLR
-pipeline data!
-
-
-
-
-there is post placement optimization (enabled by default) and post route (disabled)..
-
-
-restructuring/re-wiring LUT, creates new LUT functions so that the critical path or function/logic
-is faster
-
-cell replication and register replication serves the purpose of improving timing
-
-
-registers can be pulled into or out of DSPs. like wise..
-registers can be pulled into or out of BRAMs
-
-retiming moves reigsters across combinational logic levels
 
 logic delay is time from input to output of LUT.
 
@@ -1000,8 +940,60 @@ dedicated blocks have more stringent timing requirements that FF registers, SRL 
 before piping dedicated blocks (BRAM DSP etc), enable all registers first!
 
 
+High Route Delay
+-------------------------------------
 
-revisit baselining for timing and design closure.
+*   Check PnR constraints, adjust floorplan constraints
+*   Check high fanout nets
+*   Check congestion level, resolve levels greater than 4
+
+reduce muxf mapping to lower congestion
+improve logic levels
+reduce control setse
+optimize high fanout nets
+replicate drivers.. ie register replication.. which is like buffering the data. or buffer amplifier
+register replication
+prioritize critical logic
+fix hold violations prior to routing
+addressing congestion
+tuning compile flow
+floorplanning
+
+addressing congestion
+
+lower utilization
+disable LUT combining and MUXF inference
+balance SLR (super logic region) utilization for SSI (stack silicon interconnect)
+use block level synthesis strat
+use alternative pnr directives
+limit high fanout nets in congested area
+turn off cross-boundary optimization.
+
+
+unlike ASIC where you have a physical designer responsible for placement and route..
+FPGA is all in one with their vendor tool. you generally let the tool 
+perform the pnr. and use directives to focus on performance, area, speed, power.
+
+
+
+
+there is delay penalty for data propagating across SLR
+pipeline data!
+
+
+there is post placement optimization (enabled by default) and post route (disabled)..
+
+
+restructuring/re-wiring LUT, creates new LUT functions so that the critical path or function/logic
+is faster
+
+cell replication and register replication serves the purpose of improving timing
+
+
+registers can be pulled into or out of DSPs. like wise..
+registers can be pulled into or out of BRAMs
+
+retiming moves reigsters across combinational logic levels
 
 
 
@@ -1016,13 +1008,28 @@ and so the route is in a sense predefined, the tool knows what the wire RC is.. 
 from one cell to another. or from one lut to another or from whatever to whatever so on.
 reword.
 
-
-
-
 congestion..
 use less than 70-80% utilization in device or SLR
 
 3 types: global, short, long
+
+
+High Clock Skew or Uncertainty
+-------------------------------------
+
+*   Reduce skew, use parallel buffers instead of cascaded buffers
+*   Use CLOCK_DELAY_GROUP
+*   Check asynch clocks, add timing exceptions
+*   Reduce uncertainty, check MMCM settings
+*   Use BUFGCE_DIV for clock divider or dividing clocks.
+
+
+
+
+
+revisit baselining for timing and design closure.
+
+
 
 
 small setup time violation may still work in lab. lower fq initially 
@@ -1177,7 +1184,7 @@ A commonly used pipelining technique is to identify a large combinatorial logic 
 
 
 Clock gating
-===============
+##########################
     No clock gating in an FPGA. you just use enables. You enable/disable a flip flop/register.
     use clock enable.
     
@@ -1200,15 +1207,15 @@ When this is the desired functionality, it is valid to code in this manner.
 
 
 Division
-====================
+##########################
 
 
 Floating Point 
-====================
+##########################
 
 
 IDK
-====================
+##########################
 I hadn't really thought about it before but.. because we use LUTs to capture logic functions.
 We are no longer using gates. 
 We are using SRAM.
@@ -1218,7 +1225,7 @@ Which also means.. the delay is constant for all function using that LUT.
 
 
 Additional Reading
-====================
+##########################
 
 https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/Design-Creation-with-RTL
 https://docs.xilinx.com/r/en-US/ug949-vivado-design-methodology/RTL-Coding-Guidelines
