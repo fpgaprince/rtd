@@ -633,7 +633,7 @@ A phase-locked loop (PLL) circuit is a feedback system that combines a voltage c
 
 
 Static Timing Analysis
-=======================
+##########################
 
 Everything online always tells you.. setup time is the time data needs to be steady/stable at the input pin 
 of the flip flop before arrival of clock.
@@ -904,13 +904,15 @@ STA must be performed to determine cause of violation.
 
 Cause of violation
 
-    Logic Delay
-    Net Delay
-    Clock Skew
-    Clock Uncertainty
+Logic Delay
+Net Delay
+Clock Skew
+Clock Uncertainty
+
+
 
 Addressing Violations
-========================
+================================================
 
 High Cell Delay
 -------------------------------------
@@ -1187,7 +1189,7 @@ A commonly used pipelining technique is to identify a large combinatorial logic 
 
 
 Clock gating
-##########################
+-------------------------------------
     No clock gating in an FPGA. you just use enables. You enable/disable a flip flop/register.
     use clock enable.
     
@@ -1210,15 +1212,14 @@ When this is the desired functionality, it is valid to code in this manner.
 
 
 Division
-##########################
+-------------------------------------
 
 
 Floating Point 
-##########################
-
+-------------------------------------
 
 IDK
-##########################
+-------------------------------------
 I hadn't really thought about it before but.. because we use LUTs to capture logic functions.
 We are no longer using gates. 
 We are using SRAM.
