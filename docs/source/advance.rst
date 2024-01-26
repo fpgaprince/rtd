@@ -894,35 +894,72 @@ Clock Skew = destination clock delay - source clock delay (after the common node
 
 Timing Closure
 ##########################
-Timing closure and static timing analysis (STA) are one..
-You use STA to close timing.
+    Timing closure and static timing analysis (STA) are one..
 
-To close timing means to address timing violation and failures.
+    You use STA to close timing.
 
-Timing violation and failures result from not meeting setup time and hold time requirements.
+    To close timing means to address timing violation and failures.
 
-STA must be performed to determine cause of violation.
+    Timing violation and failures result from not meeting setup time and hold time requirements.
 
-Cause of violation
+    STA must be performed to determine cause of violation.
 
-Logic Delay
-Net Delay
-Clock Skew
-Clock Uncertainty
+What
+================================================
 
+Logic Delay Net Delay
+-------------------------------------
+
+Datapath Delay and Logic Levels
+In general, the number of LUTs and other primitives in the path is most important factor in contributing to the delay. 
+Because LUT delays are reported differently in different devices, separate cell delay and route delay ranges must be considered.
+
+
+Clock Skew and Uncertainty
+-------------------------------------
+
+AMD devices use various types of routing resources to support most common clocking schemes and requirements such as high fanout clocks, 
+short propagation delays, and extremely low skew. Clock skew affects any register-to-register path with either a combinational logic or interconnect between them.
+Clock skew in high frequency clock domains (+300 MHz) can impact performance. In general, the clock skew should be no more than 500 ps. 
+For example, 500 ps represents 15% of a 300 MHz clock period, which is equivalent to the timing budget of 1 or 2 logic levels. 
+In cross domain clock paths the skew can be higher, because the clocks use different resources and the common node is located further up the clock trees. 
+If the clock uncertainty is over 100 ps, then you must review the clock topology and jitter numbers to understand why the uncertainty is so high.
+
+
+Questions
+================================================
+From this table, you can isolate which characteristics are introducing the timing violation for each path:
+
+High logic delay percentage (Logic Delay)
+    Are there many levels of logic? (LOGIC_LEVELS)
+    Are there any constraints or attributes that prevent logic optimization? (DONT_TOUCH, MARK_DEBUG)
+    Does the path include a cell with high logic delay such as block RAM or DSP? (Logical Path, Start Point Pin Primitive, End Point Pin Primitive)
+    Is the path requirement too tight for the current path topology? (Requirement)
+
+High net delay percentage (Net Delay)
+    Are there any high fanout nets in the path? (High Fanout, Cumulative Fanout)
+    Are the cells assigned to several Pblocks that can be placed far apart? (Pblocks)
+    Are the cells placed far apart? (Bounding Box Size, Clock Region Distance)
+    For SSI technology devices, are there nets crossing SLR boundaries? (SLR Crossings)
+    Are one or several net delay values a lot higher than expected while the placement seems correct? Select the path and visualize its placement and routing in the Device window.
+    Is there a missing pipeline register in a block RAM or DSP cell? (Comb DSP, MREG, PREG, DOA_REG, DOB_REG)
+
+High skew (<-0.5 ns for setup and >0.5 ns for hold) (Clock Skew)
+    Is it a clock domain crossing path? (Start Point Clock, End Point Clock)
+    Are the clocks synchronous or asynchronous? (Clock Relationship)
+    Is the path crossing I/O columns? (IO Crossings)
 
 
 Addressing Violations
 ================================================
 
+
 High Cell Delay
 -------------------------------------
-
 *   Modify RTL, use parallel or more efficient operator
 *   Add pipeline reg, use synth retiming
 *   Pipe DSP BRAM and URAM
 *   Optimize SRL
-
 
 
 
@@ -953,6 +990,9 @@ High Route Delay
 *   Check high fanout nets
 *   Check congestion level, resolve levels greater than 4
 
+
+
+    
 reduce muxf mapping to lower congestion
 improve logic levels
 reduce control setse
@@ -1023,6 +1063,8 @@ use less than 70-80% utilization in device or SLR
 High Clock Skew or Uncertainty
 -------------------------------------
 
+
+
 *   Reduce skew, use parallel buffers instead of cascaded buffers
 *   Use CLOCK_DELAY_GROUP
 *   Check asynch clocks, add timing exceptions
@@ -1030,9 +1072,11 @@ High Clock Skew or Uncertainty
 *   Use BUFGCE_DIV for clock divider or dividing clocks.
 
 
-Re-org
--------------------------------------
 
+
+
+Re-org
+=======================
 revisit baselining for timing and design closure.
 
 
@@ -1045,6 +1089,7 @@ hold violations are critical, design will most likely not work.
     check multi cycle constraints
     check clock skews
 reduce number of control setes
+
 
 Control Signals and Control Sets
 A control set is the grouping of control signals (set/reset, clock enable and clock) that drives any given SRL, 
@@ -1081,34 +1126,6 @@ You can then use this signal to reset the rest of the design.
 This clock creates a clean reset signal that is at least one cycle wide, and synchronous to the domain in which it applies.
 
 
-From this table, you can isolate which characteristics are introducing the timing violation for each path:
-
-High logic delay percentage (Logic Delay)
-    Are there many levels of logic? (LOGIC_LEVELS)
-    Are there any constraints or attributes that prevent logic optimization? (DONT_TOUCH, MARK_DEBUG)
-    Does the path include a cell with high logic delay such as block RAM or DSP? (Logical Path, Start Point Pin Primitive, End Point Pin Primitive)
-    Is the path requirement too tight for the current path topology? (Requirement)
-
-High net delay percentage (Net Delay)
-    Are there any high fanout nets in the path? (High Fanout, Cumulative Fanout)
-    Are the cells assigned to several Pblocks that can be placed far apart? (Pblocks)
-    Are the cells placed far apart? (Bounding Box Size, Clock Region Distance)
-    For SSI technology devices, are there nets crossing SLR boundaries? (SLR Crossings)
-    Are one or several net delay values a lot higher than expected while the placement seems correct? Select the path and visualize its placement and routing in the Device window.
-    Is there a missing pipeline register in a block RAM or DSP cell? (Comb DSP, MREG, PREG, DOA_REG, DOB_REG)
-
-High skew (<-0.5 ns for setup and >0.5 ns for hold) (Clock Skew)
-    Is it a clock domain crossing path? (Start Point Clock, End Point Clock)
-    Are the clocks synchronous or asynchronous? (Clock Relationship)
-    Is the path crossing I/O columns? (IO Crossings)
-
-Datapath Delay and Logic Levels
-In general, the number of LUTs and other primitives in the path is most important factor in contributing to the delay. Because LUT delays are reported differently in different devices, separate cell delay and route delay ranges must be considered.
-
-Clock Skew and Uncertainty
-AMD devices use various types of routing resources to support most common clocking schemes and requirements such as high fanout clocks, short propagation delays, and extremely low skew. Clock skew affects any register-to-register path with either a combinational logic or interconnect between them.
-Clock skew in high frequency clock domains (+300 MHz) can impact performance. In general, the clock skew should be no more than 500 ps. For example, 500 ps represents 15% of a 300 MHz clock period, which is equivalent to the timing budget of 1 or 2 logic levels. In cross domain clock paths the skew can be higher, because the clocks use different resources and the common node is located further up the clock trees. 
-If the clock uncertainty is over 100 ps, then you must review the clock topology and jitter numbers to understand why the uncertainty is so high.
 
 
 
