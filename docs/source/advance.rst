@@ -20,7 +20,7 @@ You have either control/alogirithm path or data/processing path.
 There are three major corners to a design/development. Speed, area and power.
 
 Speed
----------
+========================
 
 can mean different things.
 
@@ -75,7 +75,7 @@ Have you started to notice the trade-offs? In the use of pipelining and register
 And how they're used in different case/application to meet different goals.
 
 Area
----------
+========================
 
     not pipelining. sharing logic resources. remove duplicate logic. use/add control logic, state machine to share sources.
     there are different types of resources. there are the actual FF and LUT that are used to implement your combo logic.
@@ -94,7 +94,7 @@ Area
 
     
 Power
----------
+========================
 
 
 
@@ -110,7 +110,7 @@ registering and buffering is circuit/component level, in this case register tran
 
 
 Pipeline
-------------------------------------------------
+========================
 
 **Benefits:**
 *   Pipelining the design, can increase fmax.
@@ -131,7 +131,7 @@ before you get sensible / usable data. This is also the latency.
 
 
 Registering
-------------------------------------------------
+========================
 Registering is buffering. Registering adds additional clock cycles.
 Registering is a method of splitting up logic. It eases place and route.
 Allowing us to duplicate registers/logic and reduce fan out.
@@ -350,7 +350,7 @@ Clock Domain Crossing
 
 
 Slower to faster
------------------------
+========================
 Slow to Fast.
 
 .. raw:: html
@@ -368,7 +368,7 @@ Slow to Fast.
 
 
 Faster to Slower
------------------------
+========================
 Fast to slow.
 
 .. raw:: html
@@ -430,7 +430,7 @@ Reset
     Using set/reset pins can prevent combinatorial logic optimization.
 
 Asynchronous Reset vs. Synchronous Reset
------------------------------------------------------
+================================================
     
 Advantage/Disadvantages
 Asynchronous can happen anytime, you dont care about the clock edges. Synchronous is like all the other signals we've dealt with,
@@ -615,7 +615,8 @@ as all synchronous element start with a known value in the device after configur
 
 
 Clocking
-=======================
+##########################
+
 for me.
 https://docs.xilinx.com/r/en-US/ug572-ultrascale-clocking/UltraScale-Architecture-Clocking-Resources-User-Guide
 
