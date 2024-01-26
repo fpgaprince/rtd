@@ -893,19 +893,37 @@ Clock Skew = destination clock delay - source clock delay (after the common node
 
 Timing Closure
 =======================
+Timing closure and static timing analysis (STA) are one..
+You use STA to close timing.
+
+To close timing means to address timing violation and failures.
+Timing violation and failures result from not meeting setup time and hold time requirements.
+STA must be performed to determine cause of violation.
+Cause of violation
+
+    Logic Delay
+    Net Delay
+    Clock Skew
+    Clock Uncertainty
+
+Addressing Violations
+----------------------------------------    
 
 **High Cell Delay**
+
 *   Modify RTL, use parallel or more efficient operator
 *   Add pipeline reg, use synth retiming
 *   Pipe DSP BRAM and URAM
 *   Optimize SRL
 
 **High Route Delay**
+
 *   Check PnR constraints, adjust floorplan constraints
 *   Check high fanout nets
 *   Check congestion level, resolve levels greater than 4
 
 **High Clock Skew or Uncertainty**
+
 *   Reduce skew, use parallel buffers instead of cascaded buffers
 *   Use CLOCK_DELAY_GROUP
 *   Check asynch clocks, add timing exceptions
@@ -913,10 +931,6 @@ Timing Closure
 *   Use BUFGCE_DIV for clock divider or dividing clocks.
 
 
-Logic Delay
-Net Delay
-Clock Skew
-Clock Uncertainty
 
 
 reduce muxf mapping to lower congestion
@@ -944,8 +958,8 @@ addressing congestion
 
 unlike ASIC where you have a physical designer responsible for placement and route..
 FPGA is all in one with their vendor tool. you generally let the tool 
-perform the pnr.
-and use directives to focus on performance, area, speed, power.
+perform the pnr. and use directives to focus on performance, area, speed, power.
+
 
 
 there is delay penalty for data propagating across SLR
