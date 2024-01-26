@@ -897,8 +897,11 @@ Timing closure and static timing analysis (STA) are one..
 You use STA to close timing.
 
 To close timing means to address timing violation and failures.
+
 Timing violation and failures result from not meeting setup time and hold time requirements.
+
 STA must be performed to determine cause of violation.
+
 Cause of violation
 
     Logic Delay
