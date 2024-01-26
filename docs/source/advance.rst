@@ -1024,8 +1024,8 @@ High Clock Skew or Uncertainty
 *   Use BUFGCE_DIV for clock divider or dividing clocks.
 
 
-
-
+Re-org
+-------------------------------------
 
 revisit baselining for timing and design closure.
 
@@ -1107,7 +1107,7 @@ If the clock uncertainty is over 100 ps, then you must review the clock topology
 
 
 Somewhere
-=======================
+##########################
 A control set is the grouping of control signals (set/reset, clock enable and clock).
 For any unique combination of control signals, a unique control set is formed. 
 This is important, because registers share common control signals, 
