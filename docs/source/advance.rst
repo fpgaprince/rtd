@@ -981,10 +981,8 @@ Analyzing Violations
 *   Are the cells assigned to several Pblocks that can be placed far apart? (Pblocks)
 *   Are the cells placed far apart? (Bounding Box Size, Clock Region Distance)
 *   For SSI technology devices, are there nets crossing SLR boundaries? (SLR Crossings)
-
 *   Are one or several net delay values a lot higher than expected while the placement seems correct? 
-        Select the path and visualize its placement and routing in the Device window.
-
+    Select the path and visualize its placement and routing in the Device window.
 *   Is there a missing pipeline register in a block RAM or DSP cell? (Comb DSP, MREG, PREG, DOA_REG, DOB_REG)
 
 **High skew (<-0.5 ns for setup and >0.5 ns for hold) (Clock Skew)**
@@ -1011,9 +1009,8 @@ opt_design -remap
 report_qor_suggestions
 
 
-Dedicated blocks have more stringent timing requirements than registers, SRL and LUTs
-Before piping dedicated blocks (BRAM DSP etc), enable all registers first!
-
+Dedicated blocks (DSP, BRAM, URAM) have more stringent timing requirements than registers, SRL and LUTs.
+Before piping dedicated blocks (BRAM DSP etc), ensure registers are enabled first.
 
 I hadn't really thought about it before but.. because we use LUTs to capture logic functions.
 We are no longer using gates. We are actually using SRAM!
@@ -1029,23 +1026,20 @@ High Route Delay
 *   Check congestion level, resolve levels greater than 4
 
 
-These are all things to help lower route delay
+These are all things to help lower route delay..
 
-
-
-    prioritize critical logic
-    fix hold violations prior to routing
-
-    tuning compile flow
-    floorplanning
+*   Prioritize critical logic
+*   Fix hold violations prior to routing
+*   Tuning compile flow
+*   Floorplanning
 
 
 Addressing Congestion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    3 types of congestion: global, short, long
+Congestion can be categorized into 3 types (global, short, long) and levels (1-5). 
 
-    Limit high fanout nets in congested area
+    Limit high fanout nets in congested area. See next section..
     
     Disable LUT combining and MUXF inference. Reduce muxf mapping to lower congestion.
 
@@ -1064,8 +1058,7 @@ Addressing Congestion
 Unlike ASIC where you have a physical designer responsible for placement and route..
 FPGA is all in one with their vendor tool. you generally let the tool 
 perform the pnr. and use directives to focus on performance, area, speed, power.
-For higher performance development/design you will most likely have to set up placement.
-
+For higher performance development/design you will most likely have to set up placement rules and constraints.
 
 
 There are post placement optimization (enabled by default) and post route (disabled)..
@@ -1075,17 +1068,9 @@ Restructuring/re-wiring LUT, creates new LUT functions so that the critical path
 is faster. This means to recreate the logic function algorithmically, mathematically, systematically.
 
 
-cell replication and register replication serves the purpose of improving timing
-
-
-Retiming moves reigsters across combinational logic levels
-
-    registers can be pulled into or out of DSPs. like wise, registers can be pulled into or out of BRAMs
-
-
-
-
-
+Cell replication and register replication serves the purpose of improving timing, by making it easier to place logic across the fabric.
+Retiming moves reigsters across combinational logic levels. Registers can be pulled into or out of DSPs. 
+Like wise, registers can be pulled into or out of BRAMs
 
 
 
