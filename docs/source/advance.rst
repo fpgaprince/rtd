@@ -968,7 +968,8 @@ Analyzing Violations
     
 *   Are there many levels of logic? (LOGIC_LEVELS)
 *   Are there any constraints or attributes that prevent logic optimization? (DONT_TOUCH, MARK_DEBUG)
-*   Does the path include a cell with high logic delay such as block RAM or DSP? (Logical Path, Start Point Pin Primitive, End Point Pin Primitive)
+*   Does the path include a cell with high logic delay such as block RAM or DSP? 
+    (Logical Path, Start Point Pin Primitive, End Point Pin Primitive)
 *   Is the path requirement too tight for the current path topology? (Requirement)
 
 **High net delay percentage (Net Delay)**
@@ -977,7 +978,8 @@ Analyzing Violations
 *   Are the cells assigned to several Pblocks that can be placed far apart? (Pblocks)
 *   Are the cells placed far apart? (Bounding Box Size, Clock Region Distance)
 *   For SSI technology devices, are there nets crossing SLR boundaries? (SLR Crossings)
-*   Are one or several net delay values a lot higher than expected while the placement seems correct? Select the path and visualize its placement and routing in the Device window.
+*   Are one or several net delay values a lot higher than expected while the placement seems correct? 
+    Select the path and visualize its placement and routing in the Device window.
 *   Is there a missing pipeline register in a block RAM or DSP cell? (Comb DSP, MREG, PREG, DOA_REG, DOB_REG)
 
 **High skew (<-0.5 ns for setup and >0.5 ns for hold) (Clock Skew)**
@@ -1021,53 +1023,38 @@ High Route Delay
 *   Check congestion level, resolve levels greater than 4
 
 
-reduce muxf mapping to lower congestion
-improve logic levels
+These are all things to help lower route delay
+
+addressing congestion
+    reduce muxf mapping to lower congestion
+
 reduce control sets
+    improve logic levels
+
 optimize high fanout nets
-replicate drivers.. ie register replication.. which is like buffering the data. or buffer amplifier
-register replication
+    replicate drivers, register replication
+
+
 prioritize critical logic
 fix hold violations prior to routing
-addressing congestion
+
 tuning compile flow
 floorplanning
 
-addressing congestion
 
-lower utilization
-disable LUT combining and MUXF inference
-balance SLR (super logic region) utilization for SSI (stack silicon interconnect)
-use block level synthesis strat
-use alternative pnr directives
+**Addressing Congestion**
+
 limit high fanout nets in congested area
+disable LUT combining and MUXF inference
 turn off cross-boundary optimization.
+balance SLR (super logic region) utilization for SSI (stack silicon interconnect)
+    
+    there is delay penalty for data propagating across SLR; remember to pipeline data!
 
+use block level synthesis strategy
+use alternative PnR directives
 
-unlike ASIC where you have a physical designer responsible for placement and route..
-FPGA is all in one with their vendor tool. you generally let the tool 
-perform the pnr. and use directives to focus on performance, area, speed, power.
-For higher performance development/design you will most likely have to set up placement.
-
-
-
-there is delay penalty for data propagating across SLR
-pipeline data!
-
-
-there is post placement optimization (enabled by default) and post route (disabled)..
-
-
-restructuring/re-wiring LUT, creates new LUT functions so that the critical path or function/logic
-is faster
-
-cell replication and register replication serves the purpose of improving timing
-
-
-registers can be pulled into or out of DSPs. like wise..
-registers can be pulled into or out of BRAMs
-
-retiming moves reigsters across combinational logic levels
+lower utilization, I am assuming this is usually out of the question and not an option, really..
 
 
 
@@ -1078,11 +1065,36 @@ use less than 70-80% utilization in device or SLR
 
 3 types: global, short, long
 
+unlike ASIC where you have a physical designer responsible for placement and route..
+FPGA is all in one with their vendor tool. you generally let the tool 
+perform the pnr. and use directives to focus on performance, area, speed, power.
+For higher performance development/design you will most likely have to set up placement.
+
+----------
+
+there is post placement optimization (enabled by default) and post route (disabled)..
+
+
+restructuring/re-wiring LUT, creates new LUT functions so that the critical path or function/logic
+is faster
+
+cell replication and register replication serves the purpose of improving timing
+
+
+Retiming moves reigsters across combinational logic levels
+    registers can be pulled into or out of DSPs. like wise..
+    registers can be pulled into or out of BRAMs
 
 
 
-Control Signals and Control Sets
--------------------------------------------------
+
+
+
+
+
+
+
+**Control Signals and Control Sets**
 A control set is the grouping of control signals (set/reset, clock enable and clock) that drives any given SRL, 
 LUTRAM, or register. For any unique combination of control signals, a unique control set is formed. This is important, 
 because registers within a 7 series slice all share common control signals, and thus, only registers with a 
@@ -1124,7 +1136,7 @@ This clock creates a clean reset signal that is at least one cycle wide, and syn
 
 
 
-Pushing the Logic from the Control Pin to the Data Pin
+**Pushing the Logic from the Control Pin to the Data Pin**
 During analysis of critical paths, you might find multiple paths ending at control pins. 
 You must analyze these paths to determine if there is a way to push the logic into the datapath without incurring penalties, 
 such as extra logic levels. 
@@ -1134,14 +1146,15 @@ from the output of the last LUT to the D input of the FF.
 The following coding examples show how to push the logic from the control pin to the data pin of a register.
 
 
-Tips for Control Signals
-Check whether a global reset is really needed.
-Avoid asynchronous control signals.
-Keep clock, enable, and reset polarities consistent.
-Do not code a set and reset into the same register element.
-If an asynchronous reset is absolutely needed, remember to synchronize its deassertion.
+**Tips for Control Signals**
+    Check whether a global reset is really needed.
+    Avoid asynchronous control signals.
+    Keep clock, enable, and reset polarities consistent.
+    Do not code a set and reset into the same register element.
+    If an asynchronous reset is absolutely needed, remember to synchronize its deassertion.
 
 
+**Replicate High Fanout Net Drivers**
 Duplicate logic to reduce fan out (from a register)
     Helps with timing. easier to route, but increases area.
 
@@ -1152,7 +1165,7 @@ Register balancing.
 duplicate register
 register replication
 
-Replicate High Fanout Net Drivers
+
 Register replication can increase the speed of critical paths by making copies 
 of registers to reduce the fanout of a given signal. 
 This gives the implementation tools more flexibility in placing and routing the different 
