@@ -932,14 +932,14 @@ If the clock uncertainty is over 100 ps, then you must review the clock topology
 Questions
 ================================================
 
-High logic delay percentage (Logic Delay)
+**High logic delay percentage (Logic Delay)**
     
 *   Are there many levels of logic? (LOGIC_LEVELS)
 *   Are there any constraints or attributes that prevent logic optimization? (DONT_TOUCH, MARK_DEBUG)
 *   Does the path include a cell with high logic delay such as block RAM or DSP? (Logical Path, Start Point Pin Primitive, End Point Pin Primitive)
 *   Is the path requirement too tight for the current path topology? (Requirement)
 
-High net delay percentage (Net Delay)
+**High net delay percentage (Net Delay)**
 
 *   Are there any high fanout nets in the path? (High Fanout, Cumulative Fanout)
 *   Are the cells assigned to several Pblocks that can be placed far apart? (Pblocks)
@@ -948,7 +948,7 @@ High net delay percentage (Net Delay)
 *   Are one or several net delay values a lot higher than expected while the placement seems correct? Select the path and visualize its placement and routing in the Device window.
 *   Is there a missing pipeline register in a block RAM or DSP cell? (Comb DSP, MREG, PREG, DOA_REG, DOB_REG)
 
-High skew (<-0.5 ns for setup and >0.5 ns for hold) (Clock Skew)
+**High skew (<-0.5 ns for setup and >0.5 ns for hold) (Clock Skew)**
 
 *   Is it a clock domain crossing path? (Start Point Clock, End Point Clock)
 *   Are the clocks synchronous or asynchronous? (Clock Relationship)
@@ -968,14 +968,13 @@ High Cell Delay
 
 
 
+    Cell delay is logic delay..
+    Logic delay is time from input to output of LUT or a series of LUTs (logic levels).
+    It is gate delay or logic propagation delay..
+    Slower clock allows for more logic level or combinatorial logic in between registers.
+    Faster clock have more stringent requirement, requiring less logic levels.
 
-
-logic delay is time from input to output of LUT.
-
-slower clock allows more logic level.
-faster clock have more stringent requirement, requiring less logic levels.
-because logic level is time thru LUTs which is logic propagation delay
-and for timing to be met... propagation delay must be less than clock period and setup time.
+    For timing to be met, these delays need to meet setup and hold time requirements.
 
 
 
