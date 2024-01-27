@@ -982,7 +982,7 @@ Analyzing Violations
 *   Are the cells placed far apart? (Bounding Box Size, Clock Region Distance)
 *   For SSI technology devices, are there nets crossing SLR boundaries? (SLR Crossings)
 *   Are one or several net delay values a lot higher than expected while the placement seems correct? 
-    Select the path and visualize its placement and routing in the Device window.
+|   Select the path and visualize its placement and routing in the Device window.
 *   Is there a missing pipeline register in a block RAM or DSP cell? (Comb DSP, MREG, PREG, DOA_REG, DOB_REG)
 
 **High skew (<-0.5 ns for setup and >0.5 ns for hold) (Clock Skew)**
