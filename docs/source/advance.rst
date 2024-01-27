@@ -1041,6 +1041,12 @@ Congestion can be categorized into 3 types (global, short, long) and levels (1-8
 *   Lower utilization, is obvious, I am assuming this is usually out of the question and not an option, really..
     Use less than 70-80% utilization in device or SLR
 
+*   Restructuring/re-wiring LUT, creates new LUT functions so that the critical path or function/logic
+    is faster. This means to recreate the logic function algorithmically, mathematically, systematically.
+*   Cell replication and register replication serves the purpose of improving timing, by making it easier to place logic across the fabric.
+*   Retiming moves registers across combinational logic levels. Registers can be pulled into or out of DSPs. 
+    Like wise, registers can be pulled into or out of BRAMs
+
 
 Unlike ASIC development, where you have a physical designer responsible for placement and route..
 The FPGA developer is usually responsible for both logic design and place and route.
@@ -1053,41 +1059,24 @@ For higher performance development/design you will most likely have to set up pl
 
 
 
-
-Restructuring/re-wiring LUT, creates new LUT functions so that the critical path or function/logic
-is faster. This means to recreate the logic function algorithmically, mathematically, systematically.
-
-Cell replication and register replication serves the purpose of improving timing, by making it easier to place logic across the fabric.
-
-Retiming moves registers across combinational logic levels. Registers can be pulled into or out of DSPs. 
-Like wise, registers can be pulled into or out of BRAMs
-
-
-
 ----------
 
 Control Signals and Control Sets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-reduce control sets, improve logic levels
+
 
 A control set is the grouping of control signals **(set/reset, clock enable and clock)** that drives any given SRL, 
 LUTRAM, or register. For any unique combination of control signals, a unique control set is formed. This is important, 
 because registers within a 7 series slice all share common control signals, and thus, only registers with a 
 common control set can be packed into the same slice. 
 
-For example, if a register with a given control set has just 
-one register as a load, the other seven registers in the slice it occupies will be unusable.
 
+*   Reduce control sets, improve logic levels
 *   Designs with too many unique control sets might have many wasted resources as well as fewer options for placement, resulting in higher power and lower achievable clock frequency. 
 *   Designs with fewer control sets have more options and flexibility in terms of placement, generally resulting in improved results.
-
-
-avoid mixed-mode control signals for sequential calls.
-
-only use clock enable and set/reset when necessary, usually first and last stage.
-
-
+*   Avoid mixed-mode control signals for sequential calls.
+*   Only use clock enable and set/reset when necessary, usually first and last stage.
 
 Give priority to improving the code instead of modifying the Compiler Settings.
 Analyze whether critical paths can be re-coded.
@@ -1105,12 +1094,7 @@ You can convert an external asynchronous reset to a synchronous reset by feeding
 You can then use this signal to reset the rest of the design. 
 This clock creates a clean reset signal that is at least one cycle wide, and synchronous to the domain in which it applies.
 
-
-    which means understand when to use set/reset and when to use the clock enable.
-
-
-
-
+Which means understand when to use set/reset and when to use the clock enable.
 
 
 **Pushing the Logic from the Control Pin to the Data Pin**
