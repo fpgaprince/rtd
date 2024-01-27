@@ -926,8 +926,9 @@ Logic Delay
 Logic Delay is made up of cell delays.
 Cell delay is time from input to output of LUT or a series of LUTs (logic levels).
 It is like the gate delay and propagation delay learned in digital design.
-Slower clock allows for more logic level or combinatorial logic in between registers.
-Faster clock have more stringent requirement, requiring less logic levels.
+    
+    Slower clock allows for more logic level or combinatorial logic in between registers.
+    Faster clock have more stringent requirement, requiring less logic levels.
 
 For timing to be met, these delays need to meet setup and hold time requirements.
 
@@ -937,12 +938,12 @@ Because LUT delays are reported differently in different devices, separate cell 
 
 Net Delay
 -------------------------------------
-Net Delay is routing delay, the propagation delay from through the routing network from one logic block to another.
+Net Delay is routing delay, the propagation delay from through the routing network from one logic block to another logic block.
 
-Net Delay is something to look at POST ROUTE. you can look at it's estimate after synthesis before routing..
-but net delay and congestions is something that kinda happens afte routing.
+Net Delay is something to look at POST ROUTE. you can look at it's estimate after synthesis before routing,
+but net delay and congestions are issues after logic has been routed..
 
-net delay is wire delay and is the RC models you learn in digital classes
+Net delay is wire delay and is the RC models you learn in digital classes
 the difference ish with FPGA and ASIC is that the fabric/IC is components are 
 already placed. you are merely selecting this component and that component to implement.
 and so the route is in a sense predefined, the tool knows what the wire RC is.. or delay is.
@@ -958,6 +959,7 @@ short propagation delays, and extremely low skew. Clock skew affects any registe
 Clock skew in high frequency clock domains (+300 MHz) can impact performance. In general, the clock skew should be no more than 500 ps. 
 For example, 500 ps represents 15% of a 300 MHz clock period, which is equivalent to the timing budget of 1 or 2 logic levels. 
 In cross domain clock paths the skew can be higher, because the clocks use different resources and the common node is located further up the clock trees. 
+
 If the clock uncertainty is over 100 ps, then you must review the clock topology and jitter numbers to understand why the uncertainty is so high.
 
 
@@ -1025,45 +1027,37 @@ High Route Delay
 
 These are all things to help lower route delay
 
-addressing congestion
-    reduce muxf mapping to lower congestion
+    addressing congestion
+        reduce muxf mapping to lower congestion
 
-reduce control sets
-    improve logic levels
+    reduce control sets
+        improve logic levels
 
-optimize high fanout nets
-    replicate drivers, register replication
+    optimize high fanout nets
+        replicate drivers, register replication
 
-
-prioritize critical logic
-fix hold violations prior to routing
-
-tuning compile flow
-floorplanning
+    prioritize critical logic
+    fix hold violations prior to routing
+    tuning compile flow
+    floorplanning
 
 
 **Addressing Congestion**
 
-limit high fanout nets in congested area
-disable LUT combining and MUXF inference
-turn off cross-boundary optimization.
-balance SLR (super logic region) utilization for SSI (stack silicon interconnect)
-    
-    there is delay penalty for data propagating across SLR; remember to pipeline data!
+    limit high fanout nets in congested area
+    disable LUT combining and MUXF inference
+    turn off cross-boundary optimization.
+    balance SLR (super logic region) utilization for SSI (stack silicon interconnect)
+        
+        there is delay penalty for data propagating across SLR; remember to pipeline data!
 
-use block level synthesis strategy
-use alternative PnR directives
+    use block level synthesis strategy
+    use alternative PnR directives
 
-lower utilization, I am assuming this is usually out of the question and not an option, really..
+    lower utilization, I am assuming this is usually out of the question and not an option, really..
+    use less than 70-80% utilization in device or SLR
 
-
-
-
-
-congestion..
-use less than 70-80% utilization in device or SLR
-
-3 types: global, short, long
+        3 types: global, short, long
 
 unlike ASIC where you have a physical designer responsible for placement and route..
 FPGA is all in one with their vendor tool. you generally let the tool 
@@ -1092,9 +1086,10 @@ Retiming moves reigsters across combinational logic levels
 
 
 
-
+----------
 
 **Control Signals and Control Sets**
+
 A control set is the grouping of control signals (set/reset, clock enable and clock) that drives any given SRL, 
 LUTRAM, or register. For any unique combination of control signals, a unique control set is formed. This is important, 
 because registers within a 7 series slice all share common control signals, and thus, only registers with a 
@@ -1154,16 +1149,18 @@ The following coding examples show how to push the logic from the control pin to
     If an asynchronous reset is absolutely needed, remember to synchronize its deassertion.
 
 
+----------
+
 **Replicate High Fanout Net Drivers**
+
 Duplicate logic to reduce fan out (from a register)
     Helps with timing. easier to route, but increases area.
 
 Logic flattening. Understanding the nature of the function/algorithm from a system level.
 Knowing the range of input/output? 
-Register balancing.
-
-duplicate register
-register replication
+    Register balancing.
+    duplicate register
+    register replication
 
 
 Register replication can increase the speed of critical paths by making copies 
@@ -1190,7 +1187,9 @@ If required, physical synthesis can perform further replication to improve WNS b
 Often, a better approach to reducing fanout is to use a balanced tree for the high fanout signals. 
 Consider manually replicating registers based on the design hierarchy, because the cells included in a hierarchy are often placed together.
 
-AMD devices contain dedicated SRL16 and SRL32 resources (integrated in LUTs). These allow efficiently implemented shift registers without using flip-flop resources. However, these elements support only LEFT shift operations, and have a limited number of I/O signals:
+AMD devices contain dedicated SRL16 and SRL32 resources (integrated in LUTs). 
+These allow efficiently implemented shift registers without using flip-flop resources. 
+However, these elements support only LEFT shift operations, and have a limited number of I/O signals:
 
 Clock
 Clock Enable
@@ -1211,10 +1210,6 @@ High Clock Skew or Uncertainty
 *   Check asynch clocks, add timing exceptions
 *   Reduce uncertainty, check MMCM settings
 *   Use BUFGCE_DIV for clock divider or dividing clocks.
-
-
-
-
 
 
 revisit baselining for timing and design closure.
