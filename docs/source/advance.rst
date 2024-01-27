@@ -1107,7 +1107,9 @@ from the output of the last LUT to the D input of the FF.
 The following coding examples show how to push the logic from the control pin to the data pin of a register.
 
 
-**Tips for Control Signals**
+.. tip::
+
+    Tips for Control Signals
     Check whether a global reset is really needed.
     Avoid asynchronous control signals.
     Keep clock, enable, and reset polarities consistent.
