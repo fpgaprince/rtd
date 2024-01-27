@@ -894,15 +894,18 @@ Clock Skew = destination clock delay - source clock delay (after the common node
 
 Timing Closure
 ##########################
+
     Timing closure and static timing analysis (STA) are one..
 
     You use STA to close timing.
 
     To close timing means to address timing violation and failures.
 
-    Timing violation and failures result from not meeting setup time and hold time requirements.
+    Timing violation result from failing to meet setup and hold time requirements.
 
     STA must be performed to determine cause of violation.
+
+    
 
 What
 ================================================
@@ -928,26 +931,28 @@ If the clock uncertainty is over 100 ps, then you must review the clock topology
 
 Questions
 ================================================
-From this table, you can isolate which characteristics are introducing the timing violation for each path:
 
 High logic delay percentage (Logic Delay)
-    Are there many levels of logic? (LOGIC_LEVELS)
-    Are there any constraints or attributes that prevent logic optimization? (DONT_TOUCH, MARK_DEBUG)
-    Does the path include a cell with high logic delay such as block RAM or DSP? (Logical Path, Start Point Pin Primitive, End Point Pin Primitive)
-    Is the path requirement too tight for the current path topology? (Requirement)
+    
+*   Are there many levels of logic? (LOGIC_LEVELS)
+*   Are there any constraints or attributes that prevent logic optimization? (DONT_TOUCH, MARK_DEBUG)
+*   Does the path include a cell with high logic delay such as block RAM or DSP? (Logical Path, Start Point Pin Primitive, End Point Pin Primitive)
+*   Is the path requirement too tight for the current path topology? (Requirement)
 
 High net delay percentage (Net Delay)
-    Are there any high fanout nets in the path? (High Fanout, Cumulative Fanout)
-    Are the cells assigned to several Pblocks that can be placed far apart? (Pblocks)
-    Are the cells placed far apart? (Bounding Box Size, Clock Region Distance)
-    For SSI technology devices, are there nets crossing SLR boundaries? (SLR Crossings)
-    Are one or several net delay values a lot higher than expected while the placement seems correct? Select the path and visualize its placement and routing in the Device window.
-    Is there a missing pipeline register in a block RAM or DSP cell? (Comb DSP, MREG, PREG, DOA_REG, DOB_REG)
+
+*   Are there any high fanout nets in the path? (High Fanout, Cumulative Fanout)
+*   Are the cells assigned to several Pblocks that can be placed far apart? (Pblocks)
+*   Are the cells placed far apart? (Bounding Box Size, Clock Region Distance)
+*   For SSI technology devices, are there nets crossing SLR boundaries? (SLR Crossings)
+*   Are one or several net delay values a lot higher than expected while the placement seems correct? Select the path and visualize its placement and routing in the Device window.
+*   Is there a missing pipeline register in a block RAM or DSP cell? (Comb DSP, MREG, PREG, DOA_REG, DOB_REG)
 
 High skew (<-0.5 ns for setup and >0.5 ns for hold) (Clock Skew)
-    Is it a clock domain crossing path? (Start Point Clock, End Point Clock)
-    Are the clocks synchronous or asynchronous? (Clock Relationship)
-    Is the path crossing I/O columns? (IO Crossings)
+
+*   Is it a clock domain crossing path? (Start Point Clock, End Point Clock)
+*   Are the clocks synchronous or asynchronous? (Clock Relationship)
+*   Is the path crossing I/O columns? (IO Crossings)
 
 
 Addressing Violations
