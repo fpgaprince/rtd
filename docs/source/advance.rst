@@ -1027,14 +1027,7 @@ High Route Delay
 
 These are all things to help lower route delay
 
-    addressing congestion
-        reduce muxf mapping to lower congestion
 
-    reduce control sets
-        improve logic levels
-
-    optimize high fanout nets
-        replicate drivers, register replication
 
     prioritize critical logic
     fix hold violations prior to routing
@@ -1043,20 +1036,21 @@ These are all things to help lower route delay
     floorplanning
 
 
-**Addressing Congestion**
-    
+Addressing Congestion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
     3 types of congestion: global, short, long
 
     Limit high fanout nets in congested area
     
-    Disable LUT combining and MUXF inference
-    
+    Disable LUT combining and MUXF inference. Reduce muxf mapping to lower congestion.
+
     Turn off cross-boundary optimization. Balance SLR (super logic region) utilization for SSI (stack silicon interconnect)
         
         There is a delay penalty for data propagating across SLR; remember to pipeline data!
 
     Use block level synthesis strategy
-    
+
     Use alternative PnR directives
 
     Lower utilization, I am assuming this is usually out of the question and not an option, really..
@@ -1093,7 +1087,10 @@ Retiming moves reigsters across combinational logic levels
 
 ----------
 
-**Control Signals and Control Sets**
+Control Signals and Control Sets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+reduce control sets, improve logic levels
 
 A control set is the grouping of control signals (set/reset, clock enable and clock) that drives any given SRL, 
 LUTRAM, or register. For any unique combination of control signals, a unique control set is formed. This is important, 
@@ -1157,6 +1154,8 @@ The following coding examples show how to push the logic from the control pin to
 ----------
 
 **Replicate High Fanout Net Drivers**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+optimize high fanout nets. replicate drivers, register replication
 
 Duplicate logic to reduce fan out (from a register)
     Helps with timing. easier to route, but increases area.
