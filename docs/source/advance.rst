@@ -891,11 +891,21 @@ For timing analysis, clock skew is always calculated as follows:
 Clock Skew = destination clock delay - source clock delay (after the common node if any)
 
 
+small setup time violation may still work in lab. lower fq initially 
+there is more focus by tool to fix hold violations
+
+hold violations are critical, design will most likely not work.
+    check multi cycle constraints
+    check clock skews
+reduce number of control setes
+
+
+
 
 Timing Closure
 ##########################
 
-    Timing closure and static timing analysis (STA) are one..
+    Timing closure and static timing analysis (STA) are one.
 
     You use STA to close timing.
 
@@ -907,7 +917,7 @@ Timing Closure
 
     
 
-What
+Causes of Timing Violations
 ================================================
 
 Logic Delay
@@ -951,7 +961,7 @@ In cross domain clock paths the skew can be higher, because the clocks use diffe
 If the clock uncertainty is over 100 ps, then you must review the clock topology and jitter numbers to understand why the uncertainty is so high.
 
 
-Questions
+Analyzing Violations
 ================================================
 
 **High logic delay percentage (Logic Delay)**
@@ -998,10 +1008,9 @@ Before piping dedicated blocks (BRAM DSP etc), enable all registers first!
 
 
 I hadn't really thought about it before but.. because we use LUTs to capture logic functions.
-We are no longer using gates. 
-We are using SRAM.
+We are no longer using gates. We are actually using SRAM!
 Therefore the prop delay is of the SRAM and not the actual function or gate as taught in digital logic courses.
-Which also means.. the delay is constant for all function using that LUT.
+Which also means.. the delay is constant for all function using that LUT/cell.
 
 
 High Route Delay
@@ -1070,34 +1079,7 @@ use less than 70-80% utilization in device or SLR
 3 types: global, short, long
 
 
-High Clock Skew or Uncertainty
--------------------------------------
 
-
-
-*   Reduce skew, use parallel buffers instead of cascaded buffers
-*   Use CLOCK_DELAY_GROUP
-*   Check asynch clocks, add timing exceptions
-*   Reduce uncertainty, check MMCM settings
-*   Use BUFGCE_DIV for clock divider or dividing clocks.
-
-
-
-
-
-
-revisit baselining for timing and design closure.
-
-
-
-
-small setup time violation may still work in lab. lower fq initially 
-there is more focus by tool to fix hold violations
-
-hold violations are critical, design will most likely not work.
-    check multi cycle constraints
-    check clock skews
-reduce number of control setes
 
 Control Signals and Control Sets
 -------------------------------------------------
@@ -1204,6 +1186,30 @@ Serial Data Out
 
 
 A commonly used pipelining technique is to identify a large combinatorial logic path, break it into smaller paths, and introduce a register stage between these paths, ideally balancing each pipeline stage.
+
+
+High Clock Skew or Uncertainty
+-------------------------------------
+
+
+
+*   Reduce skew, use parallel buffers instead of cascaded buffers
+*   Use CLOCK_DELAY_GROUP
+*   Check asynch clocks, add timing exceptions
+*   Reduce uncertainty, check MMCM settings
+*   Use BUFGCE_DIV for clock divider or dividing clocks.
+
+
+
+
+
+
+revisit baselining for timing and design closure.
+
+
+
+
+
 
 Somewhere
 ##########################
