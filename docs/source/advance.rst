@@ -910,12 +910,34 @@ Timing Closure
 What
 ================================================
 
-Logic Delay Net Delay
+Logic Delay
 -------------------------------------
+
+Logic Delay is made up of cell delays.
+Cell delay is time from input to output of LUT or a series of LUTs (logic levels).
+It is like the gate delay and propagation delay learned in digital design.
+Slower clock allows for more logic level or combinatorial logic in between registers.
+Faster clock have more stringent requirement, requiring less logic levels.
+
+For timing to be met, these delays need to meet setup and hold time requirements.
 
 Datapath Delay and Logic Levels
 In general, the number of LUTs and other primitives in the path is most important factor in contributing to the delay. 
 Because LUT delays are reported differently in different devices, separate cell delay and route delay ranges must be considered.
+
+Net Delay
+-------------------------------------
+Net Delay is routing delay, the propagation delay from through the routing network from one logic block to another.
+
+Net Delay is something to look at POST ROUTE. you can look at it's estimate after synthesis before routing..
+but net delay and congestions is something that kinda happens afte routing.
+
+net delay is wire delay and is the RC models you learn in digital classes
+the difference ish with FPGA and ASIC is that the fabric/IC is components are 
+already placed. you are merely selecting this component and that component to implement.
+and so the route is in a sense predefined, the tool knows what the wire RC is.. or delay is.
+from one cell to another. or from one lut to another or from whatever to whatever so on.
+reword.
 
 
 Clock Skew and Uncertainty
@@ -967,23 +989,19 @@ High Cell Delay
 *   Optimize SRL
 
 
-
-    Cell delay is logic delay..
-    Logic delay is time from input to output of LUT or a series of LUTs (logic levels).
-    It is like the gate delay and propagation delay learned in digital design.
-    Slower clock allows for more logic level or combinatorial logic in between registers.
-    Faster clock have more stringent requirement, requiring less logic levels.
-
-    For timing to be met, these delays need to meet setup and hold time requirements.
-
-
-
 opt_design -remap
 report_qor_suggestions
 
 
 Dedicated blocks have more stringent timing requirements than registers, SRL and LUTs
 Before piping dedicated blocks (BRAM DSP etc), enable all registers first!
+
+
+I hadn't really thought about it before but.. because we use LUTs to capture logic functions.
+We are no longer using gates. 
+We are using SRAM.
+Therefore the prop delay is of the SRAM and not the actual function or gate as taught in digital logic courses.
+Which also means.. the delay is constant for all function using that LUT.
 
 
 High Route Delay
@@ -1020,7 +1038,7 @@ turn off cross-boundary optimization.
 unlike ASIC where you have a physical designer responsible for placement and route..
 FPGA is all in one with their vendor tool. you generally let the tool 
 perform the pnr. and use directives to focus on performance, area, speed, power.
-
+For higher performance development/design you will most likely have to set up placement.
 
 
 
@@ -1044,16 +1062,7 @@ retiming moves reigsters across combinational logic levels
 
 
 
-Net Delay..
-is something to look at POST ROUTE. you can look at it's estimate after synthesis before routing..
-but net delay and congestions is something that kinda happens afte routing.
 
-net delay is wire delay and is the RC models you learn in digital classes
-the difference ish with FPGA and ASIC is that the fabric/IC is components are 
-already placed. you are merely selecting this component and that component to implement.
-and so the route is in a sense predefined, the tool knows what the wire RC is.. or delay is.
-from one cell to another. or from one lut to another or from whatever to whatever so on.
-reword.
 
 congestion..
 use less than 70-80% utilization in device or SLR
@@ -1076,8 +1085,7 @@ High Clock Skew or Uncertainty
 
 
 
-Re-org
-=======================
+
 revisit baselining for timing and design closure.
 
 
@@ -1091,8 +1099,8 @@ hold violations are critical, design will most likely not work.
     check clock skews
 reduce number of control setes
 
-
 Control Signals and Control Sets
+-------------------------------------------------
 A control set is the grouping of control signals (set/reset, clock enable and clock) that drives any given SRL, 
 LUTRAM, or register. For any unique combination of control signals, a unique control set is formed. This is important, 
 because registers within a 7 series slice all share common control signals, and thus, only registers with a 
@@ -1127,20 +1135,12 @@ You can then use this signal to reset the rest of the design.
 This clock creates a clean reset signal that is at least one cycle wide, and synchronous to the domain in which it applies.
 
 
-
-
-
-Somewhere
-##########################
-A control set is the grouping of control signals (set/reset, clock enable and clock).
-For any unique combination of control signals, a unique control set is formed. 
-This is important, because registers share common control signals, 
-which governs the packing of registers with different control sets into the same slice.
-Designs with too many unique control sets might have many wasted resources as well as fewer options for placement, 
-resulting in higher power and lower achievable clock frequency. Designs with fewer control sets have more options 
-and flexibility in terms of placement, generally resulting in improved results.
-
     which means understand when to use set/reset and when to use the clock enable.
+
+
+
+
+
 
 Pushing the Logic from the Control Pin to the Data Pin
 During analysis of critical paths, you might find multiple paths ending at control pins. 
@@ -1205,7 +1205,8 @@ Serial Data Out
 
 A commonly used pipelining technique is to identify a large combinatorial logic path, break it into smaller paths, and introduce a register stage between these paths, ideally balancing each pipeline stage.
 
-
+Somewhere
+##########################
 
 Clock gating
 -------------------------------------
@@ -1237,13 +1238,6 @@ Division
 Floating Point 
 -------------------------------------
 
-IDK
--------------------------------------
-I hadn't really thought about it before but.. because we use LUTs to capture logic functions.
-We are no longer using gates. 
-We are using SRAM.
-Therefore the prop delay is of the SRAM and not the actual function or gate as taught in digital logic courses.
-Which also means.. the delay is constant for all function using that LUT.
 
 
 
