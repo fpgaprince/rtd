@@ -1026,15 +1026,8 @@ High Route Delay
 *   Check congestion level, resolve levels greater than 4
 
 
-These are all things to help lower route delay (I will create sections for them in time..)
 
-*   Prioritize critical logic
-*   Fix hold violations prior to routing
-*   Tuning compile flow
-*   Floorplanning
-
-
-Addressing Congestion
+Congestion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Congestion can be categorized into 3 types (global, short, long) and levels (1-8). 
@@ -1081,11 +1074,12 @@ reduce control sets, improve logic levels
 A control set is the grouping of control signals **(set/reset, clock enable and clock)** that drives any given SRL, 
 LUTRAM, or register. For any unique combination of control signals, a unique control set is formed. This is important, 
 because registers within a 7 series slice all share common control signals, and thus, only registers with a 
-common control set can be packed into the same slice. For example, if a register with a given control set has just 
+common control set can be packed into the same slice. 
+
+For example, if a register with a given control set has just 
 one register as a load, the other seven registers in the slice it occupies will be unusable.
 
-*   Designs with too many unique control sets might have many wasted resources as well as fewer options for placement, 
-resulting in higher power and lower achievable clock frequency. 
+*   Designs with too many unique control sets might have many wasted resources as well as fewer options for placement, resulting in higher power and lower achievable clock frequency. 
 *   Designs with fewer control sets have more options and flexibility in terms of placement, generally resulting in improved results.
 
 
@@ -1139,8 +1133,10 @@ The following coding examples show how to push the logic from the control pin to
 
 ----------
 
-**Replicate High Fanout Net Drivers**
+**High Fanout Net Drivers**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Techniques may overlap with those suggested for control sets. 
+
 optimize high fanout nets. replicate drivers, register replication
 
 Duplicate logic to reduce fan out (from a register)
@@ -1148,15 +1144,16 @@ Duplicate logic to reduce fan out (from a register)
 
 Logic flattening. Understanding the nature of the function/algorithm from a system level.
 Knowing the range of input/output? 
-    Register balancing.
-    duplicate register
-    register replication
 
 
-Register replication can increase the speed of critical paths by making copies 
-of registers to reduce the fanout of a given signal. 
-This gives the implementation tools more flexibility in placing and routing the different 
-loads and associated logic. Synthesis tools use this technique extensively.
+    Register balancing. Duplicate register.
+
+
+Register Replication
+    Can increase the speed of critical paths by making copies 
+    of registers to reduce the fanout of a given signal. 
+    This gives the implementation tools more flexibility in placing and routing the different 
+    loads and associated logic. Synthesis tools use this technique extensively.
 
 Most synthesis tools use a fanout threshold limit to automatically determine 
 whether to duplicate a register. Lowering this global threshold allows automatic 
@@ -1166,16 +1163,24 @@ replication mechanism does not assess timing slack accurately,
 which can lead to unnecessary replicated cells, logic utilization increase, 
 and potentially higher power consumption.
 
-For high frequency designs, a better approach to reducing fanout is to use a balanced tree for the high fanout signals. 
+For high frequency designs, a better approach to reducing fanout is to 
+use a balanced tree for the high fanout signals. 
 Consider manually replicating registers based on the design hierarchy, 
 because the cells included in a hierarchy are often placed together. 
+
 For example, in the balanced reset tree shown in the following figure, 
 the high fanout reset FF RST2 is replicated in RTL to balance the fanout across the different modules. 
 If required, physical synthesis can perform further replication to improve WNS based on placement information.
 
 
-Often, a better approach to reducing fanout is to use a balanced tree for the high fanout signals. 
-Consider manually replicating registers based on the design hierarchy, because the cells included in a hierarchy are often placed together.
+TBD
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+These are all things to help lower route delay (I will create sections for them in time..)
+
+*   Prioritize critical logic
+*   Fix hold violations prior to routing
+*   Tuning compile flow
+*   Floorplanning
 
 
 
@@ -1192,7 +1197,6 @@ High Clock Skew or Uncertainty
 
 
 revisit baselining for timing and design closure.
-
 
 
 
