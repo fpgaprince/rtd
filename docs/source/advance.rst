@@ -1038,46 +1038,51 @@ These are all things to help lower route delay
 
     prioritize critical logic
     fix hold violations prior to routing
+
     tuning compile flow
     floorplanning
 
 
 **Addressing Congestion**
+    
+    3 types of congestion: global, short, long
 
-    limit high fanout nets in congested area
-    disable LUT combining and MUXF inference
-    turn off cross-boundary optimization.
-    balance SLR (super logic region) utilization for SSI (stack silicon interconnect)
+    Limit high fanout nets in congested area
+    
+    Disable LUT combining and MUXF inference
+    
+    Turn off cross-boundary optimization. Balance SLR (super logic region) utilization for SSI (stack silicon interconnect)
         
-        there is delay penalty for data propagating across SLR; remember to pipeline data!
+        There is a delay penalty for data propagating across SLR; remember to pipeline data!
 
-    use block level synthesis strategy
-    use alternative PnR directives
+    Use block level synthesis strategy
+    
+    Use alternative PnR directives
 
-    lower utilization, I am assuming this is usually out of the question and not an option, really..
-    use less than 70-80% utilization in device or SLR
+    Lower utilization, I am assuming this is usually out of the question and not an option, really..
+    Use less than 70-80% utilization in device or SLR
 
-        3 types: global, short, long
 
-unlike ASIC where you have a physical designer responsible for placement and route..
+Unlike ASIC where you have a physical designer responsible for placement and route..
 FPGA is all in one with their vendor tool. you generally let the tool 
 perform the pnr. and use directives to focus on performance, area, speed, power.
 For higher performance development/design you will most likely have to set up placement.
 
-----------
-
-there is post placement optimization (enabled by default) and post route (disabled)..
 
 
-restructuring/re-wiring LUT, creates new LUT functions so that the critical path or function/logic
-is faster
+There are post placement optimization (enabled by default) and post route (disabled)..
+
+
+Restructuring/re-wiring LUT, creates new LUT functions so that the critical path or function/logic
+is faster. This means to recreate the logic function algorithmically, mathematically, systematically.
+
 
 cell replication and register replication serves the purpose of improving timing
 
 
 Retiming moves reigsters across combinational logic levels
-    registers can be pulled into or out of DSPs. like wise..
-    registers can be pulled into or out of BRAMs
+
+    registers can be pulled into or out of DSPs. like wise, registers can be pulled into or out of BRAMs
 
 
 
