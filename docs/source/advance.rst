@@ -962,6 +962,7 @@ In cross domain clock paths the skew can be higher, because the clocks use diffe
 
 If the clock uncertainty is over 100 ps, then you must review the clock topology and jitter numbers to understand why the uncertainty is so high.
 
+----------
 
 Analyzing Violations
 ================================================
@@ -990,6 +991,7 @@ Analyzing Violations
 *   Are the clocks synchronous or asynchronous? (Clock Relationship)
 *   Is the path crossing I/O columns? (IO Crossings)
 
+----------
 
 Addressing Violations
 ================================================
@@ -1195,10 +1197,10 @@ AMD devices contain dedicated SRL16 and SRL32 resources (integrated in LUTs).
 These allow efficiently implemented shift registers without using flip-flop resources. 
 However, these elements support only LEFT shift operations, and have a limited number of I/O signals:
 
-Clock
-Clock Enable
-Serial Data In
-Serial Data Out
+    Clock
+    Clock Enable
+    Serial Data In
+    Serial Data Out
 
 
 A commonly used pipelining technique is to identify a large combinatorial logic path, break it into smaller paths, and introduce a register stage between these paths, ideally balancing each pipeline stage.
