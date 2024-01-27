@@ -1098,6 +1098,7 @@ Which means understand when to use set/reset and when to use the clock enable.
 
 
 **Pushing the Logic from the Control Pin to the Data Pin**
+
 During analysis of critical paths, you might find multiple paths ending at control pins. 
 You must analyze these paths to determine if there is a way to push the logic into the datapath without incurring penalties, 
 such as extra logic levels. 
