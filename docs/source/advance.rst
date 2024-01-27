@@ -1026,7 +1026,7 @@ High Route Delay
 *   Check congestion level, resolve levels greater than 4
 
 
-These are all things to help lower route delay..
+These are all things to help lower route delay (I will create sections for them in time..)
 
 *   Prioritize critical logic
 *   Fix hold violations prior to routing
@@ -1037,39 +1037,36 @@ These are all things to help lower route delay..
 Addressing Congestion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Congestion can be categorized into 3 types (global, short, long) and levels (1-5). 
+Congestion can be categorized into 3 types (global, short, long) and levels (1-8). 
 
-    Limit high fanout nets in congested area. See next section..
-    
-    Disable LUT combining and MUXF inference. Reduce muxf mapping to lower congestion.
-
-    Turn off cross-boundary optimization. Balance SLR (super logic region) utilization for SSI (stack silicon interconnect)
-        
-        There is a delay penalty for data propagating across SLR; remember to pipeline data!
-
-    Use block level synthesis strategy
-
-    Use alternative PnR directives
-
-    Lower utilization, I am assuming this is usually out of the question and not an option, really..
+*   Limit high fanout nets in congested area. See Fanout section..
+*   Disable LUT combining and MUXF inference or reduce MUXF mapping to lower congestion.
+*   Turn off cross-boundary optimization. Balance SLR (super logic region) utilization for SSI (stack silicon interconnect).
+    There is a delay penalty for data propagating across SLR; remember to pipeline data!
+*   Use block level synthesis strategy
+*   Use alternative PnR directives
+*   Lower utilization, is obvious, I am assuming this is usually out of the question and not an option, really..
     Use less than 70-80% utilization in device or SLR
 
 
-Unlike ASIC where you have a physical designer responsible for placement and route..
-FPGA is all in one with their vendor tool. you generally let the tool 
-perform the pnr. and use directives to focus on performance, area, speed, power.
+Unlike ASIC development, where you have a physical designer responsible for placement and route..
+The FPGA developer is usually responsible for both logic design and place and route.
+The vendor tool includes both synthesis and implementation capabilities. As well as timing analysis. 
+Depending on the design, the tool may be able to route everything and meet timing on its own.
+There are post placement optimization (enabled by default) and post route (disabled)..
+If not, you'll want to use directives to focus on performance, area, speed or power.
 For higher performance development/design you will most likely have to set up placement rules and constraints.
 
 
-There are post placement optimization (enabled by default) and post route (disabled)..
+
 
 
 Restructuring/re-wiring LUT, creates new LUT functions so that the critical path or function/logic
 is faster. This means to recreate the logic function algorithmically, mathematically, systematically.
 
-
 Cell replication and register replication serves the purpose of improving timing, by making it easier to place logic across the fabric.
-Retiming moves reigsters across combinational logic levels. Registers can be pulled into or out of DSPs. 
+
+Retiming moves registers across combinational logic levels. Registers can be pulled into or out of DSPs. 
 Like wise, registers can be pulled into or out of BRAMs
 
 
@@ -1081,15 +1078,15 @@ Control Signals and Control Sets
 
 reduce control sets, improve logic levels
 
-A control set is the grouping of control signals (set/reset, clock enable and clock) that drives any given SRL, 
+A control set is the grouping of control signals **(set/reset, clock enable and clock)** that drives any given SRL, 
 LUTRAM, or register. For any unique combination of control signals, a unique control set is formed. This is important, 
 because registers within a 7 series slice all share common control signals, and thus, only registers with a 
 common control set can be packed into the same slice. For example, if a register with a given control set has just 
 one register as a load, the other seven registers in the slice it occupies will be unusable.
 
-Designs with too many unique control sets might have many wasted resources as well as fewer options for placement, 
-resulting in higher power and lower achievable clock frequency. Designs with fewer control sets have more options and 
-flexibility in terms of placement, generally resulting in improved results.
+*   Designs with too many unique control sets might have many wasted resources as well as fewer options for placement, 
+resulting in higher power and lower achievable clock frequency. 
+*   Designs with fewer control sets have more options and flexibility in terms of placement, generally resulting in improved results.
 
 
 avoid mixed-mode control signals for sequential calls.
@@ -1104,7 +1101,7 @@ Check if logic can be pushed across register boundaries.
 Check if part of the logic can be done in parallel, or in a different data cycle (a cycle before or later).
 
 Excessive levels of combinational logic in your design can increase the delay on a path and cause that path to become critical.
-conditional statements are always translated as additional levels of logic. 
+Conditional statements are always translated as additional levels of logic. 
 
 Wide distribution of registers is one of the main causes of excess delay on timing paths.
 
@@ -1180,17 +1177,6 @@ If required, physical synthesis can perform further replication to improve WNS b
 Often, a better approach to reducing fanout is to use a balanced tree for the high fanout signals. 
 Consider manually replicating registers based on the design hierarchy, because the cells included in a hierarchy are often placed together.
 
-AMD devices contain dedicated SRL16 and SRL32 resources (integrated in LUTs). 
-These allow efficiently implemented shift registers without using flip-flop resources. 
-However, these elements support only LEFT shift operations, and have a limited number of I/O signals:
-
-    Clock
-    Clock Enable
-    Serial Data In
-    Serial Data Out
-
-
-A commonly used pipelining technique is to identify a large combinatorial logic path, break it into smaller paths, and introduce a register stage between these paths, ideally balancing each pipeline stage.
 
 
 High Clock Skew or Uncertainty
@@ -1214,6 +1200,19 @@ revisit baselining for timing and design closure.
 
 Somewhere
 ##########################
+
+AMD devices contain dedicated SRL16 and SRL32 resources (integrated in LUTs). 
+These allow efficiently implemented shift registers without using flip-flop resources. 
+However, these elements support only LEFT shift operations, and have a limited number of I/O signals:
+
+    Clock
+    Clock Enable
+    Serial Data In
+    Serial Data Out
+
+
+A commonly used pipelining technique is to identify a large combinatorial logic path, break it into smaller paths, and introduce a register stage between these paths, ideally balancing each pipeline stage.
+
 
 Clock gating
 -------------------------------------
