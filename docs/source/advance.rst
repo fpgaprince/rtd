@@ -970,7 +970,7 @@ High Cell Delay
 
     Cell delay is logic delay..
     Logic delay is time from input to output of LUT or a series of LUTs (logic levels).
-    It is gate delay or logic propagation delay..
+    It is like the gate delay and propagation delay learned in digital design.
     Slower clock allows for more logic level or combinatorial logic in between registers.
     Faster clock have more stringent requirement, requiring less logic levels.
 
@@ -982,9 +982,8 @@ opt_design -remap
 report_qor_suggestions
 
 
-dedicated blocks have more stringent timing requirements that FF registers, SRL and LUTs
-
-before piping dedicated blocks (BRAM DSP etc), enable all registers first!
+Dedicated blocks have more stringent timing requirements than registers, SRL and LUTs
+Before piping dedicated blocks (BRAM DSP etc), enable all registers first!
 
 
 High Route Delay
@@ -995,11 +994,9 @@ High Route Delay
 *   Check congestion level, resolve levels greater than 4
 
 
-
-    
 reduce muxf mapping to lower congestion
 improve logic levels
-reduce control setse
+reduce control sets
 optimize high fanout nets
 replicate drivers.. ie register replication.. which is like buffering the data. or buffer amplifier
 register replication
