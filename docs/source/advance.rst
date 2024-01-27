@@ -1110,12 +1110,12 @@ The following coding examples show how to push the logic from the control pin to
 
 .. tip::
 
-|   Tips for Control Signals
-|   Check whether a global reset is really needed.
-|   Avoid asynchronous control signals.
-|   Keep clock, enable, and reset polarities consistent.
-|   Do not code a set and reset into the same register element.
-|   If an asynchronous reset is absolutely needed, remember to synchronize its deassertion.
+   Tips for Control Signals
+   Check whether a global reset is really needed.
+   Avoid asynchronous control signals.
+   Keep clock, enable, and reset polarities consistent.
+   Do not code a set and reset into the same register element.
+   If an asynchronous reset is absolutely needed, remember to synchronize its deassertion.
 
 
 ----------
