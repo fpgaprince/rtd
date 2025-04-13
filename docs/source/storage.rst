@@ -304,7 +304,8 @@ Memory
 
 
 .. image:: images/network-Page-13.drawio.png
-   :width: 600
+    :width: 600
+    :align: center
 
 Now that we have introduced the clock. We can introduce more refined/cultivated/developed/ memory types?
 
