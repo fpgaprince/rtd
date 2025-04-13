@@ -301,10 +301,10 @@ on whatever you need it to hold.
 ******************************
 Memory
 ******************************
-.. image:: pageflip-200.png
-   :target: https://drive.google.com/file/d/1BmQXLILozAor14hMtp4G4rlbNivojtu_/view?usp=drive_link
 
 
+.. image:: images/network-Page-13.drawio.png
+   :width: 600
 
 Now that we have introduced the clock. We can introduce more refined/cultivated/developed/ memory types?
 
