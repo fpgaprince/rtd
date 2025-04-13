@@ -302,8 +302,7 @@ on whatever you need it to hold.
 Memory
 ******************************
 .. image:: pageflip-200.png
-   :target: https://viewer.diagrams.net/index.html?tags=%7B%7D&lightbox=1&target=blank&highlight=0000ff&edit=_blank&layers=1&nav=1&page-id=pgrcPRSeu64obEKDFEbN&dark=auto#G1Xxba23oyQHihiAHO7n-NTqoR5U1BMDFp#%7B%22pageId%22%3A%22pgrcPRSeu64obEKDFEbN%22%7D
-
+   :target: https://drive.google.com/file/d/1BmQXLILozAor14hMtp4G4rlbNivojtu_/view?usp=drive_link
 
 
 
