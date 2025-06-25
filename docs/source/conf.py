@@ -20,6 +20,8 @@ extensions = [
     #"hoverxref.extension",
 ]
 
+pygments_style = 'monokai'
+
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
